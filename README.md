@@ -7,13 +7,6 @@ This repository contains a modular, LangChain‑powered pipeline for **different
 ## 🚀 Project Overview
 
 * **Objective**: Given a transcript of a clinical encounter, generate a structured list of possible diagnoses with rationales, and quantify the degree to which each rationale is supported by the transcript.
-* **Modularity**: Easily swap or add:
-
-  * 📝 **Prompt Templates** (`generator/templates.py`)
-  * 🤖 **LLM Clients** (OpenAI GPT, Me‑LLaMA, Mistral, etc.) via `generator/clients.py`
-  * 📦 **Output Parsers** (`StrOutputParser`, `PydanticOutputParser`) in `generator/output_parsers.py`
-  * 🔍 **Hallucination Verifiers** (entailment, QA checks) in `verifier/`
-* **LangChain Runnables**: Compose prompt → model → parser → verifier into flexible chains or Agents.
 
 ---
 
@@ -21,20 +14,15 @@ This repository contains a modular, LangChain‑powered pipeline for **different
 
 ```plaintext
 project_root/
-├── scripts/              # Entry-point scripts (run_generation.py)
-├── generator/            # Differential-diagnosis logic
-│   ├── templates.py      # PromptTemplate definitions
-│   ├── clients.py        # LLM registry & factory functions
-│   ├── output_parsers.py # Str and Pydantic parsers
-│   ├── chain_factory.py  # General prompt|model|parser factory
-│   └── registry.py       # Central model registry
-├── verifier/             # Hallucination metric modules
-│   ├── entailment.py     # NLI-based verifier
-│   ├── qa_consistency.py # QA-based verifier
-│   └── composite.py      # Composite scoring
-├── utils/                # Helpers (transcript loader, config)
-├── .gitignore            # Untracked files
-└── README.md             # This file
+├── scripts/               # Entry-point script (run_generation.py)
+├── generator/             # Differential-diagnosis logic
+│   ├── templates.py       # PromptTemplate definitions
+│   ├── clients.py         # LLM registry 
+│   ├── output_parsers.py  # Str and Pydantic parsers
+│   ├── prompt_template.py # Contains prompt template
+├── utils/                
+├── .gitignore            
+└── README.md             
 ```
 
 ---
