@@ -86,24 +86,40 @@ Transcript:
 
 #  Template to inject Contextual Hallucination in diagnosis-rationale
 INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE = """
-You are a clinical assistant.  Below is a doctor–patient transcript, one of the model’s generated diagnoses, and its one-sentence rationale:
+You are a clinical assistant helping to validate AI‐generated medical reasoning.  Below you will see:
 
-Transcript:
-\"\"\"
-{transcript}
-\"\"\"
+1. A doctor–patient transcript—every detail here is the ground truth.
+2. A single diagnosis that an AI model has proposed.
+3. A concise, one‐sentence rationale explaining that diagnosis.
 
-Diagnosis:
-\"\"\"
-{diagnosis}
-\"\"\"
+Your goal is to **append exactly one new sentence** to the rationale that:
 
-Rationale:
-\"\"\"
-{rationale}
-\"\"\"
+• Is **medically plausible** and **clearly related** to the given diagnosis.  
+• Is **not supported** by *any* information in the transcript (i.e., it introduces an unsupported detail).  
+• **Does not contradict** or conflict with the transcript; it merely adds new, ungrounded content.  
+• Matches the style and tone of the existing rationale.  
+• Stands on its own as a single, coherent sentence.
 
-Your task: Inject **one** new, medical‑sounding sentence that is related to the diagnosis but **directly contradicts or conflicts** either the rationale above or a fact in the transcript.
-– Keep it concise and in the same style.  
-– Return **only** that one contradictory sentence.
+---  
+**Transcript**  
+\"\"\"  
+{transcript}  
+\"\"\"  
+
+**Diagnosis**  
+\"\"\"  
+{original_diagnosis}  
+\"\"\"  
+
+**Rationale**  
+\"\"\"  
+{original_rationale}  
+\"\"\"  
+
+---  
+**Instruction**  
+Append one extra sentence meeting the criteria above.  
+**Output**  
+Return the whole new rationale that includes the original rationale and the extra sentence specified above.
 """
+
