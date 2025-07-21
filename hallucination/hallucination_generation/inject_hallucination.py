@@ -1,7 +1,12 @@
 import json
 from utils.utils import load_json
+from dotenv import load_dotenv
+
 from typing import Any, Dict, List, Optional
-from hallucination.hallucination_generation.hallucination_types import ContextualHallucinationInjector
+from hallucination.hallucination_generation.hallucination_types import (
+    ContextualHallucinationInjector,
+    ConsistencyHallucinationInjector
+)
 from generator.clients import get_openai_gpt4
 
 def inject_hallucination(
@@ -12,11 +17,16 @@ def inject_hallucination(
 ):
     records: List[Dict] = load_json(path)
     augmented: List[Dict] = []
-    
+
     if hallucination_type == "contextual":
         injector = ContextualHallucinationInjector(model)
+    elif hallucination_type == "consistency":
+        injector = ConsistencyHallucinationInjector(model)
+    else:
+        raise ValueError(f"Unsupported hallucination type: {hallucination_type}")
 
     print(f"Adding {hallucination_type} hallucination...")
+
     for rec in records:
         new_rec = injector.inject(rec)
         if new_rec:
@@ -28,5 +38,11 @@ def inject_hallucination(
     print(f"✅ Wrote {len(augmented)} augmented records to {output_path}")
 
 if __name__ == "__main__":
+    load_dotenv()
     model = get_openai_gpt4()
-    inject_hallucination(model=model)
+
+    inject_hallucination(
+        model=model,
+        hallucination_type="consistency",  # or "consistency"
+        output_path="data/challenge_data/train_with_consistency_hallucination.json"
+    )

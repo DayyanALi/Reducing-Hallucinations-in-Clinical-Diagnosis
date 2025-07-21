@@ -84,6 +84,7 @@ Transcript:
 \"\"\"
 """
 
+
 #  Template to inject Contextual Hallucination in diagnosis-rationale
 INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE = """
 You are a clinical assistant helping to validate AI‐generated medical reasoning.  Below you will see:
@@ -123,3 +124,48 @@ Append one extra sentence meeting the criteria above.
 Return the whole new rationale that includes the original rationale and the extra sentence specified above.
 """
 
+INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE = """
+You are a clinical assistant helping to evaluate the reasoning quality of AI-generated medical explanations.  
+Below you will see:
+
+1. A doctor–patient transcript—every detail here is the **ground truth**.
+2. A diagnosis that an AI model has proposed.
+3. A rationale that explains why the diagnosis was given.
+
+Your task is to rewrite the rationale so that it **sounds medically plausible**, but contains a **logical inconsistency** in relation to the diagnosis.
+
+This inconsistency could take one of the following forms:
+- It introduces symptoms or findings that contradict the diagnosis.
+- It draws conclusions that don't logically follow from the diagnosis.
+- It creates internal contradictions (e.g., stating mutually exclusive facts).
+- It emphasizes reasoning that applies to a different diagnosis.
+
+The hallucinated rationale should:
+• Be **grammatically correct** and **medically plausible**.  
+• Contain **at least one clinical inconsistency** (logical, semantic, or diagnostic).  
+• Remain in the **style and tone** of the original rationale.  
+• Not be obviously absurd or obviously wrong—aim for **subtle and realistic flaws**.
+
+---  
+**Transcript**  
+\"\"\"  
+{transcript}  
+\"\"\"  
+
+**Diagnosis**  
+\"\"\"  
+{original_diagnosis}  
+\"\"\"  
+
+**Original Rationale**  
+\"\"\"  
+{original_rationale}  
+\"\"\"  
+
+---  
+**Instruction**  
+Rewrite the rationale so that it sounds reasonable at first glance but contains a **flawed or inconsistent reasoning step**, as described above.
+
+**Output**  
+Return only the rewritten rationale.
+"""
