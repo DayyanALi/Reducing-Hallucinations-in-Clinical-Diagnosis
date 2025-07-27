@@ -18,10 +18,24 @@
         "rationale": "Patient admittedly forgets her antihypertensive medication and experiences increased blood pressure during stressful times at work."
       }
     ],
-    "original_diagnosis": "Hypertension",
-    "original_rationale": "Patient admittedly forgets her antihypertensive medication and experiences increased blood pressure during stressful times at work.",
-    "hallucinated_rationale": "\"Patient has mentioned about her active lifestyle that includes regular hiking, and there's no evidence of consistent high blood pressure as she has only experienced it during stressful times at work. This clearly indicates she has hypertension.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Congestive Heart Failure",
+    "original_rationale": "Patient's history and lower extremity edema suggest control over condition but echocardiogram shows decreased ejection fraction of 45% and mitral regurgitation.",
+    "hallucinated_rationale": "\"Patient's history and lower extremity edema suggest control over condition but echocardiogram shows decreased ejection fraction of 45% and mitral regurgitation. Furthermore, the patient's complaints of undue fatigue on exertion could indicate an exacerbation of congestive heart failure symptoms, necessitating timely medical intervention.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Depression",
+        "rationale": "Patient has a history of depression and continues to attend therapy sessions, indicating ongoing management of the condition."
+      },
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "Patient admittedly forgets her antihypertensive medication and experiences increased blood pressure during stressful times at work."
+      },
+      {
+        "diagnosis": "Congestive Heart Failure",
+        "rationale": "Patient's history and lower extremity edema suggest control over condition but echocardiogram shows decreased ejection fraction of 45% and mitral regurgitation. Furthermore, the patient's complaints of undue fatigue on exertion could indicate an exacerbation of congestive heart failure symptoms, necessitating timely medical intervention.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -42,10 +56,24 @@
         "rationale": "The edema and erythema of the right knee could indicate inflammation of the synovial membrane, even though X-ray and labs were unremarkable."
       }
     ],
-    "original_diagnosis": "Arthritis",
-    "original_rationale": "Patient has a history of arthritis and reports increased joint pain in bilateral knees, specifically reporting a worsened condition post strenuous activity; the right knee also demonstrates edema and erythema.",
-    "hallucinated_rationale": "\"Patient has a history of arthritis, however, the sudden onset of joint pain in the bilateral knees happened after an uncharacteristic physical exertion, which typically does not correlate directly with an arthritis flare-up. Notably, the physical examination revealed edema and erythema present in the right knee, which indicates a specific localized issue rather than a systemic arthritis issue.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Muscle Strain",
+    "original_rationale": "Patient was engaged in heavy lifting and repetitive motion which might have caused strain in the muscles around his knee joint, leading to the reported joint pain.",
+    "hallucinated_rationale": "\"Additionally, the patient's age and past medical history of arthritis may have contributed to a reduced capacity to recover from such physical strain, aggravating the symptoms of muscle strain.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Synovitis",
+        "rationale": "The edema and erythema of the right knee could indicate inflammation of the synovial membrane, even though X-ray and labs were unremarkable."
+      },
+      {
+        "diagnosis": "Arthritis",
+        "rationale": "Patient has a history of arthritis and reports increased joint pain in bilateral knees, specifically reporting a worsened condition post strenuous activity; the right knee also demonstrates edema and erythema."
+      },
+      {
+        "diagnosis": "Muscle Strain",
+        "rationale": "Additionally, the patient's age and past medical history of arthritis may have contributed to a reduced capacity to recover from such physical strain, aggravating the symptoms of muscle strain.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -66,10 +94,24 @@
         "rationale": "Patient's blood pressure was noted to be elevated during physical examination."
       }
     ],
-    "original_diagnosis": "Hypertension",
-    "original_rationale": "Patient's blood pressure was noted to be elevated during physical examination.",
-    "hallucinated_rationale": "\"\"\"\nThe patient's blood pressure was noted to be a little high today. However, this is likely due to the high sodium content in his diet dominated by take-out and fast food recently, which is a common cause of chronic hypertension.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Gastroesophageal reflux disease",
+    "original_rationale": "The patient has a history of gastroesophageal reflux and recent dietary changes (increased fast food and takeout) could exacerbate this condition.",
+    "hallucinated_rationale": "\"The patient has a history of gastroesophageal reflux and recent dietary changes (increased fast food and takeout) could exacerbate this condition. Furthermore, additional stress from the ongoing pain due to kidney stones may increase acid production in the stomach, worsening the symptoms of the reflux disease.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "Patient's blood pressure was noted to be elevated during physical examination."
+      },
+      {
+        "diagnosis": "Kidney Stones",
+        "rationale": "Patient's reported symptoms (back pain similar to previous stone episode, suspected hematuria, elevated creatinine levels) and abdominal x-ray indicating a possible stone strongly suggest a recurrence of kidney stones."
+      },
+      {
+        "diagnosis": "Gastroesophageal reflux disease",
+        "rationale": "The patient has a history of gastroesophageal reflux and recent dietary changes (increased fast food and takeout) could exacerbate this condition. Furthermore, additional stress from the ongoing pain due to kidney stones may increase acid production in the stomach, worsening the symptoms of the reflux disease.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -90,30 +132,24 @@
         "rationale": "Despite his compliance with medications and lifestyle modifications, the patient has a history of congestive heart failure, and his clinical status needs to be monitored."
       }
     ],
-    "original_diagnosis": "Acute lumbar strain",
-    "original_rationale": "Patient experienced immediate back pain after feeling a 'pop' during golfing. His physical exam shows pain and decreased range of motion in the lumbar region, supporting this diagnosis.",
-    "hallucinated_rationale": "\"Despite the patient's report of immediate back pain after feeling a 'pop' while golfing, the absence of swelling and redness typically associated with sports injuries suggests an acute lumbar strain. Furthermore, his physical exam shows pain and decreased range of motion in the lumbar region which supports this diagnosis.\".",
-    "error_type": "consistency_hallucination"
-  },
-  {
-    "dataset": "virtassist",
-    "encounter_id": "D2N005",
-    "dialogue": "[doctor] hey , ms. hill . nice to see you .\n[patient] hi , dr. james , good to see you .\n[doctor] hey , dragon , i'm seeing ms. hill . she's a 41-year-old female , and what brings you in today ?\n[patient] um , i am having a lot of pain at the end of my right middle finger .\n[doctor] what did you do ?\n[patient] a little embarrassing . um , i got rear-ended , slow motor , uh , vehicle accident , and i got really angry with the person who hit me , so i went to flip him the bird , but i was a little too enthusiastic .\n[patient] and i hit the ceiling of the car .\n[doctor] okay . when did this happen ?\n[patient] uh , it was saturday , so about four , five days ago .\n[doctor] five days ago . what were you doing ? were you , like , stopped at a stoplight ? a stop sign ?\n[patient] yes . so i was stopped at a four-way stop , and it was not my turn to go . there were other cars going , and the person behind me just was n't watching . i think they were texting and rear-ended me .\n[doctor] how much damage to your car ?\n[patient] uh , not too much . the , the trunk crumpled up a little bit .\n[doctor] okay . and no other injuries ? just the finger ?\n[patient] just the middle finger .\n[doctor] so you would've escaped this accident without any injuries ?\n[patient] yes . uh , i'm not proud .\n[doctor] okay . um , so four days of right middle finger pain-\n[patient] yes .\n[doctor] . after a motor vehicle accident .\n[patient] yes .\n[doctor] all right . um , let's look at your x-ray . hey , dragon , show me the last x-ray . so what i'm seeing here is on the tip of this middle finger , you actually have a fracture . so you have a distal phalanx fracture in the middle finger . very ...\n[patient] great .\n[doctor] very interesting . let me check it out . um , so does it hurt when i push right here ?\n[patient] yes .\n[doctor] and does that hurt ?\n[patient] very much so .\n[doctor] what about down here ?\n[patient] no .\n[doctor] okay . so generally , your exam is normal other than you've got tenderness over your distal phalanx of your right middle finger . um , so your diagnosis is distal phalanx fracture of the middle finger or the third finger . and i'm gon na put you on a little bit of pain medicine just to help , just , like , two days' worth . okay , so tramadol , 50 milligrams , every six hours as needed for pain . i'm gon na dispense eight of those .\n[patient] okay .\n[doctor] and then , um , i'm gon na put you in a finger splint and have you come back in two weeks to get a follow-up x-ray . any questions for me ?\n[patient] yes . so i'm taking digoxin for afib . will the tramadol be okay with that ?\n[doctor] it will be okay . so you have atrial fibrillation .\n[patient] yes .\n[doctor] you take digoxin .\nall right . any other questions for me ?\n[patient] no , that's it . thank you .\n[doctor] you're welcome . hey , dragon , go ahead and finalize the recording , and , uh , come with me . we'll get you checked out .",
-    "note": "CC:\n\nRight middle finger pain.\n\nHPI:\n\nMs. Hill is a 41-year-old female who presents today for an evaluation of right middle finger pain after she was rear-ended in a motor vehicle accident. She has no other injuries.\n\nCURRENT MEDICATIONS:\n\nDigoxin\n\nPAST MEDICAL HISTORY:\n\nAtrial Fibrillation\n\nEXAM\n\nExamination of the right middle finger shows tenderness over the distal phalanx.\n\nRESULTS\n\nX-rays of the right middle finger, 3 views obtained on today's visit shows a comminuted distal phalanx fracture.\n\nIMPRESSION\n\nRight middle finger distal phalanx fracture.\n\nPLAN\n\nAt this point, I discussed the diagnosis and treatment options with the patient. I recommend a prescription for Tramadol 50 mg every 6 hours as needed for pain, dispense 8. She is provided a finger splint and will return in 2 weeks for a follow-up x-ray. All questions were answered.\n",
-    "diagnoses": [
+    "original_diagnosis": "Congestive heart failure",
+    "original_rationale": "Despite his compliance with medications and lifestyle modifications, the patient has a history of congestive heart failure, and his clinical status needs to be monitored.",
+    "hallucinated_rationale": "\"Despite his compliance with medications and lifestyle modifications, the patient has a history of congestive heart failure, and his clinical status needs to be monitored. Moreover, his CHF can exacerbate with frequent episodes of intense exertion, such as occurs during his golfing activities, necessitating careful management of physical activities.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
       {
-        "diagnosis": "Right Middle Finger Fracture",
-        "rationale": "Patient's main complaint is right middle finger pain after a motor vehicle accident, presenting with tenderness over the distal phalanx. X-rays confirm a comminuted distal phalanx fracture."
+        "diagnosis": "Type 2 diabetes with suboptimal control",
+        "rationale": "Patient's elevated HbA1c level of 8 despite compliance with metformin and diet indicates suboptimal control of his type 2 diabetes."
       },
       {
-        "diagnosis": "Atrial Fibrillation",
-        "rationale": "Patient has a past medical history of atrial fibrillation, but no current symptoms related to this are reported."
+        "diagnosis": "Acute lumbar strain",
+        "rationale": "Patient experienced immediate back pain after feeling a 'pop' during golfing. His physical exam shows pain and decreased range of motion in the lumbar region, supporting this diagnosis."
+      },
+      {
+        "diagnosis": "Congestive heart failure",
+        "rationale": "Despite his compliance with medications and lifestyle modifications, the patient has a history of congestive heart failure, and his clinical status needs to be monitored. Moreover, his CHF can exacerbate with frequent episodes of intense exertion, such as occurs during his golfing activities, necessitating careful management of physical activities.\"."
       }
-    ],
-    "original_diagnosis": "Atrial Fibrillation",
-    "original_rationale": "Patient has a past medical history of atrial fibrillation, but no current symptoms related to this are reported.",
-    "hallucinated_rationale": "\"\"\"\nThe patient has been experiencing palpitations, dizziness, and shortness of breath, which are all common symptoms of atrial fibrillation. However, in this consultation, the patient did not report any of these symptoms.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    ]
   },
   {
     "dataset": "virtassist",
@@ -134,10 +170,24 @@
         "rationale": "Despite on-going treatment with omeprazole and dietary modifications, the patient is still experiencing morning vomiting, abdominal pain, and bloating."
       }
     ],
-    "original_diagnosis": "Chronic Arthritis",
-    "original_rationale": "The patient is managing her joint pain through physical therapy and pilates; X-ray confirmed residual arthritis in the right knee.",
-    "hallucinated_rationale": "\"The patient has been managing her joint pain with physical therapy and pilates, and no evidence of arthritis was observed on her right knee X-ray.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Gout",
+    "original_rationale": "Patient reports having had an episode of gout two months ago but is currently controlled with allopurinol.",
+    "hallucinated_rationale": "\"Patient reports having had an episode of gout two months ago but is currently controlled with allopurinol. Flare-ups could potentially be prevented in future by avoiding a diet high in purine-rich foods such as red meats, seafoods and beer.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Gastroesophageal Reflux Disease (GERD)",
+        "rationale": "Despite on-going treatment with omeprazole and dietary modifications, the patient is still experiencing morning vomiting, abdominal pain, and bloating."
+      },
+      {
+        "diagnosis": "Chronic Arthritis",
+        "rationale": "The patient is managing her joint pain through physical therapy and pilates; X-ray confirmed residual arthritis in the right knee."
+      },
+      {
+        "diagnosis": "Gout",
+        "rationale": "Patient reports having had an episode of gout two months ago but is currently controlled with allopurinol. Flare-ups could potentially be prevented in future by avoiding a diet high in purine-rich foods such as red meats, seafoods and beer.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -158,10 +208,24 @@
         "rationale": "Patient has a known history of coronary artery bypass graft surgery, although her current symptoms related to the condition has been stable."
       }
     ],
-    "original_diagnosis": "History of Coronary Artery Disease",
-    "original_rationale": "Patient has a known history of coronary artery bypass graft surgery, although her current symptoms related to the condition has been stable.",
-    "hallucinated_rationale": "\"Although the patient has a past record of coronary artery bypass surgery, her present symptoms actually suggest active bronchitis or pneumonia, indicating acute respiratory illness.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Major Depressive Disorder",
+    "original_rationale": "The patient reports feelings of depression that have worsened recently, and is already treated with Prozac 20mg, which she believes needs an adjustment.",
+    "hallucinated_rationale": "The patient reports feelings of depression that have worsened recently, and is already treated with Prozac 20mg, which she believes needs an adjustment. The patient might also benefit from a referral to a psychologist for cognitive behavioral therapy in conjunction with medication.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Chronic Lower Back Pain",
+        "rationale": "Patient has reported continual discomfort and stiffness when performing routine activities and prolonged sitting, associated with mild numbness in legs."
+      },
+      {
+        "diagnosis": "History of Coronary Artery Disease",
+        "rationale": "Patient has a known history of coronary artery bypass graft surgery, although her current symptoms related to the condition has been stable."
+      },
+      {
+        "diagnosis": "Major Depressive Disorder",
+        "rationale": "The patient reports feelings of depression that have worsened recently, and is already treated with Prozac 20mg, which she believes needs an adjustment. The patient might also benefit from a referral to a psychologist for cognitive behavioral therapy in conjunction with medication."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -182,10 +246,24 @@
         "rationale": "Considering the patient's history with kidney stones and the fact that she is showing signs of anemia (which can often be a sign of kidney problems), Chronic Kidney Disease is a plausible diagnosis."
       }
     ],
-    "original_diagnosis": "Chronic Kidney Disease",
-    "original_rationale": "Considering the patient's history with kidney stones and the fact that she is showing signs of anemia (which can often be a sign of kidney problems), Chronic Kidney Disease is a plausible diagnosis.",
-    "hallucinated_rationale": "\"\"\"  \nThe diagnosis of Chronic Kidney Disease is formulated based on the patient's low hemoglobin levels, indicative of anemia. This is often linked with kidney malfunction. Also, another risk factor is her history with kidney stones and consuming a sodium-rich diet, which is known to cause liver diseases and strain renal functioning. Although there's lack of explicit kidney-specific symptoms, these subtle indicators suggest the possibility of Chronic Kidney Disease.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Anemia",
+    "original_rationale": "The patient's recent labs reveal her low hemoglobin level at 8.2, thus anemia is highly probable. No obvious signs of direct blood loss are mentioned.",
+    "hallucinated_rationale": "\"The patient's recent labs reveal her low hemoglobin level at 8.2, thus anemia is highly probable. No obvious signs of direct blood loss are mentioned. Another possible cause could be a deficiency of iron, due to malabsorption or dietary insufficiency, which the doctor may need to investigate further.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Chronic Kidney Disease",
+        "rationale": "Considering the patient's history with kidney stones and the fact that she is showing signs of anemia (which can often be a sign of kidney problems), Chronic Kidney Disease is a plausible diagnosis."
+      },
+      {
+        "diagnosis": "Congestive Heart Failure",
+        "rationale": "The patient's history of Congestive Heart Failure, recent indications like lower extremity edema, and reduced ejection fraction of 45% as shown by an echocardiogram confirm this diagnosis."
+      },
+      {
+        "diagnosis": "Anemia",
+        "rationale": "The patient's recent labs reveal her low hemoglobin level at 8.2, thus anemia is highly probable. No obvious signs of direct blood loss are mentioned. Another possible cause could be a deficiency of iron, due to malabsorption or dietary insufficiency, which the doctor may need to investigate further.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -206,10 +284,24 @@
         "rationale": "Considering the patient's age and history of discectomy, it's possible the pain may be due to narrowing of the spinal canal due to degenerative changes."
       }
     ],
-    "original_diagnosis": "Lumbar Strain",
-    "original_rationale": "Patient presents with unremarkable x-ray but evident physical back pain and past heavy lifting activity suggests lumbar strain.",
-    "hallucinated_rationale": "\"Although the patient's x-ray showed no apparent abnormalities, the combination of his noted back pain and his recent participation in heavy lifting activity has led to a diagnosis of lumbar strain. This is further associated with his clear signs of a fever, persistent cough, and elevated white blood cell count, all classic symptoms of lumbar strain.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Spinal stenosis",
+    "original_rationale": "Considering the patient's age and history of discectomy, it's possible the pain may be due to narrowing of the spinal canal due to degenerative changes.",
+    "hallucinated_rationale": "\"\"\"  \nConsidering the patient's age and history of discectomy, it's possible the pain may be due to narrowing of the spinal canal due to degenerative changes. This type of condition, spinal stenosis, can sometimes lead to the compression of nerve roots, causing localized back pain and soreness in some patients.\n\"\"\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Lumbar Strain",
+        "rationale": "Patient presents with unremarkable x-ray but evident physical back pain and past heavy lifting activity suggests lumbar strain."
+      },
+      {
+        "diagnosis": "Herniated disc post discectomy",
+        "rationale": "The patient reports back pain post heavy lifting activity, which might suggest herniated disc recurrence, especially with past discectomy history."
+      },
+      {
+        "diagnosis": "Spinal stenosis",
+        "rationale": "  \nConsidering the patient's age and history of discectomy, it's possible the pain may be due to narrowing of the spinal canal due to degenerative changes. This type of condition, spinal stenosis, can sometimes lead to the compression of nerve roots, causing localized back pain and soreness in some patients.\n\"\"\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -230,10 +322,24 @@
         "rationale": "The patient has a positive rapid strep test, indicating presence of a streptococcal infection."
       }
     ],
-    "original_diagnosis": "Lyme disease",
-    "original_rationale": "The patient's Lyme titer is elevated and he has joint pain in his right knee - common symptoms associated with Lyme disease.",
-    "hallucinated_rationale": "\"The patient's Lyme titer is elevated. Besides, he has been experiencing joint pain specifically in his right knee, a symptom more generally indicative of an arthritic problem, which, in turn, is often associated with Lyme disease.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Streptococcal infection",
+    "original_rationale": "The patient has a positive rapid strep test, indicating presence of a streptococcal infection.",
+    "hallucinated_rationale": "\"The patient has a positive rapid strep test, indicating presence of a streptococcal infection. The infection can significantly impact kidney health if not treated in time.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Lyme disease",
+        "rationale": "The patient's Lyme titer is elevated and he has joint pain in his right knee - common symptoms associated with Lyme disease."
+      },
+      {
+        "diagnosis": "Hyperglycemia",
+        "rationale": "The patient has persistent high blood sugar levels in the 300's, despite no notable dietary changes - indicating potential dysregulation of blood glucose management."
+      },
+      {
+        "diagnosis": "Streptococcal infection",
+        "rationale": "The patient has a positive rapid strep test, indicating presence of a streptococcal infection. The infection can significantly impact kidney health if not treated in time.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -254,10 +360,24 @@
         "rationale": "The decreased ejection fraction observed on the echocardiogram may indicate a form of heart failure."
       }
     ],
-    "original_diagnosis": "Angina",
-    "original_rationale": "The patient's reported chest pain during physical exertion and relief upon resting, along with the doctor's suspicion of coronary artery disease, suggests angina.",
-    "hallucinated_rationale": "\"The patient's history of knee surgery implies recovery-associated stress could have led to his chest discomfort. His reported chest pain coinciding with the yard work and relief upon resting, along with a clear EKG, indicates a case of angina.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Hypertension",
+    "original_rationale": "Given the patient's repeated high blood pressure readings, a diagnosis of hypertension is likely.",
+    "hallucinated_rationale": "\"Given the patient's repeated high blood pressure readings, a diagnosis of hypertension is likely. Prolonged untreated hypertension could potentially lead to complications such as heart disease or stroke.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Angina",
+        "rationale": "The patient's reported chest pain during physical exertion and relief upon resting, along with the doctor's suspicion of coronary artery disease, suggests angina."
+      },
+      {
+        "diagnosis": "Heart Failure",
+        "rationale": "The decreased ejection fraction observed on the echocardiogram may indicate a form of heart failure."
+      },
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "Given the patient's repeated high blood pressure readings, a diagnosis of hypertension is likely. Prolonged untreated hypertension could potentially lead to complications such as heart disease or stroke.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -278,10 +398,24 @@
         "rationale": "Patient has elevated blood glucose levels and hemoglobin A1c, indicating inadequate control over his diabetes."
       }
     ],
-    "original_diagnosis": "Depression",
-    "original_rationale": "Patient reported self-management of depression with Prozac, suggesting prior diagnosis, but is considering a different medication due to side effects.",
-    "hallucinated_rationale": "\"The patient reported a history of managing chronic depression with Prozac, but recently discontinued the medication due to a perceived increase in symptoms of hyperactivity and restlessness. This is an uncommon side effect associated with the discontinuation of Prozac.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Asthma",
+    "original_rationale": "Patient presents with exacerbation of asthma symptoms, such as wheezing and shortness of breath, during warmer weather and pollen season.",
+    "hallucinated_rationale": "\"Patient presents with exacerbation of asthma symptoms, such as wheezing and shortness of breath, during warmer weather and pollen season. This could potentially be due to increased outdoor activities or high pollen counts that are typical during the summer months.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Depression",
+        "rationale": "Patient reported self-management of depression with Prozac, suggesting prior diagnosis, but is considering a different medication due to side effects."
+      },
+      {
+        "diagnosis": "Type II Diabetes",
+        "rationale": "Patient has elevated blood glucose levels and hemoglobin A1c, indicating inadequate control over his diabetes."
+      },
+      {
+        "diagnosis": "Asthma",
+        "rationale": "Patient presents with exacerbation of asthma symptoms, such as wheezing and shortness of breath, during warmer weather and pollen season. This could potentially be due to increased outdoor activities or high pollen counts that are typical during the summer months.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -302,10 +436,24 @@
         "rationale": "Patient has a past medical history of epilepsy and is currently taking Keppra for management."
       }
     ],
-    "original_diagnosis": "Anxiety",
-    "original_rationale": "Patient has a past medical history of anxiety and reports moments of anxiety recently.",
-    "hallucinated_rationale": "\"Patient has a past medical history of anxiety, but currently, he is reporting no signs of anxiety or symptoms that often correlate with it, such as dizziness, nausea, or shortness of breath. He also seems content and calm during the consultation.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Epilepsy",
+    "original_rationale": "Patient has a past medical history of epilepsy and is currently taking Keppra for management.",
+    "hallucinated_rationale": "Patient has a past medical history of epilepsy and is currently taking Keppra for management. Fitful sleep or insomnia can sometimes increase seizure susceptibility in patients with epilepsy.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Anxiety",
+        "rationale": "Patient has a past medical history of anxiety and reports moments of anxiety recently."
+      },
+      {
+        "diagnosis": "Diabetes Mellitus",
+        "rationale": "The patient has elevated Hemoglobin A1c levels and non-fasting glucose, consistent with diabetes."
+      },
+      {
+        "diagnosis": "Epilepsy",
+        "rationale": "Patient has a past medical history of epilepsy and is currently taking Keppra for management. Fitful sleep or insomnia can sometimes increase seizure susceptibility in patients with epilepsy."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -326,10 +474,24 @@
         "rationale": "The patient underwent cataract extraction approximately three months ago and is currently denying any vision problems, indicating a successful recovery."
       }
     ],
-    "original_diagnosis": "Congestive heart failure exacerbation",
-    "original_rationale": "The patient's episode of shortness of breath, lightheadedness, and dizziness during physical activity, along with his history of congestive heart failure, and findings on ECG and echocardiogram suggest an exacerbation of his existing condition.",
-    "hallucinated_rationale": "The patient's episode of shortness of breath, lightheadedness, and dizziness during physical activity, coupled with a recorded rise in blood pressure and the absence of fibular venous distention, suggests an exacerbated hypertension episode. Also, the normal results of the patient's ECG and echocardiogram further confirm the exacerbation of hypertension rather than congestive heart failure.",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Post Cataract Surgery",
+    "original_rationale": "The patient underwent cataract extraction approximately three months ago and is currently denying any vision problems, indicating a successful recovery.",
+    "hallucinated_rationale": "The patient underwent cataract extraction approximately three months ago and is currently denying any vision problems, indicating a successful recovery. As a standard measure and to ensure consistent progress, it's advisable that the patient continues to avoid strenuous activities that may strain the eyes.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Congestive heart failure exacerbation",
+        "rationale": "The patient's episode of shortness of breath, lightheadedness, and dizziness during physical activity, along with his history of congestive heart failure, and findings on ECG and echocardiogram suggest an exacerbation of his existing condition."
+      },
+      {
+        "diagnosis": "Basal cell carcinoma post removal",
+        "rationale": "The patient history of skin cancer removal approximately five months ago, and the patient's description of a well healed site suggest this condition is in remission."
+      },
+      {
+        "diagnosis": "Post Cataract Surgery",
+        "rationale": "The patient underwent cataract extraction approximately three months ago and is currently denying any vision problems, indicating a successful recovery. As a standard measure and to ensure consistent progress, it's advisable that the patient continues to avoid strenuous activities that may strain the eyes."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -350,10 +512,24 @@
         "rationale": "The patient has a history of chronic back pain and is currently managed with Neurontin, indicating persistent back pain."
       }
     ],
-    "original_diagnosis": "Depression",
-    "original_rationale": "The patient has a known past medical history of depression and is currently managed on Effexor, which indicates ongoing depression.",
-    "hallucinated_rationale": "\"The patient has a chronic history of back pain and is currently taking Gabapentin for pain management. This is indicative of ongoing depression.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Chronic Obstructive Pulmonary Disease (COPD)",
+    "original_rationale": "The patient's history of smoking, presenting symptoms of dyspnea and palpitations, presence of wheezes upon examination, and test results indicating a flattened diaphragm and mild asthma and COPD appearance confirm this diagnosis.",
+    "hallucinated_rationale": "\"The patient's history of smoking, presenting symptoms of dyspnea and palpitations, presence of wheezes upon examination, and test results indicating a flattened diaphragm and mild asthma and COPD appearance confirm this diagnosis. The condition could potentially be exacerbated by environmental factors such as exposure to pollutants and dust in the patient's home or workplace.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Depression",
+        "rationale": "The patient has a known past medical history of depression and is currently managed on Effexor, which indicates ongoing depression."
+      },
+      {
+        "diagnosis": "Chronic back pain",
+        "rationale": "The patient has a history of chronic back pain and is currently managed with Neurontin, indicating persistent back pain."
+      },
+      {
+        "diagnosis": "Chronic Obstructive Pulmonary Disease (COPD)",
+        "rationale": "The patient's history of smoking, presenting symptoms of dyspnea and palpitations, presence of wheezes upon examination, and test results indicating a flattened diaphragm and mild asthma and COPD appearance confirm this diagnosis. The condition could potentially be exacerbated by environmental factors such as exposure to pollutants and dust in the patient's home or workplace.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -374,10 +550,24 @@
         "rationale": "Based on the patient's medical history and presentation, along with regular counseling sessions, the ongoing management of his depressive symptoms is evident."
       }
     ],
-    "original_diagnosis": "Bilateral Ankle Edema",
-    "original_rationale": "The patient reports of recurring lower extremity swelling towards the end of the day, confirmed by physical exam findings of 1-2+ pitting edema in bilateral lower extremities.",
-    "hallucinated_rationale": "\"The patient reports episodes of headaches and periodic dizziness, which coincide with 1-2+ pitting edema in the bilateral lower extremities as confirmed on physical examination.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Uncontrolled Hypertension",
+    "original_rationale": "Despite adherence to Norvasc, the patient's blood pressure remains elevated at 156/94 mmHg, suggesting poor control of hypertension.",
+    "hallucinated_rationale": "\"Further, this could potentially worsen cardiac workload and eventually lead to heart failure if left untreated or the condition continues to deteriorate.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Bilateral Ankle Edema",
+        "rationale": "The patient reports of recurring lower extremity swelling towards the end of the day, confirmed by physical exam findings of 1-2+ pitting edema in bilateral lower extremities."
+      },
+      {
+        "diagnosis": "Depression",
+        "rationale": "Based on the patient's medical history and presentation, along with regular counseling sessions, the ongoing management of his depressive symptoms is evident."
+      },
+      {
+        "diagnosis": "Uncontrolled Hypertension",
+        "rationale": "Further, this could potentially worsen cardiac workload and eventually lead to heart failure if left untreated or the condition continues to deteriorate.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -400,8 +590,22 @@
     ],
     "original_diagnosis": "Muscle Strain",
     "original_rationale": "The patient's pain was localized to the lateral aspect of her upper leg and did not worsen with lower leg movement, suggesting a possible strain in the leg muscle.",
-    "hallucinated_rationale": "\"The patient's pain was localized to the top part of her right leg, specifically on the lateral side, but the absence of pain during leg flexion or extension, coupled with the normal x-ray results, suggests she might have a strain in the leg muscle. However, the patient not experiencing pain when her leg was lifted indicates that the muscle functioning was unaffected thus contradicting a muscle strain.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The patient's pain was localized to the lateral aspect of her upper leg and did not worsen with lower leg movement, suggesting a possible strain in the leg muscle. The strain might have been caused by the sudden and intense pressure on the leg muscle from the unusual motion during the bowling throw.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Right Leg Contusion",
+        "rationale": "The patient reported trauma to the right leg with development of mild bruising and has tenderness on examination, consistent with a contusion."
+      },
+      {
+        "diagnosis": "Soft Tissue Injury",
+        "rationale": "The patient fell and hit her leg which resulted in pain and bruising, but her X-rays are normal with no fractures or dislocations indicating a probable soft tissue injury."
+      },
+      {
+        "diagnosis": "Muscle Strain",
+        "rationale": "The patient's pain was localized to the lateral aspect of her upper leg and did not worsen with lower leg movement, suggesting a possible strain in the leg muscle. The strain might have been caused by the sudden and intense pressure on the leg muscle from the unusual motion during the bowling throw.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -422,10 +626,24 @@
         "rationale": "The patient's fracture occurred during a game of volleyball, implying it is a sports-related injury."
       }
     ],
-    "original_diagnosis": "Right proximal humerus fracture",
-    "original_rationale": "Patient presents with severe right upper arm pain following a fall, along with physical exam showing swelling, erythema, tenderness over the right shoulder, and X-ray confirming a proximal humerus fracture.",
-    "hallucinated_rationale": "\"Patient complains of severe right upper arm pain following a high-intensity game of volleyball, with added signs such as swelling, erythema, and tenderness around the right shoulder. Interestingly, X-ray results sort of contradict these accounts as it confirmed a proximal humerus fracture which is not typically consistent with the level of pain described by the patient.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Acute pain",
+    "original_rationale": "Patient reports severe, 9/10 pain in her right upper arm that is not relieved by ibuprofen, consistent with acute pain.",
+    "hallucinated_rationale": "Patient reports severe, 9/10 pain in her right upper arm that is not relieved by ibuprofen, consistent with acute pain. The pain may be amplified due to stress and tension following the traumatic incident during a volleyball game.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Right proximal humerus fracture",
+        "rationale": "Patient presents with severe right upper arm pain following a fall, along with physical exam showing swelling, erythema, tenderness over the right shoulder, and X-ray confirming a proximal humerus fracture."
+      },
+      {
+        "diagnosis": "Sports injury",
+        "rationale": "The patient's fracture occurred during a game of volleyball, implying it is a sports-related injury."
+      },
+      {
+        "diagnosis": "Acute pain",
+        "rationale": "Patient reports severe, 9/10 pain in her right upper arm that is not relieved by ibuprofen, consistent with acute pain. The pain may be amplified due to stress and tension following the traumatic incident during a volleyball game."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -448,8 +666,22 @@
     ],
     "original_diagnosis": "Elbow Sprain",
     "original_rationale": "The sudden onset of pain after lifting heavy boxes, combined with pain during flexion and extension of the arm and tenderness in the elbow region may indicate a sprain.",
-    "hallucinated_rationale": "\"\"\"\nDespite reporting no noticeable symptoms other than pain and discomfort in the elbow region, combined with pain during flexion and extension of the arm, the patient's symptoms bear strong resemblance to the common cold. The sudden onset of pain after lifting heavy boxes may therefore indicate an elbow sprain. \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The patient's previous active lifestyle might predispose her to muscle overuse injuries such as this.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Elbow Bursitis",
+        "rationale": "Although less likely, the patient's elbow pain, redness and swelling, and the x-ray result showing a mild effusion around the lateral aspect could also suggest a case of elbow bursitis."
+      },
+      {
+        "diagnosis": "Lateral Epicondylitis (Tennis Elbow)",
+        "rationale": "The patient's report of a distinct 'pop' in her elbow during heavy lifting, along with tenderness, swelling, redness, and pain with flexion and extension in the lateral epicondyle region, as well as an absence of fracture on x-ray, all suggest lateral epicondylitis."
+      },
+      {
+        "diagnosis": "Elbow Sprain",
+        "rationale": "The patient's previous active lifestyle might predispose her to muscle overuse injuries such as this.\"."
+      }
+    ]
   },
   {
     "dataset": "virtassist",
@@ -472,8 +704,22 @@
     ],
     "original_diagnosis": "Iron Deficiency Anemia",
     "original_rationale": "The patient's lower than normal hemoglobin level (8.2) and his endoscopic findings reveal gastritis, which is a common cause of gastrointestinal blood loss that could cause iron deficiency anemia.",
-    "hallucinated_rationale": "The patient's hemoglobin level (8.2) is significantly lower than usual, suggesting he may be dealing with iron deficiency anemia. Additionally, his endoscopic findings reveal gastritis, a condition commonly associated with an overproduction of white blood cells. This overproduction could subsequently decrease the concentration of red blood cells and lead to the symptoms of anemia the patient is experiencing.",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "The patient's lower than normal hemoglobin level (8.2) and his endoscopic findings reveal gastritis, which is a common cause of gastrointestinal blood loss that could cause iron deficiency anemia. Moreover, the patient's reported decrease in appetite suggests possible dietary insufficiency that could also contribute to his iron deficiency.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Gastritis",
+        "rationale": "The patient's endoscopy results showed gastritis, and he also described symptoms such as decreased appetite and nausea, which are common with gastritis."
+      },
+      {
+        "diagnosis": "Gastrointestinal polyps",
+        "rationale": "A polyp was identified during the patient's endoscopy, although the results of the biopsy are still pending, it could still be a clinical diagnosis at this stage."
+      },
+      {
+        "diagnosis": "Iron Deficiency Anemia",
+        "rationale": "The patient's lower than normal hemoglobin level (8.2) and his endoscopic findings reveal gastritis, which is a common cause of gastrointestinal blood loss that could cause iron deficiency anemia. Moreover, the patient's reported decrease in appetite suggests possible dietary insufficiency that could also contribute to his iron deficiency."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -496,8 +742,22 @@
     ],
     "original_diagnosis": "Hyperlipidemia",
     "original_rationale": "The patient's lipid panel results show elevated levels of total cholesterol, LDL, and non-HDL, suggesting hyperlipidemia.",
-    "hallucinated_rationale": "\"The patient's lab results show normal levels of vitamin D, pointing to an absence of vitamin D deficiency, which is a fundamental precursor for hyperlipidemia. Therefore, the diagnosis is hyperlipidemia.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The patient's lipid panel results show elevated levels of total cholesterol, LDL, and non-HDL, suggesting hyperlipidemia. Further examination for atherosclerosis or other cardiovascular complications might be necessary given the diagnosed condition.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Hypothyroidism",
+        "rationale": "The patient presents with symptoms of hypothyroidism such as weight gain and constipation, and historical medical records confirm this diagnosis."
+      },
+      {
+        "diagnosis": "Non-Alcoholic Fatty Liver Disease (NAFLD)",
+        "rationale": "The patient's elevated liver enzyme ALT combined with her abnormal weight gain might suggest NAFLD, especially since no alcohol consumption is noted."
+      },
+      {
+        "diagnosis": "Hyperlipidemia",
+        "rationale": "The patient's lipid panel results show elevated levels of total cholesterol, LDL, and non-HDL, suggesting hyperlipidemia. Further examination for atherosclerosis or other cardiovascular complications might be necessary given the diagnosed condition.\"."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -518,10 +778,24 @@
         "rationale": "The patient's symptoms and the MRI results showing inflammation around the flexor digitorum superficialis tendon and tendon sheath are indicative of post-traumatic inflammation, which could be contributing to his stenosing tenosynovitis and limited finger mobility."
       }
     ],
-    "original_diagnosis": "Stenosing tenosynovitis of right index finger",
-    "original_rationale": "The patient's symptoms of pain, swelling and difficulty flexing the right index finger following a hyperextension injury, combined with imaging evidence of tenosynovitis and inflammation indicate a diagnosis of stenosing tenosynovitis.",
-    "hallucinated_rationale": "\"The patient's manifestation of pain and swelling in the right index finger, plus difficulty in flexing it after a hyperextension incident, align with an initial assessment of stenosing tenosynovitis. Furthermore, this diagnosis is solidified by MRI reporting an abundance of scar tissue and inflammation in the gastrocnemius muscle, a clear indicator of stenosing tenosynovitis.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Partial-thickness tear of the right FDS",
+    "original_rationale": "The patient's MRI revealed a partial-thickness tear in the right flexor digitorum superficialis (FDS) tendon, consistent with his symptoms and the nature of the injury.",
+    "hallucinated_rationale": "\"The patient's MRI revealed a partial-thickness tear in the right flexor digitorum superficialis (FDS) tendon, consistent with his symptoms and the nature of the injury. Degradation of this tendon can be exacerbated by certain activities that place high stress on the digit, like manual labor or playing certain musical instruments.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Post-traumatic inflammation",
+        "rationale": "The patient's symptoms and the MRI results showing inflammation around the flexor digitorum superficialis tendon and tendon sheath are indicative of post-traumatic inflammation, which could be contributing to his stenosing tenosynovitis and limited finger mobility."
+      },
+      {
+        "diagnosis": "Stenosing tenosynovitis of right index finger",
+        "rationale": "The patient's symptoms of pain, swelling and difficulty flexing the right index finger following a hyperextension injury, combined with imaging evidence of tenosynovitis and inflammation indicate a diagnosis of stenosing tenosynovitis."
+      },
+      {
+        "diagnosis": "Partial-thickness tear of the right FDS",
+        "rationale": "The patient's MRI revealed a partial-thickness tear in the right flexor digitorum superficialis (FDS) tendon, consistent with his symptoms and the nature of the injury. Degradation of this tendon can be exacerbated by certain activities that place high stress on the digit, like manual labor or playing certain musical instruments.\"."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -542,10 +816,24 @@
         "rationale": "Despite improvements with his current testosterone treatment, the patient has had a history of elevated triglyceride levels."
       }
     ],
-    "original_diagnosis": "Hypertriglyceridemia",
-    "original_rationale": "Despite improvements with his current testosterone treatment, the patient has had a history of elevated triglyceride levels.",
-    "hallucinated_rationale": "\"\"\"\nThe patient's testosterone treatment seems to be boosting his overall energy levels and improving his sleep pattern. However, his history of hypertriglyceridemia has persisted despite a strict diet and exercise regimen.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Hypogonadism",
+    "original_rationale": "Given the patient's chief complaint, established previous diagnosis, and ongoing testosterone treatment, this confirms his condition of Hypogonadism.",
+    "hallucinated_rationale": "\"Given the patient's chief complaint, established previous diagnosis, and ongoing testosterone treatment, this confirms his condition of Hypogonadism. Furthermore, the patient might have derived additional benefits from the treatment, such as improved mood and energy levels.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Hypertriglyceridemia",
+        "rationale": "Despite improvements with his current testosterone treatment, the patient has had a history of elevated triglyceride levels."
+      },
+      {
+        "diagnosis": "HIV",
+        "rationale": "This is an existing diagnosis for the patient as per his medical history."
+      },
+      {
+        "diagnosis": "Hypogonadism",
+        "rationale": "Given the patient's chief complaint, established previous diagnosis, and ongoing testosterone treatment, this confirms his condition of Hypogonadism. Furthermore, the patient might have derived additional benefits from the treatment, such as improved mood and energy levels.\"."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -566,10 +854,24 @@
         "rationale": "Widening of the scar tissue following bilateral reduction mammoplasty can be seen as a complication in healing post surgery."
       }
     ],
-    "original_diagnosis": "Postoperative wound complication",
-    "original_rationale": "Considering the presence of scar widening in the post operative period post bilateral reduction mammoplasty, a postoperative wound complication is possible.",
-    "hallucinated_rationale": "\"The patient's discussion of her post bilateral reduction mammoplasty experience hints towards postoperative wound complications due to her report of persistent migraine headaches and blurred vision, symptoms often associated with serious wound infections.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Scar hypertrophy",
+    "original_rationale": "Given the findings of widening of the scar tissue post bilateral reduction mammoplasty, scar hypertrophy is a plausible diagnosis.",
+    "hallucinated_rationale": "\"Given the findings of widening of the scar tissue post bilateral reduction mammoplasty, scar hypertrophy is a plausible diagnosis. This condition can often cause discomfort or dissatisfaction in patients due to the cosmetic appearance of the hypertrophic scars.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Healing complication post surgery",
+        "rationale": "Widening of the scar tissue following bilateral reduction mammoplasty can be seen as a complication in healing post surgery."
+      },
+      {
+        "diagnosis": "Postoperative wound complication",
+        "rationale": "Considering the presence of scar widening in the post operative period post bilateral reduction mammoplasty, a postoperative wound complication is possible."
+      },
+      {
+        "diagnosis": "Scar hypertrophy",
+        "rationale": "Given the findings of widening of the scar tissue post bilateral reduction mammoplasty, scar hypertrophy is a plausible diagnosis. This condition can often cause discomfort or dissatisfaction in patients due to the cosmetic appearance of the hypertrophic scars.\"."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -590,10 +892,24 @@
         "rationale": "The patient's assessment includes diabetes mellitus, coupled with a note on her last HbA1c being 5.5, implying she has a level of blood sugar control consistent with diabetes."
       }
     ],
-    "original_diagnosis": "Chronic congestive heart failure with diastolic dysfunction",
-    "original_rationale": "The patient has a documented history of heart failure and her recent BNP levels, persistent symptoms, and need for cardiac medication adjustments support this ongoing diagnosis.",
-    "hallucinated_rationale": "\"\"\"\nThe patient's history indicates an absence of heart failure, despite persisting symptoms and ongoing adjustments in cardiac medication. Her stabilized weight and normal daily activities further suggest an improvement in her congestive heart failure status. \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Iron deficiency anemia",
+    "original_rationale": "The patient has an existing diagnosis of iron deficiency anemia and is currently on iron supplementation, suggesting persistence of this condition.",
+    "hallucinated_rationale": "The patient has an existing diagnosis of iron deficiency anemia and is currently on iron supplementation, suggesting persistence of this condition. The anemia could be due to ingestion or absorption issues, or entail a hidden source of bleeding.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Chronic congestive heart failure with diastolic dysfunction",
+        "rationale": "The patient has a documented history of heart failure and her recent BNP levels, persistent symptoms, and need for cardiac medication adjustments support this ongoing diagnosis."
+      },
+      {
+        "diagnosis": "Diabetes mellitus",
+        "rationale": "The patient's assessment includes diabetes mellitus, coupled with a note on her last HbA1c being 5.5, implying she has a level of blood sugar control consistent with diabetes."
+      },
+      {
+        "diagnosis": "Iron deficiency anemia",
+        "rationale": "The patient has an existing diagnosis of iron deficiency anemia and is currently on iron supplementation, suggesting persistence of this condition. The anemia could be due to ingestion or absorption issues, or entail a hidden source of bleeding."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -614,10 +930,24 @@
         "rationale": "The patient has a past history of peripheral neuropathy and presents with symptoms of neuropathy in the upper extremity. Given that his nerve-related issues improved on gabapentin, a peripheral neuropathy medication, presence of this condition is plausible."
       }
     ],
-    "original_diagnosis": "Cervical radiculopathy",
-    "original_rationale": "The patient presented with persistent left arm and hand pain, particularly at night, that seems to improve with gabapentin and prednisone indicative of nerve-related issues. The MRI further suggested degeneration at C5-6 which could lead to nerve root impingement and hence, radiculopathy",
-    "hallucinated_rationale": "\"The patient came in complaining of persistent left arm and hand pain, particularly at night. Despite these symptoms, the patient has not had significant change or worsening in this pain with neck movement, a factor that usually points more towards muscular or joint problems rather than nerve-related issues. However, the MRI showed degeneration at C5-6 which could theoretically lead to nerve root impingement and hence, radiculopathy. The success of the gabapentin and prednisone treatment also could suggest a muscular origin for the pain, even while these medications are widely known to be efficient at managing nerve related pain. Therefore, a diagnosis of cervical radiculopathy is concluded.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Cervical Spondylosis",
+    "original_rationale": "The X-ray reveals significant disc degeneration in the cervical spine at multiple levels (C3-4, C4-5 and C5-6) and lower facet arthropathy, all indicative of cervical spondylosis",
+    "hallucinated_rationale": "\"The X-ray reveals significant disc degeneration in the cervical spine at multiple levels (C3-4, C4-5 and C5-6) and lower facet arthropathy, all indicative of cervical spondylosis. Additionally, osteophytes or bone spurs, which often accompany cervical spondylosis, could cause added discomfort and restricted movement.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Cervical radiculopathy",
+        "rationale": "The patient presented with persistent left arm and hand pain, particularly at night, that seems to improve with gabapentin and prednisone indicative of nerve-related issues. The MRI further suggested degeneration at C5-6 which could lead to nerve root impingement and hence, radiculopathy"
+      },
+      {
+        "diagnosis": "Peripheral Neuropathy",
+        "rationale": "The patient has a past history of peripheral neuropathy and presents with symptoms of neuropathy in the upper extremity. Given that his nerve-related issues improved on gabapentin, a peripheral neuropathy medication, presence of this condition is plausible."
+      },
+      {
+        "diagnosis": "Cervical Spondylosis",
+        "rationale": "The X-ray reveals significant disc degeneration in the cervical spine at multiple levels (C3-4, C4-5 and C5-6) and lower facet arthropathy, all indicative of cervical spondylosis. Additionally, osteophytes or bone spurs, which often accompany cervical spondylosis, could cause added discomfort and restricted movement.\"."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -638,10 +968,24 @@
         "rationale": "The patient has noticed a 2 to 3 mm nodule in his right testicle, possibly with the epididymis but he is unsure."
       }
     ],
-    "original_diagnosis": "Chronic obstructive pulmonary disease (COPD)",
-    "original_rationale": "Patient exhibits pursed lip breathing and reports increased fatigue, although he has a healthy level of physical activity and denies wheezing.",
-    "hallucinated_rationale": "\"\"\"\nThe patient demonstrates pursed lip breathing characteristic of chronic obstructive pulmonary disease (COPD) and identifies feelings of heightened fatigue. Interestingly, these symptoms seem inconsistent with his noted absence of wheezing and an active lifestyle that includes biking for 20 to 30 miles at a time.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Testicular Lesion",
+    "original_rationale": "The patient has noticed a 2 to 3 mm nodule in his right testicle, possibly with the epididymis but he is unsure.",
+    "hallucinated_rationale": "The patient has noticed a 2 to 3 mm nodule in his right testicle, possibly with the epididymis but he is unsure. Though mild, the patient may experience localized discomfort or changes in testosterone production due to the lesion.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Chronic obstructive pulmonary disease (COPD)",
+        "rationale": "Patient exhibits pursed lip breathing and reports increased fatigue, although he has a healthy level of physical activity and denies wheezing."
+      },
+      {
+        "diagnosis": "Liver disease",
+        "rationale": "The patient has elevated alkaline phosphatase levels, which may indicate a liver condition although further testing is needed. "
+      },
+      {
+        "diagnosis": "Testicular Lesion",
+        "rationale": "The patient has noticed a 2 to 3 mm nodule in his right testicle, possibly with the epididymis but he is unsure. Though mild, the patient may experience localized discomfort or changes in testosterone production due to the lesion."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -662,10 +1006,24 @@
         "rationale": "Considering the patient's symptoms of constipation and their frequency, along with the reduced frequency of bowel movements and hard stool, this suggests a diagnosis of functional constipation, particularly given that the CT scan of the abdomen did not reveal any structural abnormalities."
       }
     ],
-    "original_diagnosis": "Functional constipation",
-    "original_rationale": "Considering the patient's symptoms of constipation and their frequency, along with the reduced frequency of bowel movements and hard stool, this suggests a diagnosis of functional constipation, particularly given that the CT scan of the abdomen did not reveal any structural abnormalities.",
-    "hallucinated_rationale": "\"\"\"  \nWhile the patient's symptoms of constipation, reduced frequency of bowel movements, and hard stools initially point towards functional constipation, the complete absence of abdominal pain during episodes of constipation and lack of any changes in lifestyle or dietary habits that might have triggered this condition, strengthen the diagnosis of functional constipation, despite the normal CT scan of the abdomen.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Irritable Bowel Syndrome",
+    "original_rationale": "Given the patient history of irregular bowel movements, chronic abdominal pain, and diarrhea that are sometimes relieved by bowel movements or abdominal massage, taken along with normal CT scans and absence of any other symptoms (nausea, vomiting), Irritable Bowel Syndrome diagnosis is plausible. This is further supported by family history of IBS.",
+    "hallucinated_rationale": "Given the patient history of irregular bowel movements, chronic abdominal pain, and diarrhea that are sometimes relieved by bowel movements or abdominal massage, taken along with normal CT scans and absence of any other symptoms (nausea, vomiting), Irritable Bowle Syndrome diagnosis is plausible. This is further supported by family history of IBS. Certain dietary modifications such as a low-FODMAP diet, combined with stress management, might also help alleviate the patient's symptoms and improve their quality of life.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Functional constipation",
+        "rationale": "Considering the patient's symptoms of constipation and their frequency, along with the reduced frequency of bowel movements and hard stool, this suggests a diagnosis of functional constipation, particularly given that the CT scan of the abdomen did not reveal any structural abnormalities."
+      },
+      {
+        "diagnosis": "Chronic liver disease",
+        "rationale": "Mild hepatomegaly noted on exam, elevation in liver enzymes (AST and ALT), and use of alcohol may suggest a form of chronic liver disease. This is further supported by the use of Crestor, a medication that might potentially affect the liver."
+      },
+      {
+        "diagnosis": "Irritable Bowel Syndrome",
+        "rationale": "Given the patient history of irregular bowel movements, chronic abdominal pain, and diarrhea that are sometimes relieved by bowel movements or abdominal massage, taken along with normal CT scans and absence of any other symptoms (nausea, vomiting), Irritable Bowle Syndrome diagnosis is plausible. This is further supported by family history of IBS. Certain dietary modifications such as a low-FODMAP diet, combined with stress management, might also help alleviate the patient's symptoms and improve their quality of life."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -688,8 +1046,22 @@
     ],
     "original_diagnosis": "Malignant Melanoma",
     "original_rationale": "The biopsy report reveals an invasive superficial spreading melanoma on the patient's right inferior back, with Clark level 4 and Breslow thickness 0.7 mm, stage 1.",
-    "hallucinated_rationale": "\"The biopsy report identifies an invasive basal cell carcinoma on the patient's right inferior back, with Clark level 4 and Breslow thickness 0.7 mm, stage 1.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The biopsy report reveals an invasive superficial spreading melanoma on the patient's right inferior back, with Clark level 4 and Breslow thickness 0.7 mm, stage 1. This type of melanoma often develops from existing moles and can spread to other areas of the body if not treated promptly.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Nicotine Dependence",
+        "rationale": "The patient is a current smoker since teens, which can significantly impact overall health and specifically increse the risk of melanoma."
+      },
+      {
+        "diagnosis": "Lymphadenopathy",
+        "rationale": "Physical exam reveals a soft lymph node in the right groin. Although it's nontender, the slightly atypical consistency needs further investigation to rule out metastasis."
+      },
+      {
+        "diagnosis": "Malignant Melanoma",
+        "rationale": "The biopsy report reveals an invasive superficial spreading melanoma on the patient's right inferior back, with Clark level 4 and Breslow thickness 0.7 mm, stage 1. This type of melanoma often develops from existing moles and can spread to other areas of the body if not treated promptly.\"."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -710,10 +1082,24 @@
         "rationale": "The patient's previous abnormal pap smear in 2009 and the use of progesterone infers risk of Cervical Intraepithelial Neoplasia, despite recent negative results."
       }
     ],
-    "original_diagnosis": "Generalized Anxiety Disorder",
-    "original_rationale": "Patient's reported increase in anxiety, its relation to work stress, successful control with Buspar and history of anxiety suggest Generalized Anxiety Disorder.",
-    "hallucinated_rationale": "\"The patient exhibited raised levels of anxiety and stress, especially linked to her professional life. Her response to the Buspar medication was positive. Additional flares of anxiety linked to her menstrual cycle can be indicative of Generalized Anxiety Disorder. However, the patient's past medical history does not reveal any long-term diagnosis or treatment for chronic anxiety or anxiety-related disorders.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Cervical Intraepithelial Neoplasia",
+    "original_rationale": "The patient's previous abnormal pap smear in 2009 and the use of progesterone infers risk of Cervical Intraepithelial Neoplasia, despite recent negative results.",
+    "hallucinated_rationale": "The patient's previous abnormal pap smear in 2009 and the use of progesterone infers risk of Cervical Intraepithelial Neoplasia, despite recent negative results. Prolonged periods of stress could potentially impact and disrupt her immune system, increasing the vulnerability to this condition.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Fibrocystic Breast Disease",
+        "rationale": "The patient's continual presence of bilateral breast 'lumps' with some soreness, and history of bilateral breast cysts indicate Fibrocystic Breast Disease."
+      },
+      {
+        "diagnosis": "Generalized Anxiety Disorder",
+        "rationale": "Patient's reported increase in anxiety, its relation to work stress, successful control with Buspar and history of anxiety suggest Generalized Anxiety Disorder."
+      },
+      {
+        "diagnosis": "Cervical Intraepithelial Neoplasia",
+        "rationale": "The patient's previous abnormal pap smear in 2009 and the use of progesterone infers risk of Cervical Intraepithelial Neoplasia, despite recent negative results. Prolonged periods of stress could potentially impact and disrupt her immune system, increasing the vulnerability to this condition."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -736,8 +1122,22 @@
     ],
     "original_diagnosis": "Degenerative Joint Disease (Osteoarthritis)",
     "original_rationale": "The patient reports back pain and joint (knee) pain that have been told to be age-related, which aligns commonly with osteoarthritis.",
-    "hallucinated_rationale": "\"\"\"\nThe patient reports back pain and joint (knee) pain, which aligns commonly with gout. However, after extensive discussion about her medical history and lifestyle, she did not mention consuming a diet high in purines or a family history of gout. This leads to the diagnosis of Degenerative Joint Disease (Osteoarthritis).\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "The patient reports back pain and joint (knee) pain that have been told to be age-related, which aligns commonly with osteoarthritis. Furthermore, the continuous use of joints over time as shown by the patient's history of frequent exercise could have contributed to the wear and tear of the cartilage, thus leading to osteoarthritis.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "History of ER/PR-positive invasive ductal carcinoma of the right breast",
+        "rationale": "The patient has a previous record of ER/PR-positive invasive ductal carcinoma of the right breast, already treated with lumpectomy, lymphadenectomy and adjuvant radiation therapy. Mammograms and physical exams indicate no recurrent malignancy."
+      },
+      {
+        "diagnosis": "Hypercholesterolemia",
+        "rationale": "Hypercholesterolemia is mentioned in the patient's past medical history. She also reportedly has elevated cholesterol levels, which she is managing with diet and exercise under primary care supervision."
+      },
+      {
+        "diagnosis": "Degenerative Joint Disease (Osteoarthritis)",
+        "rationale": "The patient reports back pain and joint (knee) pain that have been told to be age-related, which aligns commonly with osteoarthritis. Furthermore, the continuous use of joints over time as shown by the patient's history of frequent exercise could have contributed to the wear and tear of the cartilage, thus leading to osteoarthritis."
+      }
+    ]
   },
   {
     "dataset": "virtscribe",
@@ -758,10 +1158,24 @@
         "rationale": "The patient has a past medical history of PCOS, a chronic condition that doesn't have a permanent cure and may present with various symptoms."
       }
     ],
-    "original_diagnosis": "Right Hip Osteoarthritis",
-    "original_rationale": "The patient's symptoms of progressive hip pain, restricted range of motion, pain on rotation and the MRI findings of degenerative joint disease support this diagnosis.",
-    "hallucinated_rationale": "\"The patient's symptoms of progressive hip pain, enhanced range of motion, and absence of pain during rotation, in conjunction with the MRI findings of osteoporotic changes, substantiate the diagnosis of Right Hip Osteoarthritis.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Polycystic Ovary Syndrome",
+    "original_rationale": "The patient has a past medical history of PCOS, a chronic condition that doesn't have a permanent cure and may present with various symptoms.",
+    "hallucinated_rationale": "The patient has a past medical history of PCOS, a chronic condition that doesn't have a permanent cure and may present with various symptoms. The condition may also result in metabolic issues, leading to weight gain and complications in managing body weight.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Right Hip Bursitis",
+        "rationale": "The catching sensation of the hip during movement, pain on resisted hip flexion and pain during rotational movements indicate inflammation of the bursa."
+      },
+      {
+        "diagnosis": "Right Hip Osteoarthritis",
+        "rationale": "The patient's symptoms of progressive hip pain, restricted range of motion, pain on rotation and the MRI findings of degenerative joint disease support this diagnosis."
+      },
+      {
+        "diagnosis": "Polycystic Ovary Syndrome",
+        "rationale": "The patient has a past medical history of PCOS, a chronic condition that doesn't have a permanent cure and may present with various symptoms. The condition may also result in metabolic issues, leading to weight gain and complications in managing body weight."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -782,10 +1196,24 @@
         "rationale": "History of the disease, patient's admission of frequently forgetting to check sugar levels, and clinical plan to recheck hemoglobin A1c support continued diagnosis."
       }
     ],
-    "original_diagnosis": "Right knee effusion (swelling)",
-    "original_rationale": "Physical examination revealed appreciable swelling, indicating fluid accumulation due to injury or inflammation.",
-    "hallucinated_rationale": "\"Based on the patient's clinical symptoms, the physical examination showed signs of increased body temperature, indicative of a fever, which is likely causing fluid accumulation leading to knee swelling as a result of systemic inflammation.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Right knee Medial Collateral Ligament (MCL) injury",
+    "original_rationale": "Pain and swelling in her right knee, especially on the medial side and during both flexion and extension movements, suggest possible MCL injury.",
+    "hallucinated_rationale": "\"Pain and swelling in her right knee, especially on the medial side and during both flexion and extension movements, suggest possible MCL injury. Moreover, this injury could further compromise the right knee stability and prolong recovery if related factors like age or possible inflammation due to her diabetes aren't taken into consideration.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Type 2 Diabetes",
+        "rationale": "History of the disease, patient's admission of frequently forgetting to check sugar levels, and clinical plan to recheck hemoglobin A1c support continued diagnosis."
+      },
+      {
+        "diagnosis": "Right knee effusion (swelling)",
+        "rationale": "Physical examination revealed appreciable swelling, indicating fluid accumulation due to injury or inflammation."
+      },
+      {
+        "diagnosis": "Right knee Medial Collateral Ligament (MCL) injury",
+        "rationale": "Pain and swelling in her right knee, especially on the medial side and during both flexion and extension movements, suggest possible MCL injury. Moreover, this injury could further compromise the right knee stability and prolong recovery if related factors like age or possible inflammation due to her diabetes aren't taken into consideration.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -806,10 +1234,24 @@
         "rationale": "Considering the patient's age and the absence of specific injury or trauma, the shoulder pain might be due to arthritis. Although, this seems lesser likely than the first two diagnoses as no joint involvement was found on examination."
       }
     ],
-    "original_diagnosis": "Bursitis",
-    "original_rationale": "Bursitis could be a possibility since patient has repetitive overhead activities (as he renovated his basement) and reports pain with reaching and lifting, which are typical signs of bursitis. Also, there was no numbness or tingling making it less likely to be a nerve issue.",
-    "hallucinated_rationale": "\"Bursitis is a plausible diagnosis as the patient has undertaken repetitive overhead activities (like basement renovation), which can lead to the condition. Notably, the patient hasn't reported any associated frequent fever or chills that typically signify an infection, rather than bursitis. Bursitis can often present with sharp, shooting pain, particularly upon engagement in overhead lifting or reaching activities, both of which have been reported by the patient in this case.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Rotator Cuff Tendinopathy",
+    "original_rationale": "The patient presents with left shoulder pain, which increased with movement and overhead activities, accompanied by restricted range of motion and tenderness over the greater tuberosity of the humerus. These clinical features suggest rotator cuff tendinopathy.",
+    "hallucinated_rationale": "\"The patient presents with left shoulder pain, which increased with movement and overhead activities, accompanied by restricted range of motion and tenderness over the greater tuberosity of the humerus. These clinical features suggest rotator cuff tendinopathy. Such conditions are often exacerbated by occupations or activities that involve frequent use of the affected arm, such as painting or carpentry.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Arthritis",
+        "rationale": "Considering the patient's age and the absence of specific injury or trauma, the shoulder pain might be due to arthritis. Although, this seems lesser likely than the first two diagnoses as no joint involvement was found on examination."
+      },
+      {
+        "diagnosis": "Bursitis",
+        "rationale": "Bursitis could be a possibility since patient has repetitive overhead activities (as he renovated his basement) and reports pain with reaching and lifting, which are typical signs of bursitis. Also, there was no numbness or tingling making it less likely to be a nerve issue."
+      },
+      {
+        "diagnosis": "Rotator Cuff Tendinopathy",
+        "rationale": "The patient presents with left shoulder pain, which increased with movement and overhead activities, accompanied by restricted range of motion and tenderness over the greater tuberosity of the humerus. These clinical features suggest rotator cuff tendinopathy. Such conditions are often exacerbated by occupations or activities that involve frequent use of the affected arm, such as painting or carpentry.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -830,10 +1272,24 @@
         "rationale": "Patient reports urinary incontinence in the context of receiving diuretic medicine; this could be medication-induced, or potentially relate to an underlying genitourinary disorder."
       }
     ],
-    "original_diagnosis": "Urinary Incontinence",
-    "original_rationale": "Patient reports urinary incontinence in the context of receiving diuretic medicine; this could be medication-induced, or potentially relate to an underlying genitourinary disorder.",
-    "hallucinated_rationale": "\"Patient reports urinary incontinence following the initiation of diuretic therapy. However, this symptom is likely the result of her congestive heart failure and hypertension, rather than a side effect of the diuretics or a potential sign of underlying neurological conditions.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Hypertension",
+    "original_rationale": "The patient has a medical history of hypertension, and appears to be receiving multiple medications for it (Cozaar, Norvasc) indicating an ongoing issue.",
+    "hallucinated_rationale": "\"The patient's love for salty snacks like potato chips, known for high sodium content, could also be exacerbating her hypertension if she is not managing her dietary intake carefully.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Urinary Incontinence",
+        "rationale": "Patient reports urinary incontinence in the context of receiving diuretic medicine; this could be medication-induced, or potentially relate to an underlying genitourinary disorder."
+      },
+      {
+        "diagnosis": "Congestive Heart Failure",
+        "rationale": "Echocardiographic findings of abnormal diastolic filling with mild-moderate mitral regurgitation along with lower limb edema and systolic murmur indicate impaired heart function, suggesting congestive heart failure."
+      },
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "The patient's love for salty snacks like potato chips, known for high sodium content, could also be exacerbating her hypertension if she is not managing her dietary intake carefully.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -854,10 +1310,24 @@
         "rationale": "Given his bilateral numbness and left hand weakness, there is a possibility of an underlying peripheral neuropathy, although more investigations would be required."
       }
     ],
-    "original_diagnosis": "Carpal Tunnel Syndrome",
-    "original_rationale": "The patient presents with wrist and hand pain, nocturnal symptoms, positive Tinel sign, numbness in the hand's dermatomal distribution of the median nerve (thumb and index finger), and weakness in hand grip, all indicative of carpal tunnel syndrome.",
-    "hallucinated_rationale": "\"The patient displays symptoms like pain in the wrist and hand, numbness in fingers, particularly the thumb and index finger suggesting a distribution influenced by the ulnar nerve, positive Tinel sign, and signs of weakened hand grip. All these symptoms singularly can be indicative of carpal tunnel syndrome, but the reported distribution of numbness is inconsistent with typical presentations. The hand's numbness focuses more on the ulnar nerve's dermatomal distribution, which while suggestive of carpal tunnel syndrome actually contradicts the diagnosis as carpal tunnel syndrome primarily affects the median nerve.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Peripheral Neuropathy",
+    "original_rationale": "Given his bilateral numbness and left hand weakness, there is a possibility of an underlying peripheral neuropathy, although more investigations would be required.",
+    "hallucinated_rationale": "\"\"\"  \nGiven his bilateral numbness and left hand weakness, there is a possibility of an underlying peripheral neuropathy, although more investigations would be required. This could potentially result from metabolic or nutritional issues, like vitamin B12 deficiency, but further bloodwork tests would be needed to confirm.  \n\"\"\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Carpal Tunnel Syndrome",
+        "rationale": "The patient presents with wrist and hand pain, nocturnal symptoms, positive Tinel sign, numbness in the hand's dermatomal distribution of the median nerve (thumb and index finger), and weakness in hand grip, all indicative of carpal tunnel syndrome."
+      },
+      {
+        "diagnosis": "Occupational Overuse Syndrome",
+        "rationale": "Patient engages in repetitive work activities that could contribute to strain and overuse of the hand and wrist joints, leading to symptoms akin to Occupational Overuse Syndrome."
+      },
+      {
+        "diagnosis": "Peripheral Neuropathy",
+        "rationale": "  \nGiven his bilateral numbness and left hand weakness, there is a possibility of an underlying peripheral neuropathy, although more investigations would be required. This could potentially result from metabolic or nutritional issues, like vitamin B12 deficiency, but further bloodwork tests would be needed to confirm.  \n\"\"\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -880,8 +1350,22 @@
     ],
     "original_diagnosis": "Osteoarthritis",
     "original_rationale": "Given the patient's age, duration and gradual onset of symptoms, and localization of pain, which worsens with activity, Osteoarthritis is a plausible diagnosis; however, the absence of bony changes on X-ray images lowers the likelihood.",
-    "hallucinated_rationale": "\"\"\"\nThe diagnosis of Osteoarthritis is supported by the patient's description of persistent joint pain which becomes worse with physical activity, a characteristic feature of this condition. Moreover, their age and regular engagement in heavy weightlifting suggests the wear-and-tear expected with osteoarthritis. However, typically in Osteoarthritis, there would be positive bony changes identified on X-ray images. The presence of normal sensation in the fingers and lack of history of joint infections make the diagnosis of Osteoarthritis even more likely. \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"Further supporting this diagnosis, obesity, previous joint injury or repeated stress on the joint from certain activities and jobs may further exacerbate the symptoms of osteoarthritis, while contributing to its development.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Medial Epicondylitis",
+        "rationale": "Patient's elbow pain, worse with use of upper extremities, localizes to the medial aspect of the elbow which is consistent with Medial Epicondylitis. Also, as noted, the pain is not relieved by applying ice but is responsive to NSAIDs. History of heavy weight lifting and active sports is a risk factor for this condition."
+      },
+      {
+        "diagnosis": "Elbow Bursitis",
+        "rationale": "Pain localized to the elbow joint along with a history of repetitive lifting could suggest Bursitis; however, the pain is reported on the medial aspect which is less typical for Bursitis."
+      },
+      {
+        "diagnosis": "Osteoarthritis",
+        "rationale": "Further supporting this diagnosis, obesity, previous joint injury or repeated stress on the joint from certain activities and jobs may further exacerbate the symptoms of osteoarthritis, while contributing to its development.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -902,10 +1386,24 @@
         "rationale": "Patient reported a history of heavy alcohol use and continues drinking beer occasionally, suggesting alcohol use disorder."
       }
     ],
-    "original_diagnosis": "Nicotine Dependence",
-    "original_rationale": "Patient reports a history of cigarette smoking and current use of 1 to 2 cigarettes per day, indicating nicotine dependence.",
-    "hallucinated_rationale": "\"\"\"\nThe patient reported drinking alcohol, including a drink everyday, and also mentioning the past use of intravenous drugs. This history, combined with their known Hepatitis C infection, confirms a diagnosis of Nicotine Dependence. \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Chronic Hepatitis C",
+    "original_rationale": "Patient has positive hepatitis C antibody test result, no reported history of hepatitis C, past intravenous drug use, and slightly elevated liver enzymes (AST), all pointing to chronic hepatitis C.",
+    "hallucinated_rationale": "\"Patient has positive hepatitis C antibody test result, no reported history of hepatitis C, past intravenous drug use, and slightly elevated liver enzymes (AST), all pointing to chronic hepatitis C. The patient's regular alcohol consumption could potentially exacerbate the hepatic insult caused by the virus leading to more severe liver damage.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Nicotine Dependence",
+        "rationale": "Patient reports a history of cigarette smoking and current use of 1 to 2 cigarettes per day, indicating nicotine dependence."
+      },
+      {
+        "diagnosis": "Alcohol Use Disorder",
+        "rationale": "Patient reported a history of heavy alcohol use and continues drinking beer occasionally, suggesting alcohol use disorder."
+      },
+      {
+        "diagnosis": "Chronic Hepatitis C",
+        "rationale": "Patient has positive hepatitis C antibody test result, no reported history of hepatitis C, past intravenous drug use, and slightly elevated liver enzymes (AST), all pointing to chronic hepatitis C. The patient's regular alcohol consumption could potentially exacerbate the hepatic insult caused by the virus leading to more severe liver damage.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -926,10 +1424,24 @@
         "rationale": "The orders for morning aldosterone levels and 24-hour urine exams suggest the examining doctor is considering this condition as a potential cause of the uncontrolled hypertension."
       }
     ],
-    "original_diagnosis": "Chronic kidney disease",
-    "original_rationale": "Given the bilateral lower extremity edema, and family history of kidney disease, the patient may be suffering from this condition.",
-    "hallucinated_rationale": "\"\"\" \nThe diagnosis of chronic kidney disease is suspected due to the evidence of a systolic ejection murmur in the patient's heart and the presence of edema in the lower extremities. This could suggest an underlying cardiac problem leading to fluid overload and potential kidney strain.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Primary aldosteronism",
+    "original_rationale": "The orders for morning aldosterone levels and 24-hour urine exams suggest the examining doctor is considering this condition as a potential cause of the uncontrolled hypertension.",
+    "hallucinated_rationale": "\"The condition, primary aldosteronism, if diagnosed, might require medical treatments including lifestyle changes, aldosterone antoagonists, or in rare cases, surgery.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Chronic kidney disease",
+        "rationale": "Given the bilateral lower extremity edema, and family history of kidney disease, the patient may be suffering from this condition."
+      },
+      {
+        "diagnosis": "Uncontrolled hypertension",
+        "rationale": "Strong family history along with current medication use for hypertension and high blood pressure readings confirm this condition."
+      },
+      {
+        "diagnosis": "Primary aldosteronism",
+        "rationale": "The condition, primary aldosteronism, if diagnosed, might require medical treatments including lifestyle changes, aldosterone antoagonists, or in rare cases, surgery.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -950,10 +1462,24 @@
         "rationale": "Physical examination revealed posterior paraspinal muscular tenderness and tightness in the cervical spine"
       }
     ],
-    "original_diagnosis": "Cervical Muscle Strain",
-    "original_rationale": "Physical examination revealed posterior paraspinal muscular tenderness and tightness in the cervical spine",
-    "hallucinated_rationale": "\"\"\"  \nThe patient exhibits signs of clear nasal passages and unremarkable respiration patterns.  \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Diabetes Mellitus Type 2",
+    "original_rationale": "The patient has a medical history of type 2 diabetes and is on metformin",
+    "hallucinated_rationale": "\"The patient has a medical history of type 2 diabetes and is on metformin. Long-term complications from this condition can potentially affect various organ systems, including the cardiovascular and nervous systems.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Cervical Muscle Strain",
+        "rationale": "Physical examination revealed posterior paraspinal muscular tenderness and tightness in the cervical spine"
+      },
+      {
+        "diagnosis": "Tension Headache",
+        "rationale": "Patient has symptoms consistent with tension headaches, including muscle tension and tightness in the neck"
+      },
+      {
+        "diagnosis": "Diabetes Mellitus Type 2",
+        "rationale": "The patient has a medical history of type 2 diabetes and is on metformin. Long-term complications from this condition can potentially affect various organ systems, including the cardiovascular and nervous systems.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -974,10 +1500,24 @@
         "rationale": "The patient's blood glucose levels fluctuating between 80 to 140, her current use of metformin, and her history of diabetes provide continuing evidence of this condition."
       }
     ],
-    "original_diagnosis": "Diabetes Mellitus Type 2",
-    "original_rationale": "The patient's blood glucose levels fluctuating between 80 to 140, her current use of metformin, and her history of diabetes provide continuing evidence of this condition.",
-    "hallucinated_rationale": "\"The patient's blood glucose levels fluctuating between 80 to 140 could potentially suggest hypoglycemia given the lower end measurement. Despite this, she is currently using metformin, a treatment typically used to manage type 2 diabetes, which is deduced from her previous history of diabetes. Therefore, the data point to a diagnosis of Diabetes Mellitus Type 2.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Hypertension",
+    "original_rationale": "The patient has a history of hypertension and is on medication for it. Today's blood pressure reading of 132/80 mm Hg reaffirms the need for continued management of this condition.",
+    "hallucinated_rationale": "\"The patient's report of fluctuating blood pressure readings at home also indicates the necessity of monitoring her diet, specifically her reported frequent consumption of chips, which might be contributing to her hypertension due to their high sodium content.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Diabetes Mellitus Type 2",
+        "rationale": "The patient's blood glucose levels fluctuating between 80 to 140, her current use of metformin, and her history of diabetes provide continuing evidence of this condition."
+      },
+      {
+        "diagnosis": "Streptococcal pharyngitis (Strep throat)",
+        "rationale": "Presenting symptoms of sore throat, fever, and dysphagia along with physical findings of erythema and edema of the peritonsillar space, tonsil swelling, and cervical lymphadenopathy suggest a bacterial infection, most likely Streptococcal pharyngitis"
+      },
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "The patient's report of fluctuating blood pressure readings at home also indicates the necessity of monitoring her diet, specifically her reported frequent consumption of chips, which might be contributing to her hypertension due to their high sodium content.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -998,10 +1538,24 @@
         "rationale": "Presence of ecchymosis over the lateral malleolus may indicate a localized collection of blood in the tissues due to trauma."
       }
     ],
-    "original_diagnosis": "Soft Tissue Injury",
-    "original_rationale": "Patient reported pain and tenderness in the anterolateral soft tissue of the right ankle without any bony tenderness or evidence of fracture in X-ray.",
-    "hallucinated_rationale": "\"The patient presented with a severe headache and dizziness. The X-ray revealed no presence of fracture in the right ankle and the doctor noticed tenderness in the anterolateral soft tissue, thus substantiating the inferred diagnosis of soft tissue injury.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Lateral Ankle Sprain",
+    "original_rationale": "Symptoms reported after slipping and falling, coupled with radiographic findings, are consistent with a lateral ligament complex sprain of the right ankle, specifically the anterior talofibular ligament.",
+    "hallucinated_rationale": "\"Symptoms reported after slipping and falling, coupled with radiographic findings, are consistent with a lateral ligament complex sprain of the right ankle, specifically the anterior talofibular ligament. This type of strain can potentially increase the patient's susceptibility to recurring ankle injuries in the future.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Soft Tissue Injury",
+        "rationale": "Patient reported pain and tenderness in the anterolateral soft tissue of the right ankle without any bony tenderness or evidence of fracture in X-ray."
+      },
+      {
+        "diagnosis": "Ecchymosis/Hematoma",
+        "rationale": "Presence of ecchymosis over the lateral malleolus may indicate a localized collection of blood in the tissues due to trauma."
+      },
+      {
+        "diagnosis": "Lateral Ankle Sprain",
+        "rationale": "Symptoms reported after slipping and falling, coupled with radiographic findings, are consistent with a lateral ligament complex sprain of the right ankle, specifically the anterior talofibular ligament. This type of strain can potentially increase the patient's susceptibility to recurring ankle injuries in the future.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1022,10 +1576,24 @@
         "rationale": "The patient reports a history of gout and is currently on medication (allopurinol) to manage his gout symptoms."
       }
     ],
-    "original_diagnosis": "Gout",
-    "original_rationale": "The patient reports a history of gout and is currently on medication (allopurinol) to manage his gout symptoms.",
-    "hallucinated_rationale": "The patient reports a history of gout which he is managing through the use of an anticoagulant medication, known as allopurinol.",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Nicotine dependence",
+    "original_rationale": "The patient has a long history of smoking and is currently smoking around 1.5 packs per day.",
+    "hallucinated_rationale": "\"The patient has a long history of smoking and is currently smoking around 1.5 packs per day. Additionally, the patient attempts to quit smoking suggest a physical and psychological dependency on nicotine.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Type 2 diabetes",
+        "rationale": "The patient's medical history includes a diagnosis of type 2 diabetes."
+      },
+      {
+        "diagnosis": "Gout",
+        "rationale": "The patient reports a history of gout and is currently on medication (allopurinol) to manage his gout symptoms."
+      },
+      {
+        "diagnosis": "Nicotine dependence",
+        "rationale": "The patient has a long history of smoking and is currently smoking around 1.5 packs per day. Additionally, the patient attempts to quit smoking suggest a physical and psychological dependency on nicotine.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1046,10 +1614,24 @@
         "rationale": "Considering the patient's active running habit and knee pain, iliotibial band syndrome could be a possibility, though it usually presents with lateral knee pain and negative tests for drawer and McMurray reduce its likelihood."
       }
     ],
-    "original_diagnosis": "Iliotibial band syndrome",
-    "original_rationale": "Considering the patient's active running habit and knee pain, iliotibial band syndrome could be a possibility, though it usually presents with lateral knee pain and negative tests for drawer and McMurray reduce its likelihood.",
-    "hallucinated_rationale": "\"Given the patient's regular running routine and the knee pain they're experiencing, iliotibial band syndrome might be contributing. Although the expected lateral knee pain is missing, and the patient showed no signs of inflammation or injury as per McMurray and anterior drawer tests, we are considering this due to the long-term knee pain the patient has been experiencing. It's commonly associated with prolonged overuse in athletes, especially runners.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Chondromalacia patellae",
+    "original_rationale": "Given the patient's bilateral knee pain, tender to palpation, and a positive patellar grind test, chondromalacia patellae can be a possibility, but MRI would be required for confirmation.",
+    "hallucinated_rationale": "Given the patient's bilateral knee pain, tender to palpation, and a positive patellar grind test, chondromalacia patellae can be a possibility, but MRI would be required for confirmation. The patient's excessive running could potentially expedite the degeneration of the cartilage under the kneecap, causing this condition.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Iliotibial band syndrome",
+        "rationale": "Considering the patient's active running habit and knee pain, iliotibial band syndrome could be a possibility, though it usually presents with lateral knee pain and negative tests for drawer and McMurray reduce its likelihood."
+      },
+      {
+        "diagnosis": "Patellofemoral pain syndrome",
+        "rationale": "The patient is an avid runner and reports bilateral knee pain, with exams revealing tenderness, a positive patellar grind test, but no other abnormalities or signs of injury. X-ray and previous MRI do not show fractures or osteoarthritis. This profile is consistent with patellofemoral pain syndrome."
+      },
+      {
+        "diagnosis": "Chondromalacia patellae",
+        "rationale": "Given the patient's bilateral knee pain, tender to palpation, and a positive patellar grind test, chondromalacia patellae can be a possibility, but MRI would be required for confirmation. The patient's excessive running could potentially expedite the degeneration of the cartilage under the kneecap, causing this condition."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1072,8 +1654,22 @@
     ],
     "original_diagnosis": "Iliotibial Band Syndrome",
     "original_rationale": "Given the history of running and tenderness on the lateral aspect of the knee, this could be a possibility though further tests could be recommended for confirmation",
-    "hallucinated_rationale": "\"\"\"\nThe patient's symptoms of knee pain, particularly after running and towards the end of the day, along with the physical examination revealing tenderness on the lateral (outside) aspect of the knee, are indicative of Iliotibial Band Syndrome. However, the absence of swelling and redness, which are common signs of this condition, make the diagnosis less certain. Despite this, an ultrasound or MRI would be unnecessary as the condition is typically self-limiting.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "Given the history of running and tenderness on the lateral aspect of the knee, this could be a possibility though further tests could be recommended for confirmation. This condition, often marked by inflammation of the iliotibial band following overuse, is common among long-distance runners.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Patellofemoral pain syndrome",
+        "rationale": "This condition, also known as runner's knee, could be present given the patient's description of knee pain and history of heavy running, even though no explicit signs were found on examination or X-ray"
+      },
+      {
+        "diagnosis": "Right knee sprain",
+        "rationale": "Patient's knee pain combined with her history of marathon running and absence of arthritis, fracture or other systemic signs on physical examination and X-rays, points to possible overuse injury like a sprain"
+      },
+      {
+        "diagnosis": "Iliotibial Band Syndrome",
+        "rationale": "Given the history of running and tenderness on the lateral aspect of the knee, this could be a possibility though further tests could be recommended for confirmation. This condition, often marked by inflammation of the iliotibial band following overuse, is common among long-distance runners."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1096,8 +1692,22 @@
     ],
     "original_diagnosis": "Depression",
     "original_rationale": "The patient has reported depression in the review of systems which may be associated with the cancer diagnosis, or may exist independently.",
-    "hallucinated_rationale": "\"The patient has indicated feeling depressed potentially due to the onset of type two diabetes. This depressive state may exaggerate the physical discomfort associated with diabetes, like frequent urination or excessive thirst, which she has not mentioned during the consultation.\"\n.",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The patient has reported depression in the review of systems which may be associated with the cancer diagnosis, or may exist independently. The depression could also be exacerbated by the physical symptoms and effects of the cancer treatments like chemotherapy.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Ovarian Cancer",
+        "rationale": "The patient exhibits symptoms such as unintentional weight loss, abdominal pain, and abnormal vaginal bleeding, coupled with the detection of a 3 cm left ovarian mass with lymph node involvement in the CT scan."
+      },
+      {
+        "diagnosis": "Chronic Constipation",
+        "rationale": "Patient reported constipation on review of systems, which may or may not be associated with the primary diagnosis of ovarian cancer."
+      },
+      {
+        "diagnosis": "Depression",
+        "rationale": "The patient has reported depression in the review of systems which may be associated with the cancer diagnosis, or may exist independently. The depression could also be exacerbated by the physical symptoms and effects of the cancer treatments like chemotherapy.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1120,8 +1730,22 @@
     ],
     "original_diagnosis": "Coronary Artery Disease",
     "original_rationale": "The patient's medical history includes coronary artery disease and recent examination shows a 3/6 systolic ejection murmur.",
-    "hallucinated_rationale": "\"\"\"  \nThe patient presents with symptoms of significant fatigue and shortness of breath on exertion, indicative of coronary artery disease. In addition, a recent examination shows a 3/6 systolic ejection murmur.  \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The patient's medical history includes coronary artery disease and recent examination shows a 3/6 systolic ejection murmur. Lifestyle alterations, such as a healthier diet and routine exercise, may be beneficial in managing the progression of the disease.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Diabetes",
+        "rationale": "The patient has a prior medical history of diabetes which is managed with metformin, as noted in the assessment and plan."
+      },
+      {
+        "diagnosis": "Benign Prostatic Hyperplasia",
+        "rationale": "The patient reports difficulty urinating and the physical exam revealed an enlarged prostate, which are common symptoms of Benign Prostatic Hyperplasia."
+      },
+      {
+        "diagnosis": "Coronary Artery Disease",
+        "rationale": "The patient's medical history includes coronary artery disease and recent examination shows a 3/6 systolic ejection murmur. Lifestyle alterations, such as a healthier diet and routine exercise, may be beneficial in managing the progression of the disease.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1144,8 +1768,22 @@
     ],
     "original_diagnosis": "Soft Tissue Injury",
     "original_rationale": "The localized swelling, bruising, and tenderness to palpation at the right midfoot are indicative of potential underlying soft tissue injury.",
-    "hallucinated_rationale": "\"The localized swelling, bruising, and discomfort on the right foot could potentially suggest soft tissue injury, as the symptoms are consistent with exercise-induced bronchospasm.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The pain experienced by the patient when moving or applying pressure may also suggest potential damage to tendons or ligaments in the area affected by the injury.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Lisfranc Fracture",
+        "rationale": "The patient's symptoms of right foot pain following a traumas, positive piano key test and radiographic evidence of a dorsal displacement of the base of the 2nd metatarsal and a fragment in the Lisfranc joint space support this."
+      },
+      {
+        "diagnosis": "Foot Sprain",
+        "rationale": "The mechanism of injury characterized by a quick twist of the foot during a fall suggests possible ligamentous strain or sprain in addition to the confirmed fracture."
+      },
+      {
+        "diagnosis": "Soft Tissue Injury",
+        "rationale": "The pain experienced by the patient when moving or applying pressure may also suggest potential damage to tendons or ligaments in the area affected by the injury.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1168,8 +1806,22 @@
     ],
     "original_diagnosis": "Diabetes",
     "original_rationale": "Daily metformin use and history of diabetes, alongside with a hemoglobin A1c at 7.3, indicate a diagnosis of diabetes.",
-    "hallucinated_rationale": "\"The patient's persisting back pain, along with the fact that this is the third instance of such episodes - contoured by physical examination revealing tenderness around her kidney (CVAs) - underscores that she has a diabetes diagnosis. An increased level of pain could indicate a high A1c and confirms diabetes.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"\"\"  \nDaily metformin use and history of diabetes, alongside with a hemoglobin A1c at 7.3, indicate a diagnosis of diabetes. Persistent blood sugar control can potentially decrease the risk of developing severe diabetes-related complications, such as neuropathy, retinopathy, or kidney disease.\n\"\"\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "History of hypertension, slightly elevated blood pressure on examination, and current Norvasc 2.5 mg daily prescription suggest the patient has hypertension."
+      },
+      {
+        "diagnosis": "Kidney Stones",
+        "rationale": "The left-sided back pain, history of kidney stones, hematuria, and CVA tenderness align with a kidney stones diagnosis."
+      },
+      {
+        "diagnosis": "Diabetes",
+        "rationale": "  \nDaily metformin use and history of diabetes, alongside with a hemoglobin A1c at 7.3, indicate a diagnosis of diabetes. Persistent blood sugar control can potentially decrease the risk of developing severe diabetes-related complications, such as neuropathy, retinopathy, or kidney disease.\n\"\"\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1190,10 +1842,24 @@
         "rationale": "Given the location of the kidney stone in the proximal right ureter, the case could also be classified as urolithiasis, which involves the formation of calculi anywhere within the urinary tract."
       }
     ],
-    "original_diagnosis": "Urolithiasis",
-    "original_rationale": "Given the location of the kidney stone in the proximal right ureter, the case could also be classified as urolithiasis, which involves the formation of calculi anywhere within the urinary tract.",
-    "hallucinated_rationale": "\"\"\"  \nDespite the patient's acute onset of back pain, the way his pain radiated down to his groin, along with the kidney stone found in the proximal right ureter, suggests a diagnosis of urolithiasis. This condition normally indicates the presence of calculi in the bladder or urethra, which can be a primary cause of the pain experienced near the groin area.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Nephrolithiasis",
+    "original_rationale": "The patient's sudden onset of right back pain as well as reports of nausea and the CT scan revealing a kidney stone in the right ureter are all indicative of kidney stones (nephrolithiasis).",
+    "hallucinated_rationale": "\"The patient's sudden onset of right back pain as well as reports of nausea and the CT scan revealing a kidney stone in the right ureter are all indicative of kidney stones (nephrolithiasis). The risk of nephrolithiasis may also be increased as the patient's father has had a history of kidney stones, suggesting a potential genetic predisposition.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Renal colic",
+        "rationale": "The patient\u2019s reported pain radiating to the groin and intermittent nature of the pain correspond with renal colic typically caused by nephrolithiasis."
+      },
+      {
+        "diagnosis": "Urolithiasis",
+        "rationale": "Given the location of the kidney stone in the proximal right ureter, the case could also be classified as urolithiasis, which involves the formation of calculi anywhere within the urinary tract."
+      },
+      {
+        "diagnosis": "Nephrolithiasis",
+        "rationale": "The patient's sudden onset of right back pain as well as reports of nausea and the CT scan revealing a kidney stone in the right ureter are all indicative of kidney stones (nephrolithiasis). The risk of nephrolithiasis may also be increased as the patient's father has had a history of kidney stones, suggesting a potential genetic predisposition.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1214,10 +1880,24 @@
         "rationale": "The absence of palpable dorsalis pedis or posterior tibial pulses and a non-healing ulcer might indicate poor blood supply from peripheral artery disease."
       }
     ],
-    "original_diagnosis": "Diabetic Foot Ulcer",
-    "original_rationale": "The patient reports a non-healing right foot ulcer, has a history of diabetes, and takes insulin. Signs also include numbness and tingling in the feet.",
-    "hallucinated_rationale": "\"The patient has a prolonged non-healing ulcer on the right foot and a history of cardiac issues, which indicates the presence of a diabetic foot ulcer. Other signs such as numbness and tingling in the feet further solidify the diagnosis.\"\n.",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Peripheral Artery Disease",
+    "original_rationale": "The absence of palpable dorsalis pedis or posterior tibial pulses and a non-healing ulcer might indicate poor blood supply from peripheral artery disease.",
+    "hallucinated_rationale": "\"The absence of palpable dorsalis pedis or posterior tibial pulses and a non-healing ulcer might indicate poor blood supply from peripheral artery disease. Prolonged smoking and uncontrolled diabetes are known risk factors that often lead to the progression of such vascular conditions.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Diabetic Foot Ulcer",
+        "rationale": "The patient reports a non-healing right foot ulcer, has a history of diabetes, and takes insulin. Signs also include numbness and tingling in the feet."
+      },
+      {
+        "diagnosis": "Poorly Controlled Diabetes Mellitus",
+        "rationale": "The patient's blood glucose has been running high, and his hemoglobin A1c is higher than 9, indicating poorly managed diabetes."
+      },
+      {
+        "diagnosis": "Peripheral Artery Disease",
+        "rationale": "The absence of palpable dorsalis pedis or posterior tibial pulses and a non-healing ulcer might indicate poor blood supply from peripheral artery disease. Prolonged smoking and uncontrolled diabetes are known risk factors that often lead to the progression of such vascular conditions.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1240,24 +1920,22 @@
     ],
     "original_diagnosis": "Urinary Tract Infection",
     "original_rationale": "The patient's symptoms of back pain and hematuria, along with potential for kidney stone-induced obstruction, might signal a urinary tract infection, pending urinalysis results.",
-    "hallucinated_rationale": "\"The patient's symptoms primarily include constant back pain and the appearance of blood in the urine, which have known associations with kidney stones. However, the absence of dysuria conflicts with the typical symptoms of a urinary tract infection. Therefore, the patient\u2019s symptoms alone might suggest a urinary tract infection, although this diagnosis could be entirely unrelated to the identified kidney stone.\".",
-    "error_type": "consistency_hallucination"
-  },
-  {
-    "dataset": "aci",
-    "encounter_id": "D2N053",
-    "dialogue": "[doctor] so barbara i i know you are here for some itchy scalp pain can you tell me a little bit about how you're doing\n[patient] yeah it's still quite a problem you know something i've been suffering with for so long now it's still quite itchy and it's really embarrassing too because i'll have dandruff so much like all over me but but i just ca n't stop itching\n[doctor] okay when did you first notice this\n[patient] i wan na say it's been a while but probably worsening in the past like six months or so\n[doctor] okay okay and have you seen ever noticed any rashes either when it first started or intermittently anywhere else\n[patient] on my body no not really\n[doctor] okay okay just mainly up underneath your on your scalp there uh and i can i can see that man that looks really itchy and scaly have you died your hair recently or used any other chemicals you you know like a new hair spray or gel\n[patient] nothing new i mean i do dye my hair but i've been doing that for years now but otherwise i do n't really use a lot of products in my hair\n[doctor] yeah i you know it's funny you say that because i keep saying i earned this gray hair and i'm gon na keep it so yeah have you tried any over the counter treatments i know there is a lot out of there something you know like a t gel or any of those other have those helped\n[patient] yeah i did that i did head and shoulders i even tried some castor oil and but none of them really seemed to be helping\n[doctor] okay okay let's talk about some other symptoms any joint pain fever weight loss\n[patient] not that i can recall i've been pretty good otherwise\n[doctor] okay good and going back you know to your grandparents has anybody else in the family had similar symptoms that you're aware of\n[patient] no well maybe my sister\n[doctor] maybe your sister okay\n[patient] yeah maybe my sister i mean i know she'll is no one has as bad as i do but she does report like just having a dry scalp\n[doctor] okay okay now you know a lot of times we can see this with you know high levels of stress has there been any new mental or emotional stressors at work or at home\n[patient] not really i mean it's basically the same things\n[doctor] okay yeah i yeah we have a lot of that yes so let me go ahead and and look at this a little closer here the first off i wan na tell you the the vital signs that the my assistant took when you came in your blood pressure is one thirty over sixty eight your heart rate was ninety eight and your respiratory rate was eighteen so those all look good and appear normal and your temperature was ninety seven . seven and that is all normal now when i look at your scalp here i do notice that you have demarcated scaly erythematous plaques and that's just kind of explaining technically what's going on those patches and they're they're in a patchy format they're diffusely present across the back of your skull and that's probably why you you see all that that that white dander you know on your on your your clothes as you go through the day now lem me talk a little bit about my impression and plan i think that you have a scalp psoriasis and let's and here is my thoughts on that what i would like you to use is to use clobetasol that's a zero . zero five percent solution and i want you to use that twice daily on the the affected areas of your scalp so you're just gon na put this on and just kinda gently rub it in now i know to do it twice daily is going to be difficult but if you can do it first thing in the morning when you get up and then before you go to bed you know get a shower and before you go to bed that will be great i want you to continue to use t-gel shampoo that you listed when you first came in that's a very good solution shampoo for that and that will help with controlling a lot of this now there is no cure for this unfortunately and flareups can be unpredictable but we see that you know not a we do n't have a great finger on what causes the flare ups but i'm gon na give you some steroids that will help and we're gon na have to manage that on a ongoing basis but when you get do get a flare up i want you to be using these flare steroid that i give you as we go through that and then i wan na see you back here in three months or sooner if it gets significantly worse do you have any questions for me\n[patient] no okay so i'll just use that steroid solution and then just as needed if it's really bad but then otherwise just use the t gel\n[doctor] yeah i want it's exactly what i want you to do i want you to use that that solution twice daily when you get that flare but then other than that just continue to use that t-gel shampoo\n[patient] alright\n[doctor] okay i'm gon na have my nurse come in and get you discharged but i the we will see you again in three months or and again please if it gets worse please do n't hesitate to call me and come in sooner\n[patient] alright perfect thank you\n[doctor] thank you\n[patient] okay bye",
-    "note": "CHIEF COMPLAINT\n\nItchy scalp pain.\n\nREVIEW OF SYSTEMS\n\nConstitutional: Denies fever or weight loss.\nHENT: Reports scalp pain Musculoskeletal: Denies joint pain.\nSkin: Reports itchy scalp Denies any rashes.\n\nVITALS\n\nBP: 130/68.\nHR: 98.\nRR:18.\nTemperature is 97.7 today.\n\nPHYSICAL EXAM\n\nIntegumentary\n- Examination: Scalp reveals demarcated scaly, erythematous plaques. They are patchy in format and diffusely present across the back of the skull.\n\nASSESSMENT AND PLAN\n\n1. Scalp psoriasis.\n- Medical Reasoning: The patient presents today with symptoms similar to scalp psoriasis.\n- Patient Education and Counseling: Nature of the diagnosis was discussed as well as treatment options. Patient was advised there is no cure for this. Patient was counseled on how to apply clobetasol 0.05%.\n- Medical Treatment: Prescription for clobetasol 0.05% solution twice daily provided. Continuing using T/Gel shampoo. Prescription for steroids provided to be used for flare ups.\n\nPatient Agreements: The patient understands and agrees with the recommended medical treatment plan.\n\nINSTRUCTIONS\n\nThe patient will follow-up in 3 months or sooner if her conditions worsen.",
-    "diagnoses": [
+    "hallucinated_rationale": "The patient's symptoms of back pain and hematuria, along with potential for kidney stone-induced obstruction, might signal a urinary tract infection, pending urinalysis results. If the infection has ascended to the kidneys, pyelonephritis, a more serious condition, may develop.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
       {
-        "diagnosis": "Scalp Psoriasis",
-        "rationale": "The presence of demarcated scaly, erythematous plaques on the scalp along with the patient's symptoms of scalp discomfort and itchiness are indicative of scalp psoriasis."
+        "diagnosis": "Kidney Stone (Nephrolithiasis)",
+        "rationale": "The patient's back pain, hematuria, nausea and the CT scan revealing a kidney stone in her right ureter align to diagnose kidney stone."
+      },
+      {
+        "diagnosis": "Dehydration",
+        "rationale": "Patient's recurring symptoms despite medication intake and her own admission of not drinking enough water suggest dehydration."
+      },
+      {
+        "diagnosis": "Urinary Tract Infection",
+        "rationale": "The patient's symptoms of back pain and hematuria, along with potential for kidney stone-induced obstruction, might signal a urinary tract infection, pending urinalysis results. If the infection has ascended to the kidneys, pyelonephritis, a more serious condition, may develop."
       }
-    ],
-    "original_diagnosis": "Scalp Psoriasis",
-    "original_rationale": "The presence of demarcated scaly, erythematous plaques on the scalp along with the patient's symptoms of scalp discomfort and itchiness are indicative of scalp psoriasis.",
-    "hallucinated_rationale": "\"Despite the patient describing symptoms such as an itchy scalp, dandruff and demarcated scaly, erythematous plaques on the scalp, these point towards a case of scalp psoriasis. However, the patient's prolonged use of hair dyes suggests a possible allergic reaction causing contact dermatitis, which is not consistent with the diagnosed scalp psoriasis.\".",
-    "error_type": "consistency_hallucination"
+    ]
   },
   {
     "dataset": "aci",
@@ -1278,10 +1956,24 @@
         "rationale": "The patient's history of a right ankle fracture 20 years ago, coupled with chronic soreness and swelling in the same ankle, indicate this condition."
       }
     ],
-    "original_diagnosis": "Chronic neuropathy",
-    "original_rationale": "The patient's long-term numbness in the right foot suggests a possible neuropathic condition.",
-    "hallucinated_rationale": "\"\"\"\nThe numbness in the patient's foot indicates a possible chronic neuropathy. This was proven by the brisk capillary refill and strong dorsalis pedis pulse in the neurovascular exam, which are common indicators of this condition.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Post-traumatic arthritis (right ankle)",
+    "original_rationale": "The patient's history of a right ankle fracture 20 years ago, coupled with chronic soreness and swelling in the same ankle, indicate this condition.",
+    "hallucinated_rationale": "\"The condition could have been further exacerbated by cumulative strain, possibly from recurring heavy physical activities such as yard work.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Lisfranc fracture",
+        "rationale": "The patient's record of a traumatic injury, clinical symptoms of severe foot pain, and radiography findings i.e., dorsal displacement of 2nd metatarsal and bony fragments confirm this diagnosis."
+      },
+      {
+        "diagnosis": "Chronic neuropathy",
+        "rationale": "The patient's long-term numbness in the right foot suggests a possible neuropathic condition."
+      },
+      {
+        "diagnosis": "Post-traumatic arthritis (right ankle)",
+        "rationale": "The condition could have been further exacerbated by cumulative strain, possibly from recurring heavy physical activities such as yard work.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1302,10 +1994,24 @@
         "rationale": "This refers to involuntary, fine twitching of muscle fibers, commonly seen in eyelid muscle and could be the potential cause of the patient's symptoms."
       }
     ],
-    "original_diagnosis": "Blepharospasm",
-    "original_rationale": "The reported right eye twitch could be indicative of this condition, which involves involuntary blinking or spasm of the eyelids.",
-    "hallucinated_rationale": "\"\"\"\nThe reported right eye twitch suggests a condition known as blepharospasm, which involves uncontrollable blinking or spasms of the eyelids. This condition is closely related to exposure to high-intensity light or prolonged screen time, neither of which were reported in Karen's case.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Myokymia",
+    "original_rationale": "This refers to involuntary, fine twitching of muscle fibers, commonly seen in eyelid muscle and could be the potential cause of the patient's symptoms.",
+    "hallucinated_rationale": "This refers to involuntary, fine twitching of muscle fibers, commonly seen in eyelid muscle and could be the potential cause of the patient's symptoms. It is often harmless and temporary, but in rare cases, it can be a symptom of a more serious neurological disorder.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Blepharospasm",
+        "rationale": "The reported right eye twitch could be indicative of this condition, which involves involuntary blinking or spasm of the eyelids."
+      },
+      {
+        "diagnosis": "Transient tic disorder",
+        "rationale": "The patient presents with right eye twitching but no other neurological symptoms, consistent with a tic. They are also within the typical age range (5-10 years) for development of transient tic disorders."
+      },
+      {
+        "diagnosis": "Myokymia",
+        "rationale": "This refers to involuntary, fine twitching of muscle fibers, commonly seen in eyelid muscle and could be the potential cause of the patient's symptoms. It is often harmless and temporary, but in rare cases, it can be a symptom of a more serious neurological disorder."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1326,10 +2032,24 @@
         "rationale": "The patient's recurrent lung infections, productive cough and the presence of fine rales upon auscultation suggest that Chronic Bronchitis could be a possible diagnosis."
       }
     ],
-    "original_diagnosis": "Hypersensitivity Pneumonitis",
-    "original_rationale": "The patient's recurrent lung infections, productive cough, absence of smoking history, along with his occupational exposure as a farmer, particularly to hay, suggest a diagnosis of Hypersensitivity Pneumonitis.",
-    "hallucinated_rationale": "\"The patient's absence of any known allergies combined with a recurrent lung infection, a productive cough, and no exposure to smoke or second-hand smoke indicate a diagnosis of Hypersensitivity Pneumonitis. This is reinforced by the patient's farming occupation and routine exposure to hay.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Chronic Bronchitis",
+    "original_rationale": "The patient's recurrent lung infections, productive cough and the presence of fine rales upon auscultation suggest that Chronic Bronchitis could be a possible diagnosis.",
+    "hallucinated_rationale": "\"The patient's recurrent lung infections, productive cough and the presence of fine rales upon auscultation suggest that Chronic Bronchitis could be a possible diagnosis. Chronic Bronchitis could also cause fatigue and weakness, further impacting the patient's ability to perform demanding farm work.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Pneumonia",
+        "rationale": "The productive cough, low-grade fever, respiratory symptoms along with the chest x-ray showing ground glass opacities may suggest Pneumonia."
+      },
+      {
+        "diagnosis": "Hypersensitivity Pneumonitis",
+        "rationale": "The patient's recurrent lung infections, productive cough, absence of smoking history, along with his occupational exposure as a farmer, particularly to hay, suggest a diagnosis of Hypersensitivity Pneumonitis."
+      },
+      {
+        "diagnosis": "Chronic Bronchitis",
+        "rationale": "The patient's recurrent lung infections, productive cough and the presence of fine rales upon auscultation suggest that Chronic Bronchitis could be a possible diagnosis. Chronic Bronchitis could also cause fatigue and weakness, further impacting the patient's ability to perform demanding farm work.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1352,8 +2072,22 @@
     ],
     "original_diagnosis": "Arthritis of the Great Toe",
     "original_rationale": "The X-ray results show loss of cartilage with some arthritis present along with the bone spur on the great toe, which suggests arthritis of the great toe.",
-    "hallucinated_rationale": "\"The patient's symptoms and an X-ray indicating a large spur on the big toe can be attributed to a stress fracture from extensive bike riding. However, the inflammation and severe pain suggest a more severe condition such as arthritis of the great toe.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "The X-ray results show loss of cartilage with some arthritis present along with the bone spur on the great toe, which suggests arthritis of the great toe. This condition often develops after repeated pressure or stress on the toe joint, possibly from activities like long-distance running or high-impact sports.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Hallux Rigidus",
+        "rationale": "Clinical presentation of right great toe pain with loss of cartilage, arthritis, and bone spur evident on X-ray all line up with hallux rigidus diagnosis, which the doctor also explicitly stated."
+      },
+      {
+        "diagnosis": "Gout",
+        "rationale": "Patient describes a throbbing, burning pain in the great toe that is red and painful to touch, all of which could suggest a gout attack."
+      },
+      {
+        "diagnosis": "Arthritis of the Great Toe",
+        "rationale": "The X-ray results show loss of cartilage with some arthritis present along with the bone spur on the great toe, which suggests arthritis of the great toe. This condition often develops after repeated pressure or stress on the toe joint, possibly from activities like long-distance running or high-impact sports."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1374,10 +2108,24 @@
         "rationale": "The patient has a known history of hypertension, and it is being considered in the management plan."
       }
     ],
-    "original_diagnosis": "Hypertension",
-    "original_rationale": "The patient has a known history of hypertension, and it is being considered in the management plan.",
-    "hallucinated_rationale": "\"\"\" \nThe patient's hypertension diagnosis is supported by his regular bouts of severe headaches, episodes of dizziness, and a persistent nosebleed. Thus, these symptoms necessitate continued consideration of hypertension in the management plan.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Left Ventricular Dysfunction",
+    "original_rationale": "The grading of systolic ejection murmur and the plan to monitor the patient's ventricular function suggests the presence of left ventricular dysfunction.",
+    "hallucinated_rationale": "The grading of systolic ejection murmur and the plan to monitor the patient's ventricular function suggests the presence of left ventricular dysfunction. The patient may have a higher risk of hospitalization and heart failure if left untreated.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Coronary Artery Disease (CAD)",
+        "rationale": "The patient has a known history of CAD, prior stent placements and continues to display suggestive clinical features."
+      },
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "The patient has a known history of hypertension, and it is being considered in the management plan."
+      },
+      {
+        "diagnosis": "Left Ventricular Dysfunction",
+        "rationale": "The grading of systolic ejection murmur and the plan to monitor the patient's ventricular function suggests the presence of left ventricular dysfunction. The patient may have a higher risk of hospitalization and heart failure if left untreated."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1400,8 +2148,22 @@
     ],
     "original_diagnosis": "Asthma",
     "original_rationale": "The patient has a history of asthma, uses albuterol as needed, and is reporting shortness of breath, with the doctor planning to prescribe daily asthma medication.",
-    "hallucinated_rationale": "\"The patient has a history of asthma and uses an albuterol inhaler as a management measure. Recently, the patient has been reporting instances of shortness of breath typically associated with chronic obstructive pulmonary disease (COPD), leading the healthcare provider to consider adding daily asthma medication to their treatment regimen.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "The patient has a history of asthma, uses albuterol as needed, and is reporting shortness of breath, with the doctor planning to prescribe daily asthma medication. Furthermore, the patient's asthma symptoms become particularly challenging during high-intensity physical activities such as water polo, potentially indicating exercise-induced asthma.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Allergic Rhinitis",
+        "rationale": "The patient reported seasonal allergies and mild fluid in the ears, signs commonly associated with allergic rhinitis."
+      },
+      {
+        "diagnosis": "Mood disorder",
+        "rationale": "The patient reports recent mood changes and is under high stress, necessitating a referral to a therapist and a mood screening questionnaire."
+      },
+      {
+        "diagnosis": "Asthma",
+        "rationale": "The patient has a history of asthma, uses albuterol as needed, and is reporting shortness of breath, with the doctor planning to prescribe daily asthma medication. Furthermore, the patient's asthma symptoms become particularly challenging during high-intensity physical activities such as water polo, potentially indicating exercise-induced asthma."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1424,8 +2186,22 @@
     ],
     "original_diagnosis": "Soft tissue injury",
     "original_rationale": "The swelling and ecchymosis seen on the patient's foot examination suggest some degree of soft tissue injury.",
-    "hallucinated_rationale": "\"The patient's reported foot pain, along with the absence of any numbness or tingling sensation, underpins the diagnosis of a soft tissue injury.\".",
-    "error_type": "consistency_hallucination"
+    "hallucinated_rationale": "\"The injury could potentially involve deep soft tissues such as muscles, tendons, or ligaments, meriting further investigation and imaging.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Metatarsal Dislocation",
+        "rationale": "X-ray revealing subtle dorsal displacement of the base of the 2nd metatarsal and 3 mm separation of the 1st and 2nd metatarsal bases suggest a possible metatarsal dislocation."
+      },
+      {
+        "diagnosis": "Lisfranc fracture",
+        "rationale": "Patient's foot injury from soccer, her foot pain, physical exam revealing tenderness in the midfoot, positive Piano Key test and her X-ray result showing a bony fragment in the Lisfranc joint space support this diagnosis."
+      },
+      {
+        "diagnosis": "Soft tissue injury",
+        "rationale": "The injury could potentially involve deep soft tissues such as muscles, tendons, or ligaments, meriting further investigation and imaging.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1446,10 +2222,24 @@
         "rationale": "The onset of injury during a basketball game, absence of bone fractures according to the x-ray, and presence of ecchymosis and swelling suggest a soft tissue damage."
       }
     ],
-    "original_diagnosis": "Medial Collateral Ligament (MCL) Injury",
-    "original_rationale": "Patient's knee pain is localized to the medial aspect and was initiated by a trauma while playing basketball, followed by pain during palpation on medial aspect, decreased range of motion, and knee effusion.",
-    "hallucinated_rationale": "\"Patient's knee pain, located on the medial aspect, commenced after a basketball injury. However, despite the absence of a 'pop' sound usually indicative of MCL injury, and a negative varus and valgus stress test which typically rules out ligament damage, we have diagnosed the patient with a Medial Collateral Ligament (MCL) Injury. The reasoning includes pain during palpation on the medial aspect, restricted range of motion, and knee effusion.\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Knee Effusion",
+    "original_rationale": "Physical examination and x-ray results report effusion in the right knee reflecting injuries, inflammation or an internal joint derangement.",
+    "hallucinated_rationale": "\"Physical examination and x-ray results report effusion in the right knee reflecting injuries, inflammation or an internal joint derangement. The presence of knee effusion might also suggest underlying conditions such as osteoarthritis or meniscal tears that would require further diagnostic evaluations.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Soft Tissue Injury",
+        "rationale": "The onset of injury during a basketball game, absence of bone fractures according to the x-ray, and presence of ecchymosis and swelling suggest a soft tissue damage."
+      },
+      {
+        "diagnosis": "Medial Collateral Ligament (MCL) Injury",
+        "rationale": "Patient's knee pain is localized to the medial aspect and was initiated by a trauma while playing basketball, followed by pain during palpation on medial aspect, decreased range of motion, and knee effusion."
+      },
+      {
+        "diagnosis": "Knee Effusion",
+        "rationale": "Physical examination and x-ray results report effusion in the right knee reflecting injuries, inflammation or an internal joint derangement. The presence of knee effusion might also suggest underlying conditions such as osteoarthritis or meniscal tears that would require further diagnostic evaluations.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1470,10 +2260,24 @@
         "rationale": "Based on the symptoms including discomfort when swallowing, chest pain and epigastric pain, and lifestyle factors such as weight gain and diet that can trigger GERD; also in line with the prescription of Protonix."
       }
     ],
-    "original_diagnosis": "Esophageal Stricture",
-    "original_rationale": "Based on the barium swallow study revealing two areas of mild narrowing in the mid and lower portions of the esophagus and the symptom of difficulty swallowing larger pieces of food, this suggests an issue with esophageal constrictions.",
-    "hallucinated_rationale": "\"\"\"\nGiven the barium swallow study displaying two areas of slight narrowing in the mid and lower sections of the esophagus, and the presence of epigastric pain, this could indicate gastric reflux disease causing persistent inflammation and thus difficulty in swallowing larger food pieces.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Acute Esophagitis",
+    "original_rationale": "Directly suggested by the assessment based on multiple symptoms in the patient including difficulty swallowing, chest pain during swallowing, and epigastric pain as well as lifestyle changes such as increased alcohol consumption and consumption of pizza and burgers.",
+    "hallucinated_rationale": "\"\"\"  \nDirectly suggested by the assessment based on multiple symptoms in the patient including difficulty swallowing, chest pain during swallowing, and epigastric pain as well as lifestyle changes such as increased alcohol consumption and consumption of pizza and burgers. This condition can also be worsened by chronic stress, which can disrupt the patient's digestive systems and exacerbate symptoms.  \n\"\"\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Gastroesophageal Reflux Disease (GERD)",
+        "rationale": "Based on the symptoms including discomfort when swallowing, chest pain and epigastric pain, and lifestyle factors such as weight gain and diet that can trigger GERD; also in line with the prescription of Protonix."
+      },
+      {
+        "diagnosis": "Esophageal Stricture",
+        "rationale": "Based on the barium swallow study revealing two areas of mild narrowing in the mid and lower portions of the esophagus and the symptom of difficulty swallowing larger pieces of food, this suggests an issue with esophageal constrictions."
+      },
+      {
+        "diagnosis": "Acute Esophagitis",
+        "rationale": "  \nDirectly suggested by the assessment based on multiple symptoms in the patient including difficulty swallowing, chest pain during swallowing, and epigastric pain as well as lifestyle changes such as increased alcohol consumption and consumption of pizza and burgers. This condition can also be worsened by chronic stress, which can disrupt the patient's digestive systems and exacerbate symptoms.  \n\"\"\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1494,30 +2298,24 @@
         "rationale": "The patient's elevated HbA1c, history of diabetes, and symptom of polyuria are indicative of potential poor glycemic control."
       }
     ],
-    "original_diagnosis": "Type 2 Diabetes Mellitus",
-    "original_rationale": "The patient's elevated HbA1c, history of diabetes, and symptom of polyuria are indicative of potential poor glycemic control.",
-    "hallucinated_rationale": "\"The patient's elevated HbA1c, history of diabetes, and recent weight gain are suggestive of uncontrolled thyroid disease. This is indicating that her Type 2 Diabetes Mellitus may not be well-managed.\".",
-    "error_type": "consistency_hallucination"
-  },
-  {
-    "dataset": "aci",
-    "encounter_id": "D2N064",
-    "dialogue": "[doctor] hey matthew how're you doing\n[patient] hey doc i'm doing pretty good how are you\n[doctor] i'm doing pretty good hey i see here in the nurse's notes it looks like you hurt your left ankle can you tell me a little bit more about that\n[patient] yeah i did my wife and i were on a walk yesterday and i was just talking to her and and stepped off the curb and landed on it wrong it's kind of embarrassing but yeah it's been killing me for a couple days now\n[doctor] okay now when you fell did you feel or hear a pop or anything like that\n[patient] i would n't say i really heard a pop it was just kind of really kind of felt extended and stretched and it it's just been really bothering me ever since kind of on the outside of it\n[doctor] okay and then were you able to walk on it after the incident\n[patient] i was able to get back to the house because i did n't wan na you know make my wife carry me but it was it was painful\n[doctor] okay and then have you done any or had any injuries to that ankle before\n[patient] nothing substantial that i would say in the past\n[doctor] okay and then what have you been doing for that left ankle since then have you done anything to help make it make the pain less\n[patient] i have taken some ibuprofen and then i just tried to elevate it and ice it a little bit and keep my weight off of it\n[doctor] okay so let's talk real quick about your pain level zero being none ten being the worst pain you've been in in your life without any medication on board can you rate your pain for me\n[patient] i would say it's about an eight\n[doctor] okay and then when you do take that ibuprofen or tylenol what what's your relief level what's your pain look like then\n[patient] maybe a seven it it's a little\n[doctor] okay now you mentioned going for a walk my wife and i've been on on back behind the new rex center where the new trails are have you guys been back there\n[patient] we have n't yet but i'm sure we'll check it out ever since i feel like working at home during covid we we we take walks all the time\n[doctor] yeah i\n[patient] no i have n't been there yet\n[doctor] yeah those those trails are great there's like five miles of regular flat trails and then there's a bunch of hiking trails that they've opened up as well it's a really great place man you guys need to get out there we'll get you fixed up and we'll get you back out there okay\n[patient] awesome\n[doctor] so let's let's talk a little bit about my physical exam if it's okay with you i'm gon na do a quick physical exam on you your vitals look stable by the way a little elevated i know you're in pain on a focused exam of your left ankle now i do appreciate that there is ecchymosis or bruising over the lateral malleolus and there is some swelling i do i do appreciate some edema now you are positive for tenderness to palpation on the lateral side and the the soft tissue is swollen here the good news is i do not appreciate any laxity in the joint okay and i do n't feel any any type of bony tenderness to palpation of your foot now on the neurovascular exam of your left foot capillary refill is brisk less than three seconds and i do appreciate strong dorsalis pedis pulses and you do have motor and sensation intact which is good now it's important that they were compared bilaterally and they are yeah your your exam is the same bilaterally so that that's an important thing now we did do an x-ray of that left ankle when you came in so i'm gon na review those x-ray results with you now the good news is i do not appreciate a fracture or any bony abnormalities so that's a good thing right so let me talk to you a little bit about my assessment and plan so for your first problem of your left ankle pain your symptoms are consistent with an ankle sprain of the lateral ligament complex and the ligament on the outside of your ankle is what got stretched when you fell now the best treatment for this sprain is what you've kind of already been doing doing the elevation and compression and ice so we're gon na continue the rice protocol and i am gon na go ahead and give you an air cast just to stabilize that ankle i'm gon na prescribe you some crutches i want you to stay off that leg but i do want you to start walking as tolerated but it may be a few days before you feel like doing that now your symptoms are going to get better significantly over the first you know four five six seven days but i am gon na wan na follow up with you just to make sure you're doing okay so what i do is i would like to see you in two weeks and i'm gon na have you continue taking those nsaids as well to help reduce that pain and swelling any other questions comments or concerns before i have the nurse come in and get you fixed up\n[patient] no i think that sounds like a plan\n[doctor] okay sounds good like i said i will see you in two weeks if you have any questions or if you have a lot of pain come back in we'll reevaluate otherwise i think you're headed in the right direction and i'll see you again in two weeks\n[patient] awesome thanks document\n[doctor] alright thanks bye-bye",
-    "note": "CHIEF COMPLAINT\n\nLeft ankle pain.\n\nHISTORY OF PRESENT ILLNESS\n\nMatthew Murphy is a pleasant 20-year-old male who presents to the clinic today for the evaluation of left ankle pain. The onset of his pain began 2 days ago, when he stepped off of a curb and landed on his left ankle wrong. He denies hearing a pop at the time of the injury, however, he describes his ankle as feeling extended and stretched. He was able to ambulate back to his house after the incident but with pain. He denies any previous injuries to his left ankle. His pain is localized to the lateral aspect of his left ankle and can be rated at 8 out of 10 without medication. When taking ibuprofen his pain level is 7 out of 10. He states he has also iced and elevated his ankle.\n\nSOCIAL HISTORY\n\nPatient reports that he has been working from home since the start of COVID-19 and enjoys taking lots of walks.\n\nMEDICATIONS\n\nPatient reports taking ibuprofen.\n\nREVIEW OF SYSTEMS\n\nMusculoskeletal: Patient reports left ankle pain.\n\nVITALS\n\nVitals are slightly elevated due to pain level but are otherwise stable.\n\nPHYSICAL EXAM\n\nNEURO: Normal strength and sensation bilaterally.\nMSK: Examination of the left ankle: Ecchymosis noted over the lateral malleolus. Edema is present. Tenderness to palpation laterally. No joint laxity appreciated. No bony tenderness to palpation of the foot. Capillary refill is brisk at less than 3 seconds bilaterally. Strong dorsalis pedis pulses bilaterally.\n\nRESULTS\n\nThese reveal no fracture or bony abnormalities.\n\nASSESSMENT\n\nLeft ankle sprain of the lateral ligament complex.\n\nPLAN\n\nAfter reviewing the patient's examination and radiographic findings today, I have had a lengthy discussion with the patient in regards to his current symptoms. We discussed that his symptoms are consistent with an ankle sprain of the lateral ligament complex. The nature of the diagnosis and treatment options were discussed. At this time he will continue to follow the RICE protocol. He will continue to take NSAIDs as needed for pain and swelling. He will also be placed into an Aircast for ankle stabilization and will be provided crutches in order to remain non-weight-bearing. We discussed that it may be a few days before he feels able to tolerate walking. I also advised him that his symptoms will likely start to improve significantly over the next 4 to 6 days.\n\nINSTRUCTIONS\n\nThe patient will follow up with me in 2 weeks to assess his progress, sooner if needed.",
-    "diagnoses": [
+    "original_diagnosis": "Chronic Obstructive Pulmonary Disease",
+    "original_rationale": "Patient's presentation of dyspnea, productive cough, and auscultation findings of mild rales and wheezing suggest potential flare-up of her chronic COPD.",
+    "hallucinated_rationale": "\"Patient's presentation of dyspnea, productive cough, and auscultation findings of mild rales and wheezing suggest potential flare-up of her chronic COPD. Additionally, exposure to environmental pollutants like secondhand smoke or chemical fumes could exacerbate her COPD symptoms.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
       {
-        "diagnosis": "Ankle sprain",
-        "rationale": "Patient reports left ankle pain after stepping off a curb incorrectly, in combination with symptoms like tenderness and swollenness in that area, which are typical in sprains."
+        "diagnosis": "Type 2 Diabetes Mellitus",
+        "rationale": "The patient's elevated HbA1c, history of diabetes, and symptom of polyuria are indicative of potential poor glycemic control."
       },
       {
-        "diagnosis": "Strain of the lateral ligament complex, Ankle",
-        "rationale": "Physical exam and patient's description suggest excessive stretching or tear of the ligaments on the lateral aspect of the ankle."
+        "diagnosis": "Congestive Heart Failure",
+        "rationale": "The patient shows signs of exacerbation of her heart failure with symptoms like orthopnea, weight gain, lower extremity edema, and findings of edema and JVD on physical exam."
+      },
+      {
+        "diagnosis": "Chronic Obstructive Pulmonary Disease",
+        "rationale": "Patient's presentation of dyspnea, productive cough, and auscultation findings of mild rales and wheezing suggest potential flare-up of her chronic COPD. Additionally, exposure to environmental pollutants like secondhand smoke or chemical fumes could exacerbate her COPD symptoms.\"."
       }
-    ],
-    "original_diagnosis": "Ankle sprain",
-    "original_rationale": "Patient reports left ankle pain after stepping off a curb incorrectly, in combination with symptoms like tenderness and swollenness in that area, which are typical in sprains.",
-    "hallucinated_rationale": "\"Patient reports left ankle pain after stepping off a curb wrongly, along with signs of tenderness and swelling, indicative of a severe contusion or even a minor fracture. However, an X-ray did not reveal any fractures. Therefore, the symptoms indicate an ankle sprain.\".",
-    "error_type": "consistency_hallucination"
+    ]
   },
   {
     "dataset": "aci",
@@ -1538,10 +2336,24 @@
         "rationale": "Given the patient's report of hearing a pop during injury, substantial pain causing initial incapability to bear weight, and tenderness present on physical examination, a potential ligamentous injury should be considered."
       }
     ],
-    "original_diagnosis": "Ankle sprain",
-    "original_rationale": "The patient reported an injury to the ankle caused by a slip and heard a pop, and exhibits symptoms of swelling, ecchymosis, and tenderness along with pain during movement, suggesting ligament injury consistent with a sprain.",
-    "hallucinated_rationale": "\"\"\"  \nThe patient reported a slipping accident and voiced the sound of a pop from the injured ankle. Initial examination revealed edema, bruising, and tenderness in the same area. However, the absence of numbness or tingling, as well as the continued ability to put weight on the ankle, indicates a ligament injury. Therefore, all signs and symptoms point towards a nerve damage rather than an ankle sprain.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Acute soft tissue injury",
+    "original_rationale": "The presence of warmth and tenderness in the right ankle on examination along with the patient's history of acute injury suggests soft tissue inflammation or injury.",
+    "hallucinated_rationale": "\"The inflammation could be causing an increase in synovial fluid production, which contributes to the sensation of warmth and the swelling noted in the physical examination.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Ligamentous injury",
+        "rationale": "Given the patient's report of hearing a pop during injury, substantial pain causing initial incapability to bear weight, and tenderness present on physical examination, a potential ligamentous injury should be considered."
+      },
+      {
+        "diagnosis": "Ankle sprain",
+        "rationale": "The patient reported an injury to the ankle caused by a slip and heard a pop, and exhibits symptoms of swelling, ecchymosis, and tenderness along with pain during movement, suggesting ligament injury consistent with a sprain."
+      },
+      {
+        "diagnosis": "Acute soft tissue injury",
+        "rationale": "The inflammation could be causing an increase in synovial fluid production, which contributes to the sensation of warmth and the swelling noted in the physical examination.\"."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1562,10 +2374,24 @@
         "rationale": "Given the history of hypertension, along with the presence of 1+ edema in his legs, the patient is likely experiencing issues related to high blood pressure."
       }
     ],
-    "original_diagnosis": "Muscular back pain",
-    "original_rationale": "The patient has reported lower back pain and tenderness on the left paraspinal area, in absence of neurological symptoms, and straight leg raise test is negative, suggesting non-neural origin of pain.",
-    "hallucinated_rationale": "\"\"\"  \nThe patient has reported lower back pain and tenderness on the left paraspinal area, along with tingling sensations. The straight leg raise test is negative and there are no neurological symptoms, suggesting a possible nerve compression such as sciatica, which contradicts the diagnosis of muscular back pain. \n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Poorly controlled diabetes",
+    "original_rationale": "The patient has a history of diabetes and his most recent A1C was 7.1 indicating increased blood glucose levels over the past 3 months.",
+    "hallucinated_rationale": "The patient has a history of diabetes and his most recent A1C was 7.1 indicating increased blood glucose levels over the past 3 months. Moreover, poorly controlled diabetes could result in serious comorbid conditions such as cardiovascular disease and renal failure.",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Hypertension",
+        "rationale": "Given the history of hypertension, along with the presence of 1+ edema in his legs, the patient is likely experiencing issues related to high blood pressure."
+      },
+      {
+        "diagnosis": "Muscular back pain",
+        "rationale": "The patient has reported lower back pain and tenderness on the left paraspinal area, in absence of neurological symptoms, and straight leg raise test is negative, suggesting non-neural origin of pain."
+      },
+      {
+        "diagnosis": "Poorly controlled diabetes",
+        "rationale": "The patient has a history of diabetes and his most recent A1C was 7.1 indicating increased blood glucose levels over the past 3 months. Moreover, poorly controlled diabetes could result in serious comorbid conditions such as cardiovascular disease and renal failure."
+      }
+    ]
   },
   {
     "dataset": "aci",
@@ -1586,9 +2412,23 @@
         "rationale": "The onset of the patient's knee pain occurred after a skiing accident, indicating an acute injury."
       }
     ],
-    "original_diagnosis": "Knee Injury due to Skiing",
-    "original_rationale": "The onset of the patient's knee pain occurred after a skiing accident, indicating an acute injury.",
-    "hallucinated_rationale": "\"\"\"\nThe patient's pain commenced following a skiing accident, pointing towards an acute myocardial infarction.\n\"\"\".",
-    "error_type": "consistency_hallucination"
+    "original_diagnosis": "Osteoarthritis",
+    "original_rationale": "X-ray findings have developed mild arthritis which leads to swelling, stiffness, and pain in the knee.",
+    "hallucinated_rationale": "\"X-ray findings have developed mild arthritis which leads to swelling, stiffness, and pain in the knee. The degeneration of cartilage in the knee joint could have been accelerated by the patient's previous knee injuries and high-intensity activities such as skiing and gymnastics.\".",
+    "error_type": "contextual_hallucination",
+    "hallucinated_diagnoses": [
+      {
+        "diagnosis": "Posterior Cruciate Ligament (PCL) Strain",
+        "rationale": "The patient's symptoms such as right knee pain and swelling, history of injury during skiing, and clinical examination indicating pain with dorsiflexion are indicative of PCL strain."
+      },
+      {
+        "diagnosis": "Knee Injury due to Skiing",
+        "rationale": "The onset of the patient's knee pain occurred after a skiing accident, indicating an acute injury."
+      },
+      {
+        "diagnosis": "Osteoarthritis",
+        "rationale": "X-ray findings have developed mild arthritis which leads to swelling, stiffness, and pain in the knee. The degeneration of cartilage in the knee joint could have been accelerated by the patient's previous knee injuries and high-intensity activities such as skiing and gymnastics.\"."
+      }
+    ]
   }
 ]

@@ -1,5 +1,5 @@
 from langchain_core.prompts import PromptTemplate
-from generator.templates import DIAGNOSIS_PROMPT_TEMPLATE, DIAGNOSIS_JUDGE_TEMPLATE, INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE
+from generator.templates import DIAGNOSIS_PROMPT_TEMPLATE, DIAGNOSIS_JUDGE_TEMPLATE, INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE, DETECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, DETECT_CONSISTENCY_HALLUCINATION_TEMPLATE
 
 
 # -----------------------------------------------------------------------------
@@ -34,7 +34,7 @@ def get_judge_prompt(parser=None, template: str= None) -> PromptTemplate:
     
     return PromptTemplate(
         template=(template),
-        input_variables=["transcript"],
+        input_variables=["transcript","output"],
         partial_variables={"format_instructions": fmt}
     )
 
@@ -59,5 +59,29 @@ def get_inject_consistency_hallucination_prompt(parser=None, template: str= None
     return PromptTemplate(
         template=(template),
         input_variables=["transcript", "original_diagnosis", "original_rationale"],
+        partial_variables={"format_instructions": fmt}
+    )
+
+def get_detect_contextual_hallucination_prompt(parser=None, template: str= None) -> PromptTemplate:
+    fmt = get_format_instructions(parser=parser)
+
+    if not template:
+        template = DETECT_CONTEXTUAL_HALLUCINATION_TEMPLATE
+
+    return PromptTemplate(
+        template=(template),
+        input_variables=["transcript", "diagnosis", "rationale"],
+        partial_variables={"format_instructions": fmt}
+    )
+    
+def get_detect_consistency_hallucination_prompt(parser=None, template: str= None) -> PromptTemplate:
+    fmt = get_format_instructions(parser=parser)
+
+    if not template:
+        template = DETECT_CONSISTENCY_HALLUCINATION_TEMPLATE
+
+    return PromptTemplate(
+        template=(template),
+        input_variables=["transcript", "diagnosis", "rationale"],
         partial_variables={"format_instructions": fmt}
     )

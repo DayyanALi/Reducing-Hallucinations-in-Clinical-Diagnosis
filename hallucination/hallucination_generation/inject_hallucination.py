@@ -7,7 +7,7 @@ from hallucination.hallucination_generation.hallucination_types import (
     ContextualHallucinationInjector,
     ConsistencyHallucinationInjector
 )
-from generator.clients import get_openai_gpt4
+from generator.clients import openai_gpt4
 
 def inject_hallucination(
     path: str = "data/challenge_data/train_with_diagnoses.json",
@@ -39,10 +39,10 @@ def inject_hallucination(
 
 if __name__ == "__main__":
     load_dotenv()
-    model = get_openai_gpt4()
+    model = openai_gpt4()
 
     inject_hallucination(
         model=model,
         hallucination_type="consistency",  # or "consistency"
-        output_path="data/challenge_data/train_with_consistency_hallucination.json"
+        output_path="data/challenge_data/check_path.json"
     )

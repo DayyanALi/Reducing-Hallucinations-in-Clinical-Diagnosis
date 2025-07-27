@@ -1,24 +1,21 @@
 from langchain_openai import ChatOpenAI
-from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline, HuggingFaceEndpoint
-from transformers import pipeline
-# from dotenv import load_dotenv
+from langchain_huggingface import HuggingFacePipeline
+from langchain_ollama import OllamaLLM
 
-# load_dotenv()
-
-def get_openai_gpt4(temperature: float=0.0) -> ChatOpenAI:
+def openai_gpt4(temperature: float=0.0) -> ChatOpenAI:
     return ChatOpenAI(model_name="gpt-4")
 
-def get_openai_gpt35(temperature: float=0.0) -> ChatOpenAI:
+def openai_gpt4mini(temperature: float=0.0) -> ChatOpenAI:
+    return ChatOpenAI(model_name="gpt-4.1-nano-2025-04-14")
+
+def openai_gpt35(temperature: float=0.0) -> ChatOpenAI:
     return ChatOpenAI(model_name="gpt-3.5-turbo")
 
-def get_openai_custom(model_name: str="gpt-4", temperature: float=0.0) -> ChatOpenAI:
+def openai_custom(model_name: str="gpt-4", temperature: float=0.0) -> ChatOpenAI:
     return ChatOpenAI(model_name=model_name, temperature=temperature)
 
-def get_med_llama(max_new_tokens: int=1024, temperature: float=0.0) -> HuggingFacePipeline:
-    model = pipeline(
-        task="text-generation",
-        model="medalpaca/medalpaca-7b",
-        max_new_tokens=max_new_tokens,
-        temperature=temperature,
-    )
-    return HuggingFacePipeline(pipeline=model)
+def med_llama(max_new_tokens: int=1024, temperature: float=0.0) -> HuggingFacePipeline:
+    return OllamaLLM(model="medllama2:7b")
+
+def llama3(max_new_tokens: int=1024, temperature: float=0.0) -> HuggingFacePipeline:
+    return OllamaLLM(model="llama3.2")

@@ -3,7 +3,7 @@ from typing import List, Dict
 from dotenv import load_dotenv
 
 from langchain import LLMChain, PromptTemplate
-from generator.clients import get_openai_gpt4
+from generator.clients import openai_gpt4
 from generator.output_parsers import get_StrOutputParser
 from generator.templates import DIAGNOSIS_FROM_NOTES_TEMPLATE
 
@@ -13,7 +13,7 @@ with open("data/challenge_data/train.json") as f:
     obj = json.load(f)
 records: List[Dict] = obj["data"]
 
-llm = get_openai_gpt4()
+llm = openai_gpt4()
 parser = get_StrOutputParser()
 DIAG_PROMPT = PromptTemplate(
     input_variables=["note"],
