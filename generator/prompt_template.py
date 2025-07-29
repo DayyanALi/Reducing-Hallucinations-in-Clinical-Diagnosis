@@ -1,5 +1,6 @@
 from langchain_core.prompts import PromptTemplate
-from generator.templates import DIAGNOSIS_PROMPT_TEMPLATE, DIAGNOSIS_JUDGE_TEMPLATE, INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE, DETECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, DETECT_CONSISTENCY_HALLUCINATION_TEMPLATE
+from generator.templates import DIAGNOSIS_PROMPT_TEMPLATE, DIAGNOSIS_JUDGE_TEMPLATE,INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE, DETECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, DETECT_CONSISTENCY_HALLUCINATION_TEMPLATE
+from generator.templates import DECOMPOSE_PROMPT, ATTEST_PROMPT
 
 
 # -----------------------------------------------------------------------------
@@ -85,3 +86,28 @@ def get_detect_consistency_hallucination_prompt(parser=None, template: str= None
         input_variables=["transcript", "diagnosis", "rationale"],
         partial_variables={"format_instructions": fmt}
     )
+
+def get_decompose_prompt(parser=None, template: str = None) -> PromptTemplate:
+    fmt = get_format_instructions(parser=parser)
+    
+    if not template:
+        template = DECOMPOSE_PROMPT
+
+    return PromptTemplate(
+        template=(template),
+        input_variables=["rationale"],
+        partial_variables={"format_instructions": fmt}
+    )
+
+def get_attest_prompt(parser=None, template: str = None) -> PromptTemplate:
+    fmt = get_format_instructions(parser=parser)
+
+    if not template:
+        template = ATTEST_PROMPT
+
+    return PromptTemplate(
+        template=(template),
+        input_variables=["claim", "transcript"],
+        partial_variables={"format_instructions": fmt}
+    )
+

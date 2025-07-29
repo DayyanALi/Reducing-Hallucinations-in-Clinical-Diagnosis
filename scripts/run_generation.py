@@ -6,6 +6,7 @@ from utils.utils import get_transcript
 from dotenv import load_dotenv
 import ast
 import json
+from hallucination.detection.detect import EntailmentDetector
 load_dotenv()
 
 transcript = get_transcript()
@@ -21,3 +22,18 @@ detect = ContextualDetector(detection_model)
 
 hallucination_results = detect(transcript=transcript, diag_and_rationale=result["diagnoses"])
 print("\n\nHallucination Results:", hallucination_results)
+
+# entailment_detect = EntailmentDetector()
+
+# entailment_results = entailment_detect(
+#     transcript=transcript,
+#     diag_and_rationale=result["diagnoses"]
+# )
+
+# print("\n\nEntailment-based Hallucination Results:", entailment_results)
+
+entailment_detector = EntailmentDetector(model=Diagnosis_model)
+entailment_results = entailment_detector(transcript=transcript, diag_and_rationale=result["diagnoses"])
+print("\n\nEntailment-based Hallucination Results:")
+for res in entailment_results:
+    print(json.dumps(res, indent=2))
