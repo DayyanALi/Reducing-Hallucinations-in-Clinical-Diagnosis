@@ -16,7 +16,7 @@ class ContextualHallucinationInjector:
     def inject(self, record: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         diagnoses = record.get("diagnoses") or record.get("diag_and_rationale", [])
         if not diagnoses or len(diagnoses) < 3:
-            return None  # Require at least 3 for 2 correct + 1 hallucinated
+            return None 
 
         choice_pair = choice(diagnoses)
         orig_diag = choice_pair["diagnosis"]

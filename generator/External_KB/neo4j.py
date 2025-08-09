@@ -1,71 +1,113 @@
-
-import csv, sys, os
+import csv, os
 from neo4j import GraphDatabase
+from  generator.clients import embedding_model_llama
+from langchain.vectorstores import Chroma
+from generator.clients import embedding_model_llama, openai_gpt4nano
+import pandas as pd
 from dotenv import load_dotenv
-import csv, sys
-from  generator.clients import llama3, openai_gpt4nano, openai_gpt35
-from langchain.chains import GraphQAChain
-from langchain.graphs.neo4j_graph import Neo4jGraph
+from langchain_community.graphs import Neo4jGraph 
 
-csv.field_size_limit(sys.maxsize)
 load_dotenv()
-URI  = os.getenv("NEO4J_URI", "neo4j://127.0.0.1:7687")
-USER = os.getenv("NEO4J_USER", "neo4j")
-PW   = os.getenv("NEO4J_PW", "password")
 
-driver = GraphDatabase.driver(URI, auth=(USER, PW))
+uri  = os.getenv("NEO4J_URI")
+user = os.getenv("NEO4J_USERNAME")
+pwd  = os.getenv("NEO4J_PASSWORD")
 
-def build_graph_to_neo4j(csv_path: str):
-    with driver.session() as session:
-        session.run("MATCH (n) DETACH DELETE n")
+driver = GraphDatabase.driver(uri, auth=(user, pwd))
 
-        with open(csv_path, newline="", encoding="utf8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                subj, subj_type = row["Entity1_name"].strip(), row["Entity1_type"].strip()
-                obj,  obj_type  = row["Entity2_name"].strip(), row["Entity2_type"].strip()
-                rel = row["relationship_type"].strip()
-                
-                if not (subj_type.lower() == "disease" or obj_type.lower() == "Disease"):
-                    continue
+def build_disease_name_index(
+    csv_path: str,
+    persist_directory: str = "./chroma_db",
+    collection_name: str = "disease_names",
+):
+    df = pd.read_csv(csv_path)  
+    diseases = df["disease"].str.strip().unique().tolist()
 
-                pmids = [p.strip() for p in row["PubMed_ID"].split(",") if p.strip() and p.strip().lower()!="nan"]
-                evidence = [s.strip().strip("'") for s in row["Sentence_tokenized"].split("','") if s.strip()]
+    metadatas = [{"disease": d} for d in diseases]
+    embeddings = embedding_model_llama()
 
+    vectordb = Chroma(
+        persist_directory=persist_directory,
+        collection_name=collection_name,
+        embedding_function=embeddings
+    )
+
+    vectordb.add_texts(
+        texts=diseases,
+        metadatas=metadatas
+    )
+    vectordb.persist()
+    print(f"✅ Indexed {len(diseases)} diseases into '{collection_name}'")
+
+def parse_symptoms(text: str) -> list[str]:
+    if "," in text and text.count(",") > 1:
+        # comma-delimited list
+        parts = [p.strip() for p in text.split(",")]
+    else:
+        # narrative paragraph → split into sentences
+        parts = [s.strip() for s in text.split(".") if s.strip()]
+    return [p for p in parts if p]
+
+def build_disease_symptom_KG(csv_path: str):
+    if not os.path.isfile(csv_path):
+        raise FileNotFoundError(f"No such file: {csv_path}")
+
+    with driver.session() as session, open(csv_path, newline="", encoding="utf8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            disease = row["disease"].strip()
+            symptoms_text = row["text"].strip()
+            symptoms = parse_symptoms(symptoms_text)
+            for symptom in symptoms:
                 session.run(
                     """
-                    MERGE (a:Entity {name: $subj, type: $subj_type})
-                    MERGE (b:Entity {name: $obj,  type: $obj_type})
-                    MERGE (a)-[r:RELATION {relation: $rel}]->(b)
-                      ON CREATE SET r.pmids = $pmids, r.evidence = $evidence
-                      ON MATCH  SET 
-                        r.pmids     = r.pmids     + $pmids,
-                        r.evidence  = r.evidence  + $evidence
+                    MERGE (d:Disease {name: $disease})
+                    MERGE (s:Symptom {name: $symptom})
+                    MERGE (d)-[:HAS_SYMPTOM]->(s)
                     """,
-                    subj=subj, subj_type=subj_type,
-                    obj=obj,   obj_type=obj_type,
-                    rel=rel, pmids=pmids, evidence=evidence
+                    disease=disease,
+                    symptom=symptom
                 )
-    print("✅ Ingest complete!")
-    
+                
+def make_knowledge_graph(csv_path:str):
+    build_disease_name_index(csv_path=csv_path)
+    build_disease_symptom_KG(csv_path=csv_path)
 
-def get_neo4j_qa_chain(llm=None) -> GraphQAChain:
-    if llm is None:
-        llm = openai_gpt4nano()   # or llama3(), ChatOpenAI, etc.
-
-    graph = Neo4jGraph(
-        url=URI,
-        username=USER,
-        password=PW,
+def get_symptoms_by_disease(
+    disease: str,
+    persist_directory: str = "./chroma_db",
+    collection_name: str = "disease_names",
+    k: int = 1
+) -> list[str]:
+    embeddings = embedding_model_llama()
+    vectordb = Chroma(
+        persist_directory=persist_directory,
+        collection_name=collection_name,
+        embedding_function=embeddings
     )
-    return GraphQAChain.from_llm(llm=llm, graph=graph)
+    retriever = vectordb.as_retriever(search_kwargs={"k": k})
+    docs = retriever.invoke(disease)
+    if not docs:
+        return []
 
-# build_graph_to_neo4j("generator/External_KB/raw_PharmKG-180k.csv")
+    canonical = docs[0].metadata["disease"]
+    print(f"🔍 Matched '{disease}' → '{canonical}'")
+
+    query = """
+    MATCH (d:Disease {name: $name})-[:HAS_SYMPTOM]->(s:Symptom)
+    RETURN s.name AS symptom
+    """
+    with driver.session() as session:
+        result = session.run(query, name=canonical)
+        symptoms = "".join([rec["symptom"] for rec in result])
+        return symptoms
+
+
+# make_knowledge_graph(csv_path="generator/External_KB/symptoms_with_diseases.csv")
+
+# 2) Query
+# syms = get_symptoms_by_disease("Anemia")
+# # syms = get_symptoms_for_disease("Chronic Arthritis")
+# print("Symptoms:", syms)
+
 # driver.close()
-
-qa_chain = get_neo4j_qa_chain()
-
-# ask questions
-print( qa_chain.run("Which medications treat hypertension?") )
-print( qa_chain.run("What genes interact_with aspirin?") )
-

@@ -1,5 +1,5 @@
 from langchain_core.prompts import PromptTemplate
-from generator.templates import DIAGNOSIS_PROMPT_TEMPLATE, DIAGNOSIS_JUDGE_TEMPLATE, INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE, DETECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, DETECT_CONSISTENCY_HALLUCINATION_TEMPLATE
+from generator.templates import DIAGNOSIS_PROMPT_TEMPLATE, DIAGNOSIS_JUDGE_TEMPLATE, INJECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, INJECT_CONSISTENCY_HALLUCINATION_TEMPLATE, DETECT_CONTEXTUAL_HALLUCINATION_TEMPLATE, DETECT_CONSISTENCY_HALLUCINATION_TEMPLATE, DETECT_FACTUAL_HALLUCINATION_TEMPLATE
 
 
 # -----------------------------------------------------------------------------
@@ -83,5 +83,17 @@ def get_detect_consistency_hallucination_prompt(parser=None, template: str= None
     return PromptTemplate(
         template=(template),
         input_variables=["transcript", "diagnosis", "rationale"],
+        partial_variables={"format_instructions": fmt}
+    )
+
+def get_detect_factual_hallucination_prompt(parser=None, template: str= None) -> PromptTemplate:
+    fmt = get_format_instructions(parser=parser)
+
+    if not template:
+        template = DETECT_FACTUAL_HALLUCINATION_TEMPLATE
+
+    return PromptTemplate(
+        template=(template),
+        input_variables=["transcript", "diagnosis", "symptoms"],
         partial_variables={"format_instructions": fmt}
     )
