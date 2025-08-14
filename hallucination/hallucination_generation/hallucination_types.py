@@ -3,13 +3,17 @@ from random import choice
 from typing import Any, Dict, List, Optional
 from generator.clients import openai_gpt4
 from generator.output_parsers import get_StrOutputParser
-from generator.prompt_template import get_inject_contextual_hallucination_prompt, get_inject_consistency_hallucination_prompt
+from generator.prompt_template import (get_inject_contextual_hallucination_in_diagnoses_prompt, 
+                        get_inject_consistency_hallucination_in_diagnoses_prompt,
+                        get_inject_consistency_hallucination_in_notes_prompt,
+                        get_inject_contextual_hallucination_in_notes_prompt)
 from copy import deepcopy
 from random import sample, choice
+from utils.data_types import Transcript_Notes_record, Hallucinated_Notes_record
 
 class ContextualHallucinationInjector:
     def __init__(self, model: Any, parser=None, prompt_template: Optional[str] = None):
-        self.prompt = get_inject_contextual_hallucination_prompt(parser=parser, template=prompt_template)
+        self.prompt = get_inject_contextual_hallucination_in_diagnoses_prompt(parser=parser, template=prompt_template)
         self.parser = get_StrOutputParser()
         self.chain = self.prompt | model | self.parser
 
@@ -61,10 +65,11 @@ class ContextualHallucinationInjector:
         })
 
         return new_rec
+    
 
 class ConsistencyHallucinationInjector:
     def __init__(self, model: Any, parser=None, prompt_template: Optional[str] = None):
-        self.prompt = get_inject_consistency_hallucination_prompt(parser=parser, template=prompt_template)
+        self.prompt = get_inject_consistency_hallucination_in_diagnoses_prompt(parser=parser, template=prompt_template)
         self.parser = get_StrOutputParser()
         self.chain = self.prompt | model | self.parser
 
@@ -110,4 +115,31 @@ class ConsistencyHallucinationInjector:
             "error_type": "consistency_hallucination",
         })
 
-        return new_rec
+        return new_rec 
+
+
+class HallucinationInjector:
+    def __init__(self, model: Any, hallucination_type: str, parser=None, prompt_template: Optional[str] = None):
+        if hallucination_type.lower() == "contextual":
+            self.prompt = get_inject_contextual_hallucination_in_notes_prompt(parser=parser, template=prompt_template)
+        elif hallucination_type.lower() == "consistency":
+            self.prompt = get_inject_consistency_hallucination_in_notes_prompt(parser=parser, template=prompt_template)
+            
+        self.parser = get_StrOutputParser()
+        self.chain = self.prompt | model | self.parser
+        self.hallucination_type = hallucination_type.lower()  
+    
+    def inject_in_notes(self, record: Transcript_Notes_record) -> Hallucinated_Notes_record:
+        transcript = record.transcript
+        note = record.notes
+        file = record.file
+
+        hallucinated_note = self.chain.invoke({"transcript":transcript, "note":note})
+
+        return Hallucinated_Notes_record(
+            transcript=transcript,
+            original_notes=note,
+            hallucinated_notes=hallucinated_note,
+            hallucination_types=[self.hallucination_type],
+            file=file
+        )
