@@ -2,7 +2,6 @@ import json
 from utils.utils import load_json, get_transcript_with_notes
 from utils.data_types import to_serializable
 from dotenv import load_dotenv
-from dataclasses import asdict
 from typing import Any, Dict, List, Optional
 from hallucination.hallucination_generation.hallucination_types import (
     ContextualHallucinationInjector,

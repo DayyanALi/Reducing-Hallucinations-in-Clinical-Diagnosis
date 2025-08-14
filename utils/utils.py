@@ -3,7 +3,7 @@ from random import sample
 import random
 import json
 from typing import Any, List
-from utils.data_types import Record, Transcript_Notes_record
+from utils.data_types import Transcript_Notes_record
 
 
 def get_transcript_with_diagnoses(num_samples: int=1) -> str:
@@ -11,26 +11,6 @@ def get_transcript_with_diagnoses(num_samples: int=1) -> str:
     sampled_rows = sample(list(df["dialogue"]), num_samples)
     return " ".join(sampled_rows)
     
-# def get_transcript_with_notes(num_samples: int=1)  -> List[Transcript_Notes_record]:
-#     with open("data/challenge_data/train.json", "r") as f:
-#         data = json.load(f)
-
-#     # Randomly select num_samples entries
-#     if num_samples > len(data):
-#         raise ValueError(f"Requested {num_samples} samples, but only {len(data)} available.")
-
-#     sampled_data = random.sample(data, num_samples)
-
-#     records = [
-#         Transcript_Notes_record(
-#             transcript=item["src"],
-#             notes=item["tgt"],
-#             id=item["file"]
-#         )
-#         for item in sampled_data
-#     ]
-
-#     return records
 
 def _extract_records_container(data: Any) -> List[dict[str, Any]]:
     if isinstance(data, list):
