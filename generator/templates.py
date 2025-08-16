@@ -411,3 +411,135 @@ Rationale:
 
 **Return exactly one word: Yes or No.**
 """
+
+INJECT_REASONING_HALLUCINATION_NOTES_TEMPLATE = """
+You are an expert clinical scribe whose job is to take a fully written doctor–patient transcript and its corresponding clinical note, then introduce one or more **reasoning hallucinations** into the **Assessment & Plan** section — while leaving every other part of the note verbatim.  
+
+## Your task in detail:
+1. **Read** the entire doctor–patient transcript (ground truth).  
+2. **Read** the complete clinical note, including all sections (Chief Complaint, HPI, ROS, Physical Exam, Results, and Assessment & Plan).  
+3. **Select** the **Assessment & Plan** section for modification.  
+4. **Identify** a correct diagnosis already present.  
+5. **Replace or augment** its rationale with at least one medically plausible but **factually flawed explanation** (i.e., a reasoning hallucination).  
+6. **Do not** alter diagnoses, medications, or recommendations — only introduce faulty reasoning in the explanatory rationale.  
+7. **Return** the **entire clinical note** (all sections), with your reasoning hallucination(s) embedded in the Assessment & Plan.
+
+## Constraints on your reasoning hallucination:
+- It must be **logically incorrect**, but written in a clinically plausible style.  
+- It must **not** contradict the transcript directly — instead, it should misattribute causes, pathophysiology, or mechanisms.  
+- It should read as a normal clinical explanation but contain an incorrect chain of logic.  
+
+## Example of a reasoning hallucination:
+Correct rationale: “Neck sprain is suspected because of trauma history, pain on movement, and lack of fracture on imaging.”  
+Hallucinated rationale: “Neck sprain is suspected because whiplash injuries primarily cause brain swelling, which explains the patient’s arm numbness.” (plausible language, but incorrect reasoning).
+
+## Input Variables
+- **transcript**: The full doctor–patient conversation.  
+- **clinical note**: The entire clinical note corresponding to that transcript.  
+
+## Output
+Return the **complete** clinical note text, with reasoning hallucination(s) added only in the Assessment & Plan section. Do **not** output anything else.
+
+## Example:
+CHIEF COMPLAINT
+
+Neck pain.
+
+HISTORY OF PRESENT ILLNESS
+
+Brandon Green is a pleasant 46-year-old male who presents to the clinic today for the evaluation of neck pain. His pain began when he was involved in a motor vehicle accident in 02/2022 when he was on his way home from a pain clinic. The patient notes that he has been in 4 motor vehicle accidents; however, he notes that he was fine after the first two accidents, but the third motor vehicle accident is when his neck and back pain began. He states that he was in therapy following the second accident and had surgery after his third accident. The patient was seen at a pain clinic secondary to neck and back pain. He was prescribed fentanyl; however, he has not received a prescription for several weeks. Today, he reports that his pain is a 12 out of 10. He describes his pain as sharp and incapacitating with stiffness and pain. The patient also reports headaches, occasional dizziness. He denies any recent visual disturbances. He also reports numbness in his left arm and right leg. The patient also reports spasms throughout his body. He states that he has been experiencing fatigue since the accident. He notes that he is unable to work with this much pain.
+
+REVIEW OF SYSTEMS
+
+Constitutional: Reports fatigue.
+Eyes: Denies any recent visual disturbances.
+Musculoskeletal: Reports neck and back pain, and occasional swelling and bruising of the neck.
+Neurological: Reports headaches, dizziness, spasms, and numbness.
+
+PHYSICAL EXAM
+
+SKIN: No lacerations.
+MSK: Examination of the cervical spine: Pain on palpation on the bony process and muscle. Moderate ROM. No bruising or edema noted.
+
+RESULTS
+
+X-rays of the neck reveal no fractures.
+
+ASSESSMENT
+
+Neck sprain. This diagnosis is based on the patient's history of a motor vehicle accident and physical exam findings, with imaging ruling out a fracture. The whiplash mechanism has likely caused significant soft tissue inflammation, which is compressing the nerve roots controlling the left arm while also affecting the descending spinal tracts that govern the right leg, explaining his specific pattern of numbness.
+
+PLAN
+
+After reviewing the patient's examination and radiographic findings today, I have had a lengthy discussion with the patient in regards to his current symptoms. I have explained to him that his x-rays did not reveal any signs of a fracture. I recommended an MRI for further evaluation. I have also prescribed the patient Robaxin 1500 mg every 6 to 8 hours to treat his pain. I have also advised him to utilize ice, a heating pad, IcyHot, or Biofreeze on his neck as needed. I have also provided him with a home exercise program to work on his range of motion. I advised the patient that he will not be able to work until we have the MRI results.
+
+INSTRUCTIONS
+
+The patient will follow up with me after his MRI for results.
+"""
+
+INJECT_DIAGNOSTIC_HALLUCINATION_NOTES_TEMPLATE = """
+You are an expert clinical scribe whose job is to take a fully written doctor–patient transcript and its corresponding clinical note, then introduce one or more **diagnostic hallucinations** into the **Assessment & Plan** section — while leaving every other part of the note verbatim.  
+
+## Your task in detail:
+1. **Read** the entire doctor–patient transcript (ground truth).  
+2. **Read** the complete clinical note, including all sections (Chief Complaint, HPI, ROS, Physical Exam, Results, and Assessment & Plan).  
+3. **Select** the **Assessment & Plan** section for modification.  
+4. **Introduce** at least one new diagnosis that is **plausible in general medicine** but **unsupported by the transcript evidence**.  
+5. Provide a brief rationale for this new diagnosis.  
+6. Do **not** modify the existing diagnoses or their rationales. Only add a new unsupported one.  
+7. **Return** the **entire clinical note** (all sections), with your diagnostic hallucination(s) embedded in the Assessment & Plan.
+
+## Constraints on your diagnostic hallucination:
+- It must be a **real medical condition**, but not grounded in transcript evidence.  
+- It must **not contradict** transcript details (avoid saying something opposite to what was said).  
+- It should look clinically reasonable but still unjustified.  
+
+## Example of a diagnostic hallucination:
+Transcript: Patient only reports neck pain after a car accident.  
+Note hallucination: “Possible pneumonia — patient’s neck pain may be referred from an undiagnosed lung infection.” (No mention of cough, fever, or lung issues in transcript).
+
+## Input Variables
+- **transcript**: The full doctor–patient conversation.  
+- **clinical note**: The entire clinical note corresponding to that transcript.  
+
+## Output
+Return the **complete** clinical note text, with diagnostic hallucination(s) added only in the Assessment & Plan section. Do **not** output anything else.
+
+## Example:
+CHIEF COMPLAINT
+
+Neck pain.
+
+HISTORY OF PRESENT ILLNESS
+
+Brandon Green is a pleasant 46-year-old male who presents to the clinic today for the evaluation of neck pain. His pain began when he was involved in a motor vehicle accident in 02/2022 when he was on his way home from a pain clinic. The patient notes that he has been in 4 motor vehicle accidents; however, he notes that he was fine after the first two accidents, but the third motor vehicle accident is when his neck and back pain began. He states that he was in therapy following the second accident and had surgery after his third accident. The patient was seen at a pain clinic secondary to neck and back pain. He was prescribed fentanyl; however, he has not received a prescription for several weeks. Today, he reports that his pain is a 12 out of 10. He describes his pain as sharp and incapacitating with stiffness and pain. The patient also reports headaches, occasional dizziness. He denies any recent visual disturbances. He also reports numbness in his left arm and right leg. The patient also reports spasms throughout his body. He states that he has been experiencing fatigue since the accident. He notes that he is unable to work with this much pain.
+
+REVIEW OF SYSTEMS
+
+Constitutional: Reports fatigue.
+Eyes: Denies any recent visual disturbances.
+Musculoskeletal: Reports neck and back pain, and occasional swelling and bruising of the neck.
+Neurological: Reports headaches, dizziness, spasms, and numbness.
+
+PHYSICAL EXAM
+
+SKIN: No lacerations.
+MSK: Examination of the cervical spine: Pain on palpation on the bony process and muscle. Moderate ROM. No bruising or edema noted.
+
+RESULTS
+
+X-rays of the neck reveal no fractures.
+
+ASSESSMENT
+
+Acute Cervical Fracture. The patient's incapacitating pain rated 12/10, history of a high-impact motor vehicle accident, and significant neurological symptoms including numbness in both an upper and lower extremity are strongly indicative of a bony fracture.
+
+PLAN
+
+After reviewing the patient's examination and radiographic findings today, I have had a lengthy discussion with the patient in regards to his current symptoms. I have explained to him that his x-rays did not reveal any signs of a fracture. I recommended an MRI for further evaluation. I have also prescribed the patient Robaxin 1500 mg every 6 to 8 hours to treat his pain. I have also advised him to utilize ice, a heating pad, IcyHot, or Biofreeze on his neck as needed. I have also provided him with a home exercise program to work on his range of motion. I advised the patient that he will not be able to work until we have the MRI results.
+
+INSTRUCTIONS
+
+The patient will follow up with me after his MRI for results.
+"""

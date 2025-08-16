@@ -6,7 +6,9 @@ from generator.output_parsers import get_StrOutputParser
 from generator.prompt_template import (get_inject_contextual_hallucination_in_diagnoses_prompt, 
                         get_inject_consistency_hallucination_in_diagnoses_prompt,
                         get_inject_consistency_hallucination_in_notes_prompt,
-                        get_inject_contextual_hallucination_in_notes_prompt)
+                        get_inject_contextual_hallucination_in_notes_prompt,
+                        get_inject_diagnostic_hallucination_in_diagnoses_prompt,
+                        get_inject_reasoning_hallucination_in_diagnoses_prompt)
 from copy import deepcopy
 from random import sample, choice
 from utils.data_types import Transcript_Notes_record, Hallucinated_Notes_record
@@ -124,7 +126,10 @@ class HallucinationInjector:
             self.prompt = get_inject_contextual_hallucination_in_notes_prompt(parser=parser, template=prompt_template)
         elif hallucination_type.lower() == "consistency":
             self.prompt = get_inject_consistency_hallucination_in_notes_prompt(parser=parser, template=prompt_template)
-            
+        elif hallucination_type.lower() == "reasoning":
+            self.prompt = get_inject_reasoning_hallucination_in_diagnoses_prompt(parser=parser, template=prompt_template)
+        elif hallucination_type.lower() == "diagnostic":
+            self.prompt = get_inject_diagnostic_hallucination_in_diagnoses_prompt(parser=parser, template=prompt_template)
         self.parser = get_StrOutputParser()
         self.chain = self.prompt | model | self.parser
         self.hallucination_type = hallucination_type.lower()  
