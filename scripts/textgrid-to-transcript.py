@@ -1,9 +1,7 @@
-# combine_transcripts.py
 from __future__ import annotations
 from pathlib import Path
 import sys
 
-# ---- your helpers (from your message) ----
 import re
 import textgrid
 
