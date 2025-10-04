@@ -108,7 +108,8 @@ try:
     # Run the chain with the required input variables
     note_json = chain.invoke({
         "transcript": transcript_content,
-        "output_format": "json",
+        # "output_format": "json",
+        "output_format": "markdown",
         "consulting_service": "General Medicine"
     })
 
