@@ -1,16 +1,8 @@
-# agents/question_agent.py
 import json
 from langchain_openai import ChatOpenAI
-from detectionAG.configs.set_4_prompts import QUESTION_PROMPT, DDX_PROMPT, NOTE_PROMPT, BASELINE_NOTE_PROMPT
+from langchain_core.prompts import ChatPromptTemplate
+from detectionAG.configs.set_4_prompts import FOLLOW_UP_QS_PROMPT
 
-# config.py
-# Allowed configurations
-CONFIGS = {
-    "A": {"questions": True,  "ddx": True,  "note": True},
-    "B": {"questions": False, "ddx": True,  "note": True},
-    "C": {"questions": True,  "ddx": False, "note": True},
-    "D": {"questions": False, "ddx": False, "note": True, "baseline": True},
-}
 
 # ----------------------------------------------------------------
 # Safe JSON Parser
@@ -31,132 +23,46 @@ def safe_json_parse(text: str):
                 pass
         return {"raw_response": text}
 
+
 # ----------------------------------------------------------------
 # QUESTION AGENT
 # ----------------------------------------------------------------
 class QuestionAgent:
-    """
-    Generates follow-up questions based on a transcript.
-    Can optionally take DDx context to refine questioning.
-    """
+    """Generates follow-up questions based on a transcript and given DDx."""
 
-    def __init__(self, model_name="gpt-4o-mini", temperature=0.5, prompt:str=None):
-        self.llm = ChatOpenAI(model=model_name, temperature=temperature)
-        if prompt is None:
-            self.prompt = QUESTION_PROMPT
-        else:
-            self.prompt = prompt
+    def __init__(self, model_name="gpt-4o-mini", temperature=0.5, prompt=None):
+        self.llm = ChatOpenAI(model=model_name, temperature=1 if model_name == "o3" else temperature)
+        self.prompt = prompt or FOLLOW_UP_QS_PROMPT
 
     def run(self, transcript: str, ddx_json: dict | list | str | None = None) -> dict:
-        """
-        Args:
-            transcript: conversation text
-            ddx_json: optional differential diagnoses (dict/list/str)
-        Returns:
-            dict: structured JSON with question groups
-        """
-        # Combine DDx context if provided
-        if ddx_json:
-            if isinstance(ddx_json, (dict, list)):
-                ddx_str = json.dumps(ddx_json, indent=2)
-            else:
-                ddx_str = str(ddx_json)
-            context = f"\n\nDifferential Diagnoses Context:\n{ddx_str}"
+        """Generate structured follow-up questions."""
+        if isinstance(ddx_json, (dict, list)):
+            ddx_str = json.dumps(ddx_json, indent=2)
         else:
-            context = ""
+            ddx_str = str(ddx_json or "")
 
-        resp = self.llm.invoke(self.prompt.format(transcript=transcript + context))
+        # If prompt is a ChatPromptTemplate, format properly
+        if isinstance(self.prompt, ChatPromptTemplate):
+            messages = self.prompt.format_messages(transcript=transcript, ddx=ddx_str)
+            resp = self.llm.invoke(messages)
+        else:
+            prompt_input = self.prompt.format(transcript=transcript, ddx=ddx_str)
+            resp = self.llm.invoke(prompt_input)
+            
+        
         return safe_json_parse(resp.content)
 
+
 # ----------------------------------------------------------------
-# DIFFERENTIAL DIAGNOSIS AGENT
+# PIPELINE — ONLY FOR FOLLOW-UP QUESTIONS
 # ----------------------------------------------------------------
-class DDxAgent:
-    """
-    Generates differential diagnoses.
-    Can work from transcript alone or use question context to refine.
-    """
-
-    def __init__(self, model_name="gpt-4o-mini", temperature=0.5, prompt:str=None):
-        self.llm = ChatOpenAI(model=model_name, temperature=temperature)
-        if prompt is None:
-            self.prompt = DDX_PROMPT
-        else:
-            self.prompt = prompt
-
-    def run(self, transcript: str, questions_json: dict | list | str | None = None) -> list:
-        """
-        Args:
-            transcript: conversation text
-            questions_json: optional question set (dict/list/str)
-        Returns:
-            list: list of diagnoses with likelihoods and evidence
-        """
-        if isinstance(questions_json, (dict, list)):
-            questions_str = json.dumps(questions_json, indent=2)
-        elif isinstance(questions_json, str) and questions_json.strip():
-            questions_str = questions_json
-        else:
-            questions_str = "[]"  # empty list if no questions
-
-        resp = self.llm.invoke(
-            self.prompt.format(transcript=transcript, questions=questions_str)
-        )
-        return safe_json_parse(resp.content)
-
-    
-class NoteAgent:
-    def __init__(self, model_name="gpt-4o-mini", prompt=BASELINE_NOTE_PROMPT,temperature=0.5):
-        self.llm = ChatOpenAI(model=model_name)
-        self.prompt = prompt
-    
-    def run(self, transcript: str, questions: dict = None, ddx: list = None, baseline: bool = False) -> dict:
-        if baseline:
-            resp = self.llm.invoke(self.prompt.format(transcript=transcript))
-            # print("Using baseline note prompt.",resp)
-        else:
-            q_json = json.dumps(questions) if questions is not None else "[]"
-            ddx_json = json.dumps(ddx) if ddx is not None else "[]"
-            resp = self.llm.invoke(NOTE_PROMPT.format(transcript=transcript, questions=q_json, ddx=ddx_json))
-        return resp.content
-
 class ScribePipeline:
-    def __init__(self, config_key: str, note_prompt: str = None, question_prompt: str= None, ddx_prompt: str=None):
-        cfg = CONFIGS.get(config_key)
-        if not cfg:
-            raise ValueError(f"Invalid config '{config_key}'")
-        self.cfg = cfg
-        self.question_agent = QuestionAgent(prompt=question_prompt)
-        self.ddx_agent = DDxAgent(prompt=ddx_prompt)
-        self.note_agent = NoteAgent(prompt=note_prompt) if note_prompt else NoteAgent()
-    
-    def run(self, transcript: str) -> dict:
-        questions = None
-        ddx = None
-        note = None
-        
-        # questions
-        if self.cfg.get("questions"):
-            questions = self.question_agent.run(transcript)
-        
-        # ddx
-        if self.cfg.get("ddx"):
-            # pass empty dict if no questions
-            questions_for_ddx = questions if questions is not None else {}
-            ddx = self.ddx_agent.run(transcript, questions_for_ddx)
-        
-        # note
-        if self.cfg.get("note"):
-            note = self.note_agent.run(
-                transcript,
-                questions=questions,
-                ddx=ddx,
-                baseline=self.cfg.get("baseline", False)
-            )
-        
-        return {
-            "config": self.cfg,
-            "questions": questions,
-            "ddx": ddx,
-            "note": note
-        }
+    """Simplified pipeline: uses transcript + DDx to generate follow-up questions."""
+
+    def __init__(self, model_name="gpt-4o-mini", question_prompt=None):
+        self.question_agent = QuestionAgent(model_name=model_name, prompt=question_prompt)
+
+    def run(self, transcript: str, ddx: dict | list | str | None = None) -> dict:
+        """Generate follow-up questions using pre-extracted DDx."""
+        questions = self.question_agent.run(transcript, ddx)
+        return {"questions": questions, "ddx_used": ddx}

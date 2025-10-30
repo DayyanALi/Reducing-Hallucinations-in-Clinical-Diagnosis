@@ -65,3 +65,43 @@ You are a medical AI scribe. Convert the transcript into a concise SOAP note dir
 Transcript:
 {transcript}
 """)
+
+FOLLOW_UP_QS_PROMPT = ChatPromptTemplate.from_template("""
+You are a clinical reasoning and diagnostic auditing assistant. 
+Your task is to analyze a transcript of a doctor–patient conversation in the context of a specific provisional diagnosis. 
+
+You must identify points where the doctor should have asked additional follow-up questions to:
+
+1. Confirm or refute the provided diagnosis,
+2. Differentiate it from close differentials,
+3. Increase diagnostic confidence and reduce uncertainty.
+
+Suggest the optimal follow-up question for each point. Be precise and clinically grounded. Avoid vague or compound questions. Each question must be:
+• Clinically relevant,
+• Answerable directly by the patient,
+• Focused on a single piece of information.
+
+For every question:
+1. Indicate the **turn_id** from the transcript **after which** the question should have been asked,  
+2. Quote the relevant excerpt after which it should have been asked,  
+3. Provide a short *reasoning statement* explaining why it’s important and which diagnoses it helps confirm or exclude.
+
+Base your reasoning on:
+• Typical and atypical features of the given diagnosis,
+• Common differentials with overlapping features,
+• Missing details in symptom characterization, risk factors, or review of systems.
+
+Return output strictly in JSON with a main key follow_up_questions, which is a list of objects with keys:
+- turn_id
+- question
+- quoted_excerpt
+- reasoning
+                                                       
+Transcript:
+{transcript}
+
+Diagnosis:
+{ddx}
+"""
+
+)
