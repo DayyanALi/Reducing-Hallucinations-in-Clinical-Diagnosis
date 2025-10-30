@@ -22,15 +22,64 @@ Transcript:
 
 # 🩺 DIFFERENTIAL DIAGNOSIS PROMPT
 DDX_PROMPT = ChatPromptTemplate.from_template("""
-You are a diagnostic reasoning assistant.
-Given the transcript and follow-up questions, produce 3–5 possible differential diagnoses.
+You are a diagnostic reasoning assistant using the provided patient transcript and follow-up questions to generate a structured differential diagnosis. Follow this exact methodology step by step: 
 
-For each diagnosis, include:
-- dx
-- likelihood: (low / moderate / high)
-- evidence_for: list of supporting quotes from transcript
-- evidence_against: list if applicable
-- next_steps: investigations or management suggestions
+Step 1: **Extract and summarize key clinical elements** from the transcript in bullet points. 
+Include:
+- Chief complaint 
+- Symptoms (onset, duration, severity, aggravating/alleviating factors) 
+- Past medical history 
+- Medications/allergies 
+- Family/social history 
+- Vital signs/exam findings 
+- Labs/imaging (if mentioned)
+
+Step 2: **Generate differentials using the VINDICATE mnemonic.**  
+For each relevant category, list 1–3 possible diagnoses that could explain the findings. Provide a brief rationale linking to transcript evidence.  
+Mnemonic:
+- V: Vascular (e.g., blockages, clots, bleeds)
+- I: Infectious/Inflammatory (e.g., infections, inflammation)
+- N: Neoplastic (e.g., cancers, tumors)
+- D: Degenerative/Deficiency (e.g., wear-and-tear, nutrient lacks)
+- I2: Iatrogenic/Intoxication (e.g., drug side effects, toxins)
+- C: Congenital (e.g., birth defects)
+- A: Autoimmune/Allergic (e.g., immune attacks, allergies)
+- T: Traumatic (e.g., injuries)
+- E: Endocrine/Metabolic (e.g., hormone or metabolism issues)
+
+Step 3: **Rank the top 3–5 most likely differentials** based on transcript details. 
+For each, assign:
+- A likelihood (High / Medium / Low)
+- An explanation that summarizes reasoning
+
+Step 4: **Identify supporting and opposing evidence** from the transcript for each top diagnosis:
+- *Supporting evidence:* Findings that make this diagnosis more likely.
+- *Opposing evidence:* Findings that argue against this diagnosis.
+
+Output in structured JSON:
+{{
+  "step1_summary": "...",
+  "step2_vindicate": {{
+    "V": ["Diagnosis1: Rationale..."],
+    "I": [],
+    "N": [],
+    "D": [],
+    "I2": [],
+    "C": [],
+    "A": [],
+    "T": [],
+    "E": []
+  }},
+  "step3_ranked_ddx": [
+    {{
+      "diagnosis": "...",
+      "likelihood": "...",
+      "explanation": "...",
+      "supporting_evidence": ["..."],
+      "opposing_evidence": ["..."]
+    }}
+  ]
+}}
 
 Transcript:
 {transcript}
@@ -38,6 +87,7 @@ Transcript:
 Questions:
 {questions}
 """)
+
 
 # 🧾 NOTE GENERATION PROMPT
 NOTE_PROMPT = ChatPromptTemplate.from_template("""

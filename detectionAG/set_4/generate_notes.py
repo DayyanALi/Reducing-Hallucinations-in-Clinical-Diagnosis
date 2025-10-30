@@ -1,4 +1,3 @@
-from __future__ import annotations
 import os, glob, json, time
 from typing import Dict, Any
 
@@ -12,9 +11,9 @@ from detectionAG.configs.notes_prompts.HP_prompt import H_AND_P_PROMPT
 load_dotenv()
 
 TRANSCRIPTS_DIR = "data/babylon_data/babylonhealth primock57 main transcripts combined"  # folder of *.txt transcripts
-OUTPUT_ROOT = "detectionAG/output/set4"
+OUTPUT_ROOT = "detectionAG/output/set4new"
 
-CONFIG_KEY = "A"   # <-- choose config (A, B, C, D)
+CONFIG_KEY = "E"   # <-- choose config (A, B, C, D)
 MODELS = [
     "o3",
     "gpt-5-nano",
@@ -73,7 +72,7 @@ def main():
 
             # Run the scribe pipeline for this model/config
             try:
-                scribe_pipeline = ScribePipeline(config_key=CONFIG_KEY, note_prompt=H_AND_P_PROMPT)
+                scribe_pipeline = ScribePipeline(model_name=model_name,config_key=CONFIG_KEY, note_prompt=H_AND_P_PROMPT)
                 note_result = scribe_pipeline.run(transcript_text)
 
                 # Save structured JSON output
