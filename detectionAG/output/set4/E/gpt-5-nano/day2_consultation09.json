@@ -10,47 +10,10 @@
     },
     "questions": null,
     "ddx": {
-      "step1_summary": {
-        "chief_complaint": "Inability to move left arm and tingling on the left side of the face.",
-        "symptoms": {
-          "onset": "Woke up this morning.",
-          "duration": "Symptoms started about an hour ago.",
-          "severity": "No pain, but inability to move arm and some difficulty with speech.",
-          "aggravating_factors": "None mentioned.",
-          "alleviating_factors": "None mentioned."
-        },
-        "past_medical_history": [
-          "Type 2 diabetes",
-          "High blood pressure"
-        ],
-        "medications/allergies": {
-          "medications": [
-            "Metformin",
-            "Losartan",
-            "Amlodipine"
-          ],
-          "allergies": [
-            "Penicillin"
-          ]
-        },
-        "family/social_history": {
-          "family_history": [
-            "Father has heart disease"
-          ],
-          "social_history": {
-            "living_situation": "Lives alone",
-            "smoking": "Former smoker",
-            "alcohol": "Occasional drinker"
-          }
-        },
-        "vital_signs/exam_findings": {
-          "neurological": "Inability to move left arm, tingling on left side of face, difficulty with speech."
-        },
-        "labs/imaging": "None mentioned."
-      },
+      "step1_summary": "- Chief complaint: Woke up about an hour ago with inability to move left arm; concern for stroke.\n- Symptoms (onset/duration/severity/aggravating factors): Sudden onset this morning, ongoing for ~1 hour; left arm cannot move (no pain); tingling on the left side of the face since waking; speech appears slightly harder/slower; some difficulty swallowing; no reported limb symptoms on left leg; no obvious facial asymmetry noted by patient; arm sensation feels normal aside from movement limitation.\n- Past medical history: Type 2 diabetes mellitus; hypertension.\n- Medications/allergies: Metformin; losartan; amlodipine; allergy to penicillin.\n- Family/social history: Father with heart disease; lives alone; former smoker; alcohol: weekend beers; drinks on weekdays occasionally; no one at home with him during this event.\n- Vital signs/exam findings: Not provided in transcript.\n- Labs/imaging (if mentioned): None mentioned.\n- Additional context: Doctor identifies possibility of stroke and arranges ambulance to hospital; advises patient to keep front door open for responders; patient currently awaiting ambulance; ongoing symptoms include left arm weakness and progressive speech difficulty with dysphagia.\n",
       "step2_vindicate": {
         "V": [
-          "Stroke: Sudden onset of unilateral weakness and facial tingling suggests a vascular event."
+          "Acute ischemic stroke: sudden onset focal neurological deficits (left arm paralysis with dysarthria/dysphagia) in a patient with vascular risk factors (diabetes, hypertension) and within a time window appropriate for emergency stroke evaluation."
         ],
         "I": [],
         "N": [],
@@ -59,20 +22,110 @@
         "C": [],
         "A": [],
         "T": [],
-        "E": []
+        "E": [
+          "Hypoglycemia (Endocrine/Metabolic): patient has diabetes on metformin; hypoglycemia can present with neuro deficits and altered speech; however focal unilateral weakness is less typical without other stroke features."
+        ]
       },
       "step3_ranked_ddx": [
         {
-          "diagnosis": "Stroke",
+          "diagnosis": "Acute ischemic stroke",
           "likelihood": "High",
-          "explanation": "The sudden inability to move the left arm, tingling on the left side of the face, and difficulty with speech are classic signs of a stroke.",
+          "explanation": "Sudden onset of unilateral motor deficit (left arm) with dysarthria/dysphagia; presence of facial sensory symptoms; ongoing symptoms within ~1 hour; multiple vascular risk factors (DM, HTN); stroke protocol indicated by clinician.",
           "supporting_evidence": [
-            "Sudden onset of symptoms",
-            "Unilateral weakness",
-            "Facial tingling"
+            "Sudden onset left arm inability to move",
+            "Left-sided sensory symptoms (tingling face)",
+            "Dysphagia and speech difficulty",
+            "Risk factors: diabetes, hypertension",
+            "Clinical concern for stroke by treating clinician"
           ],
           "opposing_evidence": [
-            "No history of previous similar symptoms"
+            "No documented imaging or vital signs yet",
+            "No clear facial droop or full motor exam described"
+          ]
+        },
+        {
+          "diagnosis": "Acute hemorrhagic stroke",
+          "likelihood": "Medium",
+          "explanation": "Hypertension is a risk factor for intracerebral hemorrhage; abrupt onset focal deficits could be hemorrhagic in nature; less likely given absence of severe headache or rapid deterioration described in transcript, but cannot be excluded without imaging.",
+          "supporting_evidence": [
+            "Hypertension history",
+            "Acute onset of focal neurological symptoms"
+          ],
+          "opposing_evidence": [
+            "No severe headache, vomiting, or altered consciousness noted",
+            "No imaging data yet to characterize bleed"
+          ]
+        },
+        {
+          "diagnosis": "Transient ischemic attack (TIA) / stroke mimics evolving toward stroke",
+          "likelihood": "Medium",
+          "explanation": "TIA could present with abrupt focal deficits; however current deficits are ongoing rather than resolving quickly, which is more typical of TIA. Evolution toward persistent deficits keeps stroke high on the differential.",
+          "supporting_evidence": [
+            "Abrupt onset of focal neurological symptoms",
+            "Clinical concern for vascular event"
+          ],
+          "opposing_evidence": [
+            "Symptoms have not resolved; persistent deficits are more stroke-like than classic TIA"
+          ]
+        },
+        {
+          "diagnosis": "Hypoglycemia",
+          "likelihood": "Medium",
+          "explanation": "Diabetes on metformin with acute neuro symptoms could be a metabolic mimic; hypoglycemia can cause neuro deficits, though focal left arm weakness with dysphagia is less typical without other symptoms.",
+          "supporting_evidence": [
+            "Diabetes mellitus on metformin",
+            "Acute onset neuro symptoms could be metabolic in origin"
+          ],
+          "opposing_evidence": [
+            "No reported symptoms typically associated with hypoglycemia (sweating, tremor, confusion) in transcript",
+            "Focal nature of deficits (monoplegia) is less common with hypoglycemia"
+          ]
+        }
+      ],
+      "step4_evidence": [
+        {
+          "diagnosis": "Acute ischemic stroke",
+          "supporting_evidence": [
+            "Sudden unilateral weakness of the left arm",
+            "Left facial tingling",
+            "Dysphagia and/slurred or slowed speech",
+            "Diabetes and hypertension present (vascular risk factors)",
+            "Onset within ~1 hour; emergency stroke evaluation indicated by clinician"
+          ],
+          "opposing_evidence": [
+            "No imaging results yet to confirm ischemia",
+            "No documented facial droop or complete motor exam provided"
+          ]
+        },
+        {
+          "diagnosis": "Acute hemorrhagic stroke",
+          "supporting_evidence": [
+            "Hypertension history",
+            "Acute, dramatic neurological presentation"
+          ],
+          "opposing_evidence": [
+            "Absence of thunderclap headache or decreased consciousness",
+            "No imaging confirmation yet"
+          ]
+        },
+        {
+          "diagnosis": "Transient ischemic attack (TIA) / evolving stroke",
+          "supporting_evidence": [
+            "Abrupt onset of focal neurological symptoms"
+          ],
+          "opposing_evidence": [
+            "Symptoms persist beyond a typical TIA duration; persistent deficits more consistent with stroke"
+          ]
+        },
+        {
+          "diagnosis": "Hypoglycemia",
+          "supporting_evidence": [
+            "Diabetes on metformin",
+            "Acute onset neurological symptoms could be metabolic in origin"
+          ],
+          "opposing_evidence": [
+            "Lack of typical hypoglycemia symptoms (sweating, confusion, tremor) reported",
+            "Focal unilateral weakness is less typical for hypoglycemia without other signs"
           ]
         }
       ]

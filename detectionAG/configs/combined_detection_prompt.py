@@ -22,11 +22,8 @@ Perform these checks:
 
 2. **Fabrications**
    - Candidate facts that contradict medical reality or are internally inconsistent.
-   - Categories include:
-     * Physiological impossibility (vitals, SpO2, age/weight extremes)
-     * Contradiction to medical knowledge (e.g., male pregnant, drug despite allergy)
-     * Unit/structural errors (e.g., "HR 120 mmHg")
-     * Logical contradictions (e.g., afebrile with 40.5°C)
+   - Candidate facts that are medically inaccurate, logically inconsistent, or impossible in real-world clinical contexts.
+   - These include situations where facts conflict with established medical principles, contain implausible values or relationships, or demonstrate internal contradictions within the same statement.
    - Return: {{\"id\",\"content\",\"reason\"}}
 
 3. **Critical Omissions**

@@ -5,7 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 # 🧩 QUESTION PROMPT
 QUESTION_PROMPT = ChatPromptTemplate.from_template("""
-You are a clinical assistant. Based on the transcript below, first extract all known key facts 
+You are a clinical assistant. Based on the transcript and the differential diagnosis below, first extract all known key facts 
 (e.g., age, presenting symptoms, relevant history, medications). 
 Then identify any missing or unclear items and generate follow-up questions grouped into:
 
@@ -18,6 +18,9 @@ red_flags, clarifications, history_meds_social, priority_order.
 
 Transcript:
 {transcript}
+
+Differential Diagnosis:
+{ddx}
 """)
 
 # 🩺 DIFFERENTIAL DIAGNOSIS PROMPT
