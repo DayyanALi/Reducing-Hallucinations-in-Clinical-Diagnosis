@@ -187,11 +187,28 @@ if __name__ == "__main__":
 
     all_outputs = []
     for i, transcript_path in enumerate(transcript_files, start=1):
+        out_path = OUT_DIR / f"facts_{transcript_path.stem}.json"
+
+        # --- Skip if output file exists and contains "facts" key ---
+        if out_path.exists():
+            try:
+                with open(out_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if "facts" in data:
+                    print(f"[{i}/{len(transcript_files)}] Skipping {transcript_path.name}, output already exists with facts.")
+                    all_outputs.append({
+                        "note_file": transcript_path.name,
+                        "output_file": out_path.name
+                    })
+                    continue
+            except Exception:
+                # If file exists but is corrupted or invalid JSON, re-run extraction
+                pass
+
         with open(transcript_path, "r", encoding="utf-8") as f:
             transcript_text = f.read()
 
         print(f"[{i}/{len(transcript_files)}] Extracting facts from note={transcript_path.name} ...")
-
         try:
             facts = agent.transcript_extract_facts(transcript_text)
             result = {
@@ -205,7 +222,6 @@ if __name__ == "__main__":
             }
 
         # Write JSON output
-        out_path = OUT_DIR / f"facts_{transcript_path.stem}.json"
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
 
