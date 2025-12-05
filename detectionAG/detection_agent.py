@@ -7,8 +7,8 @@ import os, json, re
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
-from detectionAG.configs.fact_extract_prompt import *
-from detectionAG.configs.combined_detection_prompt import DETECT_ALL_SYSTEM_PROMPT, DETECT_ALL_USER_PROMPT
+from configs.fact_extract_prompt import *
+from configs.combined_detection_prompt import DETECT_ALL_SYSTEM_PROMPT, DETECT_ALL_USER_PROMPT
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -20,8 +20,8 @@ class DetectionAgent:
         self.llm = ChatOpenAI(model=model)
         self.parser = JsonOutputParser()
 
-        self.PROMPT_EXTRACT_SYSTEM = FACT_EXTRACT_SYSTEM_PROMPT
-        self.PROMPT_EXTRACT_USER = FACT_EXTRACT_USER_PROMPT
+        self.PROMPT_EXTRACT_SYSTEM = TRANSCRIPT_FACT_EXTRACT_SYSTEM_PROMPT
+        self.PROMPT_EXTRACT_USER = TRANSCRIPT_FACT_EXTRACT_USER_PROMPT
         self.PROMPT_DETECT_ALL_SYSTEM = DETECT_ALL_SYSTEM_PROMPT
         self.PROMPT_DETECT_ALL_USER = DETECT_ALL_USER_PROMPT
 
@@ -34,6 +34,16 @@ class DetectionAgent:
         out = (prompt | self.llm | self.parser).invoke({"note_text": note_text})
         facts = out.get("facts", [])
         return [{"id": f["id"], "content": f["content"].strip()} for f in facts if "id" in f and "content" in f]
+
+    # ---------------- Transcript Fact Extraction ----------------
+    def transcript_extract_facts(self, transcript_text: str) -> List[Dict[str, str]]:
+        prompt = ChatPromptTemplate.from_messages([
+            ("system", self.PROMPT_EXTRACT_SYSTEM),
+            ("user", self.PROMPT_EXTRACT_USER),
+        ])
+        out = (prompt | self.llm | self.parser).invoke({"transcript": transcript_text})
+        facts = out.get("facts", [])
+        return facts
 
     # ---------------- Unified Detection ----------------
     def detect_all(self, baseline_facts: List[Dict[str, str]], candidate_facts: List[Dict[str, str]]) -> Dict[str, Any]:
@@ -154,70 +164,59 @@ class DetectionAgent:
 if __name__ == "__main__":
     import os
     import re
+    import json
     from pathlib import Path
 
     # --- Configurable paths ---
-    NOTES_DIR = Path("detectionAG/output/notes_markdown")
-    TRANS_DIR = Path("detectionAG/output/transcriptions")
-    # TRANS_DIR = Path("data/babylon_data/generated_joined_transcripts")
-    OUT_DIR = Path("detectionAG/output/evaluations_set2")
+    TRANS_DIR = Path("data/babylon_data_cleaned/babylonhealth primock57 main transcripts combined")
+    OUT_DIR = Path("detectionAG/output/transcript_facts")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     def natural_key(s: str):
-        """Sort like humans: file2 < file10."""
+        """Sort like humans (file2 < file10)."""
         return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", s)]
 
     # Collect and sort files
-    note_files = sorted([p for p in NOTES_DIR.glob("*.txt")], key=lambda p: natural_key(p.name))
-    trans_files = sorted([p for p in TRANS_DIR.glob("*.txt")], key=lambda p: natural_key(p.name))
+    transcript_files = sorted([p for p in TRANS_DIR.glob("*.txt")], key=lambda p: natural_key(p.name))
 
-    if not note_files:
-        raise FileNotFoundError(f"No .txt files found in {NOTES_DIR}")
-    if not trans_files:
+    if not transcript_files:
         raise FileNotFoundError(f"No .txt files found in {TRANS_DIR}")
 
-    # Use the first 5 of each, paired by index
-    n = min(5, len(note_files), len(trans_files))
-    pairs = list(zip(note_files[:n], trans_files[:n]))
-
     # Init agent once
-    agent = DetectionAgent(model="gpt-5-nano")
+    agent = DetectionAgent(model="gpt-5")
 
-    all_summaries = []
-    for i, (note_path, trans_path) in enumerate(pairs, start=1):
-        with open(note_path, "r", encoding="utf-8") as f:
-            generated_note = f.read()
-        with open(trans_path, "r", encoding="utf-8") as f:
-            transcript = f.read()
+    all_outputs = []
+    for i, transcript_path in enumerate(transcript_files, start=1):
+        with open(transcript_path, "r", encoding="utf-8") as f:
+            transcript_text = f.read()
 
-        print(f"[{i}/{n}] Evaluating note={note_path.name} vs transcript={trans_path.name} ...")
+        print(f"[{i}/{len(transcript_files)}] Extracting facts from note={transcript_path.name} ...")
+
         try:
-            result = agent.run_all(transcript, generated_note)
-        except Exception as e:
-            # If something fails, write an error record and continue
+            facts = agent.transcript_extract_facts(transcript_text)
             result = {
-                "error": str(e),
-                "note_file": note_path.name,
-                "transcript_file": trans_path.name,
+                "transcript_file": transcript_path.name,
+                "facts": facts
+            }
+        except Exception as e:
+            result = {
+                "transcript_file": transcript_path.name,
+                "error": str(e)
             }
 
-        # Write a per-pair JSON
-        out_name = f"result_{note_path.stem}__{trans_path.stem}.json"
-        out_path = OUT_DIR / out_name
+        # Write JSON output
+        out_path = OUT_DIR / f"facts_{transcript_path.stem}.json"
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
 
-        all_summaries.append({
-            "note_file": note_path.name,
-            "transcript_file": trans_path.name,
+        all_outputs.append({
+            "transcript_file": transcript_path.name,
             "output_file": out_path.name
         })
 
-    # Optionally write an index file listing all outputs
-    index_path = OUT_DIR / "index_first5.json"
+    # Write index file
+    index_path = OUT_DIR / "index_facts.json"
     with open(index_path, "w", encoding="utf-8") as f:
-        json.dump({"pairs": all_summaries}, f, indent=2, ensure_ascii=False)
+        json.dump({"outputs": all_outputs}, f, indent=2, ensure_ascii=False)
 
-    print(f"Done. Wrote {n} result files to: {OUT_DIR}")
-
-
+    print(f"Done. Wrote results to: {OUT_DIR}")
