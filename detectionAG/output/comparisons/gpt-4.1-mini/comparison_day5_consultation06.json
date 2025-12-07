@@ -1,0 +1,448 @@
+{
+  "file_id": "day5_consultation06.txt",
+  "model_source": "gpt-4.1-mini",
+  "metrics": {
+    "total_gold_facts": 36,
+    "total_gen_facts": 43,
+    "omission_count": 6,
+    "omission_rate": 0.1667,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.0698,
+    "addition_count": 7,
+    "addition_rate": 0.1628
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient presents with diarrhoea. Gen cc-001: 'severe diarrhea and vomiting for 3 days' includes diarrhea as chief complaint; severity and mention of vomiting are added details."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 3\u2011day history of diarrhoea. Gen cc-001 and hpi-001 both state diarrhea began 3 days ago, which captures duration."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: stools are watery. Gen hpi-001: 'very loose, initially watery diarrhea' matches watery stools (adds 'initially' and 'very loose')."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: sense of urgency with bowel movements. Gen facts mention worsening pain with urges to defecate (hpi-007) but not urgency of defecation itself; clinical nuance is different."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no blood in stool. Gen hpi-009: 'no blood in stool or urine' includes absence of blood in stool (adds urine)."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: periumbilical cramps that come in waves. Gen hpi-006: abdominal pain localized to navel area (periumbilical), but described as 'sore and tender' with no mention of crampy, wave-like nature."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: cramps worse when she needs to open bowels. Gen hpi-007: 'abdominal pain worsens with urges to defecate' captures same relationship."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: four bowel movements by midday. Gen hpi-002: 'at least four bowel movements today' is consistent, though slightly less specific about time of day."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has been vomiting. Gen cc-001, hpi-004, hpi-005: clearly document vomiting; frequency and timing are added."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: feels she is not keeping fluids down. Gen hpi-004: 'unable to keep down even liquids' conveys the same issue (adds 'continuous')."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: still passing urine, last void 1 hour ago. Gen hpi-008: 'urination is reported as normal and last occurred about an hour ago' matches and slightly expands ('normal')."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "OMITTED",
+        "reasoning": "Gold: normal bowel habit is once per day. No generated fact mentions baseline bowel frequency."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "OMITTED",
+        "reasoning": "Gold: no foreign travel. No generated fact discusses travel history."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "COVERED",
+        "reasoning": "Gold: brother recently had similar GI symptoms. Gen fh-001: brother with similar symptoms; adds attribution to viral illness at school."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "OMITTED",
+        "reasoning": "Gold: mother also had similar symptoms and patient was in contact. No generated fact mentions mother\u2019s similar illness or contact."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: has been taking ORT regularly but has difficulty keeping it down. Gen hpi-010/med-003: ORS taken three times daily for two days with no improvement\u2014does not state difficulty keeping ORT down and implies tolerated dosing; together with hpi-004 (unable to keep down even liquids), the structured ORS regimen is inconsistent with 'difficulty keeping it down' and appears fabricated from a different note."
+      },
+      {
+        "fact_id": "hpi-016",
+        "status": "COVERED",
+        "reasoning": "Gold: no rash. Gen hpi-011 and ros-002 both note no rash."
+      },
+      {
+        "fact_id": "hpi-017",
+        "status": "COVERED",
+        "reasoning": "Gold: feels hot but hasn't checked temperature. Gen hpi-003: feels she has a high temperature, not measured; wording is consistent, although 'high' is a mild intensification."
+      },
+      {
+        "fact_id": "hpi-018",
+        "status": "OMITTED",
+        "reasoning": "Gold: LMP 2 weeks ago. No generated fact mentions menstrual timing."
+      },
+      {
+        "fact_id": "hpi-019",
+        "status": "COVERED",
+        "reasoning": "Gold: does not have regular sexual intercourse. Gen sh-005: 'no regular sexual activity' captures this."
+      },
+      {
+        "fact_id": "hpi-020",
+        "status": "COVERED",
+        "reasoning": "Gold: not using contraception. Gen sh-005: explicitly includes 'no ... contraception use.'"
+      },
+      {
+        "fact_id": "hpi-021",
+        "status": "COVERED",
+        "reasoning": "Gold: had been at work until today, now working from home. Gen sh-004: currently working from home due to illness; combined with employment as graphics designer, it captures 'working from home now,' though 'until today' detail is omitted."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: PMH nil. Gen pmh-001: notes past history of normal menstrual cramps and no prior abdominal problems, which introduces past conditions not in the gold record; this contradicts a 'Nil' PMH entry."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: patient takes vitamins (unspecified). Gen med-001: oral vitamin D daily, and med-002: occasional ibuprofen. Vitamin D fits 'vitamins' but adds specific type and schedule; ibuprofen is additional and not in gold."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with brother and mother. Gen sh-003: same."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Gen sh-001: non-smoker."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: drinks approximately one pint of alcohol per week. Gen sh-002: 'a pint from time to time' (occasional) is directionally similar but less specific than weekly; frequency detail is not fully captured."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: works as graphic designer. Gen sh-004: works as graphics designer and currently working from home."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold FH: brother with similar GI symptoms. Gen fh-001: brother with similar symptoms; context of viral illness is added."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold FH: mother also had similar symptoms. No generated family-history fact about mother\u2019s illness."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: gastroenteritis ?viral/?food poisoning. Gen asm-001 and asm-002: acute infectious/viral gastroenteritis, but they omit explicit 'food poisoning' as a differential."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: if fever persists, a stool culture will be sent to exclude bacterial origin (conditional). Gen asm-004/plan-001/plan-008: state stool testing/sample is needed/recommended due to severity and persistence, without tying it to fever; this changes the condition and indication."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: continue small sips of ORT constantly. Gen plan-002: continue ORS in small frequent sips; equivalent advice."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: avoid fruits, vegetables, milk. Gen plan-003: bland diet with toast/biscuits; avoid fruit, vegetables, milk. Fully aligned with added examples of bland foods."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: urgent appointment to assess hydration. Gen plan-001 and plan-007/fu-001: urgent clinic appointment for hydration assessment is mentioned (also for stool collection), consistent with follow-up via clinic visit."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: if worsening/abdominal pain/unwell, contact clinic for urgent A&E assessment. Gen plan-004 and plan-005: monitor for worsening and attend A&E urgently if worsening, but the instruction to contact the clinic to arrange A&E is not captured; route of escalation differs."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Diarrhea as chief complaint and 3-day duration are supported by gold cc-001 and hpi-001; 'severe' and inclusion of vomiting in chief complaint are additions not specified in gold."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Three-day onset of diarrhea is supported by hpi-001; 'very loose, initially watery' partly supported by 'watery stools' (hpi-002), though 'initially' and degree of looseness are added details."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold: four bowel movements by midday. Gen: at least four today. Content is consistent, though gen is less time-specific."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-017",
+        "reasoning": "Gold: feels hot but hasn't checked temperature. Gen: feels she has a high temperature, not measured. Compatible restatement with minor intensification."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Vomiting and inability to keep liquids down are supported by hpi-008 and hpi-009. 'Continuous' vomiting is an added severity detail not present in gold and may overstate frequency."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Timing of last vomiting episode ('about two hours ago') is not documented in gold; no support or contradiction."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Localization to navel/periumbilical area is supported. Description as 'sore and tender' differs from 'cramps, comes in waves'\u2014this changes pain quality rather than contradicting explicitly, so partially supported."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Both state pain worsens with urge/need to defecate/open bowels."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-010",
+        "reasoning": "Normal urination and last void one hour ago are supported. 'Normal' color/function is inferred but not described in gold; however, gold 'Still PUing ok' is close in meaning. Omission of 'not sure of colour' is acceptable."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "No blood in stool is supported by gold. Absence of blood in urine is an added negative finding not mentioned in gold (neither supported nor contradicted)."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold hpi-015: ORT taken regularly with difficulty keeping it down (suggesting tolerance issue, not a structured 3x/day regimen). Gen: ORS three times daily for two days with no improvement\u2014this imposes a specific schedule and duration and omits difficulty tolerating ORT; taken together with severe vomiting, this conflicts with gold\u2019s framing and appears fabricated."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-016",
+        "reasoning": "'No rash' is supported. 'No other symptoms' is broader than gold (which lists only no rash) and thus adds undocumented negatives."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": null,
+        "reasoning": "Diarrhea, vomiting, abdominal pain, and feverishness are all documented in HPI (hpi-001/002, hpi-008, hpi-005/006, hpi-017). This is a summary of supported symptoms."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Negative for blood in stool is supported (hpi-004). Negative for blood in urine, rash, and previous similar episodes: 'no rash' is supported (hpi-016); blood in urine and prior similar episodes are additions without support."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Statement that no other GI symptoms are documented is meta-commentary and not explicitly stated in gold; it neither conflicts nor is directly supported."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold pmh-001: PMH nil. Gen: mentions normal menstrual cramps and no prior abdominal problems as past history. Introducing any past conditions when gold states 'Nil' is a contradiction."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: takes vitamins (unspecified). Gen: specifies vitamin D, oral daily. Type and schedule are added but consistent with 'vitamins'."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Occasional ibuprofen for menstrual cramps is not mentioned in gold medications; no direct contradiction but clearly added."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Same content as hpi-010 regarding ORS use; conflicts with gold hpi-015 that notes difficulty keeping ORT down and does not specify a structured 'three times daily for two days' regimen."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Allergies are not addressed in gold facts. Stating 'not documented' is additional metadata, not supported or contradicted."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Brother with similar symptoms is supported. The assertion that this is 'consistent with a likely viral illness circulating at school' is additional interpretation not present in gold."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Both document that the patient is a non-smoker."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold: 1 pint per week. Gen: a pint from time to time (occasional). Frequency is less specific and somewhat different; partially supported but not exact."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Both note she lives with brother and mother."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Occupation as graphic/graphics designer is supported. 'Currently working from home due to illness' combines gold hpi-021 and sh-004 and is consistent."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-019",
+        "reasoning": "Matches 'no regular sexual intercourse' and 'not using contraception' (hpi-019, hpi-020)."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts include no vitals section. 'Vitals not documented' is an added meta-observation."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "ADDITION",
+        "reasoning": "Similarly, physical exam not documented/remote consult is not covered in gold facts; purely additional."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: gastroenteritis ?viral/?food poisoning. Gen: 'acute infectious gastroenteritis'\u2014consistent but omits explicit viral vs food-poisoning differential."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold lists gastroenteritis with possible viral or food origin but does not enumerate features; description of watery diarrhea, vomiting, abdo pain, and fever is consistent with HPI, but labeling as 'viral gastroenteritis' is interpretive (and drops '?food poisoning')."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Gold: brother has similar symptoms. Inferring exposure likely from brother is a reasonable interpretation and consistent with gold HPI and FH."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold plan-001: stool culture if fever ongoing, to exclude bacterial origin. Gen: 'needs stool testing to exclude bacterial causes due to severity and persistence' changes the indication from fever-based to severity/persistence-based; partially aligned on excluding bacterial but condition differs."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "SUPPORTED",
+        "match_gold_id": null,
+        "reasoning": "Gold describes vomiting and concern about not keeping fluids down but still passing urine (hpi-008\u2013010). Stating there is a risk of dehydration is a supported clinical inference."
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010",
+        "reasoning": "Gold: still passing urine, last 1 hr ago, suggesting some hydration. Viewing this as 'reassuring but needs assessment' is consistent."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Urgent clinic appointment for hydration assessment matches gold fu-001. Addition of 'collection of stool sample for microbiological testing' is only conditional on ongoing fever in gold (plan-001), whereas gen makes it a firm plan; indication/conditionality differs."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Advice to continue ORS in small frequent sips is equivalent to 'small sips ORT constantly'; minimizing vomiting is a logical rationale."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Avoiding fruit, vegetables, and milk matches gold; small bland diet (toast, biscuits) elaborates but is consistent."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: if feels worse, abdo pain, unwell. Gen: monitor for worsening, especially inability to keep fluids, decreased urine, dizziness, increasing abdo pain\u2014expands the list with extra red flags not specifically in gold but clinically consistent."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: if worse/unwell, contact clinic to arrange urgent A&E assessment. Gen: go to A&E urgently if worsening. The endpoint (urgent A&E) is consistent, but the pathway (via clinic) is omitted, so only partially supported."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Patient education about supportive care and dehydration signs is not mentioned in gold; plausible but additional."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Follow-up via clinic visit is supported; 'symptomatic management' is a generic addition not explicitly described in gold."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: stool culture if fever ongoing to exclude bacterial origin. Gen: recommends stool sample for pathogen analysis without condition on fever; partially aligned on test type but differs on when/why."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Clinic visit for follow-up is consistent with 'urgent appointment to assess hydration'; 'symptomatic management' is an added but reasonable description of ongoing care."
+      }
+    ]
+  }
+}

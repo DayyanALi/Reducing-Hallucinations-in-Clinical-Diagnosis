@@ -1,0 +1,524 @@
+{
+  "file_id": "day5_consultation01.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 39,
+    "total_gen_facts": 55,
+    "omission_count": 7,
+    "omission_rate": 0.1795,
+    "contradiction_count": 10,
+    "contradiction_rate": 0.1818,
+    "addition_count": 12,
+    "addition_rate": 0.2182
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: left-sided headache. Generated CC mentions a really bad headache and duration but not that it is left-sided."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: headache started yesterday morning. Generated hpi-001: onset yesterday morning on waking, duration ~24 h. Core onset timing is captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: headache is intermittent. Generated hpi-005: fluctuates but never fully resolves. This conveys intermittent character."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-positional. Generated hpi-008: no clear positional worsening with bending, coughing, or sneezing. Equivalent meaning."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: improves when lying down. Generated hpi-006 states the same."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: headache has not awakened the patient from sleep. No generated fact addresses sleep or nocturnal awakening."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: worse with light (photophobia). Generated hpi-007 and ros-002 both document photophobia/worsened by light."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: taken paracetamol only. Generated hpi-021 and med-002 both state paracetamol used for headache; no other analgesic use (aside from explicit note of no NSAIDs in hpi-023)."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: period stopped last week. Generated hpi-019: last period ~1 week ago. Same content."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: no previous history of headaches. Generated hpi-020: no similar episodes; first significant headache. Equivalent clinical meaning."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no altered smell or taste. Generated hpi-010: denies abnormal smells or tastes. Same content (though placed in HPI)."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Gold: eating and drinking normally. Generated hpi-017: appetite and hydration reportedly normal. Equivalent."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies prodromal illness. No generated fact mentions prodrome or preceding illness."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: denies viral symptoms. Generated hpi-012 and ros-006 deny measured/subjective fever; hpi-013/ros-005 deny runny nose; hpi-014/ros-004 deny sore ears. These are components of viral symptoms and directly oppose the gold statement of sore ears/coryzal symptoms and no viral symptoms."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: sore ears and coryzal symptoms present. Generated hpi-013, hpi-014, ros-004, ros-005 all deny runny nose/rhinorrhea and ear pain, which contradicts presence of sore ears/coryzal symptoms."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: does not feel feverish but has not checked temperature. Generated hpi-012 and ros-006 state denial of measured fever or chills and deny fever, implying some temperature has been assessed or at least explicitly denied, which conflicts with not having checked temperature and only subjective assessment."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies nausea and vomiting. Generated hpi-011 and ros-007 both document denial of nausea/vomiting."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "COVERED",
+        "reasoning": "Gold: denies tingling, numbness, weakness, rash. Generated hpi-016 denies focal weakness, tingling, numbness; hpi-015 and ros-008 note no skin changes/rash. Fully captured."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "COVERED",
+        "reasoning": "Gold: no alteration in vision. Generated hpi-009 and ros-003 deny visual changes/disturbance. Equivalent."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: PMH nil significant. Generated pmh-001: none reported. Same meaning."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes Microgynon OCP. Generated med-001 states Microgynon combined oral contraceptive pill; start time added but core fact present."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no side effects from Microgynon. Generated medication facts do not address side effects or tolerance."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "COVERED",
+        "reasoning": "Gold: paracetamol only for current headache. Generated hpi-021 and med-002 confirm paracetamol use, and hpi-023 states no NSAIDs. This supports 'paracetamol only.'"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to aspirin. Generated allergy-001: allergic to aspirin, causing nausea. Same allergy, with added reaction detail."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has hypertension. Generated fh-001 matches."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has migraines. Generated fh-002 matches."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with flatmates. Generated sh-001: lives with housemates/friends. Equivalent description."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: few glasses of wine at weekends. Generated sh-002: few alcoholic beverages on weekends. Equivalent."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Generated sh-003 matches."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: some stress at work recently. Generated hpi-018 notes possible work-related stress as trigger; sh-005 mentions work but not stress, but trigger note covers stress content."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: BP was normal when checked for last prescription. Generated facts note only need for BP check; they do not state previous normal BP."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: impression is tension headache versus first-episode migraine (uncertain). Generated asm-001 labels probable migraine without aura and asm-002 lists tension among differentials but does not present a simple tension vs first migraine dichotomy. The emphasis on probable migraine without aura conflicts with the gold phrasing of a more balanced tension vs first-episode migraine impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no features suggestive of meningitic illness. Generated assessment/differential and ROS do not explicitly state absence of meningitic features."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to get BP checked. Generated plan-007: arrange blood pressure check within next month. Same intent."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: advised to have temperature checked. Generated plan-008 suggests obtaining a home thermometer, but no explicit advice to have temperature checked now or by a clinician; only self-monitoring suggestion. This does not directly state the gold fact."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: start regular ibuprofen with food. Generated plan-001: ibuprofen 400 mg q6\u20138h with food as needed (PRN), which is intermittent use, not regular scheduled dosing."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to keep well hydrated. Generated plan-003: optimize oral hydration. Same advice."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: call straight back if worsening/persistent headache/fever/rash/new symptoms. Generated plan-005: seek urgent care if worsening, new neurologic signs, fever \u226538 \u00b0C, rash, vomiting, visual changes, or no improvement within 48 h. The need for immediate call for persistent headache/new symptoms is narrowed to lack of improvement within 48 h and specific temps/neurologic signs; this materially changes thresholds and timing, thus a contradiction of the simpler, earlier escalation guidance."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: review if regular headaches. Generated fu-001: telephone or in-person review if no improvement or recurrent episodes, with possible migraine work-up. 'Recurrent episodes' aligns with regular headaches."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold CC: left-sided headache. Generated: really bad headache ~1 day without side. Omits laterality and adds 'really bad' but duration is consistent. Because a separate gold CC exists specifying left-sided and that feature is absent rather than opposed, this is better viewed as ADDITION with partial omission; however, at CC level the missing laterality is an omission, not a direct opposite. Final classification: ADDITION.",
+        "corrected_status": "ADDITION"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Onset yesterday morning matches gold. Duration (~24h) is an added detail."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Throbbing quality is not mentioned in any gold fact."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Headache intensity is not specified in gold facts."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Left-sided location appears in gold CC (left-sided headache)."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Fluctuates but never fully resolves is consistent with intermittent headache, though adds nuance of no complete resolution."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Matches improvement when lying down."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Same photophobia/worse with light."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "No clear positional worsening aligns with non-positional."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-009",
+        "reasoning": "Denies visual changes corresponds to no alteration in vision."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Denies abnormal smells/tastes equals no altered smell or taste."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007",
+        "reasoning": "Denies nausea/vomiting matches gold."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: denies fever. Gold: doesn't feel feverish but hasn't checked temperature. Gold avoids a definitive statement about fever; generated states explicit absence of fever and also appears within a list that includes measured fever in ROS. This overstates beyond gold and conflicts with the nuance of not having measured temperature."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: denies runny nose. Gold: notes coryzal symptoms, which include nasal symptoms. Direct conflict."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: denies sore ears. Gold: sore ears present."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008",
+        "reasoning": "No skin changes is consistent with no rash."
+      },
+      {
+        "fact_id": "hpi-016",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008",
+        "reasoning": "Denies focal weakness, tingling, numbness matches denial of tingling/numbness/weakness."
+      },
+      {
+        "fact_id": "hpi-017",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002",
+        "reasoning": "Appetite and hydration normal aligns with eating and drinking normally."
+      },
+      {
+        "fact_id": "hpi-018",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Possible trigger work-related stress builds on gold note of some stress at work recently."
+      },
+      {
+        "fact_id": "hpi-019",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Last period ~1 week ago corresponds to period stopped last week; menstrual association comment is additional."
+      },
+      {
+        "fact_id": "hpi-020",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "No similar episodes/first significant headache matches no history of headaches."
+      },
+      {
+        "fact_id": "hpi-021",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Paracetamol use is documented in gold."
+      },
+      {
+        "fact_id": "hpi-022",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Avoiding aspirin due to allergy is consistent with aspirin allergy in gold."
+      },
+      {
+        "fact_id": "hpi-023",
+        "status": "ADDITION",
+        "reasoning": "No NSAIDs in past few days is not specified in gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "No past medical history matches nil significant PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Use of Microgynon OCP is in gold; start date is additional."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-003",
+        "reasoning": "Paracetamol for headache is in gold medications; PRN description is additional but consistent with 'taken paracetamol only'."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Aspirin allergy matches; nausea as reaction is added detail."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Mother with hypertension matches."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-002",
+        "reasoning": "Mother with migraines matches."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Lives with housemates/flatmates is equivalent."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Few alcoholic drinks on weekends matches few glasses of wine at weekends (slightly broader but not contradictory)."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Non-smoker matches."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Denial of recreational drug use is not mentioned in any gold fact."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "Employment details not documented in gold; only stress at work is mentioned there."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: probable migraine without aura as main impression. Gold: impression is tension headache vs first-episode migraine, with no explicit statement of probability; thus the generated assessment overcommits to migraine compared with the balanced gold impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Expanded differential list (cluster, MOH, tumor, hemorrhage, etc.) is not present in gold; gold only notes tension vs first migraine and no meningitic features."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Need for routine health maintenance due to no recent BP and no thermometer is not in gold. Gold only mentions prior normal BP and advice to get BP and temp checked."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: ibuprofen 400 mg q6\u20138h with food as needed (PRN). Gold: start regular ibuprofen with food. PRN versus regular scheduled use are different instructions; this conflicts with gold plan."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Continue paracetamol with attention to max dosing is not specified in gold plan, which only confirms paracetamol already taken."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Optimize oral hydration equals keep well hydrated."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Rest in dark room is not mentioned in gold plan or ROS, though consistent with photophobia."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold follow-up: call straight back if worsening/persistent headache/fever/rash/new symptoms. Generated: seek urgent care with more restrictive conditions (fever \u226538 \u00b0C, persistent vomiting, no improvement within 48 h, etc.). This changes both thresholds and timing for escalation, conflicting with gold advice."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Education about migraine, stress management, warning signs is not specified in gold facts."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Arrange BP check within next month aligns with advice to get BP checked, though adds timeframe and location."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Obtaining home thermometer is not mentioned in gold, which only says temp should be checked."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Review for recurrent episodes corresponds to review if regular headaches; no improvement clause is additional."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Neurologic ROS denying focal deficits or aura is not described in gold; gold denies tingling/numbness/weakness but does not mention aura or 'focal deficits' phrasing."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Photophobia is consistent with headache worse with light in gold HPI."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-009",
+        "reasoning": "No visual disturbance matches no alteration in vision."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: HEENT denies ear pain. Gold: sore ears present."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: denies rhinorrhea. Gold: coryzal symptoms present, which typically includes rhinorrhea."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: denies measured fever or chills. Gold: patient does not feel feverish but has not checked temperature. Explicitly denying measured fever presumes measurement, conflicting with gold's note that temperature has not been checked."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007",
+        "reasoning": "Denies nausea or vomiting matches."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008",
+        "reasoning": "No rashes aligns with denial of rash."
+      }
+    ]
+  }
+}

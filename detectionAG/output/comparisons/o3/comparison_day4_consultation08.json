@@ -1,0 +1,311 @@
+{
+  "file_id": "day4_consultation08.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 23,
+    "total_gen_facts": 32,
+    "omission_count": 6,
+    "omission_rate": 0.2609,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 16,
+    "addition_rate": 0.5
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies duration of 8 weeks; generated HPI and CC facts state symptom duration as approximately 2 months but do not explicitly mention 8 weeks. The exact gold phrasing/time unit is not captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: unable to get up in the morning. Generated CC-001 ('difficulty getting up in the morning') and HPI-004 ('difficulty waking') convey the same concept."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: no energy during the day. Generated CC-001 ('no energy') and HPI-005 ('low daytime energy') capture this."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: not eating. Generated HPI-006: 'decreased appetite' reflects reduced oral intake, consistent with not eating."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: difficulty sleeping. Generated HPI-007: 'insomnia' is equivalent."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: distracted mood with difficulty focusing. Generated HPI-008 ('poor concentration') and HPI-009 ('feels distracted') capture both elements."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: lower mood recently. Generated HPI-010: 'lower mood' matches."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: decreased sex drive. Generated HPI-011: 'decreased libido' is equivalent."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies suicidal ideation. Generated HPI-014: 'denies suicidal ideation or intent' includes denial of suicidal ideation."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: shortness of breath on exertion. Generated HPI-012: 'exertional shortness of breath' is equivalent."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: hypothyroidism in PMH. Generated PMH-001: 'Patient has hypothyroidism' matches."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes thyroxine. Generated MED-001: patient is taking thyroxine (levothyroxine); matches the core fact."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: NKDA. Generated ALLERGY-001: 'no known drug allergies' matches."
+      },
+      {
+        "fact_id": "fhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: father died by suicide. Generated FH-001: father died by suicide 15 years ago; adds timing but includes the core fact."
+      },
+      {
+        "fact_id": "fhx-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: mother is well. No generated fact mentions mother's health status."
+      },
+      {
+        "fact_id": "fhx-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: no brothers or sisters. No generated fact references siblings."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is married. Generated SH-001: 'Patient is married.'"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: new job 2 months ago. Generated SH-002: 'started a new job two months ago.'"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression includes depression. Generated ASM-001 differential explicitly includes depression/adjustment disorder."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: impression includes hypothyroidism with low T3/T4. Generated ASM-002 notes known hypothyroidism, control status unknown, but does not state low T3/T4; that specific abnormality is not captured."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: explicit order for TSH test. Generated Plan facts mention baseline blood tests and thyroid function tests but no specific 'TSH' order string; the exact TSH order is not clearly reproduced."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: order FBC. Generated Plan-002 speaks of baseline blood tests without specifying FBC."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: arrange GP review. Generated PLAN-001: arrange face-to-face GP appointment within a few days for evaluation, which corresponds to a GP review."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint content (no energy, difficulty getting up in the morning) is consistent with Gold HPI-002 and HPI-003, but the gold set has no explicit Chief_Complaint section. Duration of approximately two months vs. 8 weeks is a minor unit difference not explicitly in gold; treated as additional contextualization rather than a direct contradiction."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold gives duration as 8 weeks; generated states 'roughly two months.' Conceptually similar but not identical wording; no explicit gold statement that it is 'roughly' two months, so this phrasing is an addition."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Temporal association of symptom onset with starting a new job is not present in the gold HPI; the job start timing appears only in social history. Thus this is an added linkage, not supported by gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold describes 'no energy during the day' but does not use the specific term 'marked fatigue.' This is consistent in meaning but is not a verbatim gold fact, so classified as an addition."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Difficulty waking aligns with 'Not able to get up in the morning.'"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Low daytime energy corresponds to 'No energy during the day.'"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Decreased appetite is consistent with 'Not eating.'"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Insomnia matches 'Difficulty sleeping.'"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Poor concentration corresponds to 'difficulty focusing.'"
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Feeling distracted echoes 'Mood is distracted.'"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Lower mood corresponds to 'Lower mood recently.'"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Decreased libido matches 'Decreased sex drive.'"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010",
+        "reasoning": "Exertional shortness of breath matches 'Shortness of breath on exertion.'"
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "ADDITION",
+        "reasoning": "Denial of visual changes is not mentioned in gold; thus it is an added negative ROS item."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Denies suicidal ideation/intent includes denial of suicidal ideation, which is in gold."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "ADDITION",
+        "reasoning": "Patient\u2019s goal to return to previous level of function is not documented in the gold facts."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Directly matches hypothyroidism in PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold notes thyroxine; generated adds it is levothyroxine and that dose/route/frequency are not documented\u2014additional but consistent detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "No known drug allergies corresponds to NKDA."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fhx-001",
+        "reasoning": "Father died by suicide is in gold; '15 years ago' is an added time detail but not contradictory."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "States that patient is married, which is in gold."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "New job started 2 months ago matches gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment only lists 'depression' (and separate hypothyroidism with low T3/4). The generated fact introduces a broader differential (adjustment disorder, anemia, cardiorespiratory limitation, low testosterone) which are not in the gold; thus it is an addition rather than strictly supported."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: hypothyroidism with low T3/T4 as an impression. Generated: known hypothyroidism on thyroxine with control status unknown. This reframes and omits 'low T3/T4' and adds 'control unknown'; treated as additional/modified information not directly supported by gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions exertional SOB only under HPI and as part of hypothyroidism impression (low T3/T4) and depression. The explicit differential for exertional SOB (deconditioning, anemia, cardiopulmonary disease, etc.) is not present in gold."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold plan only specifies TSH, FBC, and GP review. The detailed plan for face-to-face GP appointment, full history/exam, and PHQ-9 is not in gold."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: specific orders TSH and FBC. Generated: general 'baseline blood tests at upcoming GP visit' without naming tests; this is a rephrased, less specific overall plan and not directly stated in gold."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Safety-net advice regarding future suicidal ideation is not documented in the gold facts."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold has explicit 'TSH' and 'FBC' orders but does not explicitly say 'Check thyroid function tests at upcoming blood draw.' The notion of thyroid-related testing is present but not in this phrasing; treated as additional re-interpretation of the plan."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Review of thyroxine dose after results is not present in the gold plan facts."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Follow-up arrangement for GP to review exam and labs and adjust management is not in the gold set."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Patient\u2019s agreement with the plan and feeling reassured are not documented in the gold facts."
+      }
+    ]
+  }
+}

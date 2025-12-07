@@ -1,0 +1,355 @@
+{
+  "file_id": "day2_consultation06.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 22,
+    "total_gen_facts": 45,
+    "omission_count": 1,
+    "omission_rate": 0.0455,
+    "contradiction_count": 2,
+    "contradiction_rate": 0.0444,
+    "addition_count": 18,
+    "addition_rate": 0.4
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 describes struggling to breathe after a suspected wasp/bee sting; this reflects the same event (bee/wasp bite/sting a few minutes before appointment) and chief concern, though timing is implied rather than explicit."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated facts hpi-003 (mild shortness of breath), hpi-004 (lip/tongue sensation), ros-003 (local arm rash) together capture concern about breathing difficulty, lip symptoms, and localized rash after the sting."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-006 states no prior episodes of anaphylaxis, which is equivalent to no past medical history of anaphylaxis."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-007 says patient has never been prescribed an epinephrine auto-injector, which is consistent with never having used an epipen in the past for anaphylaxis; functional equivalence."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-009 notes anxiety heightened by the event, aligning with history of anxiety and feeling panicked now."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Generated pmh-002 notes intermittent anxiety/panic episodes; this corresponds to a history of anxiety."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-006 (no prior episodes of anaphylaxis) supports no history of anaphylaxis in PMH context."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Generated allergy-001 explicitly states patient is allergic to penicillin; matches gold allergy information."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Generated fam-001 states patient denies relevant family history of allergies or anaphylaxis, which is consistent with no significant family history reported (more specific but not contradictory)."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Generated sh-002 says employed as a computer scientist, which is a close equivalent to software engineer in this context."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Generated sh-003 states patient owns a cat, equivalent to having a cat at home."
+      },
+      {
+        "fact_id": "ex-001",
+        "status": "COVERED",
+        "reasoning": "Generated pf-002 notes lips and oral cavity appear normal with no visible swelling, matching no lip swelling seen."
+      },
+      {
+        "fact_id": "ex-002",
+        "status": "COVERED",
+        "reasoning": "Generated pf-001 describes patient speaking comfortably; this supports that the patient is speaking normally."
+      },
+      {
+        "fact_id": "ex-003",
+        "status": "COVERED",
+        "reasoning": "Generated pf-001 and pf-004 document no visible respiratory distress and unlabored breathing, supporting no airway compromise."
+      },
+      {
+        "fact_id": "ex-004",
+        "status": "COVERED",
+        "reasoning": "Generated pf-005 indicates local right arm puncture mark with mild rash and no appreciable swelling or warmth; this is consistent with localized findings and explains why no generalized rash on the arm is seen in the gold exam. The gold note states 'No rash seen on arm'; here there is a local rash at the sting site. This is a clinical nuance but not an explicit direct match; partial inconsistency exists. Overall, this gold fact is better classified as OMITTED because the generated facts explicitly state local rash on the arm."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Generated asm-001 describes a mild localized insect sting reaction of the right arm without systemic involvement, matching localized inflammatory reaction to insect bite."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "COVERED",
+        "reasoning": "Generated asm-001 explicitly notes no current systemic involvement, and multiple ROS negatives; together these support no evidence of acute anaphylactic reaction."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "COVERED",
+        "reasoning": "Generated plan-004 discusses evaluation for cellulitis and antibiotics only if redness spreads/becomes hot or painful, implying currently no evidence of cellulitis, consistent with gold."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Generated plan-001 recommends starting oral antihistamines, to be purchased OTC, matching recommendation for over-the-counter antihistamines (with added specifics)."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Generated plan-002 and plan-003 cover education on red-flag symptoms and instruction to seek emergency care if they occur, matching warning re red-flag symptoms and urgent medical review."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "No generated fact states that no allergy testing is needed for this one-off episode; this concept is absent."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Generated plan-005, plan-006, and fu-001 indicate PRN follow-up with low threshold for re-contact and reassurance for anxiety, aligning with advice to ring back if any concerns/anxiety for further reassurance."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold states bee/wasp bite a few minutes prior but does not specify right arm location; timing is consistent but arm side is new detail."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI mentions localized rash but no description of puncture mark, redness, or absence of swelling; these local-site details are new."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes patient is speaking normally and no airway compromise, but does not explicitly document 'denies marked swelling or acute respiratory distress'; these negatives are consistent but more detailed."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address whether any medications have been taken yet for the sting; this is new, not conflicting information."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH/SH mention anxiety and penicillin allergy but not chronic medication list; stating 'no current medications' is new and not contradicted."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Overlap with hpi-008; again, gold does not mention acute meds taken; consistent addition."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH includes anxiety only; eczema is not mentioned, so this is new history, not conflicting."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fam-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Living situation (lives alone) is not discussed in gold; new, non-conflicting detail."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention tobacco, alcohol, or substance use; documenting them as not documented is additional meta-information, not conflicting."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "ex-002"
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "ex-001"
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "ADDITION",
+        "reasoning": "Gold physical exam does not describe oropharynx; a normal oropharynx exam is additional but consistent with no airway compromise."
+      },
+      {
+        "fact_id": "pf-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "ex-003"
+      },
+      {
+        "fact_id": "pf-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold ex-004 states 'No rash seen on arm', whereas pf-005 explicitly documents a blotchy rash on the right arm; this is a direct disagreement about presence of an arm rash."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-003"
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold notes history of anxiety and that patient may need more reassurance, but does not address pharmacotherapy; stating no pharmacotherapy indicated is additional, not conflicting."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold ex-004 explicitly notes 'No rash seen on arm', whereas ros-003 documents a local arm rash; this conflicts on existence of an arm rash at exam/ROS."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not list specific ROS negatives (stridor, etc.); these detailed negatives are additional but consistent with 'no airway compromise'."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "As above: added ROS negative, not present in gold but not contradictory."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Additional ROS negative; gold is silent on wheeze."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Additional ROS negative; chest pain not mentioned in gold."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "ADDITION",
+        "reasoning": "Additional ROS negative for dizziness; not addressed in gold."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "Additional ROS negative for syncope; not addressed in gold."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "ADDITION",
+        "reasoning": "Additional ROS negative for nausea/vomiting; not addressed in gold."
+      }
+    ]
+  }
+}

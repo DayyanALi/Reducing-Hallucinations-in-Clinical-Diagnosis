@@ -1,0 +1,400 @@
+{
+  "file_id": "day1_consultation10.txt",
+  "model_source": "gpt-5-mini",
+  "metrics": {
+    "total_gold_facts": 22,
+    "total_gen_facts": 47,
+    "omission_count": 3,
+    "omission_rate": 0.1364,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 12,
+    "addition_rate": 0.2553
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated HPI and ROS include dysuria, increased urinary frequency, and suprapubic pain of ~<1 week duration (e.g., hpi-001, hpi-002, hpi-003, ros-001\u2013003), matching the 1-week history and symptom triad."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Generated facts repeatedly note pink/pink-tinged urine today (cc-004, hpi-004, ros-004, asm-002), which aligns with pink-colored urine today and absence of frank hematuria."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-003 states suprapubic aching pain worse with urination (pain occurs with passing urine). No radiation is not explicitly restated but not contradicted; core elements (suprapubic, aching, on urination) are captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-005 and ros-006 deny nausea/vomiting, and hpi-006 and ros-005 deny fever, matching the gold denial of nausea, vomiting, and fevers."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-007 explicitly states no new bowel symptoms, covering this fact (though it adds IBS baseline detail)."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "No generated fact mentions or denies vaginal (PV) discharge."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "No generated fact states that the patient is eating and drinking well."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Generated pmh-001 and asm-003 both document a history of irritable bowel syndrome."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Generated med-001 captures COCP. med-002 describes an IBS medication beginning with 'M', which plausibly refers to mebeverine but does not name it; cannabis/weed use is only reflected as a social history item (sh-004) not as a medication. Thus COCP is covered, IBS med is indirectly/partially covered, and weed as a medication is omitted."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Generated allergy-001 and asm-004 both state an allergy/adverse reaction to clindamycin."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold says no relevant family history at all. Generated fh-001 specifies no family history of bladder or kidney problems, which is consistent but narrower; other aspects of family history are not addressed."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Generated sh-006 documents sexually active with a long-term partner; aligns with gold statement, with extra detail about condom use."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "No generated fact gives the LMP timing of 2 weeks ago."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Generated sh-001 says lives in university halls, matching living in student halls."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: non-smoker and social alcohol. Generated sh-003 notes occasional alcohol, and sh-005 notes no regular cigarette smoking. This is consistent but slightly weaker wording on smoking ('no regular' vs 'nil') and more specific on alcohol ('occasional' vs 'social'); overall partially covered."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Generated asm-001 identifies likely acute uncomplicated UTI/cystitis, matching the impression of UTI."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold orders urine dip and MSU. Generated plan-001 orders a midstream urine (MSU) for point-of-care testing and lab culture/microscopy, which reasonably corresponds to dip + send; however, 'dipstick' is not explicitly stated, so partially covered."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: start nitrofurantoin or trimethoprim for 3 days. Generated plan-002 starts empiric Trimethoprim or Nitrofurantoin (no duration). Plan-003 states Nitrofurantoin as a three-day course; but that is specific to Nitrofurantoin only. Thus antibiotic choice is covered, duration fully stated for Nitrofurantoin but not for Trimethoprim; partial overall."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Generated plan-004 advises increased oral fluids, matching 'push fluids'."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Generated plan-005 recommends paracetamol for symptomatic analgesia, which is a specific form of simple analgesia."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Generated fu-001 instructs return if symptoms do not improve within one week, matching review in 1 week if not better."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Generated plan-007 (urgent review for fever, flank/back pain, vomiting) aligns with earlier review for worsening symptoms such as fever, back pain, or vomiting."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Dysuria for just under one week matches 1-week history of painful urination."
+      },
+      {
+        "fact_id": "cc-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Increased urinary frequency for just under one week matches 1-week history of frequency."
+      },
+      {
+        "fact_id": "cc-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Lower abdominal (suprapubic) aching pain aligns with suprapubic pain; duration context is same episode."
+      },
+      {
+        "fact_id": "cc-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Pink-tinged urine today aligns with pink-colored urine today."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Burning/stinging when passing urine for <1 week is a more descriptive restatement of dysuria of 1 week."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Increased frequency is supported (hpi-001), but disruption of university activities is extra, not in gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Suprapubic aching pain worse with urination is consistent with suprapubic pain on passing urine, aching."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "\"A bit pink\" urine today restates pink-colored urine today; gold clarifies no frank hematuria but this does not contradict."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Denies nausea or vomiting, matching gold denial."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Denies fever, matching gold denial of fevers."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "States baseline IBS and explicitly no new bowel symptoms; baseline IBS is additional but consistent with pmh-001."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Directly matches history of IBS."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "COCP is part of the gold medication list; missing other meds but that is omission, not contradiction."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold lists mebeverine for IBS; describing it as an IBS medication beginning with 'M' is consistent though less specific."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "States allergy to clindamycin with non-specific reaction, consistent with gold allergy entry."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-001",
+        "reasoning": "Gold: no relevant family history. Specifying no bladder or kidney history is compatible as a subset of 'nil'."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Lives in university halls is equivalent to lives in student halls."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Studying English at university is not mentioned in the gold facts."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Occasional alcohol use is consistent with social alcohol use."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Cannabis use timing/frequency is not present in gold; gold only notes 'weed' as a medication, not social history detail."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "No regular cigarette smoking is consistent with 'nil smoking'; wording is slightly different but not contradictory."
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Sexually active with a long-term partner matches gold; non-use of condoms is additional detail."
+      },
+      {
+        "fact_id": "sh-007",
+        "status": "ADDITION",
+        "reasoning": "Timing of last unprotected intercourse (~1 week ago) is not given in the gold facts."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Likely acute uncomplicated UTI/cystitis is consistent with impression 'UTI' and symptoms described."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes pink urine but specifically 'nil frank haematuria.' Labeling this as 'hematuria' is an interpretive clinical label not present in the gold text; does not directly contradict, but adds categorization."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Chronic IBS is consistent with history of IBS; chronicity not explicitly stated but not contradicted."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Assessment reiterates clindamycin allergy; consistent with gold allergy entry."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Pregnancy risk discussion and link to LMP/unprotected intercourse not documented in the gold facts."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Obtaining MSU and point-of-care testing + lab culture/microscopy is consistent with 'Urine dip and MSU.'"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Starting empiric Trimethoprim or Nitrofurantoin matches planned antibiotic options; gold also specifies 3-day duration which is omitted here but not contradicted."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Prescribing Nitrofurantoin as a three-day course matches gold\u2019s 'nitrofurantoin ... for 3/7' when chosen."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Increased oral fluids aligns with 'push fluids'."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Paracetamol as symptomatic analgesia is a specific example of simple analgesia."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Awaiting urine culture and adjusting antibiotics based on sensitivities is not in the gold plan."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Urgent review for fever, flank/back pain, vomiting corresponds to gold advice for earlier review for worsening symptoms (fever, back pain, vomiting). Addition of 'flank' is consistent with back pain context."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Gold lists clindamycin allergy but does not explicitly state to document and avoid it in future; this is a reasonable extension but not present."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Continuing IBS medication is not mentioned in the gold plan."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Consideration of pregnancy testing is not documented in the gold facts."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Return if no improvement within one week aligns with 'review in 1/52 if not better.'"
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Clinic contacting the patient with culture results is not described in the gold follow-up section."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "GU review positive for dysuria mirrors the documented dysuria."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "GU review positive for frequency matches urinary frequency."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "GU review positive for suprapubic pain matches suprapubic pain."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Pink discoloration of urine today matches pink-colored urine today."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Denies fevers or rigors is consistent with gold denial of fevers (rigors are an additional negative)."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "GI review negative for nausea or vomiting matches gold denial."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "No flank or back pain is not mentioned in the gold facts; appears only in gold as a component of worsening symptoms to watch for, not as a current ROS statement."
+      }
+    ]
+  }
+}

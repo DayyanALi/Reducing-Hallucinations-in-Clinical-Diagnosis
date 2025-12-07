@@ -1,0 +1,355 @@
+{
+  "file_id": "day2_consultation05.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 20,
+    "total_gen_facts": 45,
+    "omission_count": 10,
+    "omission_rate": 0.5,
+    "contradiction_count": 2,
+    "contradiction_rate": 0.0444,
+    "addition_count": 33,
+    "addition_rate": 0.7333
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Generated HPI mentions right-hand numbness, arm/leg weakness and gait disturbance (hpi-002, hpi-005, ros-002, ros-003, ros-004), but does not state that these are UNILATERAL on the right side for the leg/gait (only arm/hand specified) and does not clearly state the entire cluster has been ongoing for 1.5 months; timing is split (fatigue onset 1.5\u20132 months) without explicitly tying duration to the neurologic symptoms as in the gold fact."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Generated HPI describes increase from once per week to \u2018a couple of times per day\u2019 or \u2018multiple episodes per day\u2019 (hpi-004, hpi-011) whereas gold specifies progression from once per week to daily. The pattern is similar but not the same; the \u2018couple of times per day\u2019 exceeds \u2018daily\u2019 and thus does not exactly capture the gold description."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold notes symptoms not present now; generated HPI (hpi-010) states no current headaches or focal deficits between episodes, implying absence of active symptoms at the time of review, which covers the gold fact conceptually."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: normal blood tests for diabetes/cholesterol a few years ago. Generated pmh-002 states normal prior diabetes, blood pressure, and cholesterol screenings, adding blood pressure. The diabetes/cholesterol portion is consistent, but the addition of blood pressure (not in gold) makes it not strictly identical; given the task\u2019s rigor on details, treat as not fully captured."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold explicitly denies past history of CVA/TIA. No generated fact mentions absence of prior CVA/TIA."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: apart from discussed issues, no other significant past medical or family history. Generated pmh-001 says no chronic illnesses documented, which is not the same as \u2018otherwise nil of note\u2019 and omits the family history aspect, so this gold fact is not fully captured."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes aspirin daily on his own accord due to family history. Generated med-001: aspirin 75 mg daily, self-initiated after father\u2019s operation to reduce stroke/heart attack risk. This conveys self-medicating daily aspirin due to family history, matching the gold fact (with extra detail on dose and indication)."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to penicillin. Generated allergy-001: allergic to Penicillin. Fully matches."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: father had CVA and underwent carotid endarterectomy. Generated fh-001 only notes father had a procedure to reduce stroke risk without specifying CVA or carotid endarterectomy, so the specific diagnoses/procedure are not captured."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: apart from father\u2019s stroke, family history otherwise unremarkable. No generated fact states that the rest of the family history is nil of note."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is a non-smoker. Generated sh-001: no smoking. Equivalent."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is a medical doctor, plastic surgeon. Generated sh-003: employed as a doctor (plastic surgery). Fully matches."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with wife. Generated sh-002: lives with his wife. Matches."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: impression is TIAs in a young patient with need to exclude systemic disease (e.g., antiphospholipid syndrome). Generated assessment focuses on suspected TIA/mini-stroke and risk factors but does not mention systemic disease workup or antiphospholipid syndrome."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: needs urgent appointment in TIA clinic; referral will be faxed now. Generated plan-001: referral placed to stroke/TIA clinic for urgent evaluation. Urgent TIA referral is captured; faxing modality is omitted but urgency and referral are covered."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient to contact TIA clinic via PALS or clinic number to ensure follow-up. Generated plan-004: provided PALS and TIA clinic contact numbers for follow-up scheduling, which effectively enables/encourages the same patient-initiated contact for follow-up."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: if prolonged symptoms occur, attend A&E. Generated fu-001: present to A&E immediately if symptoms recur and persist. This matches the instruction for prolonged/persistent symptoms."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies dysphagia. Generated ROS mentions no swallowing difficulty outside episodes (ros-006), which is temporally limited and not a general denial of dysphagia; thus it does not strictly cover the gold statement."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies dysphasia. No generated ROS fact addresses dysphasia or general speech difficulty, aside from \u2018no speech difficulties during episodes\u2019 (ros-007), which is episode-specific and not a generalized denial of dysphasia. Given the level of precision requested, this is not fully captured."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient instructed to contact TIA clinic via PALS/clinic number to ensure follow-up. Generated plan-004 (provide PALS and clinic numbers) plus the plan context implies patient should use these for follow-up; fu-002 additionally describes contacting clinic if scheduling is delayed. Together they cover the gold follow-up instruction."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint content (TIA/mini-stroke wording, fatigue, 1\u20132 month duration) is not present in gold facts, which start at HPI; no contradiction but additional framing/detail."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI mentions onset 1.5 months of neurologic episodes but does not specify initial fatigue and general weakness as onset symptoms; the generated fact adds fatigue/general weakness as the starting feature and uses 1.5\u20132 months. This is additional, not contradicted."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions unilateral right-hand numbness and leg weakness/gait disturbance but not explicit right arm weakness; generated adds arm weakness and clarifies right-sided leg sense, which are additional details not in gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state episode duration. Generated says episodes last a few days. This is new information not supported by gold but not contradictory."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: frequency increased from once per week to daily. Generated: \u2018from roughly once per week to a couple of times per day,\u2019 which is a higher frequency than \u2018daily\u2019; this directly alters the described severity/frequency trajectory."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold: noticeable gait disturbances during episodes. Generated: occasional gait disturbance. Same concept; adjective \u2018occasional\u2019 vs \u2018noticeable\u2019 is not substantively conflicting."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Difficulty holding a cup/drinking coffee is not mentioned in gold; extra symptom detail without contradiction."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Sensation of something in the throat during episodes with no swallowing difficulty outside episodes is not described in gold; new, non-conflicting detail."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes no dysphagia/dysphasia; it does not address vision. Generated fact adds lack of speech difficulty or vision problems during episodes, which extends beyond the gold content. Speech portion partially overlaps dysphasia denial but is episode-limited; vision content is entirely new."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI does not mention baseline fatigue/weakness/nausea outside episodes. Generated adds these as background symptoms; new but not conflicting."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "ADDITION",
+        "reasoning": "Gold specifies symptoms not present now but does not specifically mention headaches or focal deficits between episodes. Generated adds that no current headaches or focal deficits are reported between episodes, which elaborates but does not conflict."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "CONTRADICTION",
+        "reasoning": "As with hpi-004, generated states current frequency is multiple episodes per day, while gold describes progression to daily occurrences (once per day). \u2018Multiple per day\u2019 exceeds \u2018daily\u2019 and alters the frequency description."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold only states no PMHx of CVA/TIA and otherwise nil of note; it does not specifically discuss \u2018no chronic illnesses documented.\u2019 This is an interpretive summary not directly supported by gold; no direct contradiction."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: normal tests for diabetes/cholesterol a few years ago. Generated also includes blood pressure in prior screenings. Diabetes and cholesterol parts are consistent; the blood pressure element is an added detail not in gold."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: self-medicating with daily aspirin due to family history. Generated: aspirin 75 mg daily, self-initiated to reduce stroke/heart attack risk after father\u2019s operation. Fully consistent, with added dose and explicit indication."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Both gold and generated state allergy to penicillin."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold: father had CVA and carotid endarterectomy. Generated: father underwent a neck procedure to reduce stroke risk. This is a vague paraphrase; it omits CVA and carotid endarterectomy details and adds \u2018neck procedure\u2019 language not present in gold. Not contradictory, but not fully supported by the specific gold wording."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: non-smoker. Generated: no smoking. Equivalent."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Both state the patient lives with his wife."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Both describe employment as a doctor/plastic surgeon."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS only identifies denials of dysphagia/dysphasia. Fatigue as a ROS item is not in gold; it is added detail."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Right-hand numbness/paresthesias are described in gold HPI but not in ROS. Listing them under ROS is organizationally different and adds no contradiction; still, as a structured ROS entry, it\u2019s additional."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Right arm weakness appears in generated text; gold only implies unilateral right-hand involvement and leg weakness/gait issues and does not explicitly state arm weakness. Thus this is additional detail."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold: leg weakness and noticeable gait disturbances. Generated ROS: leg weakness with gait disturbance. Conceptually the same, though classified under ROS instead of HPI."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "Nausea is not in gold. This is new content."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Gold: general denial of dysphagia (no swallowing difficulty). Generated specifies no swallowing difficulty outside episodes, introducing a temporal qualifier not present in gold. This narrows the scope and is not directly supported; it could be seen as partially conflicting, but not clearly opposite, so treated as additional/unsupported detail."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Gold: no dysphasia (general). Generated: no speech difficulties during episodes. This restricts the denial to episode periods and does not fully match the broader gold statement; it\u2019s an additional, more limited claim."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address visual symptoms. Generated explicitly denies visual changes during episodes; this is new information."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "No chest pain is not mentioned in gold; entirely new ROS item."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "ADDITION",
+        "reasoning": "No fever is not mentioned in gold; new ROS detail."
+      },
+      {
+        "fact_id": "ros-011",
+        "status": "ADDITION",
+        "reasoning": "Gold does not comment on headache presence/absence. Generated states no current headaches; this is additional information."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment: TIAs in a young patient, consider systemic causes (e.g., antiphospholipid). Generated asm-001 simplifies to suspected TIA/mini-stroke without the systemic disease differential; it partially overlaps but omits key gold elements and adds \u2018mini-stroke\u2019 terminology. Overall treated as additional/simplified, not fully supported."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not lay out an explicit differential list, only mentions TIAs and systemic disease considerations. Generated introduces an explicit \u2018differential considerations: TIA/stroke as primary\u2019, adding structure and the term \u2018stroke\u2019 as a separate entity, which is not in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes \u2018despite young age\u2019; no specific age or risk-factor narrative is given. Generated specifies age 32 and interprets it as a risk factor pattern; this is extrapolated and additional."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Both describe urgent referral to TIA clinic for evaluation."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention carotid duplex ultrasound or brain imaging. These are reasonable but new workup details not present in gold."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state that the clinic will contact within 1\u20132 days. This is new scheduling information."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: patient to contact clinic via PALS/clinic number. Generated: provides PALS and clinic contact numbers for follow-up scheduling. Functionally the same instruction, though framed as provision of numbers."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address whether new medications were started. Generated explicitly states none were; additional information."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold notes current self-medicated aspirin but does not state that no changes were made today. Generated explicitly confirms no change; extra detail."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not document patient education about TIA; generated adds explicit education, which is new."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify modality of evaluation (carotid ultrasound, brain imaging) nor that the patient should seek urgent care if symptoms recur beyond the A&E instruction for prolonged symptoms; generated gives more anticipatory guidance and detail, so this is additional."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: attend A&E if any prolonged symptoms occur. Generated: present to A&E immediately if symptoms recur and persist. These convey the same threshold for emergency attendance (prolonged/persistent symptoms)."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up: contact clinic via PALS/number to ensure follow-up. Generated fu-002 adds specific scenario of delayed scheduling and option to return for reassessment, which is more detailed than gold."
+      },
+      {
+        "fact_id": "fu-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention phone or telehealth follow-up options. This is entirely new information."
+      }
+    ]
+  }
+}

@@ -1,0 +1,400 @@
+{
+  "file_id": "day3_consultation02.txt",
+  "model_source": "gpt-4.1",
+  "metrics": {
+    "total_gold_facts": 25,
+    "total_gen_facts": 51,
+    "omission_count": 4,
+    "omission_rate": 0.16,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 24,
+    "addition_rate": 0.4706
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 captures a headache of four days' duration; addition of 'severe' does not negate the gold fact."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 describes a headache that began four days ago, matching the gold duration and symptom, with added severity detail."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "No generated HPI or medication fact explicitly states that paracetamol and ibuprofen were taken 'without relief' in the HPI section; ineffectiveness is only described in medications and not tied to HPI wording as in gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Generated sh-001 states recent travel to Thailand one week prior, matching the gold fact."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Generated sh-003 notes that a friend/travel companion was also unwell, matching the gold statement that a friend is also unwell."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Generated sh-002 states the patient received mosquito bites during the Thailand trip, matching the gold history of mosquito bites."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-004, hpi-005, ros-004 describe a generalized red, itchy, blanching rash; blanching with pressure is explicitly in hpi-014/ros-004, matching the gold description with glass pressure."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies fever started after headache. Generated facts mention subjective fever (hpi-002, ros-002) but do not state the temporal relationship to the headache onset."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold notes the patient feels cold/chills. No generated fact mentions feeling cold or chills."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-003 and ros-003 both describe generalized muscle aches, matching the gold fact."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Generated pmh-001 states no past medical history, directly matching the gold fact."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Generated med-001 documents paracetamol use for headache, matching the gold medication fact (with added detail on missing dose/route/frequency)."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Generated med-002 documents ibuprofen use for headache, matching the gold medication fact (with added detail on missing dose/route/frequency)."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Generated allergy-001 reports no known drug allergies, which is consistent with the gold 'no allergies'."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-007 and ros-006 document denial of neck stiffness or pain with movement, which matches 'no neck pain on movement'."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-006 and ros-005 document photophobia denied, equivalent to no pain when looking at light."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-012 and ros-011 state weakness/focal muscle weakness denied, matching the gold denial of muscle weakness."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-011 and ros-010 specify paresthesia/pins and needles denied, matching the gold denial of pins and needles."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-008 and ros-007 deny nausea or vomiting; this covers the gold denial of vomiting."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-009, hpi-010, and ros-008\u2013ros-009 deny cough, cold symptoms, and earache, matching the gold denial of cough, cold, or ear pain."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-013 and ros-012 indicate bleeding denied, which is consistent with no bleeding spots on the skin."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies that conditions to be ruled out include malaria, dengue, and meningitis. Generated assessment lists dengue, other arboviruses, etc., but does not mention malaria explicitly or group these as 'serious conditions to rule out' including malaria."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Generated plan-001 and fu-001 describe urgent/immediate in-person evaluation as soon as possible within a few hours, aligning with an urgent doctor appointment within the next few hours."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Generated plan-002 and fu-002 instruct seeking emergency care/urgent services if an in-person visit is not feasible, equivalent to going to A & E if urgent appointment is not possible."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Generated fu-001 and fu-002 together instruct immediate in-person review or emergency services if clinic unavailable, matching the gold follow-up instructions."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold notes headache for four days but does not specify it as 'severe'; severity is an added detail."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold indicates headache for 4 days but does not describe it as 'severe' or 'very bad'; these descriptors are additional."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions fever but not that it is 'subjective' or 'not measured'; these are extra qualifiers."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Gold describes a generalized blanching rash but does not say it is red or itchy; those characteristics are additional."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold denies vomiting but does not mention nausea. Adding 'nausea' as denied is new information (not contradictory)."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-004"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003"
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007"
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold confirms paracetamol use but does not comment on dose/route/frequency; explicitly noting these as 'not documented' and tying use specifically to headache is additional but consistent."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Gold confirms ibuprofen use but does not comment on dose/route/frequency; explicitly noting these as 'not documented' and use for headache is additional but consistent."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Family history is not mentioned in the gold facts; documenting it as 'not documented' is new information."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not address tobacco, alcohol, or substance use; stating these are not documented is additional."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention living situation or employment; stating they are not documented is additional."
+      },
+      {
+        "fact_id": "phy-001",
+        "status": "ADDITION",
+        "reasoning": "No gold fact addresses whether a physical exam was performed; documenting that it was not performed is new."
+      },
+      {
+        "fact_id": "phy-002",
+        "status": "ADDITION",
+        "reasoning": "No gold fact mentions vitals; stating they were not documented is additional information."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold presents headache as the chief complaint/HPI but not explicitly within ROS; marking it as ROS positive is an added structuring detail, not contradictory."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes fever but not that it is 'subjective' or 'not measured'; these qualifiers are additional."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Gold confirms a generalized blanching rash but does not specify 'red' or 'itchy'; these are extra descriptors."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Gold denies vomiting but does not mention nausea; adding nausea as denied is additional, not conflicting."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-004"
+      },
+      {
+        "fact_id": "ros-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003"
+      },
+      {
+        "fact_id": "ros-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment focuses on ruling out malaria, dengue, and meningitis. Generated asm-001 provides a descriptive summary of current presentation (acute severe headache with fever, myalgias, rash, travel), which extends beyond the specific rule-out list and includes severity and rash color/itchiness not in gold."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold names malaria, dengue, and meningitis as serious conditions to rule out. Generated asm-002 adds broader viral illness and other arboviruses/viral exanthem, which are not specified in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions meningitis as a serious condition to rule out but does not mention encephalitis or that it is considered 'less likely'; these are extra details."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Chikungunya and Zika are not mentioned in gold; they are additional differential diagnoses."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not list 'other causes of febrile illness and rash post-travel'; this broad differential category is additional."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention potential investigations such as blood tests; discussing possible investigations is additional planning detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold only mentions taking paracetamol and ibuprofen without relief; it does not explicitly state that no new medications were prescribed or to continue current ones. Those are added management details."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold indicates urgent appointment or A&E but does not specify that the clinician is a GP or the concept of 'hospital referral if indicated'; these are extra clarifications."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      }
+    ]
+  }
+}

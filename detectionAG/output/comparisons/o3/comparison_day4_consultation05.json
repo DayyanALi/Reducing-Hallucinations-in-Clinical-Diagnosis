@@ -1,0 +1,340 @@
+{
+  "file_id": "day4_consultation05.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 20,
+    "total_gen_facts": 44,
+    "omission_count": 6,
+    "omission_rate": 0.3,
+    "contradiction_count": 2,
+    "contradiction_rate": 0.0455,
+    "addition_count": 24,
+    "addition_rate": 0.5455
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: diarrhea and central abdominal pain for 3 days. Generated cc-001 includes diarrhoea for 3 days but omits abdominal pain; however, abdominal pain duration is covered in HPI (hpi-003). Combined generated facts capture the full gold fact."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies watery diarrhea 5\u20136/day, only fluid, no blood, and sensation of incomplete evacuation. Generated hpi-001 mentions frequent loose stools only; no frequency (5\u20136/day), no explicit \u201conly fluid/no blood,\u201d and no incomplete evacuation sensation. hpi-002 mentions recurrent urges but not \u2018incomplete evacuation\u2019 as described. Overall not fully captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: central abdominal pain since onset, no radiation, mild\u2013moderate tenderness and cramping. Generated hpi-003: mid-abdominal/infra-umbilical pain, improves somewhat after bowel movement, mild tenderness on self\u2011palpation. It does not state pain present since onset, lacks \u2018no radiation,\u2019 and omits cramping. Location and tenderness overlap partially but key descriptors are missing; not fully covered."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: eating and drinking provoke nausea and feeling of gas. Generated hpi-006 only says nausea and limiting oral intake; no clear link to eating/drinking as triggers and no mention of gas. Not captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: some vomiting, now unable to tolerate fluids or solids. Generated hpi-004 and hpi-005 describe one episode of vomiting this morning, no blood; generated hpi-006 notes limiting intake, but not \u2018unable to tolerate\u2019 nor both fluids and solids. Net vomiting pattern and intolerance are not matched."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: ate this morning and vomited immediately. Generated hpi-004: one episode of vomiting this morning after eating fruit. Both agree on morning vomiting after eating; fruit is extra detail. Covered."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: feels and looks dehydrated. Generated hpi-009: patient believes hydration is likely sub\u2011optimal, but does not state the patient feels or appears dehydrated. Different characterization, so gold fact is omitted."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: unable to go to work due to frequency of bowel movements. Generated hpi-002 (urges prevent leaving home for work) and sh-001 (unable to work because of diarrhoea) jointly capture this."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of childhood asthma. Generated pmh-001: asthma (without specifying childhood) and several ROS items referencing baseline asthma. The presence of asthma history is captured, though childhood onset detail is omitted. Counted as covered for presence of condition."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold NKDA. Generated allergy-001: no known drug allergies. Direct match."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: father has history of stomach cancer. Generated fh-001: father died of bowel (colorectal) cancer. Different organ and disease site; this directly contradicts the gold fact."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: denies fever. Generated ros-005: denies fever (unsure). Both indicate no known fever; minor qualification but overall consistent and covered."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no problems with breathing. Generated ros-007 and ros-008: baseline asthma with no acute worsening and denies dyspnea on exertion beyond baseline. This aligns with no breathing problems beyond baseline; covered."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold: denies chest pain. Generated ros-009: denies chest pain. Directly covered."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies headache. No generated fact references headache. Omitted."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: differential diagnosis gastroenteritis. Generated asm-001: assessment includes acute gastroenteritis vs other causes of acute diarrhoea. This includes gastroenteritis as primary DDx; covered."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to maintain fluid intake for rehydration. Generated plan-002: encourage oral rehydration with water/electrolytes, \u22652 L/day. Same core plan with added detail; covered."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to stay at home for the time being. Generated plan-010: disposition home with self\u2011care; plus work\u2011related limitations in sh-001. Home care advice is captured; covered."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: instructed to monitor for development of fever. Generated plan-004 includes red\u2011flag education: seek care if high fever >38\u00b0C. This implies monitoring for fever; covered."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: if symptoms don\u2019t improve, visit GP surgery. Generated fu-001: if no improvement or worsening after 1 day, schedule GP appointment. Same concept with added timing and potential stool studies; covered."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "3-day history of frequent loose stools with recurrence of urges is consistent with diarrhea history but gold includes more specific pattern (5\u20136/day, watery, no blood, incomplete evacuation). This wording is not present in gold text; extra but compatible detail."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes central abdominal pain, mild\u2013moderate tenderness, cramping, no radiation. Generated adds infra\u2011umbilical location, improvement after bowel movement, and self\u2011palpation tenderness, which are not stated in gold; partially overlaps but mainly additional characterization."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Gold: 'some vomiting' and immediate vomiting after eating this morning, but no count given and no mention of fruit or red color explanation. Generated specifies one episode after eating fruit with no blood, which is extra detail not in gold."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address presence or absence of blood in vomit. This is new, non-contradictory information."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Gold: nausea triggered by eating/drinking, feeling of gas; unable to tolerate fluids/solids. Generated: nausea with patient limiting oral intake. The behavior of limiting intake is not mentioned in gold; compatible but additional."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Gold notes no blood in stool for diarrhea but only implicitly via 'only fluid no blood' in hpi-001; does not explicitly mention hematochezia. Explicit denial of hematochezia and its wording are additional detail."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold says 'No fevers'; generated says has not noticed fever but mild sweating last 4 days, unsure if febrile. The sweating and uncertainty about fever are additional qualifiers not in gold, though broadly consistent."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold: patient feels and looks dehydrated. Generated: patient believes hydration is sub\u2011optimal. This is a different self-assessment of intake rather than appearance; it is related but not the same, and not contained in gold."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH only states childhood asthma; no mention of inhaler change or clinician\u2019s opinion about it. Entirely new detail."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold family history: father with stomach cancer. Generated: concern about family history of bowel cancer. This shifts organ/site from stomach to bowel; not supported and conflicts with gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no medication list. The asthma inhaler and recent brand change are new information."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: father has stomach cancer. Generated: father died of bowel (colorectal) cancer. Cancer type/site and outcome differ; direct contradiction."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007"
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions mild\u2013moderate abdominal tenderness in HPI but not in a self-exam context. The specific self-palpation finding is additional nuance."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "ADDITION",
+        "reasoning": "Gold has no documentation that this was a telehealth visit or that vitals were not obtained. New information."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Gold review of systems does not mention sweating. This is new positive symptom information."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Gold only lists childhood asthma in PMH and 'no problems with breathing.' Baseline asthma symptoms with no acute worsening are more detailed than gold provides; additional, though consistent."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment only lists gastroenteritis as DDx. Risk of dehydration is a clinically reasonable addition but not mentioned in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH mentions childhood asthma but no explicit assessment item for stable asthma. Listing 'Asthma \u2013 chronic, stable' as a separate assessment is additional structuring."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold plan only mentions fluids, stay home, and monitor for fever. Explicit 'supportive care only, no antibiotics' is new, although compatible."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "No dietary advice appears in gold plan. This is additional guidance."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold only says monitor for fever and visit GP if no improvement. Detailed red-flag ED criteria are new content."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Monitoring urine output and color is not mentioned in gold plan. New instruction."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Consideration of oral rehydration salts is not in the gold plan. New clinical detail."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Continuation of current inhaler is not in the gold note. Additional management detail."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Use of rescue inhaler per usual plan is not stated in gold. New information."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Advising GP contact for medication review about inhaler brand is not present in gold plan. Additional."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      }
+    ]
+  }
+}

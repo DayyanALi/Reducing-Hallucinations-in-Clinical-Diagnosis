@@ -1,0 +1,323 @@
+{
+  "file_id": "day4_consultation01.txt",
+  "model_source": "gpt-4.1-mini",
+  "metrics": {
+    "total_gold_facts": 19,
+    "total_gen_facts": 39,
+    "omission_count": 4,
+    "omission_rate": 0.2105,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0256,
+    "addition_count": 19,
+    "addition_rate": 0.4872
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 notes chest discomfort as the chief complaint; gold adds left-sided and acute onset, which are omitted, but the core complaint is captured."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-003 and hpi-004: pressure \"like someone sitting on my chest\" and 7/10 severity are explicitly present; location is \u2018middle of the chest\u2019 which does not conflict."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-010: chest discomfort radiates to the left shoulder and arm; matches the gold fact."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold duration 1\u20132 hours; generated hpi-001 states \u2018ongoing for a couple of hours,\u2019 which is consistent and captures the concept."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: first episode started while gardening; generated hpi-002: started suddenly while digging in the garden\u2014equivalent description."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: no radiation to the head; generated hpi-010: radiates to left shoulder/arm but not to the head or back\u2014head component is covered."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: nausea with no vomiting since presentation; generated hpi-009: nausea without vomiting associated with symptoms\u2014equivalent."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: shortness of breath at rest (SOBAR); generated facts mention shortness of breath but do not specify \u2018at rest\u2019 vs exertional; the rest component is not captured."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: longer-term reduced ADLs due to SOBOE; generated hpi-006: SOB and light-headedness have led to difficulty climbing stairs and walking uphill\u2014functionally matches reduced ADLs due to exertional SOB."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: previously could walk up hills/stairs without chest discomfort; generated hpi-008: denies chest pain during exertion\u2014captures the absence of exertional chest pain historically, though less explicit about the \u2018previously\u2019 aspect."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold high cholesterol; generated pmh-002 hypercholesterolemia\u2014same condition."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold high blood pressure; generated pmh-001 hypertension\u2014same condition."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: allergic to aspirin; generated allergy-001 states no allergies\u2014this is not only omitted but contradicted by the generated fact (handled under gen_assessment)."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives at home with his wife; generated sh-002: lives at home with wife\u2014direct match."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: previously able to walk up stairs without difficulty; generated facts discuss exertion and gardening but do not explicitly state historical ability to walk up stairs without difficulty as a social/functional baseline."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold DDx includes MI; generated asm-002 includes acute coronary syndrome and angina. While MI is not named verbatim, ACS encompasses MI and is clinically consistent with MI as a key differential."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "COVERED",
+        "reasoning": "Gold DDx includes PE; generated asm-002 explicitly includes pulmonary embolism."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "OMITTED",
+        "reasoning": "Gold DDx includes GORD; generated differential does not mention GORD/GERD or reflux-type diagnosis."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: ambulance called for ??MI for further investigation and assessment; generated plan-001: emergency ambulance activated for possible ACS or other cardiac event\u2014captures suspected MI and need for further evaluation."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Duration \u2018a couple of hours\u2019 aligns with gold 1\u20132 hours; age and sex (53-year-old male) are additions not in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Onset while digging in the garden supports \u2018started while gardening\u2019; \u2018digging\u2019 is a compatible detail."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Matches pressure description and \u2018someone sitting on chest\u2019; mid-chest location is additional but not conflicting (gold does not specify side here)."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "7/10 severity is directly in gold; note that \u2018unchanged at time of consultation\u2019 is an added temporal detail not present in gold."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes shortness of breath but not light-headedness, stability, or specific temporal evolution; these are extra details not found in gold but not contradictory."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: reduced ADLs due to SOBOE; generated: SOB/light\u2011headedness leading to difficulty climbing stairs and walking uphill\u2014consistent elaboration of reduced ADLs."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Calf pain and leg swelling are not mentioned anywhere in the gold facts; new clinical information without conflict."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold explicitly: no chest discomfort when walking up hills/stairs; generated denies chest pain during exertion\u2014clinically equivalent, though phrased more generally."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Left shoulder/arm radiation matches gold; \u2018not to the head\u2019 matches hpi-005. \u2018Not to the back\u2019 is an added negative not addressed in gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002"
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "ADDITION",
+        "reasoning": "Gold lists conditions but is silent on medication use; stating no medication use is new information, not contradicted by gold."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not document current medications; \u2018none reported\u2019 is extra information not present or contradicted in gold."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: no allergies; gold: allergic to aspirin\u2014direct conflict."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold has no family history data; stating it is not documented is an added charting remark without conflict."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Smoking status is not mentioned in gold; new information but not contradictory."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions gardening only as the trigger of pain, not as a biweekly activity; frequency detail is new."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "PARTIAL",
+        "reasoning": "Gold: longer-term reduced ADLs due to SOBOE (hpi-008) and prior ability to walk hills/stairs (hpi-009, sh-002). Generated: limits physical activity due to symptoms, previously fit enough for gardening. This is broadly consistent with reduced ADLs but introduces \u2018gardening\u2019 as the functional benchmark rather than walking stairs specifically.",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Hypertension and hypercholesterolemia are in gold; linkage to current symptoms is a clinical synthesis, not separately in gold. \u2018Untreated\u2019 contradicts nothing but relies on added pmh-003."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "PARTIAL",
+        "reasoning": "Gold DDx: MI, PE, GORD. Generated adds acute coronary syndrome and angina (consistent with MI), includes PE (supported), and adds musculoskeletal chest pain/other cardiopulmonary causes (additions). It omits GORD. Overall: partially supported and partially additional.",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Urgent cardiac evaluation based on symptoms/risk factors is a logical conclusion but not explicitly documented in gold."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold confirms nausea as associated symptom; light-headedness association is extra but not conflicting."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Calf pain and leg swelling and concern for DVT are not present in gold; entirely new problem list item and assessment."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: ambulance called ??MI for further investigation; generated: emergency ambulance for possible ACS/other cardiac event\u2014clinically aligned."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Advice to stay calm/avoid exertion/hydrate is not documented in gold."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold is silent on prehospital medications; specifying \u2018no medications administered\u2019 is new information."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Specific monitoring instructions (ECG, SpO2, BP, HR) are not mentioned in gold."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Immediate assessment by cardiology/ED is not explicitly in gold, though consistent with ambulance for suspected MI."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Evaluation of calf pain/leg swelling for DVT is not in gold, which does not mention these symptoms at all."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Follow-up visit planning is not documented in gold."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Instruction to notify wife/prepare belongings is not in gold."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold only says ambulance called; no behavioral instructions while waiting or during transport are specified."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Gold implies ED evaluation via ambulance but does not explicitly state \u2018immediate hospital admission\u2019; this is added disposition detail."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "No follow-up information appears in gold facts."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "PARTIAL",
+        "reasoning": "Supported components: chest discomfort (pressure) (hpi-001), SOB (hpi-007/hpi-008), nausea (hpi-006), left shoulder/arm pain (hpi-002). Added/not supported in gold: light-headedness, calf pain, leg swelling.",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "PARTIAL",
+        "reasoning": "Supported: no vomiting (hpi-006), no headache (no head pain radiation in hpi-005 partially supports this). Added: no back pain, no dysphagia, no urinary symptoms\u2014these negatives are not mentioned in gold."
+      }
+    ]
+  }
+}

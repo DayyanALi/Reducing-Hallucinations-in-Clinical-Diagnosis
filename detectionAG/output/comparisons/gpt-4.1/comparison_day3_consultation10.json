@@ -1,0 +1,328 @@
+{
+  "file_id": "day3_consultation10.txt",
+  "model_source": "gpt-4.1",
+  "metrics": {
+    "total_gold_facts": 25,
+    "total_gen_facts": 35,
+    "omission_count": 2,
+    "omission_rate": 0.08,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.0857,
+    "addition_count": 12,
+    "addition_rate": 0.3429
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: diarrhea for 3 days. Generated cc-001: diarrhea for three days. Same content."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: diarrhea for 3 days. Generated hpi-001: onset approximately three days ago. Duration is captured; added frequency is extra."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: diarrhea associated with abdominal pain. Generated hpi-003: patient experiences mild abdominal pain. Association with diarrhea is clear from context of HPI about diarrhea."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: stools contain no mucus or blood. Generated hpi-002 explicitly states no blood or mucus."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: single episode of vomiting. Generated hpi-004: one episode of vomiting. Same fact."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: still able to eat and drink. Generated hpi-008: still able to drink; loss of appetite is mentioned, but ability to continue eating solid food is not clearly stated."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: watery diarrhea 4\u20135 times/day, sometimes mixed solid and loose. Generated hpi-001 gives 4\u20135 times/day; hpi-002 describes watery and loose but omits the component of sometimes mixed solid and loose. Frequency and watery/loose consistency are covered; the 'mixed solid and loose' nuance is missing."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: patient reports no fever. Generated hpi-006: patient is uncertain but suspects a possible low-grade fever. This opposes the clear denial of fever in Gold."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: loss of appetite. Generated hpi-005: mild loss of appetite, and hpi-009: appetite less than usual. Same core fact, with added severity descriptor."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: did not eat out. Generated hpi-007: denies new/unusual food exposures or eating 'anything dodgy', which captures not eating out/unsafe food."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: no foreign travel. Generated hpi-007: denies recent travel. Matches."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of asthma. Generated pmh-001: history of asthma (ongoing). Same fact."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: yellow inhaler named Lapriso. Generated med-001: yellow inhaler called 'Laxepro'. The inhaler name differs, which is a direct conflict for a medication detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no allergies. Generated allergy-001: no known drug allergies. Equivalent in this context."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: father died of bowel cancer 10 years ago. Generated fh-002: father died of bowel cancer 10 years ago at age 62. Same fact with added age detail."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: family history of hypertension. Generated fh-001: father has hypertension. This is a specific expression of family history of HTN."
+      },
+      {
+        "fact_id": "phys-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no dehydration on exam. Generated facts mention no *reported* signs of dehydration (hpi-011) but there is no explicit physical exam finding. Clinical exam finding is missing."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: diagnosis is gastroenteritis. Generated asm-001: acute diarrhea likely due to viral gastroenteritis; asm-002: infectious gastroenteritis in differential. Gastroenteritis as primary working diagnosis is captured."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: advised soft diet starting with crackers, soups, and mash. Generated plan-001: continue soft diet (crackers, toast, boiled vegetables, mashed foods). Crackers and mashed/soft foods are covered; soups are not explicitly mentioned."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to drink plenty of fluids. Generated plan-004: maintain adequate oral fluid intake. Same instruction."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: recommended Dioralyte oral rehydration solution. Generated plan-005: oral rehydration solutions such as Dioralyte recommended. Same core content."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: may progress to mashed vegetables after initial soft foods. Generated plan-001: includes boiled vegetables and mashed foods in soft diet, but does not explicitly describe staged progression after initial foods. Progression aspect is only implicitly present."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "COVERED",
+        "reasoning": "Gold: yogurts recommended as probiotics. Generated plan-003: yoghurt with probiotics encouraged. Same fact."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: if diarrhea >1 week or blood appears, stool sample will be required. Generated plan-006: seek care if diarrhea >1 week or bloody; plan-007: if red flags, stool sample may be warranted. Conditions match; explicit link stool-sample-for-these-specific-triggers is generalized to 'red flags', so linkage is less specific but conceptually present."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: if >8 episodes and risk of dehydration, book appointment. Generated plan-006: threshold is 6\u20138 stools/day. This lowers the frequency threshold and thus contradicts the specified >8 episodes criterion."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Onset ~3 days is supported by hpi-001. The 4\u20135 times daily frequency aligns with hpi-006. Statement is consistent but combines elements across gold facts."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "No blood or mucus is supported by hpi-003. Description of consistency as watery/loose is mostly supported by hpi-006, but omits the nuance of 'sometimes mixed solid and loose.'"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: possible low-grade fever. Gold hpi-007: patient reports no fever. Direct conflict."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Denies eating anything dodgy/new exposures is supported by 'did not eat out'. Denial of recent travel is supported by hpi-010. Phrase 'new or unusual food exposures' is an interpretive extension but consistent."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold explicitly states still eating and drinking. Generated only mentions drinking fluids; eating is not addressed. So only the drinking component is supported."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "ADDITION",
+        "reasoning": "Generated: denies stool frequency >8/day. Gold gives actual frequency (4\u20135/day) and a follow-up rule for >8, but does not document a patient denial of >8. This is a new negative statement, not directly stated in Gold."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "ADDITION",
+        "reasoning": "Generated: patient denies signs of dehydration. Gold: physical exam shows no dehydration (phys-001) but not necessarily patient report. This is an added history element distinct from the exam finding."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold med-001: yellow inhaler Lapriso. Generated: yellow inhaler 'Laxepro'. Different inhaler name; direct conflict."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "No OTC treatment use is not mentioned in any Gold fact, so this is new information."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-002"
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Adds age 62, which is not in Gold, but death from bowel cancer 10 years ago is supported."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold diagnosis gastroenteritis; generated specifies likely viral gastroenteritis as cause of acute diarrhea. Compatible with Gold assessment."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Differential diagnoses (infectious vs bacterial, etc.) are not listed in the Gold facts. This is extra clinical reasoning."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Food intolerance as a differential is not in Gold. New detail."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Inflammatory bowel disease as a differential is not mentioned in Gold. New detail."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Medication-induced diarrhea as a differential is not in Gold. New clinical reasoning."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Soft diet advice is supported and crackers/mash fit Gold. Avoiding dairy, eggs, fish, meat until 48 hours symptom-free is not in Gold and is an addition."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Specific rule about gradual reintroduction of meat/eggs/fish after 48 hours symptom-free is not present in Gold; Gold only mentions building on with mash and vegetables."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-005"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003"
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold fu-001 & fu-002: review if diarrhea >1 week or blood, and if >8 episodes due to dehydration risk. Generated uses a lower threshold of 6\u20138 stools/day as reason to seek care, which conflicts with the >8 episodes threshold in Gold."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: if diarrhea >1 week or blood, stool sample needed. Generated: if red flags, stool sample for microbiological analysis/possible antibiotics. Concept (stool sample with red flags like blood/persistence) is consistent, but the rationale and scope (microbiology, antibiotics) are added."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "No antidiarrheal medications initiated is not discussed in Gold facts, so this is new."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Self-monitoring of stool frequency/character and hydration is not mentioned in Gold; this is added management advice."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Outpatient self-management statement is not present in Gold facts."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Generic advice to review/seek care if ongoing concerns or deterioration is not explicitly stated in Gold follow-up facts, which are more specific about duration, blood, and frequency thresholds."
+      }
+    ]
+  }
+}

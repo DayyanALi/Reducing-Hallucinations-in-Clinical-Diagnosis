@@ -1,0 +1,411 @@
+{
+  "file_id": "day4_consultation10.txt",
+  "model_source": "gpt-4.1-mini",
+  "metrics": {
+    "total_gold_facts": 27,
+    "total_gen_facts": 49,
+    "omission_count": 9,
+    "omission_rate": 0.3333,
+    "contradiction_count": 5,
+    "contradiction_rate": 0.102,
+    "addition_count": 33,
+    "addition_rate": 0.6735
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold chief complaint is lower abdominal ache only. Generated CC adds nausea and duration 2\u20133 days, but there is no generated fact that exactly captures only 'aching pain in the lower abdomen' as the chief complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: symptoms began 2 days ago. Gen hpi-001 states a 2\u2011day history of pain, and cc-001 mentions 2\u20133 days. The 2\u2011day onset is captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient reports feeling sick. Gen hpi-002: 'feels hot and sweaty and slightly unwell' reflects feeling sick."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: feels hot and sweaty. Gen hpi-002 and ros-003 both document hot and sweaty/fever sensation."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: 'drinks lots of water and experiences polyuria.' Generated facts only say increased urinary frequency (hpi-003, ros-002). No mention of polydipsia or explicitly 'polyuria'."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: constipated for one week and still constipated. Generated hpi-005 says constipation about a week ago but now normalized; this changes the temporal status, so the gold fact is not accurately captured."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: constant aching pain in lower abdomen. Gen hpi-001: 'dull, fairly constant ache below the belly button' captures this."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient reports vaginal spotting. Generated notes (hpi-008, ros-004) describe pink discoloration in urine/spotting possibly menstrual, but not clearly as 'vaginal spotting' as in gold; thus not strictly captured."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: LMP 3.5 weeks ago. Generated hpi-009/ros-004 say approximately 3 weeks. The specific 3.5\u2011week timing is not reproduced."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: denies vomiting. Gen hpi-001 (no vomiting) and plan counseling both imply no vomiting at present, so the denial is captured."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Gold: denies urinary urgency. Gen hpi-004 and ros-002 both explicitly say no urgency."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold: denies dysuria. Gen hpi-004/ros-002: denies pain or stinging with urination, consistent with no dysuria."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold: denies vaginal discharge. Gen hpi-012 and ros-002: no discharge noted, covering this fact."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no past medical history. Gen pmh-001: none reported."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient takes no medications. Gen med-001 lists Implanon contraceptive implant as a medication; therefore the gold statement 'no medications' is not reflected and is effectively contradicted, not covered."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to amoxicillin. Gen allergy-001: allergic to amoxicillin with unspecified reaction/severity."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: brother has type 1 diabetes. Gen fh-001 matches this."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: sexually active and uses implant for contraception. Gen hpi-010, hpi-011, sh-003 describe sexual activity and arm implant contraception."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: has a regular boyfriend. Generated sh-002: lives with boyfriend. Relationship status 'regular boyfriend' is not explicitly documented, only cohabitation."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Gen sh-001: does not smoke."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: impression includes simple constipation. Generated assessment (asm-005, asm-006) refers to recently resolved constipation and GI upset but does not state 'simple constipation' as an impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "COVERED",
+        "reasoning": "Gold: PID in differential. Gen asm-006 includes pelvic inflammatory disease in differential."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "COVERED",
+        "reasoning": "Gold: STI in differential. Gen asm-006: includes pelvic inflammatory disease and UTI, but also 'early pregnancy complications' and GI causes; however, STI is not explicitly listed. So this is actually not covered."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "COVERED",
+        "reasoning": "Gold: UTI in differential. Gen asm-006 and asm-002/asm-007 clearly discuss UTI/urinary tract infection as part of the differential."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: needs further examination and investigations. Gen plan-001, plan-004, plan-005, plan-009, plan-012 all indicate urgent face\u2011to\u2011face exam and further tests."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: order pregnancy test. Gen plan-002: pregnancy test to definitively exclude pregnancy."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: order U+E. Generated plans include urinalysis, culture, blood work (CBC, inflammatory markers), but do not mention urea and electrolytes."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only states lower abdominal ache. Generated CC adds nausea, hot and sweaty, and 2\u20133 day duration, none of which are present in the gold chief complaint text (though some symptoms appear elsewhere in HPI)."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Supported in part by gold (2\u2011day history of constant lower abdominal ache and no vomiting), but adds 'associated with nausea' which is not in any gold fact. Mixed content \u2192 classified as ADDITION."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold supports 'hot and sweaty' and 'feeling sick/slightly unwell', but 'slightly' is a nuance and consistent. Overall this elaborates rather than contradicts \u2192 ADDITION."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold describes polyuria and polydipsia ('drinks lots of water - Polyuria'), but not specifically 'going to the toilet more frequently than usual.' Similar but not identical wording; treated as added detail."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Gold says no dysuria and no urgency, but does not mention 'no foul-smelling urine' or 'no pain/stinging' explicitly. So this is additional negative detail, partly aligned but mostly extra."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: 'Constipated 1 weeks' (ongoing constipation for one week). Generated: constipation about a week ago but now normalized. This reverses current constipation status."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold hpi-005 notes constipation 1 week; hpi-006 adds last bowel movement yesterday, which is consistent with being constipated but passing stool. However, gold does not mention last BM \u2192 this is technically an ADDITION rather than pure support."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold hpi-005: patient has been constipated for one week (ongoing). Generated hpi-007: denies ongoing constipation currently. Directly opposite regarding current constipation."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold: 'Spotting' (vaginal spotting). Generated: pink discoloration in urine thought related to upcoming period. This reframes spotting as urinary discoloration and adds the patient\u2019s interpretation, not present in gold."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold: LMP 3.5 weeks ago. Generated: approximately 3 weeks ago. Slightly different timing and approximate wording, therefore an added/altered detail rather than supported."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold sh-001: sexually active and uses implant. Generated hpi-010: sexually active with one regular partner aligns with sexual activity; partner count is extra detail but consistent."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold sh-001: uses an implant for contraception. Generated: uses an arm implant (Implanon) for contraception; specifying type is consistent."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-004",
+        "reasoning": "Gold ros-004: no vaginal discharge. Generated hpi-012: no vaginal discharge noted."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention pregnancy status. Generated fact about 'no known pregnancy but uncertain status' is new information."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Both say there is no past medical history."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold med-001: 'Nil Meds.' Generated med-001: patient uses Implanon as a medication. This directly contradicts the gold statement of no medications."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Both document allergy to amoxicillin; generated adds that reaction and severity are undocumented."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Both note brother with type 1 diabetes mellitus."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold family history only mentions brother with type 1 DM. Generated 'no other relevant family history' is additional."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold: non-smoker. Generated: does not smoke."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold social history does not state living arrangements. 'Lives with boyfriend' is new information."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold notes patient is sexually active; generated says sexually active with one partner. Partner count is added detail but consistent."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts contain no vitals documentation information. Statement that no vitals are documented is new."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not address whether a physical exam occurred. Generated statement of no physical findings due to remote consult is additional."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS mentions no vomiting and some GU negatives. Generated GI ROS incorporates lower abdominal ache and constipation resolved/no diarrhea; gold does not say constipation resolved or no diarrhea, so these are added details."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Some elements are supported (no urgency, no dysuria/pain, no discharge), but 'increased urination frequency,' 'no foul smell,' and 'slight pink tint in urine' are not in gold; overall best classified as ADDITION."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes hot and sweaty and feeling sick, but does not discuss light\u2011headedness or fainting. Denial of these symptoms is new."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Gold: LMP 3.5 weeks ago and spotting. Generated: LMP ~3 weeks, expected period soon, and slight pink spotting possibly menstrual. Timing and interpretation are new/altered details."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment lists specific diagnoses (simple constipation, PID, STI, UTI). Generated asm-001 is a broad etiologic statement (GI or GU) not present in gold."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold includes UTI in differential but does not discuss 'early urinary tract involvement' nuance. The mechanistic explanation is added detail."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes 'Spotting' but not its possible causes. Attribution of pink urine to menstrual spotting vs hematuria is new clinical reasoning."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention pregnancy status or need to exclude it. This is added assessment."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: constipated for one week (ongoing). Generated: constipation recently resolved and could contribute to symptoms. This conflicts with gold\u2019s ongoing constipation."
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment lists simple constipation, PID, STI, UTI. Generated differential adds early pregnancy complications and early bowel pathology and omits explicit STI; overall mainly additional reasoning."
+      },
+      {
+        "fact_id": "asm-007",
+        "status": "ADDITION",
+        "reasoning": "Gold only lists 'UTI' in differential without qualifying likelihood. Generated provides nuance about early irritation/infection and likelihood, which is added interpretation."
+      },
+      {
+        "fact_id": "asm-008",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions implant as contraception in social history, but does not explicitly tie it to pregnancy risk assessment in the assessment section. This linkage is additional."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: needs further examination and investigations. Generated plan-001 specifies arranging urgent face\u2011to\u2011face exam and further evaluation for same symptoms, consistent with gold."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: pregnancy test. Generated: pregnancy test to definitively exclude pregnancy."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention urinalysis or urine culture; only U+E and pregnancy test. This is an added investigation."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Pelvic ultrasound is not mentioned in the gold plan; this is new."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not specify CBC or inflammatory markers; additional lab planning."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold plan has no explicit safety\u2011netting instructions. The generated red\u2011flag advice is additional."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold med-001: 'Nil Meds.' for patient\u2019s medications generally. Generated plan-007: 'No medications prescribed at this time' is compatible for the acute visit but in context of gen med-001 (Implanon in use) conflicts with gold\u2019s statement of nil meds; nonetheless, as a plan statement about current prescribing it does not directly oppose a gold plan item, so it is better considered ADDITION. However, because the gold explicitly says no meds and gen elsewhere asserts a chronic med, there is an inconsistency overall."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Gold plan lacks explicit monitoring instructions; this is new."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold says 'needs further examination and Ix' but not specifically that a GP face\u2011to\u2011face today is arranged; the specified provider and urgency are added details."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Detailed instructions to watch for worsening symptoms and seek urgent care are not in gold plan; additional."
+      },
+      {
+        "fact_id": "plan-011",
+        "status": "ADDITION",
+        "reasoning": "Advice on hydration and rest is not in gold facts."
+      },
+      {
+        "fact_id": "plan-012",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state the exact disposition to an urgent in\u2011person GP consultation; this is an added specification of plan-001."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts have no explicit follow\u2011up section. Directing the patient to attend urgent in\u2011person GP consultation is new in the follow\u2011up domain."
+      }
+    ]
+  }
+}

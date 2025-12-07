@@ -1,0 +1,402 @@
+{
+  "file_id": "day5_consultation04.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 30,
+    "total_gen_facts": 41,
+    "omission_count": 9,
+    "omission_rate": 0.3,
+    "contradiction_count": 4,
+    "contradiction_rate": 0.0976,
+    "addition_count": 10,
+    "addition_rate": 0.2439
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: abdominal pain. Generated: lower abdominal pain. Location is more specific but not contradictory; chief complaint of abdominal pain is captured."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies constant periumbilical pain that is worsening. Generated mentions severe lower abdominal pain that started a few days ago; it does not state that it is worsening or specifically periumbilical, so the gold fact is not fully captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: pain severity 8/10. Generated hpi-003: abdominal pain intensity rated at 8/10. Directly matches."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: light per vaginal bleeding. Generated hpi-004 and ros-003: light vaginal bleeding. This matches the gold fact."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: some difficulty passing urine with explicit denial of dysuria/frequency. Generated facts contain no mention of difficulty passing urine; only mention of \u2018no difficulty breathing\u2019. Thus omitted."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: daily bowel movements with normal stool. Generated only notes constipation (HPI/ROS) and bowel monitoring but never states daily/normal stool consistency."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: constipation for one week last week. Generated ros-001: constipation last week, resolved this week. Duration of one week is omitted but timing (last week) and resolution are consistent. Partially but not fully captured."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: LMP 2 weeks ago. Generated hpi-006: LMP approximately 2\u20133 weeks ago. Captures timing but adds uncertainty; essentially matches but less precise."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: last foreign travel 1 year ago. Generated ros-008 and sh-004 say no recent travel/last travel over a year ago, but those are in ROS/Social, not HPI. For this HPI-specific fact, no generated HPI entry covers foreign travel, so omitted at the HPI level."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies dysuria/urinary frequency. Generated has no mention of dysuria, urinary frequency, or urinary symptoms."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: denies any additional PV discharge. Generated ros-004: patient has slight vaginal discharge. This directly contradicts the gold fact."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: eating and drinking OK. Generated never mentions appetite, oral intake, or fluids."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: not checked temperature and does not feel feverish. Generated ros-005 and ros-001/hpi-009 states no fever, but does not mention that temperature was not checked or that the patient\u2019s perception is \u2018does not feel feverish\u2019. Fever status is captured; the \u2018not checked temp\u2019 detail is omitted."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "COVERED",
+        "reasoning": "Gold: not feeling faint. Generated ros-006 and hpi-009: no fainting. Conceptually matches."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: denies shortness of breath or shoulder tip pain. Generated ros-007: no difficulty breathing; hpi-009: no shoulder pain (not shoulder tip). Breathing part is clearly covered; shoulder pain is approximated but the \u2018tip\u2019 qualifier is missing. Overall partially captured."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Gold: reports nausea. Generated hpi-008: nausea present without vomiting. Nausea is clearly captured."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: denies vomiting and diarrhoea. Generated ros-002: no diarrhea, and hpi-008: nausea without vomiting, which implies no vomiting. Both elements are present, though vomiting denial is slightly indirect; considered captured."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no significant past medical history. Generated PMH only mentions allergy to amoxicillin as PMH and does not state \u2018nil significant PMH\u2019 or similar."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient takes no regular medications. Generated only lists Implanon; it does not explicitly state that there are no other regular medications."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: Implanon implant inserted one year ago. Generated med-001: uses Implanon contraceptive implant; dose/route/frequency not documented, but no mention of timing of insertion (1 year ago), though hpi-007 says contraception for last year. Timing is approximated but not explicitly the insertion date; partially captured."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to amoxicillin. Generated pmh-001 and allergy-001 both state allergy to amoxicillin. Covered."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: works as a teacher. Generated sh-001: works as a school teacher. Fully matches with slightly more detail."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: has been able to work as usual. Generated social history does not discuss functional ability or work capacity."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with husband and his family. Generated sh-002: same content. Covered."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no smoker/alcohol/drugs. Generated sh-003 and ros-009: no use of drugs, smoking, or alcohol. Fully matches."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: abdominal pain ? cause (unclear cause). Generated asm-001: lower abdominal pain likely gynecological or GI etiology, which asserts a likely cause. This contradicts the gold uncertainty."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: needs to check pregnancy test today. Generated plan-003 and plan-005: perform a/new pregnancy test and report results. The requirement to perform a pregnancy test is covered; \u2018today\u2019 timing is omitted but core plan is present."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: contact clinic immediately if pregnancy test positive. Generated plan-003: contact clinic immediately if positive. Matches."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: urgent examination booked with doctor. Generated plan-001 and fu-001: arrange/advise scheduling a face-to-face clinic examination, but does not explicitly say \u2018already booked\u2019 or \u2018urgent\u2019. Planning for an exam is captured but the fact that it is already booked and urgency is weakened."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: get in touch earlier if pain worse/new symptoms. Generated plan-002 and plan-006: seek immediate medical attention or medical help if pain worsens or symptoms escalate/develop. Concept is captured, though phrased more as immediate medical attention than just \u2018get in touch\u2019."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold notes abdominal pain; specifying lower abdominal is an added detail but consistent."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state age, sex, onset a few days ago, or severity wording as \u2018severe\u2019. Only periumbilical constant pain, worsening, and severity 8/10 are given. This is extra narrative not in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold: periumbilical (around belly button) constant pain; generated: lower middle abdomen below belly button, constant. Constant nature is supported. Location is different: gold suggests around the umbilicus, not explicitly below it. So partially aligned but not fully supported."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Directly matches pain rated 8/10."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: light per vaginal bleeding. Equivalent to light vaginal bleeding."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: constipation for one week last week (hpi-006) plus currently BO daily, normal stool (hpi-005). Generated: \u2018intermittent constipation\u2019, suggesting an ongoing or recurrent pattern, not a single defined week last week. This differs from the gold characterization."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold: LMP 2 weeks ago. Generated: approximately 2\u20133 weeks ago. General time frame matches but adds uncertainty and broader range."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes Implanon 1 year ago as a medication; it does not describe sexual activity or continuous contraception use \u2018for the last year\u2019. Sexual activity history is new information."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007",
+        "reasoning": "Gold: nausea and no vomiting/diarrhoea. Generated: nausea present without vomiting. Consistent, though located in HPI vs ROS."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "ros-004",
+        "reasoning": "Gold: no fever checked/not feeling feverish, and not feeling faint (ros-005), and no shoulder tip pain (ros-006). Generated: no fever, fainting, or shoulder pain. Fever and fainting are supported; \u2018shoulder pain\u2019 is a less specific version of \u2018shoulder tip pain\u2019 but directionally consistent. Overall partially supported."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention regular activities being impeded; in fact gold sh-002 says she has been able to work as usual, which implies minimal impact. This statement about activities being impeded is new and tends toward contradiction, but because work ability vs general activities are not identically defined, this is best labeled as addition with possible tension."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: constipation for a week last week. Generated ROS-001: constipation last week, resolved this week. Time frame is consistent; duration of \u2018one week\u2019 is omitted. Partially supported."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008",
+        "reasoning": "Gold: no vomiting/diarrhoea. Generated: no diarrhea. Matches the diarrhea portion."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: light per vaginal bleeding. Generated: light vaginal bleeding. Supported."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold ros-002: no other PV discharge. Generated ros-004: slight vaginal discharge. Direct contradiction regarding presence of discharge."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "ros-004",
+        "reasoning": "Gold: has not checked temperature and does not feel feverish. Generated: no fever. This is directionally consistent but does not include the \u2018not checked\u2019 nuance; partially supported."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-005",
+        "reasoning": "Gold: not feeling faint. Generated: no fainting. Equivalent clinically."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006",
+        "reasoning": "Gold: no dyspnoea/shortness of breath. Generated: no difficulty breathing. Matches the respiratory component."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: last foreign travel 1 year ago. Generated: no recent travel (last travel over a year ago). Consistent but phrased more generally \u2018over a year\u2019 instead of exactly one year."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Gold: no smoker/alcohol/drugs. Generated ROS-009: no use of drugs, smoking, or alcohol. Fully consistent."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold PMH: nil significant; allergy is recorded separately under allergies. Generated PMH-001 lists allergy to amoxicillin as past medical history, implying a specific positive item in PMH rather than nil significant PMH. That conflicts with the gold PMH section, though the allergy itself is correct in the allergy section."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Gold: Implanon contraceptive implant 1 year ago under medications. Generated: Implanon contraceptive implant with unspecified dose/route/frequency. Presence of Implanon as a medication is supported; timing is omitted."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Directly matches amoxicillin allergy; gold does not specify reaction either, so noting \u2018reaction not specified\u2019 is consistent."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold has no statement about family history. Generated states \u2018not documented\u2019. This is extra meta-documentation, not contradicted by the gold."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: teacher. Generated: school teacher. Matches."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Matches living with husband and his family."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Gold: no smoker/alcohol/drugs. Generated: no smoking, alcohol, or drug use. Fully supported."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: last foreign travel 1 yr ago. Generated: last travel over a year ago. Directionally correct but less precise; partially supported."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention vitals. Generated explicitly notes vitals not documented; this is new chart-level information."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address physical exam. Generated notes physical exam not conducted in transcript. Extra documentation detail."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold assessment: abdominal pain ? cause (uncertain). Generated: likely gynecological or GI etiology. This asserts a likely cause, conflicting with documented uncertainty."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment only lists abdominal pain ? cause. Generated adds an assessment of vaginal bleeding/discharge with specific differentials, which is not present in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment does not list constipation as a separate diagnosis/problem. Generated adds constipation as an assessed issue to be monitored."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: urgent examination already booked with doctor. Generated: arrange face-to-face examination. The plan for a clinic exam is consistent but loses the \u2018already booked\u2019 and \u2018urgent\u2019 nuance."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold follow-up: get in touch earlier if pain worse/new symptoms. Generated: seek immediate medical attention if pain worsens or other symptoms develop. Concept aligned, slightly escalated in urgency."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: needs to check pregnancy test today and contact immediately if positive. Generated: perform a new pregnancy test and contact clinic immediately if positive. Supported, though \u2018today\u2019 is omitted."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify monitoring bowel movements as part of the plan, only describes current bowel habit and past constipation. This is an added management detail."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: needs to check pregnancy test today. Generated: perform a pregnancy test and report results. Core instruction to perform a pregnancy test is supported; reporting results is an added detail but consistent."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: get in touch before if pain worse/new sx. Generated: seek medical help if symptoms escalate. Same safety-net concept."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up emphasizes contacting earlier with worsening pain/new symptoms and an urgent exam already booked. It does not explicitly say \u2018outpatient follow-up planned\u2019 as a disposition. This is additional disposition documentation."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: urgent examination already booked. Generated: patient advised to contact support line to schedule an appointment for a clinic examination. Both indicate a clinic exam, but gold has it already booked and urgent, while generated shifts responsibility to the patient to schedule, so only partially aligned."
+      }
+    ]
+  }
+}

@@ -22,8 +22,8 @@ class DetectionAgent:
 
         self.PROMPT_EXTRACT_SYSTEM = FACT_EXTRACT_SYSTEM_PROMPT
         self.PROMPT_EXTRACT_USER = FACT_EXTRACT_USER_PROMPT
-        self.PROMPT_DETECT_ALL_SYSTEM = DETECT_ALL_SYSTEM_PROMPT
-        self.PROMPT_DETECT_ALL_USER = DETECT_ALL_USER_PROMPT
+        # self.PROMPT_DETECT_ALL_SYSTEM = DETECT_ALL_SYSTEM_PROMPT
+        # self.PROMPT_DETECT_ALL_USER = DETECT_ALL_USER_PROMPT
 
     # ---------------- Fact Extraction ----------------
     def extract_facts(self, note_text: str) -> List[Dict[str, str]]:
@@ -36,34 +36,34 @@ class DetectionAgent:
         return [{"id": f["id"], "content": f["content"].strip()} for f in facts if "id" in f and "content" in f]
 
     # ---------------- Unified Detection ----------------
-    def detect_all(self, baseline_facts: List[Dict[str, str]], candidate_facts: List[Dict[str, str]]) -> Dict[str, Any]:
-        prompt = ChatPromptTemplate.from_messages([
-            ("system", self.PROMPT_DETECT_ALL_SYSTEM),
-            ("user", self.PROMPT_DETECT_ALL_USER),
-        ])
-        out = (prompt | self.llm | self.parser).invoke({
-            "baseline_json": json.dumps(baseline_facts, ensure_ascii=False),
-            "candidate_json": json.dumps(candidate_facts, ensure_ascii=False),
-        })
-        return {
-            "hallucinations": out.get("hallucinations", []),
-            "fabrications": out.get("fabrications", []),
-            "critical_omissions": out.get("critical_omissions", []),
-        }
+    # def detect_all(self, baseline_facts: List[Dict[str, str]], candidate_facts: List[Dict[str, str]]) -> Dict[str, Any]:
+    #     prompt = ChatPromptTemplate.from_messages([
+    #         ("system", self.PROMPT_DETECT_ALL_SYSTEM),
+    #         ("user", self.PROMPT_DETECT_ALL_USER),
+    #     ])
+    #     out = (prompt | self.llm | self.parser).invoke({
+    #         "baseline_json": json.dumps(baseline_facts, ensure_ascii=False),
+    #         "candidate_json": json.dumps(candidate_facts, ensure_ascii=False),
+    #     })
+    #     return {
+    #         "hallucinations": out.get("hallucinations", []),
+    #         "fabrications": out.get("fabrications", []),
+    #         "critical_omissions": out.get("critical_omissions", []),
+    #     }
 
     # ---------------- Label Aggregation ----------------
-    def aggregate_labels(self, hallucinations, fabrications, omissions):
-        labels = []
-        for h in hallucinations:
-            labels.append({"id": h["id"], "type": "hallucination", "severity": 4,
-                           "content": h.get("content", ""), "rationale": h.get("reason", "not supported by baseline")})
-        for f in fabrications:
-            labels.append({"id": f["id"], "type": "fabrication", "severity": 5,
-                           "content": f.get("content", ""), "rationale": f.get("reason", "implausible")})
-        for o in omissions:
-            labels.append({"id": o["id"], "type": "omission", "severity": 5,
-                           "content": o.get("content", ""), "rationale": o.get("why", "missing critical info")})
-        return labels
+    # def aggregate_labels(self, hallucinations, fabrications, omissions):
+    #     labels = []
+    #     for h in hallucinations:
+    #         labels.append({"id": h["id"], "type": "hallucination", "severity": 4,
+    #                        "content": h.get("content", ""), "rationale": h.get("reason", "not supported by baseline")})
+    #     for f in fabrications:
+    #         labels.append({"id": f["id"], "type": "fabrication", "severity": 5,
+    #                        "content": f.get("content", ""), "rationale": f.get("reason", "implausible")})
+    #     for o in omissions:
+    #         labels.append({"id": o["id"], "type": "omission", "severity": 5,
+    #                        "content": o.get("content", ""), "rationale": o.get("why", "missing critical info")})
+    #     return labels
     
 
     # ---------------- Metrics ----------------

@@ -1,0 +1,230 @@
+{
+  "file_id": "day3_consultation01.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 25,
+    "omission_count": 6,
+    "omission_rate": 0.3529,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.04,
+    "addition_count": 14,
+    "addition_rate": 0.56
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies lip swelling for the past 1 hour; generated CC only notes lip swelling after eating prawn soup and omits duration."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lip swelling began after prawn soup. Generated facts hpi-001 and hpi-002 both state swelling after/30 minutes after prawn soup, consistent with and inclusive of the gold information (though with extra timing detail)."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: initially had a weird feeling around the lips. Generated hpi-001: patient reports feeling \"weird\" today with lip swelling; while more general, it captures the presence of a weird sensation temporally associated with the lip symptoms."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: swelling started 30 minutes after eating, localized to upper lip. Generated hpi-002 states 30 minutes after ingestion; hpi-003 specifies swelling on the left corner of upper lip and progressively enlarging. Timing and upper-lip location are covered, with added detail on location/progression."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient reports a sensation of throat closing. No generated fact explicitly mentions throat-closing sensation."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: chest tightness with difficulty breathing. Generated hpi-004 notes difficulty breathing; chest tightness is not restated but the breathing difficulty component is captured."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient feels dizzy. No dizziness is mentioned in any generated fact."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: similar episode about one year ago. Generated facts do not mention a prior similar episode or its timing."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: during consultation patient appeared to have breathing difficulties. Generated pe-001 says no physical exam performed due to teleconsult; no observation of breathing difficulty is documented as a physical finding."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: examination showed progressively increasing lip swelling. Generated notes do not record this as a physical exam finding; progression is mentioned only in HPI (hpi-003), not as an exam result."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has asthma. Generated pmh-001: history of asthma. Fully aligned."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: currently on salbutamol inhalers. Generated med-001: using a salbutamol inhaler. Same medication and current use are captured, with added note that dose/route/frequency not documented."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: peanut allergy with prior injection as a child. Generated allergy-001: peanut allergy, reaction suspected anaphylaxis as a child. The existence of peanut allergy is covered; reaction detail is additional."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: suspected anaphylactic reaction. Generated asm-001: primary assessment is suspected anaphylactic reaction; fully consistent, with added contextual detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised immediate administration of an antihistamine. Generated plan-001/plan-008: advised/use antihistamines immediately. Same plan, with additional context."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised mother to call ambulance via 999. Generated plan-002: instructed to urgently call for an ambulance for suspected anaphylaxis. The ambulance instruction is covered, though the specific mention of 'mother' and '999' is omitted."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: after hospital discharge, book review with doctor to consider prescribing an epipen. Generated plan-004 and fu-001 discuss post-hospital follow-up and possible injectable epinephrine prescription; together they capture follow-up and epinephrine consideration."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC: lip swelling for 1 hour; no trigger specified. Generated CC adds trigger (after eating prawn soup), which is HPI detail in gold, not CC. It does not contradict but restructures and adds temporal linkage at the CC level."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Supported in part by gold hpi-001 and hpi-002 (prawn soup trigger and weird feeling), but adds approximate time (19:00) and generalizes 'weird feeling today' beyond lips. Time and broader description are not in gold, so classified as addition."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold hpi-003 states swelling on upper lip, but no side or initial focal point and no explicit statement of progression as an HPI feature. Generated adds 'left corner' and 'progressively enlarging' as HPI details; side/progression as HPI are not in gold, hence addition (not contradiction)."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold: patient had an injection as a child for peanut allergy; no explicit characterization as anaphylaxis. Generated describes the reaction as suspected anaphylaxis. This is an extra interpretive detail not present in the gold text, without direct contradiction."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts mention only a current episode after prawn soup, not habitual/occasional consumption. Social pattern of 'occasionally consumes prawn soup' is new information."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not describe a past allergic reaction related to food after alcohol. This is entirely new history detail."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment lists only suspected anaphylactic reaction and does not explicitly mention a differential. Introducing 'anaphylaxis vs allergic reaction' is an added diagnostic nuance."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention ensuring someone stays with the patient until EMS arrival. This is additional safety guidance."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold plan/follow-up do not state that no specific meds were prescribed due to emergency and lack of availability. This is new information about prescribing decisions."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not instruct the patient to monitor symptoms while awaiting EMS. This is an extra management instruction."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold does not explicitly document that emergency services were consulted, only that ambulance should be called. Framing it as a consult is additional detail."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold plan says to call ambulance 999 but does not explicitly state the disposition as transfer to hospital; that is implied but not documented in gold facts, so treated as additional explicit disposition detail."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold physical findings document observed breathing difficulty and increasing lip swelling during consultation, implying some form of examination/observation was done. Generated states no physical exam was performed due to teleconsult, directly conflicting with recorded physical findings."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not provide a structured ROS section; lip swelling and difficulty breathing are in HPI/physical findings, not labeled as ROS. Representing them as ROS is a documentation structuring addition rather than a direct gold-supported fact."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not say anything about negative ROS documentation. Stating that negative ROS was not documented is an extra meta-documentation detail."
+      }
+    ]
+  }
+}

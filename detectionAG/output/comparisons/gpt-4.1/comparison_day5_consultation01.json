@@ -1,0 +1,498 @@
+{
+  "file_id": "day5_consultation01.txt",
+  "model_source": "gpt-4.1",
+  "metrics": {
+    "total_gold_facts": 39,
+    "total_gen_facts": 54,
+    "omission_count": 6,
+    "omission_rate": 0.1538,
+    "contradiction_count": 2,
+    "contradiction_rate": 0.037,
+    "addition_count": 9,
+    "addition_rate": 0.1667
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: left-sided headache. Generated CC mentions headache for one day but does not specify left-sided location."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: headache started yesterday morning. Gen hpi-001 states it began yesterday morning."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: headache is intermittent. Gen hpi-002 describes pain that comes and goes, never fully resolving, which reflects intermittent character."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: headache is non-positional. Gen hpi-011: not aggravated by position changes, which is consistent with non-positional."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: improves when lying down. Gen hpi-008 explicitly: headache improves when the patient lies down."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: headache has not awakened the patient from sleep. No generated fact mentions nocturnal awakening or sleep disruption."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: worse with light (photophobia). Gen hpi-003 and hpi-009 and ros-003 all state photophobia / worse in well-lit environments."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: patient has taken paracetamol only for relief. Gen med-003 notes paracetamol for headache relief but does not specify 'only'; there is also a plan to use ibuprofen, but that is future use, not taken. Current generated facts do not clearly state exclusivity, so partially covered."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: period stopped last week. No generated fact mentions menstrual history or timing of period."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: no previous history of headaches. Gen hpi-007: patient has no prior similar headaches, which sufficiently reflects no prior headache history in this context."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: denies altered smell or taste. Gen hpi-005 and ros-005/ros-006 all state no abnormal smells or tastes."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Gold: eating and drinking normally. Gen ros-010: eating and drinking well."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies prodromal illness. No generated fact mentions prodrome or lack thereof."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies viral symptoms. Generated facts list no fever, cold symptoms etc. (hpi-010), but 'no viral symptoms' as such is not explicitly stated and involves a broader diagnostic concept not directly matched; treat as omitted."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: sore ears and coryzal symptoms present. Gen ros-007 and ros-008 state no runny nose and no sore ears, which directly oppose the gold ROS."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "COVERED",
+        "reasoning": "Gold: does not feel feverish and has not checked temperature. Gen ros-013: no fever (not checked), no feeling of being feverish."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies nausea and vomiting. Gen hpi-006 and ros-009 both state no nausea or vomiting."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "COVERED",
+        "reasoning": "Gold: denies tingling, numbness, weakness, or rash. Gen hpi-010 and ros-011 cover no weakness, numbness, tingling; hpi-010 also denies skin changes, which encompasses rash."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "COVERED",
+        "reasoning": "Gold: no alteration in vision. Gen hpi-004 and ros-004: no visual changes / no associated visual symptoms."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: PMH nil significant. Gen pmh-001: no significant past medical problems."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes Microgynon OCP. Gen med-001: taking Microgynon OCP."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no side effects from Microgynon. Gen med-001 and med-005 both say no significant side effects."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: has taken paracetamol only for the current headache. Gen med-003: takes paracetamol for headache relief but does not confirm exclusivity, so partially covered."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to aspirin. Gen allergy-001: allergic to aspirin, with added reaction detail."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has hypertension. Gen fh-001: mother has hypertension."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has migraines. Gen fh-002: mother has migraine history."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with flatmates. Gen sh-001: lives with friends/housemates."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: a few glasses of wine at weekends. Gen sh-002: occasional alcohol, a few drinks on weekends."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Gen sh-003: non-smoker."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: some stress at work recently. Gen hpi-012 and sh-005 both note work-related stress as only/current stressor."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: BP was normal when checked for the last prescription (time unspecified). Gen plan-005: last BP reportedly ~6 months ago, always normal per patient. Normality is covered; timing detail is added but not present in gold, so partial."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: impression tension headache vs first-episode migraine. Gen asm-001: likely migraine (single favored diagnosis). This captures migraine possibility but omits the tension headache differential, so partially covered and somewhat over-specified."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no features of meningitic illness. No generated assessment or ROS statement explicitly addresses absence of meningitic features (e.g., neck stiffness, photophobia + fever with meningeal signs); explicit statement is missing."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to get BP checked. Gen plan-005: advised to arrange a blood pressure check soon."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: advised to have temperature checked. Gen plan-006: suggested obtaining a home thermometer for symptom monitoring, which implies checking temperature but is not explicitly the same instruction; thus partial."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: start regular ibuprofen with food. Gen plan-001: advise use of anti-inflammatory medications like ibuprofen in addition to paracetamol, but no explicit instruction about regular dosing or taking with food; partially covered."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to keep well hydrated. Gen plan-002: maintain good hydration."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: call straight back if worsening/persistent headache/fever/rash/new symptoms. Gen plan-003 and plan-007: monitor for worsening, persistent symptoms, new neurological features, fever, rash and seek immediate reassessment; conceptually same safety-netting but phrased as seeking reassessment rather than \u2018call straight back\u2019; partially covered."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: to have a review if regular headaches. Gen plan-004: consider further workup if recurrent headaches or headaches related to menstruation/triggers develop. This ties review to recurrence (regular headaches) but adds extra conditions; partial match."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Both describe headache of about one day\u2019s duration, but generated fact omits left-sided location present in gold."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold confirms left-sided headache beginning yesterday morning; severity and throbbing quality are additions not in gold but not contradictory."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: intermittent headache. Generated: intense, comes and goes, never fully goes away. Intermittent nature is supported; persistence (never fully resolves) is an added nuance not in gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-009"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "ros-008",
+        "reasoning": "Gold denies tingling, numbness, weakness, rash. Generated denies fever, cold symptoms, skin changes, and neuro symptoms. Neurological and skin parts are supported; absence of fever/cold symptoms is additional detail."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "ADDITION",
+        "reasoning": "No gold fact mentions recent hospital admissions or operations."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state duration (~6 years) of Microgynon use."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "med-003",
+        "reasoning": "Gold: paracetamol only for current headache. Generated: paracetamol for headache relief without specifying exclusivity, so partially supported."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention past or current ibuprofen/NSAID use; only plan to start ibuprofen."
+      },
+      {
+        "fact_id": "med-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Aspirin allergy is supported; reaction being nausea is added detail not in gold text (though consistent)."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001"
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-002"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Gold social history does not address illicit drug use."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold assessment lists tension headache vs first-episode migraine (differential). Generated concludes \u2018likely migraine\u2019, omitting the tension headache possibility and strengthening the impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions Microgynon only under medications, not as a specific assessment item about contraceptive use with no issues."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: start regular ibuprofen with food (primary NSAID therapy). Generated: use ibuprofen in addition to paracetamol. Supportive of ibuprofen use but adds combination-with-paracetamol and omits \u2018regular\u2019 and \u2018with food\u2019 specifics."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold safety-net: call straight back if worsening/persistent headache/fever/rash/new symptoms. Generated: monitor for worsening/persistent symptoms, new neurological features, fever, rash and seek immediate reassessment. Conceptually same safety-net; adds explicit neurological-features wording."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: review if regular headaches. Generated: consider further workup if recurrent headaches or headaches related to menstruation/triggers develop. Supports review with recurrence but adds menstruation/triggers and frames as workup rather than generic review."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: advised to have temperature checked. Generated: suggested getting a home thermometer. Consistent with checking temperature but not identical instruction."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Reiterates warning signs (worsening headache, fever, rash, persistent neuro symptoms). Supported by gold safety-net but adds specific mention of persistent neurological symptoms."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Gold plan/follow-up does not explicitly mention reassurance about likely benign nature or general plan for reassessment if not improving (beyond the specific safety-net instructions)."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not explicitly state outpatient/self-care with close monitoring, though it is consistent with safety-netting; no direct gold counterpart."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up focuses on calling straight back if worsening/persistent headache/fever/rash/new symptoms and review if regular headaches; a generic follow-up if no improvement/new concerning symptoms is not explicitly documented."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold confirms left-sided headache but does not document severity or throbbing quality; those features are added."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS does not specify throbbing quality; only photophobia and side are specified. Throbbing is added detail."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-009"
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: no runny nose. Gold ros-005: coryzal symptoms present, which implies nasal symptoms; this conflicts with generated denial."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: no sore ears. Gold ros-005: sore ears present."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007"
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "ros-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008"
+      },
+      {
+        "fact_id": "ros-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008"
+      },
+      {
+        "fact_id": "ros-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      }
+    ]
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "file_id": "day4_consultation09.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 27,
+    "total_gen_facts": 49,
+    "omission_count": 5,
+    "omission_rate": 0.1852,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 27,
+    "addition_rate": 0.551
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient presents with chest tightness. Generated cc-001: patient reports chest tightness. Same complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: chest tightness began ~3 hours ago. Generated hpi-001: chest tightness ~3 h prior to consult. Same timing."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: slight SOB. Generated hpi-002: mild shortness of breath. Equivalent description of severity."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: slight wheezing. Generated hpi-003: reports wheeze. Presence of wheeze is captured, mildness omitted but not contradicted."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: slight cough. Generated hpi-004: non-productive cough. Presence of cough is captured; severity not specified but consistent."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: slight cold last week, still cold symptoms, cough has stayed. Generated hpi-005: URI last week with sore throat/runny nose, now improved except persistent cough. This reflects a cold/URI last week with improving symptoms except ongoing cough; consistent with and more specific than the gold."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: cough is non-productive. Generated hpi-004 and ros-004: non-productive cough. Directly captured."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: cough is worse at night. No generated fact mentions nocturnal worsening of cough."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: forgot inhaler (implies did not bring/use). Generated facts mention running out for a week, not forgetting. Different reason for lack of inhaler, so the specific 'forgot inhaler' detail is not captured."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: asthma exacerbation at age 16. Generated hpi-010: last severe asthma exacerbation at age 16\u201317 requiring intubation. Age 16\u201317 overlaps age 16; consistent and more detailed."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of asthma. Generated pmh-001: childhood-onset asthma. Captures asthma history with added onset detail."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: hayfever. Generated pmh-002: hay fever / allergic rhinitis. Same condition."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no known drug allergies. Generated allergy-002: no known drug allergies. Direct match."
+      },
+      {
+        "fact_id": "allergy-002",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to dust. Generated allergy-001: allergic to dust with nasal/respiratory symptoms. Same allergen, more detail."
+      },
+      {
+        "fact_id": "allergy-003",
+        "status": "COVERED",
+        "reasoning": "Gold: previous milk protein allergy in childhood. Generated pmh-004: childhood milk protein allergy (resolved). Same history, with resolution detail."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: uses Ventolin inhaler. Generated med-001: home medication salbutamol (Ventolin) inhaler. Same drug/inhaler, plus note that currently out."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: uses Clenil Modulite inhaler. Generated med-002: beclometasone (Clenil Modulite) inhaler. Same medication, plus currently out."
+      },
+      {
+        "fact_id": "fhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has eczema. Generated fh-001: mother \u2013 eczema. Direct match."
+      },
+      {
+        "fact_id": "fhx-002",
+        "status": "COVERED",
+        "reasoning": "Gold: father has asthma. Generated fh-002: father \u2013 asthma. Direct match."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is asthma exacerbation. Generated asm-001: acute asthma exacerbation as assessment. Same diagnosis, with triggers added."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: further Salbutamol doses. Generated plan-001 & plan-006: prescribe salbutamol inhaler and use as needed. This represents providing further salbutamol."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: administer medications with spacer. Generated plan-004: issue spacer device with inhaler technique instructions. Provides spacer for medication use; functionally matches."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: instructed to read medication labels and warned about side effects in general. No generated fact explicitly mentions reading labels or a general side-effect warning apart from steroid-specific safety-net; thus this exact counseling point is not captured."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: Prednisolone 40 mg daily for 5 days. Generated plan-003: oral corticosteroid burst of 2 tablets in the morning for 5 days, but drug name and 40 mg dose are not specified, and mg strength per tablet is unknown. The specific 40 mg prednisolone regimen is therefore not clearly captured."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: warned about specific Prednisolone side effects (mood changes, hyperglycemia, nausea). No generated fact lists these steroid side effects; only general safety-net on symptom worsening is present."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to take time off work. Generated plan-008: recommend rest from work or school and allow self-certification. This includes taking time off."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: safety-net to seek further medical attention if SOB worsens or concerns arise. Generated plan-007 and fu-001: safety-net advice if worsening symptoms, and advised to seek medical attention if symptoms worsen. Equivalent intent."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold confirms chest tightness started ~3 hours ago and history of asthma, but does not state age or sex. The 3-hour timing and asthma history components are supported (hpi-001, pmh-001), while '26-year-old male' is additional detail not present in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes a slight cold last week with lingering cold symptoms and persistent cough (hpi-005) but does not specify sore throat or runny nose. The existence of a recent cold/URI and persistent cough is supported; sore throat and runny nose details are additions."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions chest tightness (cc-001, hpi-001) but does not describe it as inability to take a full breath. This characterization is new detail."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Gold discusses shortness of breath but does not mention exertional pattern (worse with stairs, absent at rest). This is extra nuance not present in gold, without contradiction."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention peak-flow readings. Statement that no peak-flow reading is available is new information, not contradicted."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes 'forgot inhaler' (hpi-008) and that patient uses Ventolin/Clenil (med-001, med-002). Being without inhalers for ~1 week due to running out at university is a different explanatory detail and duration; not supported or directly contradicted, so it is an addition."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold: asthma exacerbation at age 16. Generated: last severe exacerbation at age 16\u201317 requiring intubation and several-day stay. Age and existence of exacerbation are supported; severity and hospitalization details are added."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold confirms history of asthma; 'childhood-onset' adds onset detail."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002"
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "ADDITION",
+        "reasoning": "Gold family history includes mother with eczema (fhx-001), but no personal history of eczema is documented. Childhood eczema is new and unsupported."
+      },
+      {
+        "fact_id": "pmh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-003",
+        "reasoning": "Gold: childhood milk protein allergy. Generated: childhood milk protein allergy (resolved). Resolution status is additional detail."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold confirms Ventolin inhaler use; generated adds that dose/frequency not documented and that it is currently out, which are additions."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Gold confirms Clenil Modulite use; generated adds drug class/name (beclometasone) and that it is currently out."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-002",
+        "reasoning": "Gold: dust allergy. Generated: dust allergy with nasal/respiratory symptoms. Reaction detail is added."
+      },
+      {
+        "fact_id": "allergy-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fhx-001"
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fhx-002"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not include social history or student status. Being a university student is new information."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Recent travel to campus is not mentioned in gold; this is additional social history."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: asthma exacerbation impression. Generated: acute asthma exacerbation with triggers (viral URI, inhaler lapse). Triggers are additional but consistent with prior cold (hpi-005) and non-use of inhaler, though the run-out explanation is added."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold includes no assessment of severity or ability to speak/full sentences. Statement of no severe/life-threatening attack is extra assessment detail."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes an asthma exacerbation at age 16 but does not state that it required intubation or label it as a risk factor. Framing prior intubation as risk is an additional interpretation."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold only lists 'Imp- Asthma exacerbation' and does not include differentials. Viral bronchitis/reactive airway as differentials are added clinical reasoning."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention evaluation for pneumonia or cardiac causes. Stating no evidence for these is additional assessment."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: further salbutamol. Generated: prescribe salbutamol inhaler per standard regimen. Both plan to provide additional salbutamol; regimen detail is added."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold plan includes 'Further salbutamol, Clinil' (i.e., Clenil). Generated: prescribe beclometasone (Clenil Modulite) for maintenance. This is consistent with providing further Clenil; maintenance indication is added."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold specifies Prednisolone 40 mg for 5 days (plan-004), but not tablet count or timing. Generated: 2 tablets in the morning for 5 days, without naming drug or dose in mg. The existence of a 5-day oral steroid burst is consistent with gold, but the specific '2 tablets in the morning' scheduling is additional and the absence of 40 mg means it does not fully reproduce the gold regimen."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: administer with spacer. Generated: issue spacer device with technique instructions. Same intervention plus education detail."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention using beclometasone once symptoms settle. This is an added management detail."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: further salbutamol doses. Generated: salbutamol as needed. Both describe PRN use of short-acting bronchodilator; PRN wording is added nuance."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: safety-net if worsening SOB or concerns. Generated: more detailed safety-net including frequency-of-use threshold and other concerning symptoms. This elaborates but aligns with the same intent."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-006",
+        "reasoning": "Gold: advised to take time off work. Generated: rest from work/school and self-certify first 7 days. Time-off component is supported; self-certification and 7-day detail are additional."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Disposition home with prescriptions and safety-net is not explicitly stated in gold, though consistent with the presence of a plan and safety-net. This is added explicit disposition."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up only specifies safety-net for worsening SOB/concerns. Routine primary care/asthma review after recovery is extra follow-up detail."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold lists chest tightness in chief complaint/HPI but does not contain a structured ROS section. Documenting it under ROS is additional structuring, not directly supported as ROS."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes slight SOB in HPI, not explicitly as ROS. Classifying this as ROS is an added documentation layer."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes slight wheezy in HPI. Listing it as ROS is additional structuring not present in gold facts."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Gold notes slight, non-productive cough in HPI. Representing this as ROS finding is extra formatting/structuring."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "Gold says 'Non productive' for cough, implying no sputum, but does not state 'sputum negative' as a separate ROS line. This explicit ROS statement is additional, though consistent."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention pleuritic chest pain. Saying it is negative is a new, unsupported ROS detail."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions a slight cold last week but does not specify sore throat. Prior sore throat is an added symptom."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions a slight cold last week but does not specify runny nose. Prior runny nose is an added symptom."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention constitutional symptom of 'feels under the weather.' This is new."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address fever. Statement that no fever documented is additional information."
+      }
+    ]
+  }
+}

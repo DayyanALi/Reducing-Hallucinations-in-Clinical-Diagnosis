@@ -1,0 +1,600 @@
+{
+  "file_id": "day5_consultation03.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 31,
+    "total_gen_facts": 85,
+    "omission_count": 8,
+    "omission_rate": 0.2581,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0118,
+    "addition_count": 45,
+    "addition_rate": 0.5294
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold CC only mentions anxiety symptoms. Generated CC adds sleep disturbance, palpitations, functional impact, timing, and job association, but does not present the simple statement 'Patient presents with anxiety symptoms' alone."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: two\u2011month history of feeling anxious all the time. Gen hpi-001 describes anxiety beginning ~2 months ago with job stress; duration/onset of anxiety is captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: anxiety began after starting new job in different industry with pressure from boss. Gen hpi-001 states onset ~2 months ago with new job stress; captures causal link with new job though omits details about different industry and boss pressure."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: dreads going to work every morning. Gen hpi-003: feels dread of going to work; morning element implied elsewhere but core fact of work dread is captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: severe initial insomnia with about 3 hours to fall asleep. Gen facts describe difficulty falling asleep (hpi-004, hpi-023) but do not specify the 3\u2011hour sleep onset latency."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: early-morning waking. Gen hpi-013: palpitations sometimes wake the patient early; this reflects early-morning waking, though tied to palpitations."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: often only 3\u20134 hours sleep. Gen hpi-024: average sleep estimated 3\u20134 hours on some nights; captures the short duration though phrasing differs slightly."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: tired during the day. Gen hpi-006 and ros-007 describe fatigue and low energy, which cover daytime tiredness."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: reports low energy. Gen hpi-006 and hpi-016 explicitly mention low energy; covered."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: eating pattern normal but more chocolate. Gen hpi-025 (no major appetite changes) and hpi-026 (occasional increased chocolate intake) together capture normal appetite with more chocolate."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: anhedonia at and outside work; previously enjoyed running, tennis, socialising; now often avoids but still sometimes sees friends. Gen hpi-007, hpi-008, hpi-009, hpi-017, hpi-019 cover anhedonia, reduced enjoyment, reduced interest and limited social activities, but do not name specific activities or the nuance of still seeing friends but often avoiding."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "COVERED",
+        "reasoning": "Gold: palpitations began with anxiety symptoms. Gen corpus acknowledges palpitations tied to anxiety (asm-005, asm-007) though it doesn\u2019t explicitly state onset with anxiety; relationship is captured but onset timing is looser. Marked as covered as the association is preserved without contradiction."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "OMITTED",
+        "reasoning": "Gold: palpitations feel irregular and are accompanied by chest discomfort. Gen hpi-011 mentions irregular and racing heartbeat, but chest discomfort is not mentioned in HPI; chest pain only appears in ROS/plan as a negative/warning, not as a symptom that accompanies palpitations in this patient."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "COVERED",
+        "reasoning": "Gold: palpitations are rapid and last about 2\u201310 minutes. Gen hpi-011: irregular, racing heartbeat ... lasting minutes to about 10 minutes; matches rate and duration."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "COVERED",
+        "reasoning": "Gold: has not missed work despite symptoms. Gen hpi-020: continues working but with stress and worry; captures continued attendance at work despite symptoms."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "OMITTED",
+        "reasoning": "Gold: public transport is an anxiety trigger. No generated fact mentions public transport or similar specific trigger."
+      },
+      {
+        "fact_id": "hpi-016",
+        "status": "COVERED",
+        "reasoning": "Gold: low mood most of the time. Gen hpi-015 notes depressed mood; degree (\u2018most of the time\u2019) is not explicit but depressed mood is captured."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no past psychiatric history or significant anxiety. Generated PMH-001 only says PMH/PSH not documented; does not assert absence of past psych history or anxiety."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has depression. Gen fh-001 matches this precisely."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: lives with supportive parents. Gen sh-001: lives with parents; HPI-022 notes family support. Combined, living with parents and having family support is covered, though it does not explicitly state that the cohabiting parents themselves are supportive."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: drinks Fri/Sat, amount uncertain, sometimes overdoes it. Gen sh-003 and hpi-027 say alcohol use is higher on weekends (Friday/Saturday) with occasional weekday intake, but omit the detail of sometimes overdoing it and add weekday use which is not in gold."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: smokes occasionally. Gen sh-002 and hpi-028 both state occasional smoking."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no illicit drugs. Gen sh-004 and hpi-029 state no illicit drug use."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold assessment: work-related anxiety. Generated assessment lists anxiety symptoms, GAD, adjustment disorder, etc., but does not explicitly specify that anxiety is work-related as the primary impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "OMITTED",
+        "reasoning": "Gold assessment: Insomnia listed as an impression. Gen assessments describe insomnia as a problem with differentials, but not as a succinct impression equal to work-related anxiety; wording diverges from gold\u2019s explicit listed impression."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised self-referral to NHS talking therapies. Gen plan-002 and plan-008 both describe self-referral to talking therapy via NHS; covered."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised online CBT resources. Gen plan-004 and plan-005 describe online resources for anxiety/sleep and sleep hygiene; though CBT is not named explicitly, providing online therapy resources is reasonably covered."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: blood tests as initial investigation for palpitations; patient to book via support team. Gen plan-001 and plan-009 mention basic blood tests to evaluate palpitations; plan-014 instructs patient to call support line to arrange blood tests. Initial investigation wording and booking via support are captured; this is substantially covered."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: contact clinic if anxiety/mood worse or unable to cope with work. Gen plan-006, plan-017, plan-019, and fu-001 mention contacting if symptoms worsen and seeking urgent care if mood/suicidality worse, but do not explicitly mention inability to cope with work; partially covered."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no panic attacks. No generated fact mentions panic attacks as present or absent."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Gold: denies suicidal ideation. Gen ros-008: negative for suicidal ideation; also hpi-021. Covered."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only states 'Anxiety symptoms.' Generated CC adds sleep disturbance, palpitations, functional impairment, onset timing, and job association not present in the gold CC."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Daily morning anxiety about leaving the house is not described in the gold HPI. Gold only states dreading work in the morning and does not mention leaving the house per se."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Gold notes initial insomnia and 3 hours to fall asleep but not a specific bedtime of 22:00\u201323:00."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions early-morning waking and palpitations, but does not state 'shallow sleep' or specify waking with a racing heart as a general pattern."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold supports fatigue/low energy (hpi-007, hpi-008), but does not specify that fatigue is 'nightly'; that qualifier is additional."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold: patient still sees friends but often avoids. This implies reduced socialising but not full 'social withdrawal'; phrasing is somewhat stronger, so treated as an addition on degree of withdrawal."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention the patient\u2019s concern that anxiety is escalating; it only describes current severity and triggers."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Duration and rapid/irregular features match hpi-012 and hpi-013, but gold does not restrict palpitations to 'in the morning.' Morning timing is additional detail."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-012"
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "ADDITION",
+        "reasoning": "Fear of being late is not mentioned in gold facts."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-016"
+      },
+      {
+        "fact_id": "hpi-016",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "hpi-017",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010"
+      },
+      {
+        "fact_id": "hpi-018",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-019",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold: now still sees friends but often avoids. This indicates some limitation of social activities, but 'limited social activities' is a somewhat stronger summarisation; still aligned but with extrapolated degree."
+      },
+      {
+        "fact_id": "hpi-020",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-014"
+      },
+      {
+        "fact_id": "hpi-021",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "hpi-022",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "hpi-023",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-024",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-025",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-026",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold: eating pattern normal but more chocolate. Generated fact adds a causal link 'due to low mood' which is not stated in gold; chocolate increase is supported, cause is additional."
+      },
+      {
+        "fact_id": "hpi-027",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold: drinks Fri/Sat, sometimes overdoes it. Generated adds 'occasional weekday intake,' which is extra; weekend heavy use is supported, weekday element is additional."
+      },
+      {
+        "fact_id": "hpi-028",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "hpi-029",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold explicitly states no past psychiatric history or significant anxiety. Generated states PMH/PSH 'not documented,' which contradicts the presence of documented negative psych history."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not address medications at all; stating none documented is new neutral information."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention allergies; indicating they are not documented is new information."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Weekend alcohol increase is supported by sh-002. However, gold does not mention 'more' or quantify relative to weekdays; still broadly aligned."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS only comments on panic attacks and suicidal ideation. 'Positive for anxiety' is new ROS detail, though consistent with overall picture."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS does not specifically list insomnia in ROS; insomnia is in HPI/assessment. Marked as addition at the ROS level."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Palpitations are described in HPI and plan but not as a formal ROS entry in gold facts."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Depressed mood appears in HPI, not as an explicit ROS item in gold."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "Anhedonia is described in HPI and assessment, not listed under ROS in gold."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Social withdrawal is not specified as a ROS item in gold; HPI mentions avoidance of activities but not under ROS."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Fatigue is in HPI but not as a ROS bullet in gold."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002"
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention exertional chest pain positively or negatively; its absence is new information."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not summarise 'no known major medical conditions'; this is new summary information."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment only lists 'Work related anxiety' and 'Insomnia.' Generated introduces 'Problem 1: Anxiety symptoms with sleep disturbance and functional impairment', which is an expanded framing not present in gold."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Differential for generalized anxiety disorder is not mentioned in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Adjustment disorder with anxiety is not listed in gold assessment."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Major depressive disorder with anxious distress as a differential is not in gold assessment."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Cardiac/palpitations secondary to anxiety as a differential is not specified in gold, which only labels palpitations as associated with anxiety, not as an explicit differential cardiac diagnosis."
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment does not list palpitations as a separate 'Problem'; palpitations appear only in HPI and investigation plan."
+      },
+      {
+        "fact_id": "asm-007",
+        "status": "ADDITION",
+        "reasoning": "Anxiety-induced palpitations as a formal differential is not present in gold."
+      },
+      {
+        "fact_id": "asm-008",
+        "status": "ADDITION",
+        "reasoning": "Cardiac arrhythmia as a differential diagnosis is not mentioned in gold."
+      },
+      {
+        "fact_id": "asm-009",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment lists 'Insomnia' but not 'Problem 3: Insomnia and sleep disturbance' as a separate structured problem list item."
+      },
+      {
+        "fact_id": "asm-010",
+        "status": "ADDITION",
+        "reasoning": "Sleep disturbance secondary to anxiety/depression as a differential is not given in gold assessment."
+      },
+      {
+        "fact_id": "asm-011",
+        "status": "ADDITION",
+        "reasoning": "Primary insomnia as a differential is not mentioned in gold."
+      },
+      {
+        "fact_id": "asm-012",
+        "status": "ADDITION",
+        "reasoning": "Gold does not list 'Mood disturbance / anhedonia' as a separate assessment problem."
+      },
+      {
+        "fact_id": "asm-013",
+        "status": "ADDITION",
+        "reasoning": "Major depressive disorder with anxious distress as a mood differential is not explicitly present in gold."
+      },
+      {
+        "fact_id": "asm-014",
+        "status": "ADDITION",
+        "reasoning": "Anxiety disorder with secondary mood symptoms is additional diagnostic framing beyond gold."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold plan-003 supports blood tests as initial investigation for palpitations. Generated extends rationale to 'rule out contributing organic factors,' which is a reasonable clinical inference but not explicitly stated; mostly supported with mild addition."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold states patient should self-refer; it does not state the clinician will send a self-referral link."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold plan-002 advises online CBT resources, which implies online anxiety/sleep resources; specific mention of 'sleep improvement' is an inferred but reasonable extension."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention sleep hygiene education explicitly."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold fu-001 asks patient to contact if anxiety/mood worse or cannot cope with work. Generated generalises this to 'if worse or not improving'; similar intent but wording is broader and omits work-related criterion."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify a planned GP follow-up tied to blood test results; only contact if worse or cannot cope."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003"
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address antiarrhythmic or other pharmacologic treatment for palpitations."
+      },
+      {
+        "fact_id": "plan-011",
+        "status": "ADDITION",
+        "reasoning": "Gold only instructs to contact if anxiety/mood worse or cannot cope with work, not specifically for palpitations persisting or worsening."
+      },
+      {
+        "fact_id": "plan-012",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention chest pain, syncope, or dyspnoea as warning signs related to palpitations."
+      },
+      {
+        "fact_id": "plan-013",
+        "status": "ADDITION",
+        "reasoning": "No timing of follow-up (e.g., one week after labs) is present in gold."
+      },
+      {
+        "fact_id": "plan-014",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003"
+      },
+      {
+        "fact_id": "plan-015",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify that test results will be reviewed at follow-up."
+      },
+      {
+        "fact_id": "plan-016",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions therapy but does not state that no antidepressant is started."
+      },
+      {
+        "fact_id": "plan-017",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold fu-001 requests contact if mood/anxiety worsens or work is unmanageable. Generated expands to ongoing monitoring and escalation if persistent/worsening; directionally aligned but more detailed."
+      },
+      {
+        "fact_id": "plan-018",
+        "status": "ADDITION",
+        "reasoning": "Gold social history notes alcohol use but provides no specific counselling about moderation."
+      },
+      {
+        "fact_id": "plan-019",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify instructions for suicidality or urgent care; it only says to contact clinic if symptoms worsen or work impairment occurs."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold fu-001: contact clinic if anxiety/mood worse or unable to cope with work; no explicit follow-up after labs. Generated adds GP follow-up after blood tests, which is not in gold but is consistent with lab ordering; and 'or sooner if symptoms worsen' aligns with gold instructions."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Specific scheduling of GP follow-up one week after labs is not in gold."
+      },
+      {
+        "fact_id": "fu-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention evaluating sleep quality at follow-up."
+      },
+      {
+        "fact_id": "fu-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state that mood and therapy progress will be re-evaluated after therapy initiation."
+      }
+    ]
+  }
+}

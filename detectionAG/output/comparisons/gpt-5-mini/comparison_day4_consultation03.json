@@ -1,0 +1,312 @@
+{
+  "file_id": "day4_consultation03.txt",
+  "model_source": "gpt-5-mini",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 40,
+    "omission_count": 5,
+    "omission_rate": 0.2941,
+    "contradiction_count": 5,
+    "contradiction_rate": 0.125,
+    "addition_count": 24,
+    "addition_rate": 0.6
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 captures acute shortness of breath as the chief complaint. It omits that it occurs at rest and the temporal relation to the C-section, but the core complaint is present."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 states sudden onset shortness of breath while sitting and watching TV, consistent with acute onset while watching TV; it adds a 1\u2011hour duration and sitting position not in gold but does not contradict."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-002 indicates cough since yesterday without sputum production, which is consistent with an unproductive cough one day prior; wording differs but matches clinically."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold describes the dyspnea as non\u2011positional; no generated fact mentions that symptoms are non\u2011positional or address positional influence."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold notes C\u2011section 2\u20133 weeks ago with no complications and baby well. Generated hpi-003/pmh-002 document C\u2011section ~4 weeks ago but omit the lack of complications and that the baby is well, and the timing (2\u20133 vs ~4 weeks) differs slightly."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold indicates patient is not taking blood thinners; generated data do not list any anticoagulant therapy and do not introduce any, and med-001 confines meds to codeine, so this information is effectively reflected, though not explicitly restated."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "OMITTED",
+        "reasoning": "Gold explicitly states no fever; generated ros-007 only says fever not reported, which is different from an explicit denial. The denial is therefore omitted."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold explicitly states no chills; there is no mention of chills in any generated fact."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold explicitly states no chest pain; generated hpi-007 specifies no chest pain at rest and ros-004 reports chest soreness with deep inspiration, so the broad denial of chest pain is not preserved and is functionally contradicted for pleuritic pain."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold notes no pain on inspiration; generated hpi-005 and ros-004 indicate chest soreness with deep inspiration, which is the opposite, so the gold fact is not captured but rather contradicted. Status set here as OMITTED in content but see contradiction under generated facts."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold reports no significant past medical history; generated pmh-001 states no past medical history documented, which is consistent in effect."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold states patient is not on anticoagulant therapy; generated medication list includes only codeine and no blood thinners, which is consistent though less explicit."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Generated allergy-001 notes ibuprofen allergy with unspecified reaction, matching the gold fact."
+      },
+      {
+        "fact_id": "phys-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: HR via telephone roughly 120 bpm, tachy, regular. Generated pf-001 only mentions that the clinician interpreted 30 counted beats as 'slightly fast'; it neither quantifies ~120 bpm nor states tachycardic and regular, so the specific gold data are not captured."
+      },
+      {
+        "fact_id": "fhx-001",
+        "status": "COVERED",
+        "reasoning": "Generated fh-001 repeats that the patient's mother has a history of clots in her legs."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Generated asm-001/asm-002 describe concern for thromboembolic event and list pulmonary embolism in the differential, aligning with gold assessment that PE is considered."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Generated plan-001 states patient advised to go to ED for further evaluation; this is consistent with plan for further examination and investigations in an acute setting."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Supported for acute onset SOB while watching TV; the added detail of onset about one hour prior and sitting position is an ADDITION."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "CONTRADICTION",
+        "reasoning": "States 4 weeks status post cesarean section, while gold HPI notes C-section 2\u20133 weeks ago.",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Increased awareness of heartbeat is not described in any gold fact."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "CONTRADICTION",
+        "reasoning": "States chest feels sore with deep inspiration, which conflicts with gold ros-004 'Patient denies pain on inspiration.'",
+        "match_gold_id": "ros-004"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "C-section scar tenderness is not mentioned in the gold facts."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS notes no chest pain at all; this more nuanced 'no chest pain at rest' with implied pleuritic soreness differs and is not documented in gold."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Counting 30 beats during a pulse check with unspecified duration is not in gold; gold only gives HR via telephone ~120 bpm."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Codeine use history is not present in the gold facts."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "CONTRADICTION",
+        "reasoning": "States C-section ~4 weeks ago as past surgical history; gold HPI notes C-section 2\u20133 weeks ago.",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Details codeine as a medication; gold only states absence of blood thinners and does not mention codeine."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fhx-001"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Living with baby and partner at work are not captured in any gold social history fact."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Non-documentation of tobacco/alcohol/substance use is not addressed in gold facts."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "ADDITION",
+        "reasoning": "Employment status not documented is not addressed in gold facts."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Description of 30 counted beats and 'slightly fast' interpretation is not present in gold; gold instead has HR via telephone ~120 bpm, tachy, regular."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "ADDITION",
+        "reasoning": "Statement that other vital signs were not documented is not mentioned in gold facts."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Positive shortness of breath for one hour duration is more specific than gold HPI onset description; duration is not specified in gold."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Palpitations/awareness of heart racing is not present in the gold review of systems."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "CONTRADICTION",
+        "reasoning": "States chest soreness with deep inspiration, conflicting with gold ros-004 'Patient denies pain on inspiration.'",
+        "match_gold_id": "ros-004"
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "C-section scar tenderness not mentioned anywhere in gold."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Hemoptysis not reported is not specified in gold ROS."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold ros-001 explicitly states patient denies fever, whereas generated ros-007 says 'fever not reported' (absence of data), which conflicts with the explicit denial.",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "ADDITION",
+        "reasoning": "Lower extremity swelling/pain not elicited is not addressed in gold facts."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "Denial of prior similar episodes is not present in gold facts."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Only pulmonary embolism is specified in the gold assessment; DVT, anxiety-related tachycardia, and respiratory infection are extra differential items."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Supported for recent cesarean delivery; scar tenderness and opioid use are additions not present in gold."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Transport options and decision for self-transport with baby are not described in the gold plan."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Advice not to take codeine before evaluation is not present in the gold plan."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Detailed counseling about clot concerns (legs or lungs) is not in the gold plan summary."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Description of possible hospital tests and anticoagulation therapy is not mentioned in gold facts."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Specific follow-up disposition (self-transport to ED with baby) is not documented in gold; gold plan only notes further exam in acute setting."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Statement that no outpatient follow-up was documented is not in gold facts."
+      }
+    ]
+  }
+}
