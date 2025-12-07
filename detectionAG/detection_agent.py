@@ -20,8 +20,8 @@ class DetectionAgent:
         self.llm = ChatOpenAI(model=model)
         self.parser = JsonOutputParser()
 
-        self.PROMPT_EXTRACT_SYSTEM = FACT_EXTRACT_SYSTEM_PROMPT
-        self.PROMPT_EXTRACT_USER = FACT_EXTRACT_USER_PROMPT
+        self.PROMPT_EXTRACT_SYSTEM = TRANSCRIPT_FACT_EXTRACT_SYSTEM_PROMPT
+        self.PROMPT_EXTRACT_USER = TRANSCRIPT_FACT_EXTRACT_USER_PROMPT
         self.PROMPT_DETECT_ALL_SYSTEM = DETECT_ALL_SYSTEM_PROMPT
         self.PROMPT_DETECT_ALL_USER = DETECT_ALL_USER_PROMPT
 
@@ -34,6 +34,16 @@ class DetectionAgent:
         out = (prompt | self.llm | self.parser).invoke({"note_text": note_text})
         facts = out.get("facts", [])
         return [{"id": f["id"], "content": f["content"].strip()} for f in facts if "id" in f and "content" in f]
+
+    # ---------------- Transcript Fact Extraction ----------------
+    def transcript_extract_facts(self, transcript_text: str) -> List[Dict[str, str]]:
+        prompt = ChatPromptTemplate.from_messages([
+            ("system", self.PROMPT_EXTRACT_SYSTEM),
+            ("user", self.PROMPT_EXTRACT_USER),
+        ])
+        out = (prompt | self.llm | self.parser).invoke({"transcript": transcript_text})
+        facts = out.get("facts", [])
+        return facts
 
     # ---------------- Unified Detection ----------------
     def detect_all(self, baseline_facts: List[Dict[str, str]], candidate_facts: List[Dict[str, str]]) -> Dict[str, Any]:
@@ -150,7 +160,84 @@ class DetectionAgent:
             "labels": labels,
             "metrics": metrics,
         }
+
+def run_transcript_fact_extraction():
+    import os
+    import re
+    import json
+    from pathlib import Path
+
+    # --- Configurable paths ---
+    TRANS_DIR = Path("data/babylon_data_cleaned/babylonhealth primock57 main transcripts combined")
+    OUT_DIR = Path("detectionAG/output/transcript_facts")
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    def natural_key(s: str):
+        """Sort like humans (file2 < file10)."""
+        return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", s)]
+
+    # Collect and sort files
+    transcript_files = sorted([p for p in TRANS_DIR.glob("*.txt")], key=lambda p: natural_key(p.name))
+
+    if not transcript_files:
+        raise FileNotFoundError(f"No .txt files found in {TRANS_DIR}")
+
+    # Init agent once
+    agent = DetectionAgent(model="gpt-5")
+
+    all_outputs = []
+    for i, transcript_path in enumerate(transcript_files, start=1):
+        out_path = OUT_DIR / f"facts_{transcript_path.stem}.json"
+
+        # --- Skip if output file exists and contains "facts" key ---
+        if out_path.exists():
+            try:
+                with open(out_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if "facts" in data:
+                    print(f"[{i}/{len(transcript_files)}] Skipping {transcript_path.name}, output already exists with facts.")
+                    all_outputs.append({
+                        "note_file": transcript_path.name,
+                        "output_file": out_path.name
+                    })
+                    continue
+            except Exception:
+                # If file exists but is corrupted or invalid JSON, re-run extraction
+                pass
+
+        with open(transcript_path, "r", encoding="utf-8") as f:
+            transcript_text = f.read()
+
+        print(f"[{i}/{len(transcript_files)}] Extracting facts from note={transcript_path.name} ...")
+        try:
+            facts = agent.transcript_extract_facts(transcript_text)
+            result = {
+                "transcript_file": transcript_path.name,
+                "facts": facts
+            }
+        except Exception as e:
+            result = {
+                "transcript_file": transcript_path.name,
+                "error": str(e)
+            }
+
+        # Write JSON output
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=2, ensure_ascii=False)
+
+        all_outputs.append({
+            "transcript_file": transcript_path.name,
+            "output_file": out_path.name
+        })
+
+    # Write index file
+    index_path = OUT_DIR / "index_facts.json"
+    with open(index_path, "w", encoding="utf-8") as f:
+        json.dump({"outputs": all_outputs}, f, indent=2, ensure_ascii=False)
+
+    print(f"Done. Wrote results to: {OUT_DIR}")
         
+
 if __name__ == "__main__":
     import os
     import re
@@ -219,5 +306,3 @@ if __name__ == "__main__":
         json.dump({"pairs": all_summaries}, f, indent=2, ensure_ascii=False)
 
     print(f"Done. Wrote {n} result files to: {OUT_DIR}")
-
-
