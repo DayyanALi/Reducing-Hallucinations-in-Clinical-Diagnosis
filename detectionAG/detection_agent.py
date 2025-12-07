@@ -7,8 +7,8 @@ import os, json, re
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
-from configs.fact_extract_prompt import *
-from configs.combined_detection_prompt import DETECT_ALL_SYSTEM_PROMPT, DETECT_ALL_USER_PROMPT
+from detectionAG.configs.fact_extract_prompt import *
+from detectionAG.configs.combined_detection_prompt import DETECT_ALL_SYSTEM_PROMPT, DETECT_ALL_USER_PROMPT
 
 from dotenv import load_dotenv
 load_dotenv()
