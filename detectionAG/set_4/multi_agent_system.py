@@ -111,7 +111,7 @@ class NoteAgent:
         self.llm = ChatOpenAI(model=model_name)
         self.prompt = prompt
     
-    def run(self, transcript: str, questions: dict = None, ddx: list = None, baseline: bool = False) -> dict:
+    def run(self, transcript: str, questions: dict = None, ddx: str = None, baseline: bool = False) -> dict:
         if ddx is None:
             resp = self.llm.invoke(self.prompt.format(transcript=transcript))
             # print("Using baseline note prompt.",resp)
@@ -130,13 +130,12 @@ class ScribePipeline:
         self.ddx_agent = DDxAgent(model_name=model_name,prompt=ddx_prompt)
         self.note_agent = NoteAgent(model_name=model_name,prompt=note_prompt) if note_prompt else NoteAgent()
     
-    def run(self, transcript: str) -> dict:
+    def run(self, transcript: str, ddx:str=None) -> dict:
         questions = None
-        ddx = None
         note = None
 
         # ddx
-        if self.cfg.get("ddx"):
+        if self.cfg.get("ddx") and ddx is None:
             # pass empty dict if no questions
             ddx = self.ddx_agent.run(transcript)
         
@@ -159,3 +158,4 @@ class ScribePipeline:
             "ddx": ddx,
             "note": note
         }
+
