@@ -6,16 +6,17 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from promptTemplate import NOTE_PROMPT, USER_PROMPT_NOTES
+from detectionAG.promptTemplate import USER_PROMPT_NOTES
+from detectionAG.configs.temp_check_note_prompt import NOTE_PROMPT
 
 # ---------------- CONFIG ---------------- #
 load_dotenv()
 
-transcript_dir = "E:/detectionAG/output/transcriptions"
+transcript_dir = "data/babylon_data/babylonhealth primock57 main transcripts combined"
 
 # base output dirs (each model will get its own subfolder)
-base_output_dir_json = "E:/detectionAG/output/notes_json"
-base_output_dir_txt = "E:/detectionAG/output/notes_text"
+base_output_dir_json = "detectionAG/results/temp_check/notes_json"
+base_output_dir_txt = "detectionAG/results/temp_check/notes_text"
 
 os.makedirs(base_output_dir_json, exist_ok=True)
 os.makedirs(base_output_dir_txt, exist_ok=True)
@@ -31,14 +32,14 @@ call_delay = 0.6
 
 # ---- Models to run (in order you listed) ----
 models = [
-    "o3",            # note: replace names with actual model IDs if different in your environment
-    "gpt-4o",
-    "gpt-4.1",
-    "gpt-4.1-mini",
+    # "o3",            # note: replace names with actual model IDs if different in your environment
+    # "gpt-4o",
+    # "gpt-4.1",
+    # "gpt-4.1-mini",
     "gpt-5-nano",
-    "gpt-5-mini",
-    "gpt-5-thinking",
-    "gpt-5-non-thinking",
+    # "gpt-5-mini",
+    # "gpt-5-thinking",
+    # "gpt-5-non-thinking",
 ]
 
 # ---------------- Prompt setup (shared) ---------------- #
@@ -79,14 +80,17 @@ for model_name in models:
 
     # instantiate LLM for this model
     try:
-        llm = ChatOpenAI(model=model_name, temperature=0, api_key=api_key)
+        # llm = ChatOpenAI(model=model_name, temperature=0, api_key=api_key)
+        llm = ChatOpenAI(model=model_name, api_key=api_key)
     except TypeError:
         # fallback if your ChatOpenAI expects 'model_name' or 'openai_api_key' parameter names
-        llm = ChatOpenAI(model_name=model_name, temperature=0, openai_api_key=api_key)
+        llm = ChatOpenAI(model_name=model_name, openai_api_key=api_key)
 
     chain = prompt | llm | StrOutputParser()
-
+    num_notes = 0
     for idx, input_file in enumerate(input_files, start=1):
+        if num_notes > 5:
+            break
         base_name = os.path.splitext(os.path.basename(input_file))[0]
         out_json_path = os.path.join(model_json_dir, f"{base_name}.json")
         out_txt_path = os.path.join(model_txt_dir, f"{base_name}.txt")
@@ -144,6 +148,7 @@ for model_name in models:
             print(f"Failed saving outputs for {base_name}: {e}")
 
         # small delay to avoid bursts
+        num_notes += 1
         time.sleep(call_delay)
 
 print("\nAll done.")
