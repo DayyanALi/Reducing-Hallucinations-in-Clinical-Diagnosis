@@ -1,0 +1,311 @@
+{
+  "file_id": "day5_consultation05.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 26,
+    "total_gen_facts": 29,
+    "omission_count": 5,
+    "omission_rate": 0.1923,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0345,
+    "addition_count": 12,
+    "addition_rate": 0.4138
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold chief complaint is abdominal pain only. Generated CC adds duration and sweats; there is no generated fact that exactly captures 'presents with abdominal pain' alone."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lower central abdominal pain for 2 days. Generated cc-001 covers two days of lower abdominal pain, and hpi-001 covers lower abdominal pain focused midline; together the same clinical fact is captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: blood in urine. Generated hpi-004: pink-tinged urine, which is an equivalent description of hematuria."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: temp 37 \u00b0C, indicating no fever. Generated hpi-007 and pe-001 both record ~37 \u00b0C; absence of fever is also referenced in asm-001 (afebrile)."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: patient feels sweaty. Generated cc-001 includes 'feeling hot and sweaty,' which captures feeling sweaty."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: more thirsty than normal and drinking well. Generated hpi-006: 'drinking a lot of fluids' captures increased intake; it omits 'more thirsty than normal' but the core behavior (drinking a lot) is present."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: constipated last week, now BO normal. Generated hpi-003: constipation last week, now normal bowel movements\u2014same fact."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: last bowel movement 2 hours ago. No generated fact mentions timing of last bowel movement."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: nausea. Generated hpi-002: mild nausea without vomiting\u2014this includes the nausea and correctly adds a negative ROS for vomiting."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: denies back pain. Generated ros-002: reports no back pain\u2014same fact."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: denies dysuria/frequency (no painful or frequent urination). Generated hpi-005: 'slight urinary frequency' indicates presence of frequency, which directly contradicts denial of frequency."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold: denies blood in stool. No generated fact claims blood in stool; absence is preserved. However, there is no explicit generated ROS for this. Given the task, this should be OMISSION rather than implicit agreement; thus it's OMITTED, not contradicted."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold: denies vomiting. Generated hpi-002 gives 'no vomiting' and ros-004 doesn\u2019t oppose it. So no vomiting is captured."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies dyspepsia. No generated fact mentions dyspepsia or reflux equivalently; ros-001 is about reflux but dyspepsia is not explicitly documented, so this specific fact is omitted."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: PMH Nil (no past medical history). Generated pmh-001: no significant past medical history; effectively the same in this context."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes no regular medications. Generated med-001: takes no medications\u2014equivalent for this case."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to amoxicillin. Generated allergy-001 and allergy-002 both document amoxicillin/penicillin allergy."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: mother had breast cancer now in remission. No generated fact includes family history at all."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with parents. Generated sh-001: lives with parents\u2014same."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Generated sh-003: non-smoker\u2014same."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: no recreational drugs. No generated fact mentions drug use; however, the task requires explicit capture, and there is no gen SH fact about drugs. So this is omitted, not contradicted."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: drinks 1 beer 4 times/week (\u22484 beers/week). Generated sh-002: drinks approximately four beers per week\u2014equivalent."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: possible UTI. Generated asm-001: probable uncomplicated UTI. Both identify UTI; generated fact is somewhat stronger, but diagnoses UTI as the working impression, so underlying condition is covered."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised 3\u2011day antibiotic course, start ASAP. Generated plan-001 documents 3 days, and plan-003 states start as soon as medications available; both together cover this."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: will pick up from pharmacy. Generated plan-001/plan-002: via Babylon pharmacy / pharmacy-selected agent; this implies pharmacy dispensing and is consistent, though more specific. The act of pharmacy pickup/dispense is covered."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: call back if temperature develops, pain persists/worsens, or symptoms recur. Generated plan-004 and plan-005/fu-001 include similar but not identical triggers (worsening pain, high fever, back pain, new symptoms, no improvement, recurrence after course, F2F eval). The specific wording about 'develops temperature' and 'persistent/worsening pain or recurrent similar symptoms' is not exactly matched, so the exact gold follow-up instruction is not fully captured."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC is only 'abdominal pain.' Generated CC adds duration (2 days) and feeling hot and sweaty, which come from HPI in gold and are not in the CC section. So as a CC fact, it adds details beyond the gold CC."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold: lower central abdominal pain. Generated: lower abdominal pain focused midline\u2014equivalent localization."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: nausea, no vomiting (nausea in HPI; vomiting denied in ROS). Generated: mild nausea without vomiting\u2014consistent with both gold HPI and ROS."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: constipation last week, now bowel movements normal. Generated: constipation last week, now normal\u2014same fact."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: noticed blood in urine. Generated: pink-tinged urine\u2014describes same hematuria."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: slight urinary frequency. Gold ROS explicitly denies dysuria/frequency ('No dysuria/freq.'). This is a direct contradiction."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold: more thirsty than normal, drinking well. Generated: drinking a lot of fluids. This captures the increased intake; thirst aspect is omitted but not contradicted."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: temp 37 \u00b0C, indicating no fever. Generated: measured ~37 \u00b0C. Same measurement and implication (afebrile)."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Generated: no recent travel and no similar past episodes. There is no gold documentation on travel or previous similar episodes; these are added negative histories."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold: PMH Nil. Generated: no significant past medical history documented; aligns with no PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: no regular medications. Generated: takes no medications. Clinically equivalent here."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Both state amoxicillin allergy."
+      },
+      {
+        "fact_id": "allergy-002",
+        "status": "ADDITION",
+        "reasoning": "Generated: specifies 'Penicillin allergy to amoxicillin.' Gold only mentions amoxicillin allergy but does not explicitly classify it as a penicillin allergy. This is an inferred but not explicitly documented detail, so it is an addition."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Both indicate living with parents."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Gold: 1 beer four times/week (\u22484 beers/week). Generated: ~4 beers/week. Same quantity phrased differently."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Both specify non-smoker."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Generated: no reflux symptoms. Gold ROS mentions no vomiting, no dyspepsia, no back pain, no blood in stool, no dysuria/frequency. Reflux symptoms are not documented; this is an extra negative ROS item."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Both state no back pain."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Generated: no vaginal discharge. Gold ROS does not address vaginal discharge; this is additional ROS content."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Generated: no heavy bleeding. There is no mention of bleeding in the gold ROS; this is an added negative symptom."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: temp 37 \u00b0C documented as HPI but clearly a vital sign. Generated PE: temp ~37 \u00b0C. Same measurement."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment only states 'Possible UTI.' Generated assessment states 'Probable uncomplicated UTI with lower abdominal pain, pink urine, increased urinary frequency; afebrile.' While UTI itself is supported, added qualifiers (probable vs possible, uncomplicated, inclusion of frequency which contradicts gold ROS, and explicit afebrile) make this more detailed than gold. Because part of its rationale (frequency) contradicts gold, but the core diagnosis (UTI) is supported, overall this is best treated as an ADDITION with partially unsupported embellishments."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Generated: notes penicillin allergy to amoxicillin and an antibiotic plan to avoid penicillins. Gold notes only amoxicillin allergy and does not state a formal plan to avoid penicillins; that plan detail is added."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: advised 3-day course of antibiotics. Generated: empiric oral antibiotics for 3 days, BID, via Babylon pharmacy. Duration matches; BID and 'empiric' and 'via Babylon' are added specifics but not contradictory, so overall supported."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Generated: explicitly avoid penicillins and use a non-penicillin agent selected by pharmacy. Gold plan does not specify antibiotic class or selection mechanism; these are additions."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: start antibiotics as soon as possible. Generated: start as soon as medications are available and monitor symptoms. Start timing is consistent; monitoring is an added reasonable instruction."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Generated: contact immediately if pain worsens, high fever, back pain, new symptoms, or no improvement. Gold FU says to call back if temperature develops, persistent/worsening pain, or recurrent similar symptoms. Overlaps partially but adds more triggers (back pain, new symptoms, explicit 'no improvement') and 'high fever' wording; not directly contradictory, but adds detail and differs slightly in criteria."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Generated: if symptoms recur or do not resolve after course, arrange F2F evaluation. Gold FU: call back or if recurrent similar symptoms; it does not specify F2F evaluation. F2F arrangement is an additional step."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Generated FU repeats the F2F evaluation plan if symptoms recur or do not resolve after course. Gold FU focuses on calling back for fever, persistent/worsening pain, or recurrent similar symptoms, without specifying F2F. Thus, the F2F requirement is an addition."
+      }
+    ]
+  }
+}

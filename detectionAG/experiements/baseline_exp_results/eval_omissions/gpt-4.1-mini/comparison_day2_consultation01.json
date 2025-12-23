@@ -1,0 +1,140 @@
+{
+  "file_id": "day2_consultation01.txt",
+  "model_source": "gpt-4.1-mini",
+  "metrics": {
+    "total_gold_facts": 12,
+    "total_gen_facts": 11,
+    "omission_count": 3,
+    "omission_rate": 0.25,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0909,
+    "addition_count": 5,
+    "addition_rate": 0.4545
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Patient name and DOB are not mentioned anywhere in the generated facts."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 6-week history of difficulty hearing in the left ear. Generated hpi-001: 6-week history of left ear hearing deterioration. Time frame, side, and symptom (hearing difficulty/deterioration) are consistent; description is equivalent."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: intermittent tinnitus and slight nausea/dizziness. Generated hpi-002 and hpi-003 together describe left ear tinnitus and occasional mild dizziness with feeling slightly sick, which matches intermittent tinnitus and slight nausea/dizziness, plus adds that tinnitus is triggered by TV/music and that there is no vertigo."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: one previous similar episode that resolved spontaneously. Generated hpi-005: past brief hearing issue about one year ago that resolved in days. This captures that there was a prior similar episode that resolved on its own, but adds timing and resolution duration."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: denies discharge, fever, itchiness, or pain. Generated hpi-004: denies ear pain, discharge, fever, and itchiness. Content is equivalent."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: does not use cotton wool buds. Generated hpi-006: denies cotton bud use in ears. Content is equivalent."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "No generated fact addresses past medical history or states that there is no PMH of note."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient looks well and is not in pain on examination. Generated pf-001 only states that no objective findings are documented because ear exam is pending; it does not state that the patient looks well or is not in pain."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is need to exclude impacted wax in ear canal first. Generated asm-001/plan-001 both include possible ear canal obstruction and reference excluding wax impaction; the wax-exclusion concept is present though with added differential of inner ear pathology."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: face-to-face GP appointment in 5 days to examine ear. Generated plan-001: book face-to-face ENT/GP clinic appointment within 4\u20135 days for otoscopic exam to exclude wax impaction or other pathology. This includes the GP option, similar timing, and purpose to examine the ear; it adds ENT option, 4-day lower bound, and explicit otoscopy."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to read about tinnitus via provided link. Generated plan-002: provide a tinnitus information leaflet via appointment notes. Both convey provision of tinnitus information/education; generated fact changes the medium (leaflet vs website) but still covers the core fact of providing tinnitus information."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to call back in the interim if any problems arise. Generated plan-003: advised to report any new or worsening symptoms before the clinic visit. This captures the same clinical intent of interim contact for problems, though adds specificity on 'new or worsening symptoms' and mode is not explicitly 'ring us back'."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Matches 6-week history of difficulty hearing in the left ear; describing as intermittent deterioration is consistent with difficulty hearing."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold confirms intermittent tinnitus but does not mention it being triggered by TV/music. Trigger details are new information, not contradictory."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: slight nausea/dizziness and no mention of vertigo. Generated: occasional mild dizziness, feeling slightly sick (nausea), no vertigo. This is a consistent restatement with added explicit denial of vertigo."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Directly matches denial of ear pain, discharge, fever, and itchiness."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold only states one previous similar episode that resolved spontaneously. Generated adds approximate timing (~1 year ago) and that it resolved in days. This is extra detail not present in gold; not contradicted."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Matches the statement that the patient does not use cotton wool buds, just with alternate wording."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold documents an examination finding: looks well and not in pain. Generated states no objective physical examination findings are documented. Saying none are documented conflicts with the existence of documented exam findings in the gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment is limited to needing to exclude impacted wax in the ear canal first. Generated adds a broader assessment (left ear hearing loss with intermittent tinnitus and mild dizziness, possible inner ear pathology) beyond wax impaction. The additional diagnostic possibilities and symptom summary are not in gold but do not conflict with it."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold: face-to-face GP appointment in 5 days to examine the ear and exclude impacted wax. Generated adds ENT as an alternative clinic, adjusts timing to within 4\u20135 days, specifies otoscopic exam, and mentions other ear pathology. These are additional details not contained in the gold but generally consistent with the intent; there is a minor timing expansion (4 days) and added ENT option that are not specified in gold."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: patient to read about tinnitus via a specific web link. Generated: provide a tinnitus information leaflet via appointment notes. Both convey patient education about tinnitus; the route (leaflet vs website) is different and not supported explicitly by gold, so this is additional rather than strictly supported."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold advises calling back in the interim if any problems arise. Generated advises reporting new or worsening symptoms before the visit. This is a consistent formulation of interim safety-net advice."
+      }
+    ]
+  }
+}

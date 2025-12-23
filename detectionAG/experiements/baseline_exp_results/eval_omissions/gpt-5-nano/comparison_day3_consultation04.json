@@ -1,0 +1,366 @@
+{
+  "file_id": "day3_consultation04.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 25,
+    "total_gen_facts": 36,
+    "omission_count": 14,
+    "omission_rate": 0.56,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.0833,
+    "addition_count": 11,
+    "addition_rate": 0.3056
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states breathlessness for 2\u20133 days as chief complaint. Generated CC mentions exertional SOB with wheeze and cough x2\u20133 days, but duration of breathlessness specifically is not clearly matched elsewhere as chief complaint; content and section do not exactly align to breathlessness alone."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: breathlessness for 2\u20133 days. Generated HPI describes dyspnea onset while running and exertional SOB, but does not explicitly state 2\u20133 days duration for breathlessness in HPI."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: shortness of breath while running. Generated hpi-001: \u2018While running, developed dyspnea\u2026\u2019 matches this."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: needs to use blue inhaler twice a day. Generated facts mention blue inhaler use PRN at home (med-001) and \u2018used with limited relief\u2019 (hpi-003) but nowhere specify current frequency as twice daily."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: normally uses blue inhaler only as needed. Generated only notes PRN home use, without the contrast that this is the normal pattern vs current increased use."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: Clenil inhaler every day, 2 puffs twice daily. Generated mentions \u2018brown preventer inhaler daily\u2019 but no name (Clenil) or dosing 2 puffs twice daily in the HPI."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: cough without sputum. Generated hpi-002: coughing present; hpi-006: \u2018does not produce substantial sputum.\u2019 Together they capture cough and no sputum."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: some wheezing. Generated hpi-002: \u2018The patient has wheezing and coughing.\u2019"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: asthma since childhood. Generated pmh-001 only states asthma, without onset in childhood."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: suffers from eczema. Generated pmh-002: \u2018history suggesting eczema\u2019 \u2013 captures the presence of eczema, though wording is softer."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: last asthma attack 3 years ago. No generated fact mentions timing of last attack."
+      },
+      {
+        "fact_id": "pmh-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: never needed antibiotics or steroids for asthma. Generated plan-007 talks about possibly considering steroids/antibiotics in the future, but PMH of never needing them is not present."
+      },
+      {
+        "fact_id": "pmh-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: never hospitalized because of asthma. Not mentioned in generated facts."
+      },
+      {
+        "fact_id": "pmh-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: normal peak flow 380 L/min. Generated only says no objective peak flow in transcript and unclear baseline, which is incompatible information, but this specific value is not captured."
+      },
+      {
+        "fact_id": "pmh-007",
+        "status": "COVERED",
+        "reasoning": "Gold: has not had asthma check in last 2 years. Generated hpi-008: \u2018last formal asthma review was reported as two years ago\u2019 \u2013 aligns with no review in past 2 years."
+      },
+      {
+        "fact_id": "pmh-008",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has hayfever. Generated pmh-003 and allergy-001 both state hay fever."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: Clenil inhaler 2 puffs twice daily. Generated only notes a daily brown preventer without name or dose; dose regimen is omitted."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: blue reliever currently up to twice daily. Generated med-001: salbutamol PRN, but not specified as \u2018currently up to twice daily.\u2019"
+      },
+      {
+        "fact_id": "med-003",
+        "status": "COVERED",
+        "reasoning": "Gold: uses hydrocortisone for eczema. Generated med-004: \u2018uses hydrocortisone\u2019 and context from hpi-005 and med-003 indicates it is for skin/eczema."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "COVERED",
+        "reasoning": "Gold: uses Cetraban for eczema. Generated med-003: \u2018uses cetraben\u2019 matches this."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: diagnosis is mild asthma exacerbation. Generated asm-001 describes exacerbation of asthma with poor control but does not specify it is \u2018mild.\u2019"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: increase brown inhaler to 4 puffs twice daily. Generated plan-001 states the same for brown preventer inhaler."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: blue inhaler up to every 2\u20134 hours PRN. Generated plan-002: up to every 2 hours PRN (omits upper limit of 4 hours, making the regimen slightly different though not directly opposite)."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: chest reviewed by a doctor within next 2 days. Generated plan-005/010 mention GP review within next few days and urgent/routine appointment but not within a specific 2\u2011day window nor specifically \u2018chest reviewed.\u2019"
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: if increasingly breathless before seeing doctor, go to A&E. Generated plan-004 and plan-008 say to proceed to A&E if breathing worsens and not to delay care, which matches this instruction."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only notes breathlessness 2\u20133 days. Generated CC adds wheeze, cough, exertional nature; these details are not present in the Chief Complaint gold fact."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Supported regarding SOB while running; the \u2018now short of breath with brisk walking\u2019 progression is additional detail not found in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": [
+          "hpi-006",
+          "hpi-007"
+        ],
+        "reasoning": "Gold states cough and some wheezing; generated states wheezing and coughing."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold only says blue inhaler used twice daily; no mention of \u2018limited relief.\u2019 \u2018Limited relief\u2019 is an added clinical interpretation not in gold."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": [
+          "hpi-005",
+          "med-001"
+        ],
+        "reasoning": "Gold: daily Clenil (brown preventer) 2 puffs BID. Generated captures daily preventer use but omits name and dose; partially matches the concept of daily preventer."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": [
+          "med-003",
+          "med-004",
+          "pmh-002"
+        ],
+        "reasoning": "Gold documents hydrocortisone and Cetraban for eczema; generated notes these being mentioned in history."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: cough but no sputum. Generated: no substantial sputum produced, consistent with non\u2011productive cough."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: normal peak flow is 380 and implies the patient is familiar with readings. Generated: \u2018Peak flow use at home infrequent; unable to provide consistent home readings\u2019 and also elsewhere says no clear baseline. This conflicts with a clearly stated baseline of 380 and implies different monitoring behavior."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-007",
+        "reasoning": "Gold: has not had asthma checked in last 2 years. Generated: last formal asthma review was two years ago. These statements are consistent descriptions of the same interval."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold: asthma since childhood. Generated: asthma (no timing). Supports asthma diagnosis but omits \u2018since childhood.\u2019"
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Gold: suffers from eczema. Generated: history suggesting eczema; consistent with presence of eczema."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-008",
+        "reasoning": "Gold: has hayfever. Generated: has hay fever. Same condition."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": [
+          "hpi-004",
+          "med-002"
+        ],
+        "reasoning": "Gold: blue inhaler normally PRN but currently up to twice daily. Generated: salbutamol PRN at home. This matches the \u2018normal as\u2011needed\u2019 pattern but not the current increased frequency; thus only partially aligned."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": [
+          "hpi-005",
+          "med-001"
+        ],
+        "reasoning": "Gold: Clenil (brown) every day, 2 puffs twice daily. Generated: brown preventer with daily use. Supported for daily preventer use but missing name and dose."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-004",
+        "reasoning": "Gold: uses Cetraban for eczema. Generated: uses cetraben at home; matches medication use."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-003",
+        "reasoning": "Gold: uses hydrocortisone for eczema. Generated: uses hydrocortisone at home; consistent with gold."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "pmh-008",
+        "reasoning": "Gold: has hayfever. Generated: hay fever and no medication allergies. Hay fever is supported; \u2018no med allergies\u2019 is additional information not present in gold (neither supported nor contradicted)."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "No family history is mentioned in gold facts. Brother with asthma is new information."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "ADDITION",
+        "reasoning": "No family history is mentioned in gold facts. Sister with eczema is new information."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold has no statement about social history documentation. This is new meta\u2011information."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address physical exam or vitals at all. Generated statement about them being undocumented is new meta\u2011information."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: normal peak flow reading is 380, which is an objective recorded reading. Generated: \u2018No objective peak flow reading is recorded in the transcript.\u2019 These cannot both be true for the same transcript representation."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: diagnosis mild asthma exacerbation. Generated: exacerbation of asthma with exertional symptoms and poor control for past 2 days. This is consistent with an exacerbation but omits \u2018mild\u2019; thus only partially supports the full diagnosis detail."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": [
+          "pmh-002",
+          "pmh-008"
+        ],
+        "reasoning": "Gold: eczema and hayfever. Generated adds family history of atopy and calls eczema \u2018probable.\u2019 Atopy history is supported by hayfever/eczema; family atopy is an addition; \u2018probable\u2019 slightly weakens certainty but does not contradict."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: a clear normal peak flow baseline of 380 implies known baseline and use. Generated: \u2018incomplete home monitoring... unclear baseline\u2019 conflicts with the stated clear normal peak flow reading."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Both state increasing brown preventer to 4 puffs twice daily."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: blue inhaler up to every 2\u20134 hours PRN. Generated: up to every 2 hours PRN (no 4\u2011hour upper range). Directionally consistent but interval not identical."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold plan-of-care does not include interpretive guidance that such frequent use indicates more severe symptoms; this is new explanatory detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: if increasingly breathless and not yet seen, go to A&E. Generated: if breathing worsens or not improving, proceed to A&E without waiting. Same clinical instruction."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: chest reviewed by a doctor within 2 days. Generated: see GP for asthma review within next few days. Supported regarding face\u2011to\u2011face review but not the 2\u2011day timeframe nor specifically \u2018chest reviewed.\u2019"
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold follow\u2011up only states chest review by a doctor and A&E instructions; it does not specify planned chest exam plus peak flow measurement at the in\u2011person visit. This is extra detail."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH notes never needed antibiotics or steroids, but does not discuss considering future short courses in the plan. This prospective therapeutic option is new information."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: if increasingly breathless before seeing doctor, go to A&E (do not wait). Generated: do not delay care if symptoms escalate. Same clinical principle."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no instruction about inhaler technique or adherence; this is additional counseling detail."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: doctor review for chest in next 2 days. Generated: book or confirm urgent/routine GP appointment, without specifying timeframe or chest focus. Related but less specific."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Gold follow\u2011up specifies chest review in 2 days and A&E if worsening. General instruction to \u2018return if symptoms persist or worsen despite plan\u2019 is not explicitly documented in gold."
+      }
+    ]
+  }
+}

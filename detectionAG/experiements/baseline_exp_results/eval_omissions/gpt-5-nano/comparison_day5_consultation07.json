@@ -1,0 +1,512 @@
+{
+  "file_id": "day5_consultation07.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 34,
+    "total_gen_facts": 60,
+    "omission_count": 14,
+    "omission_rate": 0.4118,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.05,
+    "addition_count": 28,
+    "addition_rate": 0.4667
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states cough and cold. Generated chief complaint mentions cough and runny nose for ~5 days; duration and 'cold' vs 'runny nose' differ and no generated fact directly matches 'cough and cold' without added duration."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: 4\u20135 day history of runny nose. Generated facts mention dry cough frequency and nasal discharge characteristics but not the 4\u20135 day duration for runny nose."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: dry cough for 4\u20135 days. Generated HPI-001 gives frequency of dry cough but not duration of 4\u20135 days."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: patient feels hot, no measured temperature. Gen HPI-008: feels hot and chilly at times, no measured fever. Core elements (feels hot, no measurement) are present; chills are an added detail."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: generalized aches and pains. Gen HPI-014/ROS-003: muscle aches present. This captures the aches/pains concept."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: initially had diarrhea which has now resolved. Gen HPI-009 and HPI-010: had diarrhea around onset, none currently. This matches resolved diarrhea at onset."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: taking 2\u20133 Lemsips per day which eases symptoms. Generated med-004 mentions Lemcip 2\u20133 times daily with throat relief, but not that it globally 'eases symptoms.' Symptom relief scope differs."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of hypertension. Gen PMH-001 clearly states history of hypertension."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: history of type 2 diabetes mellitus. Gen PMH-002/PMH-003 both document diabetes mellitus (type 2)."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: Lisinopril. Gen MED-002 lists lisinopril."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: Metformin. Gen MED-001 lists metformin."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: self-medicates with 2\u20133 Lemsips daily. Gen MED-004: Lemcip 2\u20133 times daily for throat relief, but frames it as current use rather than explicit self-medication and focuses on throat relief; does not clearly capture 'self-medicates' per se."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Gen SH-001: non-smoker."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: drinks sherry occasionally. Gen SH-002: occasional alcohol. This covers the concept of occasional alcohol use, though not the specific type (sherry)."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with partner and dog. Gen SH-003: lives with partner and dog."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: works as an office manager. Gen SH-004: works as office manager."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "COVERED",
+        "reasoning": "Gold: height 5 ft 5 in. Gen HPI-013 and PE-009: height 5'5\". Height is captured."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "COVERED",
+        "reasoning": "Gold: weight 65 kg. Gen HPI-012 and PE-009: weight 65 kg. Weight is captured."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no sputum/haemoptysis. Gen HPI-004, HPI-007, ROS-004, PE-006 all state no sputum and no hemoptysis."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no epistaxis or sinus pain. No generated fact mentions epistaxis or sinus pain."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: no SOB, inspiratory pain, or wheeze. Gen has several 'no SOB' and no chest pain facts but does not address inspiratory pain or wheeze; chest pain is not necessarily inspiratory pain."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no vomiting. Gen HPI-009: no vomiting or diarrhea currently. Captures 'no vomiting' at present."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "COVERED",
+        "reasoning": "Gold: eating and drinking okay. Gen HPI-011: appetite/fluids mostly okay. This conveys the same idea."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: passing urine okay. No generated fact explicitly addresses urination being okay."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: no history of chest problems/recurrent chest infections/weight loss. No generated fact states absence of prior chest problems, recurrent infections, or weight loss history."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: no increased thirst or urinary frequency. No gen fact documents these negatives."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: doesn't check blood sugars/urine at home. Generated plan and chronic disease management mention monitoring and home glucose monitor, but do not state that currently the patient does not check at home."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "OMITTED",
+        "reasoning": "Gold: thinks last BP was fine and can't remember when last BP/DM check-up was. No generated fact captures this uncertainty about the timing of last checks."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: impression is viral bronchitis. Gen ASM-001 gives acute respiratory infection, likely viral URI, which differs (URI vs bronchitis) and does not explicitly state 'viral bronchitis.'"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: continue Lemsips but avoid other paracetamol-containing products. Gen PLAN-003: continue Lemcip with caution; do not take additional paracetamol products. Equivalent content."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: avoid cough syrup but may take at night if unable to sleep. Gen PLAN-004: daytime cough syrup generally not advised; small amount at night only if sleep severely affected. This covers the same instruction."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: may take 1\u20132 weeks to settle and cough can persist up to a month. Gen facts do not explicitly restate durations; instead they focus on viral/self-limiting course and red flags. Thus this specific timing is not present and should be considered OMITTED, not covered."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: contact clinic if symptoms worsen, fever persists, or if coughing up phlegm, blood in sputum, or nose bleeds. Gen PLAN-002 and PLAN-007/ FU-001 mention persistent fever, worsening cough, purulent sputum, hemoptysis, but not nose bleeds; also those are framed as re-evaluation/antibiotics rather than specifically contacting 'us.' The nose-bleed trigger is absent."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: reminded to book regular DM and BP check-ups. Gen PLAN-008: maintain diabetes and BP monitoring with GP; this captures the need for ongoing regular checkups."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold chief complaint is 'cough and cold' without duration or runny nose detail. Generated adds 'runny nose' and '~5 days' duration, which are not in the gold CC."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold notes dry cough for 4\u20135 days, but not its frequency (every 20\u201330 minutes). The frequency detail is additional, not contradictory."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold states 'runny nose' but not 'constant streaming' or explicitly 'nasal discharge.' The constant streaming description is added detail."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not describe the color of nasal discharge. 'Green' is new information."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Gold ROS-001: No sputum production. Generated HPI-004: no sputum. Directly consistent."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS-003 notes no inspiratory pain; gold HPI does not mention 'no chest pain.' Generated adds no chest pain specifically, which is new but not contradictory."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003",
+        "reasoning": "Gold: no shortness of breath. Generated HPI-006: no SOB. Consistent."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Gold: no haemoptysis. Generated: no haemoptysis. Consistent."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: feels hot, hasn't measured temperature. Generated: feels hot and chilly at times, no measured fever. Same core; chills is added detail."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold: diarrhea initially, now resolved. Generated: no vomiting or diarrhea currently. The 'currently no diarrhea' part aligns with 'resolved' and does not contradict prior history."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold: initially had diarrhea which has now resolved. Generated: experienced diarrhea around onset but otherwise not unwell. This is consistent with initial episode and resolution."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-005",
+        "reasoning": "Gold: eating and drinking okay. Generated: appetite/fluids mostly okay. Same idea."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Gold lists weight 65 kg and no mention of 'weight stable.' Generated adds that weight is stable, which is new information."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "pf-001",
+        "reasoning": "Gold: height 5 ft 5 in. Generated: height 5'5\". Identical measurement."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold: aches and pains. Generated: muscle aches present. A specific form of aches, consistent."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Both state history of hypertension."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Gold: type 2 diabetes mellitus. Generated PMH-002: diabetes mellitus, and PMH-003 specifies type 2. Overall consistent."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Explicitly matches type 2 diabetes mellitus in gold."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Both list metformin as a medication."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Both list lisinopril as a medication."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention whether doses are specified. Stating 'dose not specified' is additional meta-information, not contradicted by gold."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "PARTIAL",
+        "reasoning": "Gold med-003 and hpi-006: patient takes 2\u20133 Lemsips per day which eases symptoms. Generated: Lemcip 2\u20133 times daily, paracetamol-containing, for throat relief. Frequency and paracetamol content align with plan-001, but 'for throat relief' rather than general symptom relief and name spelling ('Lemcip' vs 'Lemsips') are additional/partly divergent details. No direct contradiction, but not a perfect match."
+      },
+      {
+        "fact_id": "med-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not discuss medication changes. Stating 'no changes to metformin or lisinopril' is additional plan detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts contain no allergy/allergic rhinitis information. Entirely new content."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Non-smoker in both."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "PARTIAL",
+        "reasoning": "Gold: 'odd sherry' (specific drink). Generated: 'occasional alcohol' without specifying sherry. Concept (occasional alcohol) aligns, but drink type detail is omitted."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Lives with partner and dog in both."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Office manager in both."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "Gold only states patient is a non-smoker; it does not document specific advice to avoid smoking. Counseling is additional."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS covers absence of chest problems, infections, SOB, etc., but does not mention 'concern about chest infection discussed.' This narrative about concern is added."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS does not mention rashes. 'No rashes' is new but not conflicting."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold: aches and pains. Generated ROS-003: muscle aches present. Same symptom domain."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "PARTIAL",
+        "reasoning": "Gold: no SOB, no inspiratory pain, no wheeze, and no haemoptysis in ROS-001 and ROS-003. Generated ROS-004: no SOB, no chest pain, no hemoptysis. Matches 'no SOB' and 'no haemoptysis'; adds 'no chest pain' and omits wheeze/inspiratory pain. Partially supported and partially additional/omitted."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated says no vitals documented. Gold physical findings include height and weight, which are vital/anthropometric measurements. So 'no vitals documented' conflicts with documented height/weight."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated says no physical exam findings documented, but gold physical findings list height and weight, which are part of physical findings. Direct conflict."
+      },
+      {
+        "fact_id": "pe-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention green nasal discharge as an exam finding. This is new information."
+      },
+      {
+        "fact_id": "pe-004",
+        "status": "ADDITION",
+        "reasoning": "Gold documents dry cough in HPI but not as a physical finding. Labeling it under physical findings is additional categorization, though not medically contradictory."
+      },
+      {
+        "fact_id": "pe-005",
+        "status": "ADDITION",
+        "reasoning": "Absence of SOB or chest pain is recorded in ROS/HPI in the generated set; gold has 'no SOB' but does not explicitly pair it with 'no chest pain' or list under physical findings. Thus phrasing as PE is additional structuring."
+      },
+      {
+        "fact_id": "pe-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Gold: no haemoptysis. Generated PE-006: no hemoptysis. Consistent, just categorized differently."
+      },
+      {
+        "fact_id": "pe-007",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention rashes. 'No rashes' as a physical finding is new."
+      },
+      {
+        "fact_id": "pe-008",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI-003 notes feeling hot but not explicitly 'chilly' in physical findings. Generated subjective fever/chill sensation under PE is added nuance and categorization."
+      },
+      {
+        "fact_id": "pe-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "pf-001",
+        "reasoning": "Gold lists weight 65 kg and height 5'5\" as physical findings. Generated PE-009 repeats same measurements."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold assessment: 'viral bronchitis.' Generated ASM-001: 'acute respiratory infection, likely viral upper respiratory infection.' URI and bronchitis are distinct diagnoses (upper airway vs bronchial). This is a diagnostic inconsistency."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold lists only 'viral bronchitis' as impression. 'Possible chest involvement discussed' is not specified in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state that diabetes increases risk of bacterial superinfection. This is added explanatory detail."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH lists hypertension but does not list it in the assessment section as an active problem. Treating it as an 'active assessment problem' is additional structuring."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Similarly, diabetes type 2 is in PMH in gold. Generated places it under assessment; this is additional problem-list structure."
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "ADDITION",
+        "reasoning": "Gold ROS documents no SOB, no haemoptysis, etc., but does not explicitly bundle them as 'no red-flag signs.' This summary framing is additional."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up FU-001 mentions using a thermometer only to check if fever persists; it does not explicitly instruct obtaining a home thermometer as a plan item. This is more explicit and therefore additional."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIAL",
+        "reasoning": "Gold FU-001: contact if fever persists, symptoms worsen, or coughing up phlegm, blood in sputum, or nose bleeds. Generated adds a specific temperature threshold (37.5\u201338\u00b0C), dyspnea, and omits nose bleeds. So partially aligned on persistent fever and worsening cough with sputum but also adds and omits triggers."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: continue Lemsips but no other paracetamol-containing products. Generated: continue Lemcip with caution; do not take additional paracetamol products. Equivalent."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: avoid cough syrup but can take if unable to sleep at night. Generated: daytime cough syrup not advised; small amount at night only if sleep severely affected. Matches content."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention hydration and rest explicitly (though eating/drinking OK is in ROS). Hydration and rest as treatment advice is new."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold does not comment on typical viral/self-limiting nature of infections. This explanatory counseling is additional."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "PARTIAL",
+        "reasoning": "Gold FU-001: contact if symptoms worsen, fever persists, coughing up phlegm, blood in sputum, nose bleeds. Generated plan-007: if symptoms fail to settle/worsen (fever persists, cough worsens, purulent sputum, hemoptysis, chest pain, SOB), reconsider antibiotics. Overlaps on fever persists and sputum/blood but omits nose bleeds and adds chest pain and SOB and antibiotics discussion. So partially aligned."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "PARTIAL",
+        "reasoning": "Gold FU-002: reminded to book regular DM and BP check-ups. Generated: maintain DM and BP monitoring with GP; ensure regular glucose checks if possible. Check-up reminder is aligned; specific mention of glucose checks at home is new."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold states patient does not check sugars/urine at home (ROS-009) and only that they should book clinic check-ups. Instruction about using a home glucose monitor if available is new and in tension with documented current behavior, but not a logical contradiction."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no behavior advice to avoid smoking, hydration, or continuing activities as tolerated. These are new counseling elements."
+      },
+      {
+        "fact_id": "plan-011",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state that no changes will be made to metformin or lisinopril. This plan element is new."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIAL",
+        "reasoning": "Gold FU-001: contact if symptoms worsen, fever persists, coughing up phlegm, blood in sputum, or nose bleeds. Generated FU-001: return if fever persists/worsens, or new/worsening SOB, chest pain, wheeze, confusion, inability to keep fluids down. Some overlap on persistent/worsening fever, but generated omits phlegm, blood in sputum, and nose bleeds and adds several other red flags. Thus partially aligned and largely additional."
+      }
+    ]
+  }
+}

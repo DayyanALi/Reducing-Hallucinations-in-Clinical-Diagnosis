@@ -1,0 +1,338 @@
+{
+  "file_id": "day2_consultation07.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 26,
+    "total_gen_facts": 35,
+    "omission_count": 15,
+    "omission_rate": 0.5769,
+    "contradiction_count": 4,
+    "contradiction_rate": 0.1143,
+    "addition_count": 18,
+    "addition_rate": 0.5143
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold indicates chest pain as the chief complaint. Generated CC mentions chest pressure/discomfort with SOB, diaphoresis, and nausea but does not explicitly state that the patient presents with chest pain as the chief complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states onset earlier today during gardening as mild physical exertion. Generated HPI-001 mentions onset a few hours ago while gardening but does not mention that gardening is mild physical exertion; moreover, generated HPI-003 explicitly states the pain is not exertional, which conflicts with the gold characterization."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold states the pain is central. Generated HPI-002 describes mid-chest diffuse pressure, which is similar but not clearly mapped or linked to this exact gold fact, and there is no explicit central chest statement; thus this gold fact is not clearly covered."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold states radiation to shoulder and neck. No generated fact mentions radiation of pain."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold notes association with nausea. Generated facts mention nausea in CC and ROS, but not within HPI as \u2018chest pain is associated with nausea\u2019; thus this specific HPI association is not clearly captured."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold notes sweatiness associated with chest pain. Generated facts mention diaphoresis in CC and ROS, but not specifically as an HPI association to chest pain; the gold HPI fact itself is not directly represented."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold says chest pain is associated with palpitations. Generated HPI-005 describes palpitations (feeling faster heartbeat) and ROS-004 is positive for palpitations, which covers the association."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: pain still present now. Generated HPI-004: pain persists. This matches."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: no previous similar episodes. No generated fact addresses prior episodes of chest pain."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has hypertension. Generated PMH-001: documented hypertension. Matches."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient is overweight (PMH section). Generated notes overweight in Social/Family History (SH-003), but there is no PMH-level statement mirroring this gold fact; therefore the specific gold PMH statement is not directly covered."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mild allergy to aspirin. Generated allergy-001: mild allergic reaction to aspirin suspected. This conveys the same key fact of a mild aspirin allergy."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: family history of ischemic heart disease. Generated FH-001 (father died of heart attack) and FH-002 (mother with heart problems) together support a family history of IHD."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: chronic smoker. Generated SH-001 states smoking ~10 cigarettes/day for ~15 years, which is consistent with chronic smoking."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: moderate alcohol intake. Generated SH-002 quantifies alcohol ~7\u20138 pints/week, which is compatible with moderate intake."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: lives alone. Generated SH-004 states patient lives alone and SH-007 that patient is alone at home; this covers the fact."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: haemodynamically stable now. Generated PE-001 claims no vitals/physical exam documented, which omits the stability finding and in fact conflicts with it."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: examined at rest, seated. Generated facts do not mention patient position or that exam occurred at rest."
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: appears well perfused via video inspection. No generated fact mentions perfusion status or video inspection findings."
+      },
+      {
+        "fact_id": "pf-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: not short of breath. Generated facts instead document SOB as present in both CC and ROS, which is opposite; thus the gold absence of SOB is not covered."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold impression: acute cardiac event. Generated ASM-001: suspected acute coronary syndrome/myocardial ischemia, which is an acute cardiac event."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: urgent ECG and troponin T required. Generated plan mentions EMS 12\u2011lead ECG but does not mention troponin T at all."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: LAS blue light called. Generated facts state EMS/ambulance activation and on the way but do not specify blue light urgency or LAS specifically."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: front door left open for paramedic access if collapse. Generated SH-006 and Plan-004 mention front door remains accessible for ambulance access and safety until EMS arrival, which captures the same plan."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: clinician stayed on line until LAS arrived and handed over. Generated Plan-001 and Plan-004: maintain line, provide handover to EMS upon arrival. This aligns."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: LAS to clarify other medications that were not obtained. Generated Med-001 notes meds not documented and Plan-005 notes documenting ACS risk factors and aspirin allergy, but there is no instruction for EMS to clarify missing medications."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only specifies chest pain. Generated CC adds diaphoresis, SOB, and nausea in the chief complaint, which are not in the gold CC. Not directly contradicted but additional."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: onset a few hours ago while gardening. Gold: earlier today during gardening (timing broadly compatible) but also characterizes gardening as mild physical exertion and implies exertional relationship. Generated HPI-003 separately states the pain is not exertional, conflicting with gold\u2019s exertion-related onset."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Generated describes mid-chest diffuse pressure. Gold says central chest pain. Similar location but the wording and \u2018diffuse pressure\u2019 detail are not in the gold; no direct contradiction, so this is an addition."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: chest pain is not exertional. Gold: onset during gardening noted as mild physical exertion, implying exertion-related symptoms. This directly conflicts."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Generated: pain persists. Gold: pain still present now. These statements match."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Generated: patient notes palpitations (feeling faster heartbeat). Gold: chest pain associated with palpitations. The presence of palpitations is consistent."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Generated elaborates activity context (gardening at onset; otherwise minimal activity; not exertion-related). Gold only notes onset during gardening as mild exertion and does not mention \u2018otherwise minimal activity.\u2019 The \u2018not exertion-related\u2019 component contradicts gold but is captured as a separate fact (HPI-003); the remaining context here is additional detail."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated ROS positive for SOB. Gold PF-004 explicitly states patient is not short of breath. Direct conflict."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "Generated ROS positive for diaphoresis (sweating). Gold only mentions sweatiness as an HPI-associated symptom, not in ROS. This is extra structuring of the same clinical feature, so treated as addition rather than contradiction."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Generated ROS positive for nausea. Gold lists nausea associated with chest pain in HPI but not in ROS. Additional documentation context."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Generated ROS positive for palpitations. Gold documents palpitations as associated in HPI, not ROS. Additional context, not contradictory."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Both generated and gold state hypertension as PMH."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "ADDITION",
+        "reasoning": "Generated: no diabetes reported. Gold is silent on diabetes. This is new information, not contradictory."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Generated states meds are not documented. Gold only notes LAS to clarify other medications but does not explicitly say meds were not documented. This is inference/addition."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: mild aspirin allergy. Generated: mild allergic reaction to aspirin suspected. Clinically equivalent."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Generated gives specific detail: father died of heart attack around age 60. Gold only states family history of IHD without specifics. Additional detail."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "ADDITION",
+        "reasoning": "Generated: mother with heart problems. Gold only has generic family history of IHD. Extra specification, not conflicting."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: chronic smoker. Generated: ~10 cigarettes/day for ~15 years, consistent with chronic smoking."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Generated quantifies alcohol intake (7\u20138 pints/week). Gold only states moderate alcohol intake. This is additional detail."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Gold: patient is overweight (as PMH). Generated SH-003: patient described as overweight. Although placed in a different section, it reflects the same clinical fact."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Both gold and generated state that the patient lives alone."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "Generated occupation as sushi restaurant owner. No occupation is mentioned in gold facts."
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold plan: front door open so paramedics can access if he collapses. Generated SH-006: front door open for ambulance access. Same practical measure."
+      },
+      {
+        "fact_id": "sh-007",
+        "status": "ADDITION",
+        "reasoning": "Generated: patient alone at home. Gold notes \u2018lives alone\u2019 socially but not specifically that he is alone at home at the time of event. Slightly different context, so addition."
+      },
+      {
+        "fact_id": "sh-008",
+        "status": "ADDITION",
+        "reasoning": "Generated: ambulance access to home is planned. Gold mentions LAS blue light called and door left open, but no explicit phrase \u2018ambulance access planned.\u2019 Treated as added phrasing/structure."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: no vitals or physical exam findings documented. Gold provides specific physical findings (hemodynamically stable, not SOB, well perfused, at rest seated). Saying \u2018not documented\u2019 conflicts with the presence of documented findings in gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Both indicate suspected acute cardiac/ischemic event (ACS/myocardial ischemia)."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "This restates the clinical relevance of the mild aspirin allergy documented in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Generated lists cardiovascular risk factors: HTN, smoker, overweight, positive family history. All components are present individually in gold (HTN, chronic smoker, overweight, FH of IHD), so the summary is supported."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Generated: EMS activation, maintain line, handover, transport for ACS evaluation. Gold: LAS blue light called, clinician stayed on line till LAS arrived and handed over. The core elements of activation and continuous line with handover are supported; ACS evaluation/transport detail is additional but consistent with gold assessment."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Generated: EMS to perform 12-lead ECG, monitor, determine hospital destination. Gold only specifies urgent ECG and troponin T, not the monitoring or hospital-destination decision logic, nor explicitly EMS performing ECG. Additional detail."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Generated: communicate aspirin allergy to EMS/hospital and avoid aspirin unless cleared. Gold mentions aspirin allergy but does not detail communication or avoidance protocol. Added management detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Generated: ensure front door accessible, patient safe until EMS arrival, with concise handover. Gold: front door open so paramedics can access if he collapses; clinician stays on line till LAS arrives and hands over. Safety and access concepts are supported; concise handover phrasing is additional but consistent."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Generated: document ACS risk factors and aspirin allergy in transfer. Gold does not mention documentation requirements for transfer. Added documentation step."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Generated: ambulance will apply chest stickers and perform 12\u2011lead ECG before transport decisions. Gold only mentions need for urgent ECG and trop T, without prehospital ECG procedural detail. Added prehospital process details."
+      }
+    ]
+  }
+}

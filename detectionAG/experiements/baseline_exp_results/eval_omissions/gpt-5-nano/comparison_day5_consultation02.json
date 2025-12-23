@@ -1,0 +1,455 @@
+{
+  "file_id": "day5_consultation02.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 27,
+    "total_gen_facts": 53,
+    "omission_count": 6,
+    "omission_rate": 0.2222,
+    "contradiction_count": 6,
+    "contradiction_rate": 0.1132,
+    "addition_count": 12,
+    "addition_rate": 0.2264
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: dysuria. Generated cc-001 and hpi-001 both state dysuria; cc-001 adds duration (6 days) but does not conflict."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 6-day history of dysuria with burning, stinging on urination. Generated cc-001/hpi-001 give 6 days; cc-002/hpi-002 give stinging with urination. 'Burning' is omitted but 'stinging' is captured; overall the main fact is present."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no difficulty actually passing urine. Generated hpi-005: 'can still pass urine.' This reflects absence of difficulty."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: strong odour to urine. Generated cc-003 and hpi-003: unpleasant urine odor. Equivalent concept."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: blood in urine. Generated hpi-006: blood spotting in urine for 6 days, and referenced in asm-001. Core fact (hematuria) is captured; duration is an added detail."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: eating and drinking normally. Generated hpi-009: appetite OK. This covers eating; drinking is not explicitly repeated but overall conveys normal intake sufficiently to count as covered."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: denies any new PV discharge. Generated ros-003: no vaginal discharge. Slightly stronger (no discharge at all vs no new discharge), but direction is consistent; fact that there is no new discharge is covered."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies back or loin pain. Generated hpi-008: no loin pain; asm-003: no loin/sacral pain. Back pain is not explicitly mentioned but loin pain absence is captured, overlapping with 'back/loin'. Counted as covered."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: central abdominal pain. Generated cc-004 and hpi-004: mild midline abdominal pain, intermittent, 7/10. Midline abdominal pain corresponds to central abdominal pain; extra qualifiers are additions."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: not feverish but has not checked temperature. Generated hpi-007/ros-001/asm-002 state 'no fever' and 'afebrile' but do not capture that temperature has not been checked. The specific nuance about not checking temp is missing."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "OMITTED",
+        "reasoning": "Gold: no obvious trigger; no history of dehydration or frequent sexual intercourse. No generated facts mention triggers, dehydration, or sexual intercourse."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "OMITTED",
+        "reasoning": "Gold: no past history of urine infections or similar symptoms. No generated fact addresses prior UTI or similar urinary symptoms."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "OMITTED",
+        "reasoning": "Gold: no recent change in bowel habits. No generated fact discusses bowel habits."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: PMH IBS. Generated pmh-001, pmh-002, and asm-004 all state IBS as past medical history."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no relevant family history reported. No generated fact addresses family history."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: regular Mebeverine 200 mg TDS. Generated med-001/002 and asm-005 list 'Mebavin' 200 mg TID; this is a different drug name. Because the exact drug (Mebeverine) is not correctly captured, the gold fact is considered omitted."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to Clindamycin. Generated allergy-001, allergy-002, asm-006, and plan-014 all state clindamycin allergy."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with friends. Generated sh-001 repeats this."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: works as support worker. Generated sh-002 repeats this."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Generated sh-004: does not smoke. Equivalent."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: drinks ~1 unit/week. Generated sh-003: occasional alcohol, about one glass of wine/week. This is a compatible elaboration; core fact (very low intake) is captured."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression likely UTI. Generated asm-001: suspected uncomplicated UTI with dysuria, midline abdominal pain, hematuria. This is consistent and expands detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: Nitrofurantoin 3-day course. Generated plan-001/med-003: 3-day course of antibiotics for UTI; agent Nitrofurantoin is not named but the 3-day antibiotic course for UTI is captured. Specific drug choice is omitted but main plan element is present."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to keep well hydrated. Generated plan-004: drink 2.5\u20133 L/day water. This is the same advice with added specificity."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: cranberry juice may be beneficial. Generated plan-005: may consider cranberry juice. Equivalent."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to monitor temperature with thermometer. Generated plan-007: obtain a home thermometer and check temperature. Same idea."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: contact clinic if fever, back pain, persistent symptoms, or recurrent episodes. Generated plan-008\u2013011 and plan-013: return if fever develops; if back/loin pain worsens; if unable to pass urine; if symptoms persist or recurrences occur; contact again if recurrent or not improving. This fully covers and elaborates the follow-up instructions."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Dysuria with 6-day duration matches gold HPI; gold does not state duration in CC but does in HPI."
+      },
+      {
+        "fact_id": "cc-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Stinging with urination corresponds to burning, stinging dysuria in gold."
+      },
+      {
+        "fact_id": "cc-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Unpleasant urine odor matches strong odour to urine."
+      },
+      {
+        "fact_id": "cc-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Midline abdominal pain corresponds to central abdominal pain; intensity and intermittency are added details."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "6 days of dysuria aligns with 6-day history in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Stinging pain with urination is part of the burning, stinging description in gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Unpleasant urine odor matches strong odour of urine."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Mild midline abdominal pain that is intermittent matches central abdominal pain; severity and pattern are additional."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Being able to pass urine aligns with no problem actually passing urine."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Blood in urine (spotting) corresponds to haematuria; 6-day duration is added detail."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: 'no fever' (simple absence). Gold: 'not feverish but not checked temp' explicitly notes lack of measurement. Generated fact implies a firm negative without measurement; this conflicts with the gold nuance that temperature has not been checked."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "No loin pain is consistent with gold's no back/loin pain."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Appetite OK is consistent with eating normally; drinks normally is not mentioned but not contradicted."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "History of IBS matches gold."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Rephrasing that PMH is notable for IBS; same content."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated drug name 'Mebavin' 200 mg TID vs gold 'Mebeverine' 200 mg TDS. This is a different medication name, so it contradicts the gold record."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Same issue: 'Mebavin' instead of 'Mebeverine' contradicts gold medication."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "3-day course of antibiotics for UTI matches 3-day Nitrofurantoin course; agent name is omitted but duration and indication match."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "ADDITION",
+        "reasoning": "Prescription sent to Knightsbridge Practice pharmacy is not present in gold; does not contradict but adds detail."
+      },
+      {
+        "fact_id": "med-005",
+        "status": "ADDITION",
+        "reasoning": "Advice to start antibiotics as soon as possible is not stated in gold; added instruction."
+      },
+      {
+        "fact_id": "med-006",
+        "status": "ADDITION",
+        "reasoning": "Advice to continue current meds unless advised otherwise is not in gold; additional but plausible plan detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Matches clindamycin allergy."
+      },
+      {
+        "fact_id": "allergy-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Same allergy restated."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Lives with friends matches gold."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Works as a support worker matches gold."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Occasional alcohol about one glass of wine/week is consistent with ~1 unit/week in gold."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Does not smoke matches non-smoker."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Again asserts 'no fever' as a firm negative, whereas gold only states patient not feverish but has not checked temperature. This overstates certainty, conflicting with gold documentation."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "No vomiting is not mentioned in gold; extra ROS detail, not contradictory."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "PARTIAL_SUPPORT",
+        "match_gold_id": "hpi-006",
+        "reasoning": "No vaginal discharge is slightly stronger than gold 'no new PV discharge.' It implies absence of any discharge, not just no new discharge. Directionally consistent but not identical; partially supported."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Regular menses is not addressed in gold."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "No weight loss is not mentioned in gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Suspected uncomplicated UTI with dysuria and hematuria aligns with 'likely UTI' plus HPI features. 'Uncomplicated' is an added qualifier but consistent."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "CONTRADICTION",
+        "reasoning": "States the patient is afebrile as an assessment. Gold indicates patient is not feverish but temp not checked, so a definitive 'afebrile' is not supported and conflicts with the uncertainty."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "PARTIAL_SUPPORT",
+        "match_gold_id": "hpi-007",
+        "reasoning": "No loin or sacral pain: 'no loin pain' matches gold's no back/loin pain; sacral pain absence is additional but not conflicting."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "PMH notable for IBS matches gold."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Documents Mebavin 200 mg TID as current medication, conflicting with gold\u2019s Mebeverine 200 mg TDS."
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Clindamycin allergy matches gold."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "3-day antibiotic course for UTI matches Nitrofurantoin 3/7 course; specific agent is omitted but duration and purpose match."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Destination pharmacy (Knightsbridge) not present in gold; extra logistical detail."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Instruction to start antibiotics ASAP is not in gold; added but consistent."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Advising 2.5\u20133 L/day water concretely implements 'keep well hydrated.'"
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Considering cranberry juice matches gold advice."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Use of urine-acidity\u2013altering sachets not mentioned in gold; additional option."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Obtain thermometer and check temp to ensure afebrile matches advice to monitor temperature with a thermometer; 'ensure afebrile' is interpretive but aligned with concern about fever."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Return if fever develops corresponds to gold instruction to contact clinic if fever occurs."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Return if back/loin pain worsens corresponds to contacting clinic if back pain occurs."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Return if unable to pass urine is a new safety-net instruction not explicitly present in gold."
+      },
+      {
+        "fact_id": "plan-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "If symptoms persist or recurrences occur, reassess, matches gold instruction to contact clinic for persistent symptoms or recurrent episodes."
+      },
+      {
+        "fact_id": "plan-012",
+        "status": "ADDITION",
+        "reasoning": "No follow-up required if symptoms resolve is not stated in gold; additional disposition detail."
+      },
+      {
+        "fact_id": "plan-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Contact again if recurrent or not improving aligns with contacting clinic if persistent symptoms or recurrent episodes occur."
+      },
+      {
+        "fact_id": "plan-014",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Documents clindamycin allergy, consistent with gold."
+      },
+      {
+        "fact_id": "plan-015",
+        "status": "ADDITION",
+        "reasoning": "Advice to continue current meds unless advised otherwise not present in gold; extra instruction."
+      }
+    ]
+  }
+}

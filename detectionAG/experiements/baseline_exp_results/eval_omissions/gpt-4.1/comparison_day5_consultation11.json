@@ -1,0 +1,409 @@
+{
+  "file_id": "day5_consultation11.txt",
+  "model_source": "gpt-4.1",
+  "metrics": {
+    "total_gold_facts": 39,
+    "total_gen_facts": 34,
+    "omission_count": 9,
+    "omission_rate": 0.2308,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0294,
+    "addition_count": 9,
+    "addition_rate": 0.2647
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: right knee pain. Generated CC: knee pain and clicking with concern about injury; side (right) not stated, so the specific 'right' detail is not captured."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 2-week history of right knee pain. Gen hpi-001: '2-wk hx R knee pain'; the added 'worsens with running >20 minutes' is extra but includes the core fact."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: training for marathon and runs 7\u20138 miles a few times per week. Gen sh-001: 'marathon training with recent increase... up to 7\u20138 miles'; core fact is captured though framed as recent increase."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: gym a few times per week. Gen sh-002: 'gym x3/week'; same idea with a more specific frequency."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: had to stop at 20 minutes due to pain this week. Generated facts mention worsening with longer runs (hpi-001, hpi-003) but do not state that patient had to stop at 20 minutes."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: pain located at front and right side of knee. No generated fact specifies location of the knee pain."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: no specific area of tenderness. Gen hpi-006: denies instability, locking, impaired ROM, or difficulty with stairs/walking; does not cover tenderness. However, pf-002 in Gold duplicates this as a physical finding; there is no equivalent in Generated. As an HPI symptom detail, it is omitted. So status: OMITTED."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: puffiness after exercise that settles with ice. Gen hpi-004: 'occasional swelling post-run; resolved w/ ice; no current swelling'; this covers the concept."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: denies giving way or locking. Gen hpi-006: denies right knee instability and locking; 'instability' corresponds to giving way."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: no problems with stairs or walking. Gen hpi-006: denies trouble with stairs/walking; directly covers this."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: full range of motion. Gen hpi-006: denies impaired ROM; gen pe-001: no impaired ROM reported; these reflect full ROM."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient feels the knee pain is generally worsening. No generated fact states patient's perception of general worsening over time."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "COVERED",
+        "reasoning": "Gold: previous ice-hockey-related injury with bruising. Gen hpi-008: 'fall/bruise to knee w/ ice hockey months prior'; captures this."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: denies other joint pains and denies feeling generally unwell/fever. Gen hpi-007: 'no other joint pain/swelling' covers no other joint pains. No generated fact covers 'no general unwell/fever.'"
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "COVERED",
+        "reasoning": "Gold: tingling in right forefoot that settled. Gen hpi-005: '1x tingling R toes post-run; not persistent' and asm-002: resolved; these capture the event and resolution though specify toes and post-run."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "COVERED",
+        "reasoning": "Gold: slight ankle swelling with sock indentation. Gen hpi-007 mentions 'no other joint pain/swelling'; but pf-003 in Gold is a physical finding. No Generated physical finding mentions ankle swelling; so from an HPI perspective, this is not clearly captured in any Generated HPI item. Status: OMITTED."
+      },
+      {
+        "fact_id": "hpi-016",
+        "status": "COVERED",
+        "reasoning": "Gold: no change in temperature or color. Gen ros-004 equivalent is not present; gen allergy-001 mentions no allergies, asthma, GI issues, but not temp/color. The generated facts do not mention temp or color changes. Status: OMITTED."
+      },
+      {
+        "fact_id": "hpi-017",
+        "status": "OMITTED",
+        "reasoning": "Gold: no pain in the sole and no problems walking on hard floors. No generated fact mentions sole pain or hard-floor walking."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: LASIK. Gen pmh-002: 'LASIK eye surgery'; covered."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: possible history of kidney stones. No generated fact mentions kidney stones or similar renal history."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: vitamin D supplementation. Gen med-004: 'vitamin D'; covered."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: melatonin. Gen med-005: 'melatonin'; covered."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "COVERED",
+        "reasoning": "Gold: uses ibuprofen. Gen med-001: 'ibuprofen (PRN)'; covered."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "COVERED",
+        "reasoning": "Gold: sometimes takes Xanax. Gen med-006: 'occasional Xanax'; covered."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: occasionally smokes a joint (cannabis). Gen sh-003: 'smokes cannabis occasionally'; covered."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: regularly runs 7\u20138 miles a few times/week as marathon training. Gen sh-001: 'marathon training... up to 7\u20138 miles'; covered."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: gym a few times per week. Gen sh-002: 'gym x3/week'; covered."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "COVERED",
+        "reasoning": "Gold: right knee has full ROM. Gen pe-001: 'no impaired knee ROM reported' aligns with full ROM."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no specific area of tenderness in right knee. Generated facts include that no PE was performed (pe-002), so this specific PE finding is not present."
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: slight ankle swelling with sock indentation observed. Generated physical findings do not include ankle swelling; instead they explicitly say no PE was performed."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: denies other joint pains. Gen hpi-007: 'no other joint pain/swelling'; and this is also ROS in nature. Covered."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies feeling generally unwell or having fever. Generated facts list fever only in follow-up warning; they do not document denial of general unwellness or fever as ROS."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: denies GI symptoms or asthma. Gen hpi-009 & allergy-001: 'No allergies, asthma, GI issues'; denies asthma and GI issues, though framed under allergies section. Conceptually covered."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold: denies change in temp or color. No Generated fact asserts such denial; only follow-up mentions swelling/redness/heat as warning signs. So it's not present as a reported denial. Status: OMITTED."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: replace ibuprofen with stronger anti-inflammatory. Gen plan-003: 'prescribed a stronger anti-inflammatory NSAID'; covers the prescribing, though does not explicitly say 'replace ibuprofen.'"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: continue ice as much as possible. Gen plan-001: continue ice therapy after exercise; core recommendation covered though phrasing differs."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: reduce exercise; do not continue to run with pain. Gen plan-002: reduce running intensity/distance; consider pause if pain recurs. This captures the intention to reduce and to avoid running if pain recurs."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: refer to physio for assessment and ongoing treatment. Gen plan-005: refer to physiotherapist for knee assessment/exam; does not explicitly mention 'ongoing treatment' but covers referral and assessment."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: see a doctor ASAP if persistent swelling/heat/redness/locking. Gen fu-001: RTC if new swelling, redness, heat, fever, locking, or inability to flex/extend. It includes swelling/redness/heat/locking plus extra items (fever, flex/extend) and 'new' rather than 'persistent', but the trigger advice is broadly similar. Classified as partially covered due to difference in persistence vs new onset."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold CC: right knee pain. Generated adds clicking and concern about injury, and omits 'right'. Pain is supported; clicking and concern are additions, and side is lost."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold hpi-001: 2-week history of right knee pain. Generated adds 'worsens with running >20min', which extends gold hpi-004 but is not explicitly stated; duration and side are supported, aggravating factor is an addition."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "No Gold fact mentions knee clicking with flexion/extension after abdominal exercises."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes needing to stop at 20 minutes this week (hpi-004) but does not state a general pattern that pain 'worsens with longer runs.' This is a plausible inference but not present in Gold."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold: puffiness after exercise that settles with ice; no comment on current swelling. Generated: occasional swelling post-run resolved with ice and explicitly 'no current swelling.' The occurrence and resolution with ice are supported; 'no current swelling' is an added detail."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-014",
+        "reasoning": "Gold: tingling in right forefoot which settled. Generated: one episode of tingling in right toes post-run, not persistent. Core event and resolution are supported; specifying 'post-run' and 'toes' is additional detail but not contradictory."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: denies giving way/locking; has full ROM; no problems stairs/walking. Generated: denies instability, locking, impaired ROM, trouble with stairs/walking. These parts are supported. However, Gold does not mention 'instability' term explicitly but implies via 'no giving way.' Overall consistent; phrasing consolidates multiple Gold items."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Gold: no other joint pains. Generated: denies left knee symptoms and no other joint pain/swelling. 'No other joint pain' is supported; 'denies left knee symptoms' and 'no swelling' are additional details not specified in Gold."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-012",
+        "reasoning": "Gold: previous ice hockey injury with bruising afterwards. Generated: history of fall/bruise to knee while playing ice hockey months prior. Fully consistent; time frame 'months prior' is an added detail."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "ros-003",
+        "reasoning": "Gold: no GI symptoms or asthma. Generated: 'no allergies, asthma, GI issues.' Denial of asthma and GI issues matches; 'no allergies' is an addition not present in Gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH: LASIK, ?kidney stones. No mention of farsightedness; thus this is new information."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold: LASIK. Generated: LASIK eye surgery along with farsightedness; LASIK portion is supported, farsightedness is separate in pmh-001."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "ADDITION",
+        "reasoning": "Prior severe UTI requiring hospitalization is not present anywhere in Gold facts."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-003",
+        "reasoning": "Gold: patient uses ibuprofen. Generated: ibuprofen PRN; consistent and supported."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Acetaminophen is not listed in Gold medication history."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "ADDITION",
+        "reasoning": "Aleve (naproxen) is not listed in Gold medication history."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: vitamin D. Generated: vitamin D; fully supported."
+      },
+      {
+        "fact_id": "med-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Gold: melatonin. Generated: melatonin; supported."
+      },
+      {
+        "fact_id": "med-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-004",
+        "reasoning": "Gold: sometimes takes Xanax. Generated: occasional Xanax; supported."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold has no explicit allergy statement. Generated introduces 'no allergies'; this is new information."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold: marathon training; currently up to 7\u20138 miles few times/week. Generated: marathon training with recent increase up to 7\u20138 miles; consistent, with 'recent increase' as additional nuance."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold: gym few times per week. Generated: gym 3 times per week; consistent refinement."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: has occasional joint (implied cannabis). Generated: smokes cannabis occasionally; semantically aligned."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "pf-001",
+        "reasoning": "Gold PF: full ROM, slight ankle swelling, no specific area tenderness. Generated pe-001: no current swelling, redness, or impaired ROM reported. Full ROM portion is supported; 'no current swelling' and 'no redness' contradict Gold's finding of slight ankle swelling if that was observed at the time of exam. However, Gold does not specify current vs prior for ankle swelling in PF; to avoid over-calling contradiction, classify as partial support with added elements not in Gold."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: 'No physical examination was performed.' Gold PF clearly documents physical findings (ROM, tenderness, ankle swelling), implying an exam was performed. Direct contradiction."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold supports R knee pain with exertion, prior minor trauma, and no locking/instability; while Gold does not state the diagnostic impression, an assessment of overuse vs internal derangement is a clinical interpretation based on Gold data. This is an addition in terms of diagnostic reasoning but not contradictory. Best classified as ADDITION rather than strictly supported fact; it's not present as a Gold fact."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-014",
+        "reasoning": "Gold: tingling in right forefoot that has settled. Generated assessment repeats resolved right toe tingling after running; consistent."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: continue using ice as much as possible (general). Generated: continue ice therapy after exercise. Supported in principle but narrowed to post-exercise; thus partially supported."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: reduce exercise, do not continue to run with pain. Generated: reduce running intensity/distance and consider pausing running if pain recurs. Aligned in spirit but slightly softer ('consider pause'); partially supported."
+      },
+      {
+        "fact_id": "plan-3",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Assuming 'plan-3' refers to plan-003: Rx stronger anti-inflammatory NSAID. Gold: replace ibuprofen with stronger anti-inflammatory; prescribing stronger NSAID is supported; 'take with food' is an additional instruction not in Gold."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Avoid dual NSAIDs is not stated in Gold. It is a reasonable safety instruction but new information."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Gold: refer for physio for assessment and ongoing treatment. Generated: refer to physiotherapist for knee assessment/exam. Assessment part supported; 'ongoing treatment' not mentioned; partially supported."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Considering imaging if symptoms persist/suggest structural injury is not part of Gold plan."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: see doctor ASAP if persistent swelling/heat/redness/locking. Generated: return if new swelling, redness, heat, fever, locking, or inability to flex/extend. Core triggers (swelling/redness/heat/locking) align; timing ('new' vs 'persistent') and added criteria (fever, inability to flex/extend) are additions/differences. Thus partially supported."
+      }
+    ]
+  }
+}

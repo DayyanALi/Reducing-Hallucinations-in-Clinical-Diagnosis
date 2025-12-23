@@ -1,0 +1,286 @@
+{
+  "file_id": "day1_consultation02.txt",
+  "model_source": "notes_text",
+  "metrics": {
+    "total_gold_facts": 19,
+    "total_gen_facts": 32,
+    "omission_count": 13,
+    "omission_rate": 0.6842,
+    "contradiction_count": 4,
+    "contradiction_rate": 0.125,
+    "addition_count": 17,
+    "addition_rate": 0.5312
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies a 4\u2011day history and location mainly on the chest and back. Generated HPI facts mention severe itching and dry, cracked skin but do not state the 4\u2011day duration or involvement of the back."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: skin is sore and cracked. Generated HPI/PE describe severe itching with dry, cracked skin (hpi-001, pe-001). \u2018Sore\u2019 is not restated but cracking is clearly captured; partial but acceptable coverage of the key feature (cracked skin)."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold explicitly denies bleeding, discharge, or spread elsewhere. Generated data deny bleeding and discharge (ros-006, pe-004) but do not address spread/no spread of rash."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold states the patient is not aware of any specific triggers. Generated notes discuss keeping a trigger diary and potential triggers, but do not state that the patient is currently unaware of triggers."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: has tried OTC steroid cream and antihistamines with minimal effect. Generated: tried OTC steroid cream with little relief (hpi-004) but does not state prior antihistamine use in the HPI or its effect."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold denies fevers, vomiting, SOB, cough, and bowel symptoms. Generated denies fever, cough, SOB, and urinary symptoms (ros-001\u2013004), but vomiting and bowel symptoms are not mentioned; also urinary symptoms are an added element not in gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: PMH includes eczema and asthma. Generated PMH (pmh-001, pmh-002) only mentions asthma and no other chronic illnesses; eczema is only mentioned in HPI/assessment as history but not clearly as PMH. The combined PMH of eczema + asthma is not explicitly captured as such."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no regular medications. Generated: not taking any medications (med-001). Clinically equivalent."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no known drug allergies. Generated: reports no allergies (allergy-001). Slightly broader, but consistent and covers NKDA."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: lives with flatmates and works as a pharmaceutical manager. Generated splits into living with flatmates (sh-001) and working at a pharmaceutical company (sh-002). The specific role \u2018pharmaceutical manager\u2019 is not captured; therefore the full gold content is not fully covered."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: non-smoker and social alcohol. Generated: non-smoker (sh-003) and drinks a few beers per week (sh-004). \u2018Social EtOH\u2019 is not exactly restated; pattern is similar but the gold fact as framed (both elements together) is only partially covered. Since the task is strict, this combined gold fact is not exactly matched."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient thinks symptoms may relate to eczema and has no other concerns. Generated social/family history does not mention the patient\u2019s ideas/concerns/expectations or their belief it may be eczema; omitted."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is flare-up of eczema. Generated: assessment is an acute eczema flare (atopic dermatitis) (asm-001). Terminology is equivalent and includes more detail, but clearly covers the gold impression."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: Betnovate BD (specific potent steroid and frequency twice daily). Generated: prescribe stronger topical corticosteroid for 7\u201310 days without naming Betnovate or specifying BD frequency; thus gold\u2019s specific drug and regimen are not captured."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: prescribed Cetraben. Generated: recommends regular moisturizers/emollients but does not name Cetraben; the specific product choice is omitted."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: advised to trial antihistamines (non-specific). Generated: prescribes fexofenadine and discusses OTC loratadine; that\u2019s more specific and actually an escalation from just \u2018trial\u2019. It does not simply restate the gold advice and therefore does not be counted as exact coverage."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: keep a trigger diary. Generated: advise keeping a diary of potential triggers such as products, shower gels, soaps (plan-004). This directly matches and elaborates on the same concept."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: review in 10\u201314 days if symptoms no better. Generated: follow-up in 7\u201310 days (fu-001). The time frame is different; therefore it does not cover the gold fact and instead conflicts on timing."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: earlier review if any concerns or worsening symptoms. Generated: sooner if symptoms worsen (fu-001). It omits \u2018any concerns\u2019 but the \u2018worsen\u2019 clause is clearly covered; core element is present."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint of itchy, red skin for several days is not described in gold facts, which begin with a 4\u2011day HPI; presence of \u2018red\u2019 and chief complaint section are new details."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Severe pruritus with dry, cracked skin: cracked skin aligns with gold hpi-002 but severity and phrasing are extra; not fully traceable to any single gold HPI fact, and no explicit \u2018severe\u2019 descriptor is in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: involvement mainly chest, hands, and inner elbows. Gold: mainly chest and back; no mention of hands/elbows. Different primary distribution constitutes a direct conflict on involved areas."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Itching disrupts sleep and work is not mentioned anywhere in gold facts; it is new information."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold: used OTC steroid cream last night with minimal effect. Generated: tried OTC steroid cream yesterday with little relief. These are semantically equivalent (yesterday/last night; minimal effect/little relief)."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH includes eczema; generated states history of eczema in the past. This is consistent with gold\u2019s recognition of eczema as an existing condition."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold: PMH eczema and asthma (no statement that asthma is inactive or no current meds). Generated: specifies asthma is in the past and not currently on meds. That nuance is not present in gold; it adds a temporal/activity detail."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state there are no other chronic illnesses; it just lists eczema and asthma. Explicit denial of other chronic illnesses is new."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: no regular medications. Generated: none currently. They convey the same medication status."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: NKDA. Generated: no allergies. No conflict; generated is slightly broader but consistent."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: lives with flatmates. Generated: lives with flatmates. Directly matches this portion of the gold fact."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: works as a pharmaceutical manager. Generated: works at a pharmaceutical company. Similar but not identical; \u2018manager\u2019 role is not specified. Since gold doesn\u2019t explicitly say \u2018company\u2019, this is treated as an added/modified detail rather than a pure match."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold: non-smoker. Generated: non-smoker. Directly aligned on smoking status."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Gold: social alcohol use. Generated: drinks a few beers per week, which quantifies intake and may or may not equate to \u2018social\u2019; this is additional specification beyond gold."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "No fever is present in gold but only within HPI systemic review (hpi-006), not as a separate ROS section. Still, gold explicitly denies fevers, so this aligns conceptually but is presented as ROS rather than HPI. Given structural mismatch and added ROS framing, treated as addition rather than strict support."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "No cough is in gold hpi-006 but again as part of HPI systemic review, not ROS. Similar to ros-001, structurally new section; content aligns but not mapped one-to-one."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: no SOB/cough. Generated: no shortness of breath. Content directly matches this part of hpi-006."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions no bowel symptoms but says nothing about urinary symptoms. Denial of urinary symptoms is new information."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not comment on facial involvement in ROS; all distribution is chest/back. Denial of facial involvement is additional detail."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no bleeding or discharge. Generated: no bleeding or discharge from skin. These statements are consistent."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI describes dry, itchy, sore, cracked skin but physical exam findings are not provided. Generated PE describing these as exam findings is not present in gold and thus is added detail."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated PE distribution: chest, hands, inside elbows. Gold: chest and back. These distributions conflict (hands/elbows vs back)."
+      },
+      {
+        "fact_id": "pe-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention whether the face is involved. Generated explicitly states no facial involvement; this is new information."
+      },
+      {
+        "fact_id": "pe-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no bleeding or discharge. Generated PE: no bleeding or discharge reported on examination. These match on content."
+      },
+      {
+        "fact_id": "pe-005",
+        "status": "ADDITION",
+        "reasoning": "Gold states the patient is systemically well and denies specific systemic symptoms (hpi-006) but offers no exam-based systemic assessment. Generated \u2018no systemic symptoms reported\u2019 as a PE item is a reframing/summary and thus treated as added rather than a strict restatement."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: flare-up of eczema. Generated: acute eczema flare (atopic dermatitis) with specific distribution and features. The core diagnosis matches gold; additional descriptors are extra."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH lists asthma but does not characterize it as past/inactive or note no current meds in the assessment. Generated makes an explicit assessment of past, inactive asthma requiring no meds, which is additional interpretation/detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: specific Betnovate BD (twice daily), no duration mentioned. Generated: prescribe stronger topical corticosteroid for 7\u201310 days without BD frequency and with an explicit short course. The regimen (duration and lack of BD instruction) conflicts with the specific BD-only gold plan and differs materially in dosing schedule/duration."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: prescribe Cetraben. Generated: recommends regular moisturizers, applied in bath/shower and after drying, without specifying Cetraben. The general emollient advice is compatible but omits the specific product; therefore this is additional/alternate detail rather than a supported restatement."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold: advised to trial antihistamines (non-specific, no prescription named). Generated: prescribes fexofenadine and discusses loratadine. This is more specific and a stronger intervention than the generic \u2018trial\u2019; it goes beyond gold rather than simply restating it."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Gold: keep trigger diary. Generated: keep diary of potential triggers (products, shower gels, soaps), observe effects. Directly aligned with elaboration."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: review in 10\u201314 days if no better, or earlier if concerns/worsening. Generated: see in 7\u201310 days if not improved or sooner if symptoms worsen. Both content and intent are similar but the follow-up window is earlier (7\u201310 vs 10\u201314), which is a direct disagreement on timing."
+      }
+    ]
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "file_id": "day5_consultation02.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 27,
+    "total_gen_facts": 29,
+    "omission_count": 4,
+    "omission_rate": 0.1481,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 6,
+    "addition_rate": 0.2069
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: dysuria as chief complaint. Generated cc-001: 'pain when urinating' conveys dysuria, so concept is captured."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: 6-day history of dysuria with burning, stinging sensation. Gen hpi-001: 6-day history of dysuria and foul-smelling urine. Duration and dysuria covered; burning/stinging quality is omitted, and 'foul-smelling' is an added descriptor."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no difficulty actually passing urine. Gen hpi-006: 'able to void urine' expresses same concept (no voiding difficulty)."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: strong odour to urine. Gen hpi-001: 'foul-smelling urine' captures this meaning."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: blood in urine (haematuria). Gen hpi-003: 'hematuria described as spotting' covers presence of hematuria, with extra detail about spotting."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: eating and drinking normally. Gen hpi-007: 'eating and drinking normally' matches."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies any new per-vaginal discharge. Gen facts mention 'denies vaginal discharge' (ros-004) but do not specify 'new' or 'per-vaginal'; however, clinically this is essentially the same concept. Still, the nuance of 'new' is not explicitly present, so treated as partially represented but not exact; per instructions, small details matter, so mark as OMITTED."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies back or loin pain. Gen hpi-005 and ros-002: 'denies loin or back pain' \u2013 same content."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: central abdominal pain. Gen hpi-002: intermittent mid-abdominal pain rated 7/10. Location covered and additional details (intermittent, severity) added."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: not feverish but has not checked temperature. Gen hpi-004/ros-001: 'denies fever'. This captures 'not feverish' but omits the detail that temperature has not been checked."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "OMITTED",
+        "reasoning": "Gold: no obvious trigger and no history of dehydration or frequent sexual intercourse preceding symptoms. No generated fact addresses triggers, dehydration history, or sexual intercourse history."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "OMITTED",
+        "reasoning": "Gold: no past history of urine infections or similar symptoms. No generated fact covers prior UTI/similar symptom history."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "COVERED",
+        "reasoning": "Gold: no recent change in bowel habits. No direct Gen statement, so actually not present. Therefore, this is OMITTED, not covered."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of IBS. Gen pmh-001: same."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no relevant family history. Gen fh-001: 'no significant family illnesses' \u2013 equivalent meaning."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: Mebeverine 200 mg TDS. Gen med-001: 'Mebavin 200 mg TID' \u2013 dose and frequency match, but drug name is slightly different (likely same agent, but not perfectly accurate). Also, Gen plan-006: continue Mebavin. Baseline med is substantially captured but with a naming discrepancy."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to Clindamycin. Gen allergy-001: same."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with friends. Gen sh-001: 'lives with friends and works as a support worker' \u2013 includes living arrangement."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: works as a support worker. Gen sh-001: includes 'support worker'."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Gen sh-003: non-smoker."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: drinks ~1 unit/week. Gen sh-002: ~1 glass wine/week. Typical glass of wine approximates 1 alcohol unit, so alcohol intake is essentially captured but with unit wording difference."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: likely UTI. Gen asm-001: probable uncomplicated lower UTI \u2013 equivalent assessment with extra 'uncomplicated, lower.'"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: specifically Nitrofurantoin 3-day course. Gen plan-001/med-002: 3-day oral antibiotic, unspecified drug. Duration and route covered, but drug name (Nitrofurantoin) is omitted; given clinical importance of exact agent, mark as OMITTED."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: advised to keep well hydrated (no volume specified). Gen plan-002: encourage hydration 2.5\u20133 L/day. Same concept with additional quantitative detail."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: cranberry juice may be beneficial. Gen plan-002: 'drink cranberry juice' as part of advice. Covered but without 'may' qualifier (stronger recommendation)."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: monitor temperature with a thermometer. Gen plan-004: buy thermometer and monitor temp. Same idea with added instruction to purchase the device."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold FU: contact clinic if fever, back pain, persistent symptoms, or recurrent episodes. Gen plan-005 (safety-net): seek review for increasing pain, fever, back/loin pain, urinary retention, or recurrent symptoms. All gold triggers except 'persistent symptoms' are clearly covered; 'recurrent episodes' matches 'recurrent symptoms.' Gen adds increasing pain and urinary retention. Missing explicit mention of persistent symptoms, so partially covered."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Pain when urinating is equivalent to dysuria in the gold chief complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Six-day history of dysuria is supported. 'Foul-smelling urine' corresponds to strong odour (hpi-003). Combined, content is supported, but the generated fact omits the burning/stinging quality present in gold and merges two separate gold facts."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes 'central abdominal pain' without severity or intermittency. 'Intermittent' and '7/10' severity are additional details not present in gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Hematuria is in gold. Describing it as 'spotting' is added detail but not contradictory."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold: patient not feverish but has not checked temperature. Generated 'denies fever' matches absence of fever but omits the nuance that temperature has not been measured."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Directly matches denial of loin/back pain."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Being able to void is equivalent to no difficulty actually passing urine."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Eating and drinking normally is explicitly in gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "History of IBS present in both."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Dose and frequency (200 mg TID/TDS) match. However, the drug name 'Mebavin' differs from 'Mebeverine'; likely intended to be same but not exact, so only partially supported."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold specifies Nitrofurantoin 3-day course; generated fact: unspecified oral antibiotic 3-day course. Duration and antibiotic therapy are supported, but omission of the specific agent is a clinically relevant gap."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "ADDITION",
+        "reasoning": "No mention of urine-alkalinising sachets in gold. Entirely new recommendation."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Allergy to Clindamycin matches exactly."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Both indicate no significant/relevant family history."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Living with friends and working as a support worker both appear in gold (sh-001 and sh-002)."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Gold: ~1 unit/week. Generated: ~1 glass of wine/week. These are conceptually similar typical quantities, but unit terminology differs; overall partially supported."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Non-smoker is explicitly in gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Both describe likely/probable UTI; generated adds 'uncomplicated lower' but does not conflict."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Assessment of IBS as stable is not mentioned in gold; IBS appears only as past medical history, not as an assessment item."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: Nitrofurantoin 3-day course. Generated: 3-day oral antibiotic course with e-script to a named pharmacy. Duration and that an antibiotic course is planned are supported; specific agent and pharmacy logistics are new/omitted details. Partially supported overall."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Hydration advice is supported by gold. The specific 2.5\u20133 L/day volume and inclusion of cranberry juice (overlaps with plan-003) are additional details; cranberry itself is supported by gold plan-003. Combined, this fact merges and extends gold items."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Urine-alkalinising sachets are not in the gold care plan; this is new advice."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-004",
+        "reasoning": "Monitoring temperature with a thermometer is in gold; instruction to 'buy thermometer' is extra detail, so partially supported."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold FU: contact if fever, back pain, persistent symptoms, or recurrent episodes. Generated adds increasing pain and urinary retention; it omits explicit mention of 'persistent symptoms' but includes recurrent symptoms. Thus overlap is substantial but not complete."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Continuing Mebavin/Mebeverine for IBS is not mentioned in the gold plan; IBS med appears only as baseline medication, not a specific plan instruction."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Denial of fever is consistent with 'not feverish,' but the gold also specifies temperature has not been checked. Generated ROS lacks that nuance."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Denial of loin/back pain matches gold history."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Regular menses is not mentioned anywhere in gold facts."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: 'no new per-vaginal discharge.' Generated: denies vaginal discharge. Core idea (no discharge) is similar, but gold specifies 'no new' and 'per-vaginal', so not an exact match."
+      }
+    ]
+  }
+}

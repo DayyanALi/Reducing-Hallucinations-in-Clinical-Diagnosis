@@ -1,0 +1,270 @@
+{
+  "file_id": "day4_consultation07.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 22,
+    "total_gen_facts": 28,
+    "omission_count": 14,
+    "omission_rate": 0.6364,
+    "contradiction_count": 5,
+    "contradiction_rate": 0.1786,
+    "addition_count": 14,
+    "addition_rate": 0.5
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: feeling unwell for 8 days. Generated CC states cough and sore throat for one week; duration and chief complaint content differ and do not explicitly capture 'feeling unwell for 8 days'."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: sore throat then progressed to dry cough. Generated hpi-001: sore throat started first and was followed by a dry cough. Same sequence and characterization."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: cough is non-productive with no sputum. Generated hpi-006: patient denies having a productive cough. This implies a non-productive cough; sputum is not mentioned but not contradicted."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: no blood in the cough. Generated hpi-007: patient denies hemoptysis. Hemoptysis = coughing up blood; this matches."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies chest pain. Generated hpi-004 states the patient reports chest pain, which is opposite and therefore does not capture the gold fact."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: mild SOB, not at rest, not limiting activity. Generated facts mention SOB onset timing and association with wheeze/chest pain but do not state that it is not at rest or not limiting activity."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: slight fever symptoms (general). Generated hpi-008: feverish for first 3 days\u2014adds a specific temporal pattern not present in gold; it does not directly restate the gold wording of slight fever. Thus the gold statement itself is not explicitly captured."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: symptoms are gradually improving. No generated fact describes overall symptom trajectory or improvement."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: reduced appetite. Generated hpi-010: decreased appetite. Equivalent concept."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: denies unintentional weight loss. Generated hpi-011: denies weight loss. This covers the gold idea (no weight loss), though gold specifies unintentional."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies history of asthma. No generated fact mentions asthma specifically."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no significant past medical history. Generated pmh-001: no chronic medical conditions reported; this conveys absence of PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no significant regular medications. No generated medication fact is present."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no known drug allergies. Generated allergy-001 states peanut allergy, which contradicts and does not capture the gold content."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother had lung cancer. Generated fh-001 states the same."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient is a non-smoker. Generated sh-002: occasional smoking in Amsterdam, which is opposite; non-smoking status itself is not captured."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no asbestos exposure. No generated fact mentions asbestos exposure."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: no significant recent travel. No generated fact addresses travel history."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: on exam the patient looks well. Generated PE facts concern throat visualization and neck lumps, not overall appearance."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: formal work certificate not required; can self-certify. Generated plan-003 indicates issuing a sick note for extended leave, which is opposite and does not capture the gold instruction."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: review if symptoms worsen, especially sudden change in SOB. Generated follow-up mentions worsening/persistent symptoms but no specific reference to SOB or sudden change."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: expected to improve in 5 days; seek review if not better at that time. Generated fu-001: follow up if symptoms worsen or persist beyond 4\u20135 days. This captures the time frame and need for review if not improved."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only states feeling unwell for 8 days. Generated adds specific symptoms (cough, sore throat) and duration of one week not present in gold."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Shortness of breath onset timing (3\u20134 days ago post-cough) is not mentioned in gold, which only describes SOB as mild and not at rest."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated reports wheezing. Gold does not mention wheezing and specifically denies asthma; no direct refutation but the presence/absence of wheeze is only in generated and not in gold. However, chest pain is explicitly denied in gold; this source pairs wheezing with chest pain, and that chest pain portion contradicts gold hpi-004. As this generated fact includes chest pain in its source_text, it conflicts indirectly with the gold denial of chest pain."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: patient reports chest pain. Gold hpi-004: patient denies chest pain."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Cough being worse at night is not discussed in gold; denying it is a new detail."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes slight fever symptoms without specifying duration or pattern. Being feverish for first 3 days is a more specific temporal pattern not in gold."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Transient headaches are not mentioned in any gold facts."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Sinus congestion is not addressed in gold facts."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "ADDITION",
+        "reasoning": "Gold does not restrict symptoms to throat only; generated statement about throat-only involvement is new and potentially inconsistent with cough/SOB but not directly addressed in gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: peanut allergy. Gold allergy-001: no known drug allergies (NKDA). While NKDA refers to drugs, the presence of a significant food allergy is entirely absent in gold. Given the charted NKDA and no other allergies listed, this additional allergy conflicts with the gold representation of no recorded allergies."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Birth in US and living in UK are not mentioned in gold. No direct conflict."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: occasional smoking in Amsterdam. Gold sh-001: patient is a non-smoker."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Inability to visually examine throat not mentioned in gold."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "ADDITION",
+        "reasoning": "No neck lumps finding is not in gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts describe symptoms but do not provide a diagnostic assessment of acute upper respiratory infection; diagnosis and inclusion of headaches/episodic fever are synthesized additions."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes mild SOB, but not wheezing or chest pain, and no diagnostic grouping of SOB with those features. Thus this assessment content is largely new and partly inconsistent with gold\u2019s denial of chest pain, but as an assessment-level synthesis it is best classed as addition."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Rest, hydration, and paracetamol are not mentioned in the gold plan."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Reassurance and monitoring symptom progression are not explicitly stated in the gold facts, although follow-up instructions exist; wording here is additional."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: issue sick note for extended work leave. Gold plan-001: formal work certificate not required; patient can self-certify time off."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002"
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "file_id": "day3_consultation01.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 18,
+    "omission_count": 7,
+    "omission_rate": 0.4118,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0556,
+    "addition_count": 10,
+    "addition_rate": 0.5556
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states: lip swelling for the past 1 hour. Generated CC-001 includes lip swelling and trigger (prawn soup) but does not state the 1\u2011hour duration; timing detail is missing."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lip swelling began after prawn soup. Captured in generated HPI-001 and CC-001, which link upper-lip swelling onset to prawn soup ingestion."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: initially had a weird feeling around the lips. No generated fact mentions this prodromal weird sensation."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: swelling started ~30 minutes after eating and localized to upper lip. Generated CC-001 and HPI-001 specify ~30 min onset and upper-lip swelling."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient reports sensation of throat closing. No generated fact explicitly mentions throat closing or equivalent oropharyngeal subjective symptom."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: chest tightness with difficulty breathing. Generated HPI-002 mentions dyspnea with possible chest tightness associated with the episode, which covers this albeit with some uncertainty marker."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient feels dizzy. No generated fact reports dizziness."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: similar episode approximately one year ago. Generated HPI-004 states similar episode 1 year ago, including extra details, so the core fact is covered."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: during consultation, patient appeared to have breathing difficulties. No generated physical findings describe observed breathing difficulty during consultation."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: progressively increasing lip swelling on exam. Generated facts mention swelling and that it is worsening over time (HPI-003) but do not state this as an examination/physical\u2011finding observation; the explicit exam finding is not captured."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has asthma. Generated PMH-001 confirms a history of asthma."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is currently using salbutamol inhalers. Generated MED-001: patient uses a salbutamol inhaler PRN. This reflects current use; PRN is an added detail but consistent."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has a peanut allergy. Generated PMH-002 and ALLERGY-001 both state peanut allergy (with additional history), so the allergy is covered."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: suspected anaphylactic reaction. Generated ASM-001: suspected anaphylaxis to shellfish. This captures suspected anaphylaxis (cause specified additionally)."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised immediate administration of an antihistamine. Generated PLAN-002: administer oral antihistamine on-site if available while awaiting EMS, which covers immediate antihistamine advice with extra conditional detail."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised mother to call 999 ambulance. Generated PLAN-001: immediate 999 call and EMS transport to ED \u2013 matches this advice with added specification of destination."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: after hospital discharge, book review with doctor to consider prescribing epipen. Generated PLAN-004 instead states: after discharge, prescribe two EpiPens and arrange allergy clinic. It does not mention booking a review to consider prescribing; it assumes prescription, so the specific follow\u2011up instruction is not captured."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only states lip swelling for 1 hour. Generated adds upper-lip localization, relation to prawn soup, rapid enlargement, and ~30 min onset, none of which are fully in the CC gold fact (though elements are in HPI). It does not contradict gold but adds detail and omits the 1\u2011hour duration."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold HPI-001 and HPI-003: swelling began after prawn soup and started after half an hour; swelling on upper lip. Generated HPI-001 matches timing (~30 minutes) and location (upper lip) after prawn soup ingestion."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold HPI-005: chest tightness with difficulty breathing. Generated HPI-002: dyspnea with possible chest tightness. This is consistent but slightly less definite about chest tightness; no contradiction."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes onset ~30 minutes after eating and that swelling has been present 1 hour but does not specify clock times or that it is still worsening. Generated HPI-003 adds explicit times (1900h, 1930h) and worsening status, which are not in gold but do not conflict."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI-007 only mentions a similar episode approximately one year ago. Generated HPI-004 adds the specific trigger (Chinese curry), facial rather than lip swelling, associated SOB, and that it self\u2011resolved with salbutamol. These details are not in gold and do not contradict it."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH-001: patient has asthma. Generated PMH-001: history of asthma. Fully consistent."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold allergy-001: peanut allergy (had an injection as a child). Generated PMH-002 moves this into PMH and specifies childhood anaphylaxis requiring ED visit and injection. The anaphylaxis/ED details are not in gold, so this is added information, not contradicted by gold."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold MED-001: currently on salbutamol inhalers. Generated: uses salbutamol inhaler PRN. This is compatible; PRN use is added detail."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Gold has no mention of any antihistamine use as a chronic or PRN medication. Generated MED-002 adds occasional unspecified antihistamines. This is new information without conflict."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold allergy-001: patient has a peanut allergy. Generated ALLERGY-001: allergic to peanuts. Fully aligned."
+      },
+      {
+        "fact_id": "allergy-002",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention shellfish allergy. Generated ALLERGY-002 introduces a possible shellfish allergy based on first exposure reaction. This is new and not contradicted by gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold asm-001: suspecting an anaphylactic reaction (no specified trigger or anatomic detail). Generated ASM-001: suspected anaphylaxis to shellfish with acute oropharyngeal angioedema and respiratory compromise. The suspicion of anaphylaxis is supported, but the attribution to shellfish and the specific characterization (oropharyngeal angioedema, respiratory compromise) are additional elements not present in gold."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes asthma history but no explicit separate assessment item about asthma status. Generated ASM-002 frames asthma as a baseline condition managed with salbutamol only, which is additional assessment detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold plan-002: advised Mom to call ambulance as a 999 call. Generated PLAN-001: immediate 999 call and EMS transport to ED. This is consistent with gold, adding explicit ED transport."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold plan-001: advised immediate use of an antihistamine. Generated PLAN-002: administer oral antihistamine on-site if available while awaiting EMS. This matches the intent (immediate antihistamine) with additional route/conditional details."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not describe anticipated ED treatments (IM adrenaline, airway monitoring, steroids, nebulised bronchodilator). Generated PLAN-003 introduces expected ED management, which is new and not in gold."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold fu-001: after discharge, book a review with a doctor to consider prescribing an epipen (no guarantee of prescription; step is review/consideration). Generated PLAN-004: after discharge, prescribe two EpiPens and arrange allergy clinic. This assumes definite EpiPen prescriptions, which conflicts with the conditional nature of the gold plan."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify reinforcement of salbutamol use or consideration of adding a preventer inhaler at GP review. Generated PLAN-005 adds these asthma-management planning details, which are not present in gold."
+      }
+    ]
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "file_id": "day4_consultation01.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 19,
+    "total_gen_facts": 37,
+    "omission_count": 5,
+    "omission_rate": 0.2632,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 23,
+    "addition_rate": 0.6216
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: acute onset left-sided chest discomfort/pressure. Generated cc-001: chief complaint is chest discomfort. Side and acuity omitted but core complaint of chest discomfort is present."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: pressure sensation like someone sitting on his chest, 7/10. Generated hpi-003: pressure, not typical pain, like someone sitting on the chest; hpi-004: severity 7/10. Combined they fully capture the gold fact."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: radiates to the left shoulder and arm. Generated hpi-005 only mentions radiation to the left shoulder; left arm radiation is missing."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: episode lasted 1\u20132 hours so far. Generated hpi-001: onset a couple of hours ago. This is an equivalent description of 1\u20132 hours in duration."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: first episode started while gardening. Generated hpi-001: chest discomfort began a couple of hours ago while gardening; hpi-008: chest discomfort occurred in the context of gardening. Both convey onset during gardening; 'first presentation' is implied but not explicitly stated."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: no radiation to the head. None of the generated facts address radiation to the head."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: nausea without vomiting since presentation. Generated hpi-006: includes nausea; ros-001: no vomiting yet. Together they match the gold fact."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: shortness of breath at rest. Generated hpi-006: associated symptoms include shortness of breath; does not explicitly say 'at rest' but does not conflict. Considered covered at a less specific level."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: longer-term reduced ADLs due to shortness of breath on exertion. Generated hpi-007: difficulty climbing stairs, walking uphill, and limited daily activity due to exertional intolerance. This matches the longer-term exertional dyspnea limiting ADLs."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: previously could walk up hills and stairs without chest discomfort. Generated hpi-007: now has difficulty climbing stairs and walking uphill; implies prior better tolerance. This reflects the same concept of reduced exertional capacity compared with prior."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of high cholesterol/hyperlipidemia. Generated pmh-002: history of hyperlipidemia. Direct match."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: history of high blood pressure. Generated pmh-001: history of hypertension. Direct match."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to aspirin. Generated allergy-001: allergic to aspirin. Direct match."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives at home with his wife. Generated sh-001: lives at home with his wife. Direct match."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: previously able to walk up stairs without difficulty. Generated hpi-007 and assessment asm-003 describe prior functional status now limited; this reflects decreased exertional tolerance, consistent with the gold fact about prior stair-climbing ability."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: differential includes MI. None of the generated Assessment or Plan facts explicitly list MI in the differential."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: differential includes PE. No generated fact names pulmonary embolism as a differential."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: differential includes GORD. No generated fact names gastro-oesophageal reflux disease or GERD/GORD."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: ambulance called for suspected MI and further investigation and assessment. Generated plan-001: EMS to ED for acute chest pain workup (ECG, troponin, labs, imaging, vitals). This reflects ambulance transport to ED for suspected serious cardiac etiology and further investigation, though 'suspected MI' wording is not explicit."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold chief complaint is left-sided chest discomfort/pressure; generated simplifies to chest discomfort, which is consistent."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: onset 1\u20132 hours in duration, first started while gardening. Generated: began a couple of hours ago while gardening. Timeframe and context match, though 'first episode' is not explicitly stated."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes left-sided chest discomfort but does not specify 'central chest.' Central location is an added detail not present in the gold facts."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Matches description of pressure 'like someone sitting on his chest'; the note that it is 'not typical pain' is additional nuance but not contradictory."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold gives intensity 7/10; generated states 7/10 at worst and currently similar. This is consistent and slightly more detailed."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: radiates to the left shoulder and arm. Generated: radiates to the left shoulder. This is a partial capture of the gold fact and does not contradict it."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: nausea without vomiting and SOB (separate fact). Generated: shortness of breath, lightheadedness, nausea. Nausea and SOB match; lightheadedness is an extra associated symptom not in gold, but not contradictory."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: longer-term reduced ADLs due to shortness of breath on exertion. Generated: difficulty climbing stairs/walking uphill, limited daily activity due to exertional intolerance, which is aligned."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions first episode started while gardening but does not state that the patient is normally fit or has a 'fortnightly gardening cadence.' Those contextual details are new."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Calf pain and leg swelling are not mentioned anywhere in the gold facts; entirely new information."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "ADDITION",
+        "reasoning": "Gold lists hypertension and high cholesterol but does not address prior medication use. Statement of no prior meds for HTN/HLD is new, not contradicted."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Hypertension = high blood pressure. Directly matches gold past medical history."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Hyperlipidemia = high cholesterol. Directly matches gold past medical history."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no medication list. Statement that the patient is on no medications is new, not supported or contradicted."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Directly matches gold: allergic to aspirin."
+      },
+      {
+        "fact_id": "allergy-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only states aspirin allergy. The importance for ED/EMS management is an interpretive emphasis not present in the gold facts."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Matches gold: lives with wife at home."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: nausea no vomiting since presentation. Generated: no vomiting yet. This restates the absence of vomiting and is consistent."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "No difficulty swallowing (no dysphagia) is not mentioned in gold; new system review detail."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "No numbness/weakness other than left shoulder pain is not referenced in gold; new neurologic/symptom detail."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "ADDITION",
+        "reasoning": "Calf pain and leg swelling are not present in gold facts; new information."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not comment on whether vitals/PE/diagnostics are documented. This is meta-commentary, not supported by the gold set."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold Assessment lists DDx: MI, PE, GORD but does not explicitly synthesize as 'high clinical concern for a cardiopulmonary etiology given HTN/HLD.' This is a clinical interpretation beyond gold content."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions nausea, but not lightheadedness or grouping them as a separate assessed problem. This combination and framing is new."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold: longer-term history of reduced ADLs due to SOBOE. Generated assessment of deconditioning/exertional intolerance with DOE and ADL limitation aligns with this history, though it interprets etiology as 'deconditioning.'"
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Calf pain and leg swelling and proposed venous/immobility etiology are not in the gold facts."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Gold only lists aspirin allergy under allergies, not as a dedicated assessment item or its importance for ED/EMS. This emphasis is new."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: called ambulance for suspected MI and further investigation/assessment. Generated: EMS to ED for acute chest pain workup with ECG, troponin, labs, imaging, vitals. This is an expanded but consistent description of the same plan."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not specify what information to provide to paramedics nor central pressure/7/10/left shoulder specifics. These are operational details not in gold."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Informing paramedics of SOB, lightheadedness, nausea is not described in the gold plan text."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention providing history details (HTN, HLD, no meds, aspirin allergy) specifically to paramedics as part of the plan."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state that functional impacts (DOE, stair difficulty) should be communicated to paramedics."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold notes aspirin allergy but does not specify a directive to withhold aspirin until ED confirms. This is a new management instruction."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address instructing spouse to accompany the patient or gather belongings."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Contingency that all actions depend on ED/EMS assessment/results is not stated in gold facts."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "No follow-up information or outpatient follow-up planning is present in the gold facts."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no instructions to follow ED/consultant recommendations if not discharged."
+      }
+    ]
+  }
+}
