@@ -1,0 +1,325 @@
+{
+  "file_id": "day1_consultation08.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 23,
+    "total_gen_facts": 38,
+    "omission_count": 4,
+    "omission_rate": 0.1739,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0263,
+    "addition_count": 19,
+    "addition_rate": 0.5
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 describes dry, itchy skin for several days, which matches a 3\u2011day history of dry, itchy skin; added redness is extra but not conflicting."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold specifies location on arms, hands, and palms. Generated hpi-001 and ros-001 describe rash on arms and hands; palms are a subset of hands, so location is effectively captured."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "No generated fact explicitly states that the rash has not spread elsewhere or that there is no spread."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no bleeding, discharge, or cracked skin. Generated hpi-004: no sores or cracking beyond redness. Cracked skin absence is captured; bleeding/discharge not mentioned but not contradicted."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: symptoms started after going swimming. Generated hpi-002 and hpi-008: rash began after swimming a few days prior; aligns with timing and trigger."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: no previous skin problems. Generated pmh-001: no prior skin problems documented; direct match."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies fevers or vomiting. Generated hpi-005 and ros-002: deny fever and vomiting among systemic symptoms; consistent."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: appetite maintained, lethargic. Generated hpi-007 and ros-004 report normal appetite; hpi-006 and ros-003 report fatigue/tiredness; together capture both elements."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies any bowel or urinary symptoms. Generated hpi-005 mentions no loose stools but no statement about bowel generally or urinary symptoms; urinary denial is missing."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lactose intolerance in PMH. Generated allergy-001 lists lactose intolerance as an allergy/hypersensitivity; diagnosis is present though categorized differently."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes Microgynon. Generated med-001: currently taking Microgynon oral contraceptive; direct match."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: NKDA (no known drug allergies). Generated facts do not explicitly state absence of drug allergies; lactose intolerance is listed but NKDA is not captured."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: father has asthma. Generated fh-001: father with asthma; direct match."
+      },
+      {
+        "fact_id": "famhx-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has hayfever. Generated fh-002: mother with hay fever; direct match."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives alone and works as primary school teacher. Generated sh-001 and sh-005 separately state lives alone and works as a primary school teacher; both elements captured."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: denies smoking, alcohol, recreational drugs. Generated sh-002, sh-003, sh-004 explicitly deny smoking, alcohol, and recreational drugs; fully captured."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: significant recent stress. Generated hpi-006 and sh-006: increased workplace stress and chronic stress at work; captures presence of significant stress, though emphasizes chronic/work-related aspect."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is dermatitis. Generated asm-001: primary problem is dermatitis affecting hands and arms; matches and adds location detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: steroid cream twice daily (BD). Generated plan-002 recommends topical corticosteroid cream but does not specify twice daily or any frequency; BD detail is missing."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised emollients. Generated plan-003: advise regular application of emollients to moisturize the skin; consistent with added frequency instructions."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: advised antihistamines. Generated plan-004 and plan-008 advise OTC antihistamines for itch; matches."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: review symptoms in one week. Generated fu-001: return in one week or sooner if symptoms worsen; the one\u2011week review is captured."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: earlier review if worsening symptoms or concerns. Generated fu-001: sooner if symptoms worsen; worsening aspect is covered, explicit 'any concerns' is omitted but not contradicted."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint section not present in Gold. Content (dry itchy rash on hands/arms and stress) is consistent with HPI and social history but represents a new structured element."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Dry, itchy skin and several days duration are supported by hpi-001 and hpi-002, but describing the skin as 'red' is an added detail not in Gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Use of coconut butter and lack of improvement are not mentioned in any Gold fact."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "No sores or cracking is partly aligned with hpi-004 (no cracked skin), but description of skin as red and phrasing about 'beyond the redness' are additional details not in Gold."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Denial of fever and vomiting is supported by hpi-007, but added 'loose stools' and 'other systemic symptoms' are not specified in Gold; also, Gold separately mentions bowel/urinary symptoms, not loose stool/systemic symptoms per se."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Gold notes significant recent stress (sh-003) and lethargy (hpi-008). Describing it specifically as 'increased workplace stress' is an added qualifier; fatigue overlaps with lethargy but is phrased as workplace-related fatigue."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Trigger of swimming is supported (hpi-005), but discussion of weather changes as a contributing factor is not mentioned in Gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold states NKDA (no known drug allergies). Generated classifies lactose intolerance under allergies, implying a listed allergy. This conflicts with NKDA as documented, even though lactose intolerance is in PMH."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-001"
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-002"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "ADDITION",
+        "reasoning": "Gold notes 'Recent stress ++' without specifying chronicity or that it is work\u2011related; 'chronic stress at work' adds new qualifiers."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only states impression 'dermatitis' without specifying type; identifying irritant/contact dermatitis as possible is an added differential diagnosis."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Atopic dermatitis as a differential is not specified in Gold; Gold gives only a general dermatitis impression."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Allergic contact dermatitis as a differential is not present in Gold facts."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention urticaria or fungal infection as less likely diagnoses; these are additional differentials."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold plan only lists treatments and follow\u2011up; no statement about diagnostics not being required or contingent reassessment, so this is new management detail."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003"
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Paracetamol use is not addressed in Gold facts; recommending against it is additional information."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Monitoring for infection or spreading dermatitis is not explicitly mentioned in the Gold plan."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Providing a patient information leaflet about dermatitis is not present in Gold facts."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "While emollients and antihistamines are supported (plan-002 and plan-003), details about 'trigger avoidance' and explicit counseling content go beyond Gold."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Aligns with HPI description of dry, itchy skin on arms/hands, but appears as a separate ROS section not specified in Gold; also adds 'red' as a skin feature."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "No fever or vomiting matches hpi-007, but 'diarrhea' and framing as ROS content are additions beyond Gold."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      }
+    ]
+  }
+}

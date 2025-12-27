@@ -1,0 +1,250 @@
+{
+  "file_id": "day4_consultation03.txt",
+  "model_source": "gpt-5",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 27,
+    "omission_count": 6,
+    "omission_rate": 0.3529,
+    "contradiction_count": 5,
+    "contradiction_rate": 0.1852,
+    "addition_count": 12,
+    "addition_rate": 0.4444
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states SOB at rest four weeks after C\u2011section. Generated CC mentions SOB at rest but attributes duration as ~1 hour and does not mention temporal relation to C\u2011section; no generated fact links the chief complaint to SOB four weeks after C\u2011section."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: SOB at rest began acutely while watching TV. Generated hpi-001: SOB began about one hour prior while resting and watching TV; onset described as new. This captures the same event and context."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: unproductive cough one day prior. Generated hpi-004: non\u2011productive cough since yesterday. These are equivalent."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: dyspnea is non\u2011positional. No generated fact comments on positional nature of dyspnea."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: C\u2011section 2\u20133 weeks ago. Generated hpi-009: 4 weeks postpartum s/p C\u2011section. The postpartum timing clearly conflicts (2\u20133 weeks vs 4 weeks)."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient is not taking any blood\u2011thinning medication. Generated facts do not state anything about blood thinners/anticoagulants."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies fever. No ROS or HPI generated fact mentions fever."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies chills. Not mentioned in generated facts."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies chest pain. Generated hpi-005 and asm-002 both say no chest pain; this covers the fact."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: patient denies pain on inspiration. Generated hpi-006 and asm-002 describe pleuritic chest soreness/chest soreness on deep inspiration, which is the presence of pain/soreness on inspiration, directly opposite to denial."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no significant past medical history. Generated pmh-001: denies other medical problems. These convey the same idea."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: not on anticoagulant therapy. Generated med-001 only discusses codeine use; no statement about anticoagulants or blood thinners."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergy to ibuprofen. Generated allergy-001: allergic to ibuprofen, reaction unknown. This matches and adds detail on reaction type."
+      },
+      {
+        "fact_id": "phys-001",
+        "status": "CONTRADICTED",
+        "reasoning": "Gold: HR via telephone ~120 bpm, tachycardic but regular. Generated pf-001: self\u2011count 30 beats during a timed check, assessed as slightly fast. 120 bpm is clearly tachycardic; 'slightly fast' with 30 beats in an unspecified timed interval does not reproduce 120 bpm and downplays tachycardia. These descriptions are discordant with the gold finding."
+      },
+      {
+        "fact_id": "fhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has history of blood clots in legs. Generated fh-001: mother had leg clots consistent with DVT. This is equivalent and slightly more specific."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: PE is in the differential. Generated asm-001: high concern for PE/VTE. This includes PE and is consistent."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: further examination and investigations in an acute setting. Generated plan-001/plan-002/fu-001: urgent ED evaluation now. ED is an acute setting for further exam/investigation; this aligns."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated CC: SOB at rest for ~1 hour. Gold CC: SOB at rest four weeks after C\u2011section (no 1\u2011hour duration). The generated duration is not supported and conflicts with the timing relationship used in the gold CC description."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Both describe acute onset SOB at rest while watching TV; generated adds approximate 1\u2011hour timing but is otherwise consistent."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes acute onset but does not mention whether it is worsening or stable. Statement that it is 'not clearly worsening' is new and not in gold, but does not contradict it."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Patient feeling heart 'really going' (palpitations) is not mentioned in any gold fact. No conflict, but it is additional information."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Matches gold: non\u2011productive cough one day prior to presentation ('since yesterday')."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003",
+        "reasoning": "Gold ROS: denies chest pain. Generated hpi-005 states the patient reports no chest pain; same content, different section."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: chest soreness on deep inspiration. Gold ros-004: patient denies pain on inspiration. Presence of pleuritic chest soreness vs denial of pain on inspiration is directly contradictory."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Tenderness at C\u2011section scar is not mentioned in the gold HPI or physical findings. No direct conflict; purely additional."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "No prior similar episodes of SOB is not addressed in gold facts. This is new information without conflict."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: four weeks postpartum s/p C\u2011section. Gold: C\u2011section 2\u20133 weeks ago. These postpartum intervals conflict."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Generated denial of other medical problems matches gold 'PMHx nil.'"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Codeine post\u2011op use and cessation 1 week ago are not mentioned in gold facts. Gold only mentions no blood thinners. This is additional information."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: allergic to ibuprofen. Generated: same, with note that reaction is unknown. Consistent and slightly more detailed."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fhx-001",
+        "reasoning": "Gold: mother had clots in legs. Generated: mother had leg clots consistent with DVT. This is a supported elaboration."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Partner at work is not referenced in any gold social or family history. Purely additional."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: HR via telephone roughly 120 bpm, tachycardic. Generated: self pulse count 30 beats, assessed as 'slightly fast.' This description does not support the clear tachycardia at 120 bpm and is discordant with the gold measurement and interpretation."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "ADDITION",
+        "reasoning": "Gold provides a telephone HR measurement; it does not state whether other vitals/PE/diagnostics were or were not obtained. Claiming that none were obtained on the call is new information."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: PE is in differential. Generated: high concern for PE/VTE in acute SOB 4 weeks postpartum s/p C\u2011section. PE component is supported; VTE mention is an acceptable extension."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated includes pleuritic chest soreness along with no chest pain. Gold confirms no chest pain but explicitly denies pain on inspiration. Thus, the pleuritic chest soreness component conflicts with gold ros-004."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Assessment of post\u2011op C\u2011section scar tenderness is not present in gold assessment, HPI, or PE. Additional problem identification."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold identifies ibuprofen allergy; generated simply repeats as an assessed problem."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold plan: further exam and investigation in acute setting. Generated: urgent ED evaluation now. ED is an acute setting for further evaluation; this is consistent and more specific."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Mode of transport (self\u2011transport with infant, ambulance offered/declined) is not discussed in the gold plan. This is new detail."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Advice to avoid codeine until assessed is not present in the gold plan or medication list. Additional counseling item."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Education about postpartum VTE risk and treatment, and patient agreement/no questions, are not in the gold plan. Extra educational detail."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Advising to monitor incision tenderness and defer analgesia changes pending ED evaluation is not mentioned in gold. Additional plan content."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Follow\u2011up via urgent ED evaluation now aligns with gold\u2019s plan for further exam/investigation in an acute setting."
+      }
+    ]
+  }
+}

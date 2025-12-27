@@ -1,0 +1,329 @@
+{
+  "file_id": "day5_consultation12.txt",
+  "model_source": "gpt-4.1",
+  "metrics": {
+    "total_gold_facts": 29,
+    "total_gen_facts": 31,
+    "omission_count": 10,
+    "omission_rate": 0.3448,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0323,
+    "addition_count": 19,
+    "addition_rate": 0.6129
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 states patient presents with a headache; timing and location are extra but consistent."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 notes a headache in the left occipital region, which corresponds to a left-sided posterior headache."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies onset 'mid-morning yesterday'; generated only states 'started yesterday' without the mid-morning detail."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-002 gives a pain score of 8/10, matching the gold severity."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold states not worsened by coughing, sneezing, or bending; generated only mentions no effect with position/change in activity, which is not explicitly equivalent to cough/sneeze/bending."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold indicates the headache did not wake the patient and she slept okay; generated hpi-007 says the patient slept well despite the headache."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold 'E&D fine'; generated hpi-009 'eating and drinking are okay' is equivalent."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold says patient is finding it hard to concentrate on work; no generated fact mentions concentration or work impairment."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold states no headaches in the past (no prior headaches at all); generated hpi-003 only specifies no previous similar headaches, which is not clearly equivalent and could allow prior dissimilar headaches."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold notes no change in diet, lifestyle, or increased stress; these aspects are not addressed in any generated fact."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold denies visual disturbance; generated hpi-004 denies visual changes, which is substantively the same."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold specifically denies visual floaters; generated facts do not mention floaters."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold denies tingling; generated hpi-004 denies neurological symptoms, which reasonably includes tingling."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold denies numbness; generated hpi-004 denies neurological symptoms, which reasonably includes numbness."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "COVERED",
+        "reasoning": "Gold denies weakness; generated hpi-004 denies neurological symptoms, which reasonably includes weakness."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "COVERED",
+        "reasoning": "Gold denies nausea; generated hpi-004 denies nausea (N)."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Gold denies vomiting; generated hpi-004 denies vomiting (V)."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "COVERED",
+        "reasoning": "Gold denies fever; generated hpi-005 also denies fever."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "OMITTED",
+        "reasoning": "Gold denies neck stiffness as a ROS symptom; generated facts only mention neck stiffness in a future red-flag monitoring context, not as a present-denied symptom."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold 'DH: Nil' (no regular meds); generated med-001 'no regular medications' matches."
+      },
+      {
+        "fact_id": "fam-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has hypertension; generated fh-001 states the same."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with her partner; generated sh-001: lives with a partner\u2014equivalent."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: works as a designer; generated sh-002: works as a designer\u2014same."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-drinker; generated sh-005: does not drink alcohol\u2014equivalent."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold assessment is 'new onset headache'; generated assessment focuses on acute unilateral headache, possible migraine/tension, and NSAID non-response but does not explicitly state 'new onset.'"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: prescribed stronger anti-inflammatory instead of ibuprofen; generated hpi-006 (no relief with ibuprofen) and plan-001 (trial stronger analgesia as prescribed) together reflect switching to stronger medication, consistent in intent though not naming 'anti-inflammatory.'"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: can take paracetamol alongside the anti-inflammatory; generated med-003 states paracetamol may be used concurrently with the prescribed stronger analgesia."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: contact doctor immediately if pain not settling/worse or new symptoms; generated plan-003 and fu-001 mention monitor for red flags and review if no improvement/worsening, but do not explicitly include 'new symptoms' nor 'contact a doctor ASAP.'"
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: if recurring episodes occur, arrange further assessment with GP; generated only notes monitoring for 'recurrent episodes' as red flags without explicit instruction to get GP assessment for recurrence."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold only documents 'Headache' as PC; generated adds onset (yesterday) and location (left occipital) which are not in the gold Chief Complaint, though location aligns with HPI detail. Contains truthy additions beyond gold CC."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold describes side, location, onset time, severity, and modifiers, but does not describe the headache as 'intense, throbbing, gradual onset'; these qualitative descriptors are extra."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: no previous similar headaches; gold: no headaches in the past at all. Gold implies none of any type, which contradicts the weaker 'no similar' phrasing."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIAL",
+        "reasoning": "Generated denies nausea, vomiting, visual changes, photophobia, phonophobia, and neurological symptoms. Gold denies nausea, vomiting, visual disturbance, tingling, numbness, weakness, fever, neck stiffness, but does not mention photophobia or phonophobia. Overlapping elements (N/V/visual/neurological) are supported; photophobia and phonophobia are additions. No direct contradiction.",
+        "match_gold_ids": [
+          "ros-001",
+          "ros-003",
+          "ros-004",
+          "ros-005",
+          "ros-006",
+          "ros-007"
+        ]
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Generated denies rash and recent illness, which are not addressed in the gold facts; fever denial is supported by gold ros-008."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "No gold fact documents response to Nurofen/ibuprofen; this is new information."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold specifies headache not worse with cough/sneeze/bending; generated states no effect with position/change in activity. These are not directly mapped in gold; positional effect is an added detail."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "No past medical history is not mentioned anywhere in the gold facts."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not state that the patient took Nurofen yesterday; this is new detail."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address drug allergies; 'no drug allergies' is new information."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fam-001"
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold family history only notes maternal hypertension; migraines in mother are not mentioned."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "ADDITION",
+        "reasoning": "Gold social history does not mention work attendance or missed work due to headache."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention smoking status; 'does not smoke' is new."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention recreational drug use; 'does not use recreational drugs' is new."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts contain no examination or objective findings section; this is additional documentation."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment is only 'new onset headache.' Generated adds unilateral location, NSAID non-response, and explicitly 'no red flag symptoms'; these qualifiers are not stated in the gold assessment."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment does not list migraine as a differential; '?Migraine' is new."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment does not list tension-type headache; '?tension-type headache' is new."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIAL",
+        "reasoning": "Gold: trial a stronger anti-inflammatory instead of ibuprofen; generated: trial stronger analgesia, to be taken with food. Stronger medication component is supported by gold plan-001, but 'with food' is an added instruction not present in the gold facts.",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Rest and maintain hydration are not mentioned in the gold plan or follow-up."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up addresses contacting doctor if pain not settling/worse or new symptoms, and arranging GP assessment for recurring episodes. Generated enumerates specific red flag symptoms (worsening pain, fever, rash, vomiting, neck stiffness, recurrent episodes), some of which (rash, explicit 'recurrent episodes' as red flags) and the enumerated style are not present in gold."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Gold FU emphasizes contacting doctor ASAP if pain not settling/worse or new symptoms, and GP review for recurrence; generated FU sets a 1\u20132 day timeframe for medical review if no improvement/worsening, which is a different and more specific instruction not present in gold."
+      }
+    ]
+  }
+}

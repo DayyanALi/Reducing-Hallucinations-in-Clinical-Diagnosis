@@ -1,0 +1,358 @@
+{
+  "file_id": "day2_consultation06.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 22,
+    "total_gen_facts": 43,
+    "omission_count": 8,
+    "omission_rate": 0.3636,
+    "contradiction_count": 4,
+    "contradiction_rate": 0.093,
+    "addition_count": 26,
+    "addition_rate": 0.6047
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: bee/wasp bite a few minutes before appointment. Generated CC mentions insect sting and difficulty breathing/arm rash, but nowhere notes timing relative to appointment, so the gold timing detail is not captured."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: worried about difficulty breathing, lip swelling, and localized rash after the bite. Generated HPI includes subjective difficulty breathing (hpi-004), concern for lip swelling/tongue sensation (hpi-003), and localized rash at sting site (hpi-002). The core elements are present though phrased differently."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no past medical history of anaphylaxis. Generated hpi-005: denies history of anaphylaxis; also reflected in ros-004. This matches."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: never used an epipen. Generated hpi-005: denies prior EpiPen use. This is directly captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: reports history of anxiety and currently feels panicked. Generated facts describe current anxiety (pf-001) and a possible anxiety/panic reaction (asm-003) but do not explicitly state a past history of anxiety in the HPI. The historical component is missing here."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold PMH: history of anxiety. Generated PMH instead lists eczema (pmh-001) and does not mention anxiety as a chronic condition."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold PMH: no history of anaphylaxis. While the generated HPI and ROS mention no prior anaphylaxis, there is no PMH entry documenting this specifically as past medical history."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to penicillin. Generated allergy-001: allergic to penicillin. This matches."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no significant family history. No generated fact addresses family history at all."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient works as a software engineer. Generated sh-001: works as a computer scientist. This is a different occupation, not a restatement; thus the gold fact is not correctly captured."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: has a cat at home. Generated sh-003: has a cat at home. This is directly captured."
+      },
+      {
+        "fact_id": "ex-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no lip swelling on exam. Generated pf-002: lips not swollen at this time. Directly matches."
+      },
+      {
+        "fact_id": "ex-002",
+        "status": "COVERED",
+        "reasoning": "Gold: speaking normally. Generated pf-003 and ros-003 note ability to say \"ah\" and normal oropharynx; although not verbatim, this implies normal speech sufficient to cover the fact of speaking normally."
+      },
+      {
+        "fact_id": "ex-003",
+        "status": "COVERED",
+        "reasoning": "Gold: no airway compromise. Generated pf-001 and pf-005 document no acute respiratory distress, no wheeze or stridor, and normal oropharynx (pf-003), supporting absence of airway compromise."
+      },
+      {
+        "fact_id": "ex-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no rash seen on the arm. Generated pf-004 describes localized erythema with a puncture mark but does not explicitly call it a \u2018rash\u2019. However, ros-002: \u2018Skin: Localized rash with puncture mark at right arm\u2019 indicates presence of rash, which contradicts the gold statement of no rash on exam. Therefore this gold fact is NOT covered; it is effectively contradicted."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: localized inflammatory reaction to an insect bite. Generated asm-001: localized allergic/inflammatory reaction to insect sting with regional arm rash. This matches the assessment."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "COVERED",
+        "reasoning": "Gold: no evidence of acute anaphylactic reaction. Generated asm-001: no current evidence of anaphylaxis. Equivalent."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: no evidence of cellulitis. Generated assessment and plan mention monitoring for infection but do not explicitly state there is no evidence of cellulitis at this time."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: recommended OTC antihistamines. Generated plan-002/003 discuss chlorphenamine dosing, an OTC antihistamine, satisfying this recommendation."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: warned about red-flag symptoms and to get urgent review if they occur. Generated plan-004, plan-006, and plan-007 detail red-flag symptoms and advise urgent/emergency care. This covers the gold plan."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: no allergy testing needed for this one-off episode. Generated plan-008: no allergy testing needed at this time. This matches the intent."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: advised to ring back if any concerns or anxiety for further reassurance. Generated follow-up focuses on worsening symptoms, lack of improvement, or infection (fu-001, fu-002) and does not reference follow-up specifically for concerns or anxiety/reassurance."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only notes bee/wasp bite a few minutes prior. Difficulty breathing is mentioned in HPI as a worry, not as the explicit chief complaint. The formulation of CC as \u2018difficulty breathing after insect sting\u2019 is an added interpretation and restructuring, not directly stated as CC in gold."
+      },
+      {
+        "fact_id": "cc-002",
+        "status": "ADDITION",
+        "reasoning": "Gold CC does not list arm rash as the explicit chief complaint. Rash is mentioned as localized rash in HPI. Presenting it as a co\u2011CC is an added structuring detail."
+      },
+      {
+        "fact_id": "cc-003",
+        "status": "ADDITION",
+        "reasoning": "Gold CC does not state concern about lip/tongue swelling as the chief complaint, though HPI references concern about lip swelling. Framing it as CC is additional structuring, not directly present as CC."
+      },
+      {
+        "fact_id": "cc-004",
+        "status": "ADDITION",
+        "reasoning": "Gold CC is limited to bee/wasp bite timing. Anxiety about progression is present in the gold HPI but not designated as chief complaint; thus labeling it as CC is an added interpretation."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold CC-001: bee/wasp bite a few minutes before appointment. Generated hpi-001: stung minutes before presentation on right arm, likely bee or wasp. This is consistent and adds site and side detail, so supported as an elaboration."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not describe a puncture mark or slight erythema at the sting site; they only speak of localized rash (symptoms) and later say no rash on arm on exam. The specific description of local rash with puncture and erythema is additional and partially conflicts with gold exam finding, so best categorized as addition (with tension)."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold hpi-001: worried about lip swelling. Generated: brief concern for lip swelling and tongue sensation. This matches and adds tongue detail."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold: worried about difficulty breathing. Generated: subjective difficulty breathing but not in acute distress, no stridor/wheeze. This is consistent and more detailed."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold hpi-002 and hpi-003: no history of anaphylaxis and no prior epipen use. Generated hpi-005 states both. Directly supported."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "No gold fact mentions antihistamine use prior to visit. This is new information, not contradicted."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Gold does not list current medications. Statement that there are no current medications for this issue is additional and not addressed in gold."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold PMH lists history of anxiety and no history of anaphylaxis; no eczema is mentioned. Generated PMH-001 asserts eczema as a past medical condition, which is not supported and differs from the documented PMH. In strict audit terms, this is contradictory to the defined truth set."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not describe medication list. Saying no medications at presentation is additional but not conflicting."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: allergic to penicillin. Generated: penicillin allergy, no reaction details. Fully aligned."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold SH: works as a software engineer. Generated: works as a computer scientist. These are different occupations; treating the generated note as a representation of the gold record, this is incorrect and thus a contradiction."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold states nothing about living situation. \u2018Lives alone\u2019 is new information, not supported nor contradicted by gold."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold: has a cat at home. Generated sh-003: has a cat at home. Direct match."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "No tobacco use is not discussed in gold. This is new, not conflicting information."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "No alcohol use is not discussed in gold. This is new, not conflicting information."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Gold physical exam does not mention general appearance or anxiety on exam. Generated anxiety/not in acute respiratory distress is additional detail, consistent with no airway compromise."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "ex-001",
+        "reasoning": "Gold: no lip swelling seen. Generated: lips not swollen at this time. Directly supported."
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "ADDITION",
+        "reasoning": "Gold exam only notes speaking normally and no airway compromise; no detailed oropharynx description. Normal oropharynx and ability to say \"ah\" are additional but consistent details."
+      },
+      {
+        "fact_id": "pf-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold ex-004: no rash seen on arm. Generated pf-004: localized right arm erythema with puncture mark; ros-002 also labels this as rash. This directly conflicts with the gold finding of no rash on arm."
+      },
+      {
+        "fact_id": "pf-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes no airway compromise but does not specifically mention wheeze or stridor. Generated: no wheeze or stridor, not in acute distress. This is additional detail consistent with gold."
+      },
+      {
+        "fact_id": "pf-006",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address whether vitals were documented. Saying vitals not documented is new information."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold has no formal ROS section. Perceived dyspnea earlier and currently stable breathing is consistent with gold HPI (worried about difficulty breathing) and exam (no airway compromise) but is additional structuring and phrasing."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold exam explicitly: no rash seen on arm. Generated ROS: localized rash with puncture mark at right arm. That conflicts with the gold physical finding."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "ADDITION",
+        "reasoning": "Gold states no lip swelling and speaking normally but does not mention tongue swelling or the ability to say \"ah\" within ROS. ENT-focused ROS with these details is additional but consistent with gold exam."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: no prior anaphylaxis and penicillin allergy. Generated immunologic ROS repeats no prior anaphylaxis and notes penicillin allergy, consistent with gold allergies and HPI."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold assessment: localized inflammatory reaction to insect bite; no evidence of acute anaphylaxis. Generated asm-001 states localized allergic/inflammatory reaction to insect sting with no current evidence of anaphylaxis. Fully aligned."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment only states no evidence of acute anaphylactic reaction; it does not list early/evolving anaphylaxis as a differential. This differential is an added clinical consideration, not present in gold."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold notes history of anxiety and current panic but does not explicitly list anxiety/panic as a diagnostic impression. Generated asm-003 frames it as a differential diagnosis contributing to dyspnea, which is an added interpretive detail consistent with gold symptoms."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention diagnostics specifically. Stating \u2018no diagnostics planned\u2019 is new but not conflicting."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: recommended OTC antihistamines. Generated: specific chlorphenamine regimen as an antihistamine option. This is a detailed implementation of the gold recommendation."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold only says OTC antihistamines, without dosing options. Offering an alternative once-daily 4 mg option is additional medication detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold plan-002 broadly warns about red-flag symptoms and urgent review; it does not instruct on epinephrine self-use. Education including using epinephrine is more specific and not documented in gold, so this is an addition."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions no evidence of cellulitis but does not document antibiotic/steroid decisions or monitoring for infection. The no-antibiotic/no-steroid choice and infection-monitoring advice are additional plan details."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: warned about red-flag signs/symptoms and urgent review. Generated: detailed list of red-flag symptoms (swelling, SOB, wheeze, stridor, dizziness, fainting). This elaborates the same concept."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: if red-flag symptoms occur, get urgent medical review. Generated: seek urgent care or call emergency services if signs of anaphylaxis/airway compromise. Same underlying instruction."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: no allergy testing needed for this one-off episode. Generated: no allergy testing needed at this time. Directly aligned."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold plan and follow-up do not explicitly document disposition (discharged home). This discharge instruction and self-treat/return language is additional, though directionally consistent with advice to seek review if red flags occur."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up focuses on ringing back if concerns/anxiety for reassurance. Generated fu-001 addresses worsening symptoms or lack of improvement with antihistamines. That is additional follow-up guidance not present in gold."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention follow-up for worsening rash or infection signs. This is new follow-up guidance."
+      }
+    ]
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "file_id": "day1_consultation09.txt",
+  "model_source": "gpt-4.1",
+  "metrics": {
+    "total_gold_facts": 24,
+    "total_gen_facts": 30,
+    "omission_count": 11,
+    "omission_rate": 0.4583,
+    "contradiction_count": 2,
+    "contradiction_rate": 0.0667,
+    "addition_count": 11,
+    "addition_rate": 0.3667
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies a 3\u2011day history of dysuria AND suprapubic pain. Generated facts only state 3\u2011day dysuria (hpi-001) and suprapubic pain without explicit duration (hpi-002). The 3\u2011day duration is not clearly applied to suprapubic pain, so the combined fact is not fully captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: denies urinary frequency. Gen hpi-007: denies increased urinary frequency. These are clinically equivalent."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: brief episode of hematuria now resolved. Gen hpi-003: one episode of hematuria today (no mention that it is now resolved). Temporal detail and resolution status differ, so the gold fact is not fully captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: foul\u2011smelling urine. Gen hpi-004: unusual urine odor. This captures the same clinical concept."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: abdominal pain is cramping and non\u2011radiating. Gen hpi-002 mentions suprapubic crampy lower abdominal pain but does not state that it does not radiate, so the \u2018nil radiating\u2019 portion is omitted."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: denies nausea, vomiting, fever, bowel symptoms. Gen hpi-005, hpi-008, hpi-009, hpi-010 deny fever, diarrhea (bowel symptoms), nausea, and vomiting respectively. All elements are present."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: sexually active with regular partner for 2 months. Gen hpi-012: sexually active with regular partner and uses condoms; duration (2 months) is not stated, so the time component is omitted."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: no previous STD screen. No generated fact addresses STD screening history."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: denies vaginal (PV) discharge. Gen hpi-011: denies vaginal discharge. Same concept."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: LMP 2 weeks ago. Gen hpi-013: LMP approximately two weeks ago. Equivalent."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: PMH IBS. Gen pmh-001: history of irritable bowel syndrome. Same fact."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no regular medications. Gen med-001: occasional OTC bicarbonate (ineffective). This does not state that there are no regular meds; the gold statement is not captured."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to clindamycin. Gen allergy-001: allergic to clindamycin (swelling). Gold fact (existence of allergy) is covered; reaction detail is additional."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no relevant family history. Gen fh-001: denies GU/GI issues in family, which is more specific and does not state that there is no relevant family history overall. The broader gold statement is not fully captured."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient is 19 years old. No generated fact specifies age."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: lives in a flat with friends; student in Biology. Gen sh-001: lives with friends, college biology student. Same content."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non\u2011smoker and social alcohol on weekends. Gen sh-002: social alcohol and does not smoke. Weekends detail is omitted but overall fact (social EtOH, nil smoking) is captured."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression UTI/cystitis. Gen asm-001: likely uncomplicated lower urinary tract infection. These represent the same assessment."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 3\u2011day course nitrofurantoin or trimethoprim. Gen plan-001: nitrofurantoin or trimethoprim, 3\u2011day course (1 tab BID). Duration/agents match; BID dosing is added detail."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: push fluids and trial cranberry juice. Gen plan-002: advise increased oral fluids and consider cranberry juice. Same plan."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: advised to avoid having sex. Gen plan-004: abstain from intercourse until symptoms resolve and continue condoms. The abstinence portion matches, but the gold does not specify \u2018until symptoms resolve\u2019 or \u2018continue condoms.\u2019 Because the core directive to avoid sex is present, this is effectively captured; however, the gold statement is slightly less specific in duration. Overall, the instruction to avoid sex is present, so this is better classified as COVERED."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: pregnancy test to exclude pregnancy. No generated plan mentions a pregnancy test."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: review in 3 days if not better. No generated fact includes a 3\u2011day time\u2011specific follow\u2011up for lack of improvement."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: seek earlier review for worsening symptoms such as fevers, back pain, vomiting, feeling more unwell. Gen fu-001 and plan-003: monitor for fever, back pain, worsening symptoms and return/seek review if these develop. Same follow\u2011up instruction."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint with intermittent stinging pain is not present in gold facts (which start at HPI); it does not contradict them."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "States 3 days of dysuria with intermittent stinging pain. Gold hpi-001 has 3 days of dysuria but no \u2018intermittent stinging\u2019 descriptor. Duration of dysuria aligns, but the pain quality is added detail not in gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Suprapubic crampy lower abdominal pain onset with urinary symptoms. Gold mentions suprapubic pain and cramping abdominal pain, but does not state onset with urinary symptoms or explicitly link location and cramping. The onset linkage is additional."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Gen: one episode of hematuria today. Gold hpi-003: brief episode of hematuria now resolved, with no specific \u2018today\u2019 timing. Saying it occurred \u2018today\u2019 and not stating resolution conflicts with \u2018now resolved\u2019 and different temporal framing."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Denies flank pain. Gold denies fever, bowel symptoms, nausea, vomiting, but does not mention flank pain. This is new negative ROS information."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Gold hpi-007: sexually active with regular partner for 2 months; no mention of condom use. Gen adds condom use, and omits duration. Condom use is additional information."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010"
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "ADDITION",
+        "reasoning": "Denies possibility of pregnancy is not stated in gold facts (gold only gives LMP and plans a pregnancy test). This is added nuance."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gen: occasional OTC bicarbonate. Gold med-001: no regular medications. Occasional OTC use is not inherently a contradiction to \u2018nil regular\u2019; however, the gold explicitly lists drug history as \u2018Nil regular\u2019 without mentioning any occasional meds. Given typical documentation, this represents additional medication history not in gold and is better treated as ADDITION rather than direct contradiction."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Gen: denies GU/GI issues in family. Gold famhx-001: no relevant family history. The specific denial of GU/GI issues is more detailed and not explicitly present in gold; it does not conflict but adds specificity."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no physical exam section. Statement that no exam/diagnostic findings were documented is new and not inferable from gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Clindamycin allergy being listed in the assessment is a documentation choice; gold only records the allergy in the allergy section. This is organizational, not a new clinical fact, so it is additional but consistent."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold plan-003: avoid having sex (no duration or condom comment). Gen extends this to \u2018until symptoms resolve\u2019 and \u2018continue using condoms.\u2019 Both duration and condom advice are additional details."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Counseling regarding UTI red flags and follow\u2011up is not explicitly documented in gold, though consistent with gold follow\u2011up instructions. It is an added element."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002"
+      }
+    ]
+  }
+}

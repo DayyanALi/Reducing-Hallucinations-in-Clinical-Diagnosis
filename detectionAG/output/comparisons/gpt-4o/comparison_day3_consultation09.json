@@ -1,0 +1,379 @@
+{
+  "file_id": "day3_consultation09.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 22,
+    "total_gen_facts": 45,
+    "omission_count": 5,
+    "omission_rate": 0.2273,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 18,
+    "addition_rate": 0.4
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: numbness of the left arm for 2 weeks. Generated CC: numbness and tingling in the left arm. The left arm numbness is captured, but duration is omitted; still considered covered for the primary complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: mild weakness when holding objects and playing the piano. No generated fact mentions weakness in relation to holding things or piano playing."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: tingling and numbness in the shoulder. Generated facts reference left arm, fingers, and vision, but not the shoulder."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: numbness on the front side of the hand. Generated HPI-002 notes numbness/tingling in second, third, fourth fingers on the palm side, which corresponds to the front side of the hand."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: visual disturbance in the left peripheral field lasting 20 minutes 2 weeks ago. Generated HPI-006: temporary loss of peripheral vision in the left eye for about 20 minutes a few weeks ago. Time phrasing differs slightly but is clinically equivalent; fact is covered."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: numbness involves the left second, third, and fourth fingers. Generated HPI-002 explicitly includes second, third, fourth fingers on the palm side of the left arm."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: massage and warm baths did not relieve symptoms. Generated HPI-005 notes symptoms have worsened since onset but does not specify massage/warm baths; however, no generated fact contradicts this. As the specific therapies are not mentioned, the lack of relief is effectively omitted. Overall, the exact treatment failure is not included, so this is better classified as OMITTED, not covered."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: patient reports headaches. Generated ROS-006: review of systems is positive for occasional headaches. This matches the presence of headaches."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: vomiting for 2 weeks beginning over a month ago after a party. No generated fact mentions vomiting or this temporal relationship."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes ibuprofen. Generated MED-001 states she takes ibuprofen (dose/route/frequency not documented)."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes vitamin D. Generated MED-002 states she takes vitamin D."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes iron tablets. Generated MED-003: she takes iron supplements but not consistently. Taking iron is captured; non\u2011consistency is an added detail."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes melatonin. Generated MED-004 states she takes melatonin."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: father has hypothyroidism and autoimmune disorders. Generated FH-001: father has hypothyroidism and autoimmune conditions. Same content."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has diabetes, high cholesterol, and high BP. Generated FH-002: mother has type 2 diabetes mellitus, hypertension, hyperlipidemia. These map directly."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: recently started boxing lessons as physical activity. Generated SH-001: regular exercise activities include boxing. The boxing activity is captured; the nuance of \u201crecently started\u201d is not specified but core fact is present."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: multiple sclerosis is being considered and needs to be ruled out. Generated ASM-004 lists MS as part of the differential for transient vision loss, not explicitly as 'rule out MS'. The explicit \u2018r/o MS\u2019 assessment is not clearly stated as such, so this is not fully captured."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: arrange an urgent neurology review. Generated PLAN-001: urgent neurology referral for further evaluation. This matches."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: go to A&E with progressing arm/leg weakness, vomiting, visual disturbances, or fits. Generated PLAN-003 and PLAN-005 discuss returning/immediate emergency care for progression of symptoms including leg weakness and visual disturbances, but they omit vomiting and fits explicitly. Because not all specified red flags are captured, the gold follow-up advice is only partially represented; classify as omitted."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies neck pain. Generated ROS-008: negative for significant neck pain. Denial of neck pain is captured."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies seizures or fits. Generated ROS-007: negative for seizures. This matches."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold: denies weakness elsewhere and gait is normal. Generated ROS-010: negative for systemic weakness, and ROS-011: normal gait. Both points are captured."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold CC mentions numbness in the left arm; generated adds tingling, which is also described in the HPI (hpi-002)."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Right-handed female and name (Mary Smith) are not present in any gold fact."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Captures left arm numbness/tingling in the second, third, fourth fingers on palm side, matching gold hpi-003 and hpi-005."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Gold CC: numbness of left arm for 2 weeks; generated HPI-003: arm numbness/tingling began approximately two weeks ago. Same onset timing."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Generated links symptom onset to starting a boxing class. Gold social history states patient recently started boxing lessons; association to onset is an inferred addition but not contradictory, so considered addition on top of supported activity."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify whether symptoms worsened since onset; this trajectory detail is new and not stated in gold."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Temporary loss of peripheral vision in left eye for about 20 minutes a few weeks ago aligns with gold visual disturbance in left peripheral field for 20 minutes 2 weeks ago."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Recent fatigue is not mentioned in gold HPI; fatigue appears only as part of ROS and assessment in the generated set, and is absent from gold altogether."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Exercise intolerance is not present in any gold fact."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Left arm numbness is the chief complaint and HPI feature in gold; listing it in ROS is consistent, though ROS structure is not in gold."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold HPI includes tingling/numbness; ROS repeating left arm tingling is consistent."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold HPI notes mild weakness when holding things/playing piano; ROS describes left arm weakness without pain, which is compatible though less specific."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Transient vision loss in left eye corresponds to visual disturbance in the left peripheral field lasting 20 minutes."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007 notes headaches but does not mention fatigue. However, fatigue appears nowhere in gold; therefore this is better viewed as ADDITION, not supported."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007: patient reports headaches. ROS-006: positive for occasional headaches. This aligns."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-002",
+        "reasoning": "Gold ROS-002: denies fits/seizures. Generated ROS-007: negative for seizures. Matches."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Gold: no neck pain. Generated: no significant neck pain. Consistent."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "Gold notes prior visual disturbance but does not explicitly state absence of current visual problems; this negative ROS detail is not derivable from gold."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003",
+        "reasoning": "Gold: no weakness elsewhere. Generated: no systemic weakness. Same meaning."
+      },
+      {
+        "fact_id": "ros-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003",
+        "reasoning": "Gold: gait is normal. Generated ROS-011 states normal gait."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "Recent severe cold following heavy alcohol use is not present in any gold fact."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: patient takes ibuprofen. Generated: she takes ibuprofen, dose/route/frequency not documented. Added detail but consistent."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Gold: takes vitamin D. Generated: same with note of missing dosing details."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-003",
+        "reasoning": "Gold: takes iron tablets. Generated: takes iron supplements, not consistently. The inconsistency is additional but not contradictory."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-004",
+        "reasoning": "Gold: takes melatonin. Generated: same with note about missing dosing details."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "No allergy information is provided in gold facts; 'no drug allergies' is new information."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Father with hypothyroidism and autoimmune conditions matches gold."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-002",
+        "reasoning": "Mother with diabetes, hypertension, hyperlipidemia matches gold description of diabetes, high BP, and high cholesterol."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Both indicate boxing as a form of physical activity; generated adds that it is a regular exercise activity."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Social alcohol use is not mentioned in any gold fact."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts contain no physical exam documentation; stating that exam findings are not documented is not derivable from gold but does not contradict."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "ADDITION",
+        "reasoning": "Vitals: unknown is not mentioned in gold; this is a new detail."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Generated assessment of left arm numbness/weakness associated with boxing is not explicitly summarized this way in gold assessment. Gold assessment only has 'r/o MS'; the generated local musculoskeletal/neurologic assessment is new."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Differential including peripheral nerve injury and radiculopathy is not present in gold. Gold only lists 'r/o MS' without enumerating other differentials."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Transient vision loss once, lasting ~20 minutes, matches gold description of a single 20\u2011minute visual disturbance 2 weeks ago."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold assessment lists 'r/o MS', implying MS is being considered. Generated ASM-004 includes MS in a broader differential with vascular events (migraine, ocular TIA). The inclusion of MS is supported; the detailed differential with vascular causes is an addition."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Assessment of fatigue and exercise intolerance is not mentioned in gold."
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "ADDITION",
+        "reasoning": "Linking fatigue/exercise intolerance to recent cold/viral illness is not present in gold."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Urgent neurology referral matches gold 'urgent neurology review'; imaging suggestion is an added detail."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Continue supportive care and no new meds until assessment are not specified in gold plan."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold FU-001: attend A&E if progressing arm/leg weakness, vomiting, visual disturbances, fits. Generated PLAN-003: return immediately if progression of symptoms or new systemic symptoms such as leg weakness, severe headaches, visual disturbances. Progressing leg weakness and visual disturbances are supported; severe headaches and omission of vomiting/fits are additions/omissions, so only partially supported."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not separately state a neurology consultation specifically for transient vision loss; only general urgent neurology review is documented."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold FU-001 effectively educates on specific red flags (progressing weakness, vomiting, visual disturbances, fits). Generated PLAN-005 generally states education on red flags needing emergency care without explicit list. Concept is supported, details are not given."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Follow-up appointment after neurology assessment is not described in gold."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Disposition to await results of neurology referral and imaging is not present in gold."
+      }
+    ]
+  }
+}

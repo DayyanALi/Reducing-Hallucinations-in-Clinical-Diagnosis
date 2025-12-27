@@ -1,0 +1,313 @@
+{
+  "file_id": "day2_consultation08.txt",
+  "model_source": "gpt-5",
+  "metrics": {
+    "total_gold_facts": 32,
+    "total_gen_facts": 23,
+    "omission_count": 5,
+    "omission_rate": 0.1562,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0435,
+    "addition_count": 4,
+    "addition_rate": 0.1739
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 states a 7-day history of fever, which matches the one-week history in the gold fact. Associated symptoms in the generated fact extend beyond the chief complaint but the core element (duration of fever) is captured."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 includes fever for 7 days with alternating hot/cold sensations, night sweats, myalgias, nausea, fatigue, which correspond to sweatiness, body/muscle aches, nausea, fatigue, night sweats, hot/cold episodes in the gold fact. All major elements are present."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "No generated fact states that the patient is drinking less than normal or has low fluid intake relative to normal; generated cc-001 only says 'low fluid intake' without reference to baseline, which is not equivalent to 'less than normal'."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Generated med-001 and med-002 indicate ibuprofen and paracetamol use; cc-001 indicates they are being used for symptom relief. While the limited efficacy is not explicitly restated, the fact that they are being taken is covered by other gold facts and the partial effect on temperature is implicit in the clinical context but not directly restated in generated facts. However, the gold fact specifically notes only slight temperature reduction and otherwise not helping, which is not restated. Overall, the medication use and indication (symptom relief) are captured; the limited effectiveness detail is omitted. Marking as PARTIALLY covered would be ideal, but per allowed labels, it is closer to COVERED than entirely omitted regarding the core fact of taking OTC ibuprofen and paracetamol for symptom relief."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-003 states travel to Vietnam with rural and urban exposure including trekking and cycling, which aligns with the gold description of several weeks of rural and urban tourism with trekking and cycling. Duration 'several weeks' vs unspecified in generated is a minor omitted detail, but travel/exposure is captured."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-004 confirms daily malaria prophylaxis with the name unknown, matching the gold fact. The generated mention of 'possibly 2 agents' is an added detail but not conflicting."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states no significant PMH apart from back pain. Generated pmh-001 mentions chronic postural back pain and physiotherapy but does not state 'nil of note' or absence of other significant past medical history."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Generated pmh-001 describes chronic postural back pain and being in physiotherapy, matching the gold description of back pain under physiotherapy with suspected muscular/postural etiology."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "OMITTED",
+        "reasoning": "Gold lists hayfever as PMH; generated facts only mention hay fever under allergies (allergy-001) and do not list it as a past medical history condition."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Generated med-003 notes a medication 'ceraset', which matches Cerazette in gold (spelling variation)."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Generated med-001 indicates ibuprofen use, consistent with the gold fact that patient takes OTC ibuprofen for symptom relief."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "COVERED",
+        "reasoning": "Generated med-002 indicates paracetamol use, matching the gold fact of OTC paracetamol for symptom relief."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold states nil drug allergies. Generated allergy-001 lists an allergy to pollen and hay fever as an allergy. This introduces an allergic condition where gold explicitly says no allergies, so this contradicts the gold allergy section."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Generated fh-001 states father died of MI at 68, while gold indicates father had MI at 68; death is an added detail, but the MI at age 68 is captured."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Generated sh-001 confirms the patient works as a nurse; sh-002 confirms vaccines including Hep B up to date. Together they cover this gold fact."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Generated sh-003 explicitly states the patient is a non-smoker."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Generated sh-004 states moderate alcohol intake, matching the gold fact."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Generated sh-005 states the patient exercises at a moderate level a few times per week, consistent with moderate physical exercise."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 states 'no cough', matching the gold ROS entry."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 states no sore throat, aligning with the gold fact that sore throat is denied."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 denies coryza, which corresponds to runny nose in the gold fact."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 denies ear pain (otalgia), matching the gold fact."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 explicitly includes 'no diarrhea', consistent with the gold fact."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 notes 'no neck stiffness', matching the gold fact."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-002 says headaches are baseline, not worse than usual, consistent with the gold statement that there is no headache beyond the usual screen-related one."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 includes 'no rash', matching the gold fact."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 says 'no joint swelling or tenderness'; gold specifies no joint swelling with ongoing back pain. The denial of joint swelling is consistent; tenderness is an added denial."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "OMITTED",
+        "reasoning": "Gold denies dysuria or frequency; no generated fact addresses urinary symptoms."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Generated asm-001 describes a febrile illness of 7 days with night sweats, myalgias, nausea and unclear etiology; asm-002 mentions ruling out malaria/exotic infection. Together they reflect pyrexia of unknown origin with a need to exclude malaria."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Generated plan-001 outlines a same-day in-person exam, equivalent to a face-to-face appointment with GP today, although specifying central London clinic and admin details as additions."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold specifies blood tests including CRP, ESR, and thick/thin films. Generated plan-002 mentions post-exam labs as indicated including thick and thin films for malaria and 'inflammatory markers' without explicitly naming CRP and ESR. The concept of inflammatory markers is consistent but less specific. Since only COVERED/OMITTED were requested, this is closer to COVERED conceptually, but key specific tests (CRP, ESR) are not named. If forced to choose, this would be labeled as COVERED at a conceptual level; however, specificity is reduced."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "Gold notes tests may be routine or via A&E depending on a second GP\u2019s assessment; generated plan-003 only addresses going to A&E if unable to attend clinic, not the conditional route of ordering labs based on another GP assessment."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "cc-001",
+        "reasoning": "Fever for 7 days is supported by gold cc-001. Associated symptoms (alternating hot/cold, night sweats, myalgias, nausea, fatigue) are supported by gold hpi-001. However, decreased appetite and 'low fluid intake' are not mentioned in gold; 'low fluid intake' partially overlaps with 'drinking less cf normal' but lacks the comparative aspect. Thus, duration and many symptoms are supported, but some details are additions."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001/ros-002/ros-003/ros-004/ros-005/ros-006/ros-008/ros-009",
+        "reasoning": "Directly matches the gold ROS denials for cough, runny nose (coryza), sore throat, ear pain, diarrhea, neck stiffness, rash, and joint swelling. Added 'tenderness' is reasonable extension but not contradictory."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes that headaches are not more than usual and are screen-related. Generated adds 'weather-related' and 'occasional migraines', which are not in gold but do not contradict the statement that headaches are baseline and not worse than usual."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Travel to Vietnam with rural and urban exposure including trekking and cycling is consistent with the gold fact. Return '4 weeks ago' and 'through farmland' are additions not present in gold but not conflicting."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Daily malaria prophylaxis with unknown name is supported by gold. The detail 'possibly 2 agents' is an unsupported addition."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Chronic postural back pain in physiotherapy matches gold description of back pain under physiotherapy with working diagnosis muscular/posture."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Use of ibuprofen is explicitly in gold medications."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-003",
+        "reasoning": "Use of paracetamol is explicitly in gold medications."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Generated 'ceraset' corresponds to Cerazette in gold; spelling difference only."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold explicitly states 'Nil allergies'. Generated lists pollen allergy with hay fever as an allergy; this directly conflicts with the gold allergy section."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "fh-001",
+        "reasoning": "Gold records father had MI at 68. Generated adds that he died of MI at 68. MI at 68 is supported; death from MI is an unsupported addition but not contradicted by gold."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Employment as a nurse is explicitly in gold."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Vaccinations including Hep B up to date matches the gold fact."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Non-smoker status is directly supported by gold."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Moderate alcohol use is directly supported."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Moderate exercise a few times per week is consistent with moderate physical exercise in gold."
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention fatigue affecting work in the social history. This is an extra detail, not contradicted elsewhere."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Describes febrile illness 7 days with night sweats, myalgias, nausea, and unclear etiology, consistent with pyrexia of unknown origin; additionally notes absence of focal ENT/resp/GI/GU symptoms, which is supported by ROS gold facts."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001/hpi-004/hpi-005",
+        "reasoning": "Concern for malaria or exotic infection in the context of Vietnam travel and unclear prophylaxis matches gold impression 'PUO, need to exclude malaria' and travel/prophylaxis history."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Same-day in-person exam aligns with face-to-face GP appointment today in gold. Specifics about 'central London clinic', admin booking process, and calling a number are additions."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Labs including thick/thin blood films for malaria and inflammatory markers conceptually match gold blood tests including CRP, ESR (inflammatory markers) and thick/thin films. However, CRP and ESR are not named specifically; 'post-exam as indicated' adds conditionality not specified in gold."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Instruction to go to local A&E if unable to attend clinic is not mentioned in gold and does not conflict with any stated plan. It is an additional disposition option."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Being off work until evaluation completed is not addressed in the gold plan and does not contradict it, so it is an added plan detail."
+      }
+    ]
+  }
+}

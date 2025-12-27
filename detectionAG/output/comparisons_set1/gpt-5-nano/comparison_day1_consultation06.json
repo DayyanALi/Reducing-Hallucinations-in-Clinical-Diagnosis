@@ -1,0 +1,368 @@
+{
+  "file_id": "day1_consultation06.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 23,
+    "total_gen_facts": 41,
+    "omission_count": 7,
+    "omission_rate": 0.3043,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 12,
+    "addition_rate": 0.2927
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies a 2\u2011week history and that SOB has been worsening over the past 2 weeks. Generated facts mention progressive SOB over weeks and worse over last few days, but do not capture the explicit 2\u2011week duration or that the worsening is over the same 2\u2011week period."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold states patient is more SOB on minimal exertion but nil SOB at rest. Generated facts describe SOB with minimal exertion and breathless around the house, but do not state the absence of SOB at rest."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold states denial of chest pain AND palpitations. Generated HPI has no palpitations; chest pain no, but palpitations denial appears only in Review of Systems/Physical Findings, not HPI. As the mapping is section\u2011specific, this exact combined HPI statement is not captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: associated mainly dry cough. Generated HPI, ROS describe a dry cough, which captures this fact."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: no fevers. Generated HPI and PF state no fevers, so this is captured."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: patient noticed bilateral ankle edema over past few days. Generated HPI and PF: bilateral ankle swelling/edema over the last few days. This matches."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: history of heart failure and currently on diuretics. Generated PMH lists heart failure, and meds include furosemide, but there is no explicit HPI statement about a prior HF diagnosis and being on diuretics in the HPI section itself."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold notes urinary polyuria. No urinary symptoms are mentioned in any generated fact."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold PMH: heart failure and possible unstable angina. Generated PMH includes heart failure and ischemic heart disease/MI, but does not mention possible unstable angina."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: furosemide, aspirin, simvastatin. Generated meds list furosemide, aspirin, simvastatin (plus metoprolol). The gold list is fully included."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: NKDA. Generated: no known drug allergies. Matches."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: father died of MI in early 60s. Generated FH states the same."
+      },
+      {
+        "fact_id": "famhx-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has osteoporosis. Generated FH states the same."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives alone with two cats. Generated: lives alone with two cats (adds their names). Core fact is captured."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: works part\u2011time as a lorry driver. Generated SH: works part\u2011time as a lorry driver. Match."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: ex\u2011smoker, 1 pack/day for 25 years (25 pack\u2011years). Generated: former smoker ~25 pack\u2011years, quit. Equivalent."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no alcohol. Generated: does not drink alcohol. Match."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold impression: exacerbation of heart failure. Generated assessment: worsening congestive heart failure with dyspnea on exertion and bilateral edema, likely HF decompensation. Clinically the same impression."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: increase furosemide BD (twice daily). Generated: increase furosemide from current dose to two tablets daily for next few days. Two tablets daily is consistent with BD; the temporal qualifier is additional but not conflicting."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: blood tests including U&Es, FBC, BNP. Generated: CBC and renal function/electrolytes, but no mention of BNP. Thus BNP is omitted."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: arrange echocardiogram (echo). Generated: arrange echocardiogram to assess LV function, scheduled within 1\u20132 weeks. This includes and expands the gold fact."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: review in 7 days. Generated: recheck in about one week. Equivalent."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised earlier review if worsening symptoms such as chest pain, SOB, dizziness. Generated safety/plan: seek prompt care if worsens (increased SOB, chest pain, palpitations, dizziness, signs of dehydration/overdiuresis). The core advice is captured with added detail."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint description (progressive SOB over weeks; worse over last few days) is not present as such in gold. Gold only gives 2\u2011week history and worsening over 2 weeks in HPI, not this phrasing or time frame in CC."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold notes SOB on minimal exertion and no SOB at rest; it does not state that the patient is now breathless around the house. The exertion\u2011related SOB is partially aligned but the specific detail 'now breathless around the house' is new; also gold emphasizes no SOB at rest, which is not restated here."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold: associated mainly dry cough. Generated: patient has a dry cough. Consistent."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: ankle edema bilaterally over past few days. Generated: bilateral ankle swelling over last few days. Same finding."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no chest pain/palpitations. Generated HPI: no chest pain (no mention of palpitations here). The chest pain component is supported."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold: no fevers. Generated: no fevers. Matches."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Appetite and fluid intake are okay are not mentioned in any gold fact; purely additional."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Feeling run\u2011down is not described anywhere in the gold facts."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH includes heart failure. Generated PMH\u2011001 states history of heart failure; this portion is supported (though gold also has ?unstable angina which is not mentioned here)."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold PMH has heart failure and possible unstable angina; no prior MI 5 years ago or its admission details are given. This is new information."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "ADDITION",
+        "reasoning": "History of ischemic heart disease is not stated in gold (only ?unstable angina and heart failure). This is additional."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: patient takes furosemide (no dose). Generated: taking furosemide, dose unknown. Consistent and more explicit about missing dose."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: aspirin listed. Generated: patient is taking aspirin. Supported."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "ADDITION",
+        "reasoning": "Metoprolol is not mentioned in gold medication list. Additional drug."
+      },
+      {
+        "fact_id": "med-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: simvastatin listed. Generated: patient taking simvastatin. Supported."
+      },
+      {
+        "fact_id": "med-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention that the patient cannot recall the furosemide dose. This is new detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: NKDA. Generated: no known drug allergies. Matches."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-001",
+        "reasoning": "Gold: father died of MI early 60s. Generated: father died of MI in early 60s. Same."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-002",
+        "reasoning": "Gold: mother has osteoporosis. Generated: mother with osteoporosis. Same."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: lives alone, 2 cats. Generated: lives alone with two cats named Polly and Tim. Core fact is supported; the names are additional."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold: works part time as a lorry driver. Generated: works part\u2011time as a lorry driver. Same."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold: ex\u2011smoker, 1 pack/day for 25 years. Generated: former smoker ~25 pack\u2011years, quit. Equivalent pack\u2011year history and ex\u2011smoker status."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Gold: no alcohol. Generated: does not drink alcohol. Same."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "Daily walking to shops is not present in gold social history."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: impression of exacerbation of heart failure. Generated: worsening congestive HF with DOE and bilateral edema, likely HF decompensation. Same clinical assessment with more detail."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "History of ischemic heart disease with prior MI is not part of gold assessment (gold only mentions HF exacerbation). Additional assessment item."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Plan\u2011guided evaluation and diuretic optimization appears as part of the plan in gold, not as a separate assessment statement, and the specific phrasing is not present. Treated as additional content in assessment."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: increase furosemide BD. Generated: increase furosemide from current dose to two tablets daily for next few days; reassess response. The core change (increase dose/frequency) is supported; added specifics about number of tablets and short duration are additional but not contradictory."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "reasoning": "Gold: blood tests including U&Es, FBC, BNP. Generated: CBC and renal function to assess anemia, electrolytes, renal status. CBC \u2248 FBC, and renal/electrolytes \u2248 U&Es are supported; assessment for anemia, electrolytes, renal status is implied but not explicit in gold. BNP is missing. Overall partially supported, with omissions and additions."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Gold: arrange echocardiogram (echo). Generated: arrange echocardiogram to assess LV function, expecting 1\u20132 weeks for scheduling. Supported with additional detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: advised earlier review if worsening symptoms (chest pain, SOB, dizziness, etc). Generated: instruct to seek prompt care if worsens (more SOB, chest pain, palpitations, dizziness, dehydration/overdiuresis). Core safety advice is supported; palpitations and dehydration/overdiuresis are extra details."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: review in 7 days. Generated: recheck in about one week. Equivalent."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts include no specific physical exam summary. Description that chest exam, O2 sats, BP were 'okay' is new."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: ankle edema bilaterally over past few days. Generated PF: bilateral ankle edema reported. Supported."
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold: no fevers. Generated PF: no fever reported during visit. Supported."
+      },
+      {
+        "fact_id": "pf-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no chest pain/palpitations. Generated PF: no chest pain during visit. Chest pain portion is supported."
+      },
+      {
+        "fact_id": "pf-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no chest pain/palpitations. Generated PF: no palpitations reported. Palpitations portion is supported."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold: associated mainly dry cough. Generated ROS: cough (dry) positive. Supported."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold: bilateral ankle edema over past few days. Generated ROS: edema positive. Supported."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no chest pain/palpitations. Generated ROS: negative for palpitations. Supported."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: no chest pain/palpitations. Generated ROS: negative for chest pain. Supported."
+      }
+    ]
+  }
+}

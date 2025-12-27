@@ -1,0 +1,250 @@
+{
+  "file_id": "day1_consultation15.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 25,
+    "omission_count": 0,
+    "omission_rate": 0.0,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 5,
+    "addition_rate": 0.2
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-002 states soreness and cracked skin on palms starting 3\u20134 months ago, matching the 3\u20134 month history of sore and cracked skin on the hands, mainly palms."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-003 (itchiness) and hpi-004 (occasional bleeding on scratching) capture itch and bleeding; no generated fact asserts pain, so the 'no pain' element is implicitly consistent though not explicitly restated."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Generated sh-001 (hotel housekeeper, infrequent glove use) and asm-001 (suspected contact dermatitis related to occupational exposure and infrequent glove use) capture work as cleaner/housekeeper, glove non-use, and possible trigger."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Generated facts do not list E45 by name but hpi-006 mentions general dryness and is unrelated. However, the specific trial of E45 cream and antihistamines with minimal relief is not mentioned anywhere in the generated set, so this fact is not captured."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-007 (no fever, nausea, vomiting, bowel, or urinary symptoms) and hpi-008 (appetite well maintained) together capture denial of fever, bowel/urinary symptoms, and maintained appetite, with added nausea/vomiting detail."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Generated pmh-001 states patient has type 2 diabetes, matching the gold PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Generated med-001 states patient is taking metformin, matching the gold medication (dose/route/frequency simply noted as not documented)."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Generated allergy-001 states patient has no known allergies, which aligns with NKDA (no known drug allergies) and does not contradict it."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "COVERED",
+        "reasoning": "Generated fh-001 states family history notable for diabetes, matching family history of type 2 diabetes (type not specified but not contradicted)."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 identifies her as a housekeeper; sh-001 specifies hotel housekeeper; sh-002 indicates job change 4 months ago. Together they cover working as a housekeeper in a hotel and changing jobs 4 months ago."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold says no smoking and minimal alcohol. Generated sh-004 confirms non-smoker. Generated sh-003 states a couple of pints weekly, which is compatible with minimal alcohol but adds a specific quantity. Thus smoking is fully covered; alcohol use is captured with added detail but not contradicted."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Generated asm-001 states suspected contact dermatitis related to occupational exposure and infrequent glove use, matching the impression of contact dermatitis and expanding on likely etiology."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: steroid cream BD (twice daily). Generated plan-002: steroid creams prescribed for inflammation but no frequency specified. Medication type and purpose are covered; dosing frequency detail (BD) is omitted."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_COVERED",
+        "reasoning": "Gold: regular use of emollients. Generated plan-003: stronger emollients recommended 3\u20134 times daily. The concept of regular emollient use is covered, but the generated fact adds specific strength and frequency not present in gold."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: avoid triggers and wear cleaning gloves. Generated plan-001: avoid triggers with strong recommendation to wear gloves at all times during cleaning. This fully covers the advice with more specific wording."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: review in 10\u201314 days if not better. Generated fu-001: follow up if no improvement in 10\u201314 days, matching this instruction."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: seek review earlier if worsening symptoms. Generated fu-001: follow up if symptoms worsen or spread, which is equivalent and adds the spread detail."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Chief complaint of soreness and cracked skin on hands is consistent with gold HPI of sore and cracked skin on hands, mainly palms."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Patient name and age (Laura Parkinson, 45-year-old) are not present in any gold fact; housekeeper role is supported by gold sh-001 but name/age are added details."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Soreness and cracked skin on palms starting 3\u20134 months ago matches the gold 3\u20134 month history of sore and cracked skin on hands, mainly palms."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Itchiness of affected skin is consistent with gold description of occasionally itchy skin."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Occasional bleeding upon scratching matches gold statement that the skin has bled on scratching."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Worsening recently and affecting work are not mentioned in any gold fact; no contradiction, but this is new information."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "General skin dryness, especially on legs, is not described in gold facts; no conflict but purely additional."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold denies fever and bowel/urinary symptoms; generated also denies these plus adds nausea and vomiting, which are extra but not contradictory."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Appetite well-maintained matches gold statement that appetite is maintained."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Type 2 diabetes matches the gold PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Use of metformin is in gold; noting that dose/route/frequency are not documented is additional but compatible with gold, which also lacks that detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "No known allergies is consistent with NKDA (no known drug allergies); broader but not contradictory."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-001",
+        "reasoning": "Family history of diabetes aligns with family history of type 2 diabetes (type unspecified in generated fact)."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "ADDITION",
+        "reasoning": "Statement of no known skin problems in family history is not present in gold; there is no conflict but it is new information."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Working as a hotel housekeeper is in gold; infrequent use of gloves aligns with gold hpi-003 that she does not always wear gloves."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Job change 4 months ago matches gold statement that she changed jobs 4/12 ago."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "A couple of pints of alcohol weekly is consistent with 'minimal etOH' in gold, adding quantification without contradicting."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Non-smoker matches 'Nil smoking' in the gold fact."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Suspected contact dermatitis is the same impression as gold; attribution to occupational exposure and glove use elaborates on gold hpi-003 without conflict."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003",
+        "reasoning": "Advice to avoid triggers and strongly recommend glove use during cleaning is consistent with gold advice to avoid triggers and wear cleaning gloves."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold prescribes a steroid cream BD; generated prescribes steroid creams for inflammation. Medication class and intent match, but multiple creams and exact dose/frequency are unspecified and partly additional."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "PARTIALLY_SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold recommends regular emollient use; generated specifies stronger emollients 3\u20134 times daily, which aligns with regular use but adds strength and precise frequency details."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Instruction that the prescription be sent to pharmacy does not appear in any gold fact; no contradiction, purely additional workflow detail."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Follow-up if no improvement in 10\u201314 days matches gold fu-001; follow-up if symptoms worsen or spread is consistent with gold fu-002 and adds 'spread'."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "ROS negative for fever, urinary, and bowel issues is consistent with gold denials in HPI; inclusion of nausea/vomiting is additional but not contradictory."
+      }
+    ]
+  }
+}

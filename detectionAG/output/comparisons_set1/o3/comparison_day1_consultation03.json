@@ -1,0 +1,327 @@
+{
+  "file_id": "day1_consultation03.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 22,
+    "total_gen_facts": 35,
+    "omission_count": 11,
+    "omission_rate": 0.5,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.0857,
+    "addition_count": 10,
+    "addition_rate": 0.2857
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states gradual onset over a few hours. Generated HPI and CC describe sudden-onset headache, which conflicts and does not faithfully capture the gradual onset detail."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies throbbing, non-radiating headache. Generated facts mention throbbing and side but never state that the pain is non-radiating or nil radiating."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: visual aura with zigzag lines before headache. Generated HPI-002 mentions zig-zag lines and blurred vision bilaterally before headache but does not explicitly state they were an aura; also adds bilateral transient blurred vision, which is not in gold. The core concept of a visual aura is not clearly and directly captured as such."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: photophobia and blurred vision associated with headache. Generated has photophobia (HPI-003) and nausea/vomiting (HPI-004) but does not state blurred vision as a concurrent associated symptom; blurred vision is only described as part of the pre-headache aura."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: nausea and vomited twice today. Generated HPI-004: associated with nausea and two episodes of vomiting. This directly matches."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: worsening pain with movement of the neck. Generated HPI-005: headache worsens with head and neck movement. This captures and slightly extends the gold detail."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies speech disturbances, limb weakness/numbness, and coordination/balance issues. Generated has separate denials: speech difficulty (HPI-008), focal weakness (HPI-009), and balance issues (HPI-010), but does not mention numbness at all and does not group limb weakness with numbness as in gold. Because numbness is missing, the gold fact is not fully captured."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies recent head injury, fever, or rashes. Generated denies fever (HPI-006), rash (HPI-007), and head trauma (HPI-011), but does not specify that they are \u2018recent\u2019 and uses \u2018head trauma\u2019 instead of \u2018recent head injury\u2019. The timing nuance is not fully captured."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: worried about brain cancer. Generated HPI-014: concerned about having a brain tumour after an online search. This captures the concern, with added context."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no significant past medical history. Generated PMH-001: no past medical history is reported. This matches."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes Microgynon. Generated med-001: taking Microgynon OCP for three months. Core medication matches, with added duration detail."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: NKDA (no known drug allergies). There is no generated fact about drug allergies."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has migraines. Generated fh-001: mother has a history of migraines. This matches."
+      },
+      {
+        "fact_id": "famhx-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has an underactive thyroid. Generated fh-002: mother has hypothyroidism. This is equivalent terminology."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives alone and works in fashion industry. Generated sh-001: works in fashion industry; sh-003: lives alone. Combined, these cover the gold fact."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: feeling very stressed but denies mood symptoms. Generated sh-002 notes high job stress but does not state denial of mood symptoms, so it does not fully capture the gold content."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: no history of smoking or alcohol use. Generated sh-004 and sh-005: does not smoke, does not drink alcohol. This matches."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is migraine. Generated asm-001: migraine with aura assessed as recurrent with classic features and no red-flag neuro signs. The diagnosis of migraine is covered with additional qualifiers."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: advised to keep a headache diary. Generated plan-002: headache diary to identify triggers. This appears in the Plan_of_Care, but the gold fact is in Plan_of_Care as well. However, gold specifies simply \u2018keep headache diary\u2019; generated specifies purpose. Core action is the same, so it should be COVERED. Re-evaluating: the core recommendation is identical. Status: COVERED."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: recommended regular paracetamol and/or NSAIDs. Generated plan-001: paracetamol or co-codamol; add NSAID PRN. Here, use is PRN rather than regular, and co-codamol is added. Because dosing schedule (regular vs PRN) differs materially, this does not faithfully capture the gold instruction."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: review in 1 week to discuss prophylactic treatment. Generated plan-005 and fu-001: follow-up next week with consideration of prophylactic treatment. This matches, with added OCP review detail."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: seek earlier review if worsening symptoms or any concerns. Generated plan-004 describes red-flag reasons to return (increasing headache, persistence >2\u20133 days, neuro deficits, visual changes, worsening neck pain), which is conceptually similar but not identical; it does not mention vomiting specifically nor \u2018any concerns\u2019, and adds a duration criterion. The gold statement is not fully captured."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: sudden-onset left-sided throbbing headache. Gold HPI-001: headache started a few hours ago with gradual onset. Sudden vs gradual onset is directly conflicting."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: headache is of sudden onset starting at midday. Gold HPI-001 describes gradual onset. This is a direct contradiction, though side and throbbing are consistent."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI-003 mentions visual aura with zigzag lines before headache but does not mention it as transient, bilateral, or combined with blurred vision in that way. Generated adds bilateral transient blurred vision and does not explicitly label the pre-HA phenomenon as an aura. This is additional detail, partially overlapping with gold but not fully supported."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold HPI-004: headache associated with photophobia and blurred vision. Generated HPI-003: associated with photophobia, patient wearing sunglasses. This is consistent with the photophobia component, while omitting blurred vision here."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold HPI-005: feels nauseous and has vomited twice today. Generated HPI-004: associated with nausea and two episodes of vomiting. This matches."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold HPI-006: worsening pain with movement of neck. Generated HPI-005: headache worsens with head and neck movement. Consistent and slightly more expansive."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold HPI-008: denies fever. Generated HPI-006: denies fever. Directly supported."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold HPI-008 includes denial of rashes. Generated HPI-007: denies rash. Consistent."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007: no speech disturbances. Generated HPI-008: denies speech difficulty. Equivalent in meaning."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI-007: no limb weakness or numbness. Generated HPI-009: denies focal weakness. This overlaps with limb weakness but does not mention numbness and reframes as \u2018focal\u2019. It is partially supported but not fully covering the gold item; treated as an addition/partial overlap rather than full support."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007: no coordination/balance issues. Generated HPI-010: denies balance issues. This is supported."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold HPI-008: denies any recent head injury. Generated HPI-011: denies head trauma. Conceptually aligned; timing (\u2018recent\u2019) not specified but no direct conflict."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Denial of shortness of breath is not present in any gold fact. It is an added negative symptom."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "ADDITION",
+        "reasoning": "Prior similar episode a few weeks ago lasting ~2 days is not mentioned in any gold facts. New history detail."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold HPI-009: patient worried about brain cancer. Generated HPI-014: concerned about brain tumour after online search. Same core concern with extra context of online search."
+      },
+      {
+        "fact_id": "hpi-015",
+        "status": "ADDITION",
+        "reasoning": "Friend\u2019s mother dying of brain cancer is not present in gold facts. Additional psychosocial context."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold: no significant past medical history. Generated: no past medical history reported. Consistent."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: takes Microgynon. Generated: Microgynon OCP for three months. Same medication with added duration."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-001",
+        "reasoning": "Gold famhx-001: mother has migraines. Generated fh-001: mother has history of migraines. Matches."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-002",
+        "reasoning": "Gold: mother has underactive thyroid. Generated: mother has hypothyroidism. Equivalent."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold sh-001: lives alone and works in fashion industry. Generated sh-001: works in fashion industry. This matches the work component; the \u2018lives alone\u2019 is in sh-003."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold sh-002: feeling very stressed but nil mood symptoms. Generated sh-002: reports high job stress. This supports the stress element but omits mood denials; it is still partially supported for the stress portion."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold sh-001: patient lives alone. Generated sh-003: patient lives alone. Direct match."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold sh-003: no history of smoking or alcohol use. Generated sh-004: does not smoke. This is consistent with part of the gold statement."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold sh-003: no history of smoking or alcohol use. Generated sh-005: does not drink alcohol. Consistent with remaining part of the gold statement."
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "ADDITION",
+        "reasoning": "No regular exercise is not mentioned in any gold fact. Additional lifestyle information."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not address physical exam or vitals. Statement that none were recorded is new information."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold assessment: migraine. Generated: migraine with aura, recurrent, classic features, no red-flag neuro signs. The base diagnosis is supported; remainder is additional detail not contradicted by gold."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Health anxiety regarding brain tumour is not specified as a separate assessment in gold, though the patient is worried about brain cancer. Framing it as an explicit diagnosis of health anxiety is additional."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold plan-002: recommends regular paracetamol/NSAIDs. Generated plan-001: paracetamol or co-codamol, add NSAID PRN. PRN vs regular use and addition of co-codamol differ materially from the gold regimen, representing a therapeutic plan change."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold plan-001: advised to keep a headache diary. Generated plan-002: headache diary to identify triggers. Same action, with purpose added."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Education on migraine nature and reassurance about low suspicion for intracranial mass is not mentioned in any gold plan or follow-up facts. New counseling detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold fu-002: earlier review if worsening symptoms (headaches, vomiting, vision symptoms) or any concerns. Generated plan-004 lists specific red-flag criteria (\u2191 headache, >2\u20133 days persistence, neuro deficits, visual changes, worsening neck pain). Overlaps conceptually but introduces specific thresholds and criteria not in gold; also omits vomiting and \u2018any concerns\u2019. Best classified as addition."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold fu-001: review in 1 week to discuss prophylactic treatment. Generated plan-005: follow-up next week with consideration of prophylactic treatment and review of OCP if attacks continue. The follow-up timing and prophylactic discussion are supported; OCP review is added."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold fu-001: review in 1 week. Generated fu-001: follow-up next week. This matches the timing, without mentioning prophylactic discussion, which is present in plan-005."
+      }
+    ]
+  }
+}

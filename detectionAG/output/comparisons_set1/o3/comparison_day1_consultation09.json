@@ -1,0 +1,275 @@
+{
+  "file_id": "day1_consultation09.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 24,
+    "total_gen_facts": 27,
+    "omission_count": 9,
+    "omission_rate": 0.375,
+    "contradiction_count": 4,
+    "contradiction_rate": 0.1481,
+    "addition_count": 10,
+    "addition_rate": 0.3704
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies a 3-day history of dysuria and suprapubic pain. Generated HPI notes dysuria with suprapubic pain but does not state duration; the only 3-day duration appears in the Chief Complaint section, not HPI, so this exact fact (including duration) is not fully captured in the HPI-generated facts."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies urinary frequency. Generated hpi-004: patient denies increased urinary frequency. This is equivalent."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: brief episode of hematuria, now resolved. Generated hpi-002: small amount of hematuria noted earlier today, with no mention that it has resolved. The timing and resolution status differ, so the specific gold fact is not captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: urine is foul-smelling. Generated hpi-003: patient reports malodorous urine. These are equivalent."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: abdominal pain is cramping and non-radiating. Generated hpi-001 mentions mild crampy suprapubic pain during voiding but does not state that it does not radiate; therefore the non-radiating element is missing and the gold fact is not fully captured."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: denies nausea, vomiting, fever, bowel symptoms. Generated hpi-007 denies nausea/vomiting; hpi-008 denies diarrhea; hpi-009 denies fever/chills. Taken together, these cover the gold denials (bowel symptoms manifested as diarrhea)."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: sexually active with a regular partner for 2 months. Generated sh-004: sexually active with a new boyfriend for 2 months, condoms used. Describing the partner as a \u201cnew boyfriend\u201d vs \u201cregular partner\u201d is not equivalent; the relationship characterization differs, and \u2018condoms used\u2019 is not in gold. Thus the specific gold fact is not accurately captured."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: no previous STD screen. Generated sh-006: no prior STI screen. This is equivalent."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies vaginal discharge. There is no mention of vaginal or PV discharge in the generated facts."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: LMP 2 weeks ago. Generated sh-005: LMP approximately 2 weeks ago. This matches the timing; added low suspicion for pregnancy is extra but does not negate coverage."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of IBS. Generated pmh-001: history of irritable bowel syndrome. Direct match."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no regular medications. Generated med-001: takes no regular medications. Direct match."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: allergic to Clindamycin. Generated allergy-001: allergic to clindamycin with swelling. The base allergy is captured; reaction detail is additional."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no relevant family history. Generated fh-001 specifies negative for kidney/bladder/GI disease, which is a narrower statement; it does not explicitly state that there is no relevant family history overall. Thus the broader gold fact is not fully captured."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient is 19 years old. The generated facts do not specify the patient\u2019s age."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: student in Biology, lives in a flat with friends. Generated sh-001: biology student who lives with friends. This matches in substance (flat not specified but \u2018lives with friends\u2019 and student in biology are captured)."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker, social alcohol at weekends. Generated sh-002 and sh-003: non-smoker; drinks alcohol socially on weekends. Direct match."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is UTI/cystitis. Generated asm-001: uncomplicated lower UTI. This is consistent with a cystitis/UTI impression."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 3-day course of either nitrofurantoin or trimethoprim. Generated plan-001: nitrofurantoin or trimethoprim 100 mg PO BID for 3 days. Same antibiotics and duration; dosage detail is additional."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: push fluids, trial cranberry juice. Generated plan-002: increase hydration; may consider cranberry juice. Semantically equivalent."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: avoid having sex. Generated plan-003: pelvic rest and continue barrier contraception. Pelvic rest includes avoidance of intercourse, so the instruction to avoid sex is captured; continuing barrier contraception is additional information."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: pregnancy test will be performed to exclude pregnancy. Generated plan-005: consider pregnancy test if symptoms persist or recur. This changes it from a definite planned test now to a conditional future consideration; therefore the gold fact is not captured and is functionally contradicted."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: review in 3 days if not better. Generated plan-004: return if no improvement by end of week. Timing differs (3 days vs end of week), so the gold follow-up timeframe is not captured."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: return earlier for worsening symptoms such as fevers, back pain, vomiting, or feeling more unwell. Generated plan-004: return sooner for fever, back/flank pain, or systemic symptoms. This captures the essence of the gold warning symptoms (fever, back pain, systemic illness including vomiting)."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint with wording \u201cstinging pain when I pee\u201d and explicit duration in CC is not represented in the gold facts list (which begins at HPI); thus it is additional detail."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "States dysuria with mild crampy suprapubic pain during voiding. Gold has dysuria and suprapubic pain over 3 days and separate description of abdominal pain as cramping and non-radiating, but does not specify that the suprapubic pain occurs \u2018during voiding\u2019 or that it is mild; thus the temporal association and severity are additional."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: small amount of hematuria earlier today. Gold: brief episode of hematuria which has now resolved. Gold implies a past, resolved event; generated implies current-day hematuria with no resolution stated, so it conflicts in timing and status of the hematuria."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Denial of urinary urgency is not mentioned in any gold fact. Gold only mentions denial of frequency, not urgency, so this is extra negative symptom information."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Denial of flank or back pain is not stated in the gold facts. Gold describes abdominal/suprapubic pain only and gives no explicit statement regarding flank/back pain, so this is additional information."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Use of OTC bicarbonate is not mentioned in any gold fact; this is extra treatment history."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold notes clindamycin allergy but does not specify the reaction. The detail that it causes swelling is additional."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold family history states \u2018no relevant family history\u2019 globally. The generated negative family history focusing specifically on kidney/bladder/GI disease is a more focused statement and not directly derived from the gold; considered additional detail."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: sexually active with a regular partner for 2 months. Generated: sexually active with a new boyfriend for 2 months and uses condoms. Calling the partner \u2018new\u2019 vs \u2018regular\u2019 alters the nature of the relationship described and introduces condom use not in gold; this characterization conflicts with the gold description."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "The LMP ~2 weeks ago portion is supported by gold hpi-010, but \u2018low suspicion for pregnancy\u2019 is not stated in gold; therefore overall this fact contains an added evaluative element and is best classified as an addition."
+      },
+      {
+        "fact_id": "sh-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "ADDITION",
+        "reasoning": "Gold defines a 3-day course of nitrofurantoin or trimethoprim but does not specify dose, frequency, route, or clinician selection. The 100 mg PO BID and \u2018per clinician\u2019 are additional details."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Pelvic rest (avoidance of intercourse) is supported by gold plan-003, but \u2018continue barrier contraception\u2019 is not in the gold plan; thus this instruction includes additional care details."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold follow-up: review in 3 days if not better, or earlier for specified worsening symptoms. Generated: return if no improvement by end of week or sooner for specified symptoms. The primary review timing (3 days vs end of week) conflicts with the gold follow-up plan."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: pregnancy test will be performed now to exclude pregnancy (definite action). Generated: urine culture and pregnancy test are to be considered only if symptoms persist or recur (conditional, future). This changes a definite current plan into a conditional possible future test, which conflicts with the gold plan."
+      }
+    ]
+  }
+}

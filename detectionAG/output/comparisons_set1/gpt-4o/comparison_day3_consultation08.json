@@ -1,0 +1,190 @@
+{
+  "file_id": "day3_consultation08.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 17,
+    "omission_count": 3,
+    "omission_rate": 0.1765,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0588,
+    "addition_count": 6,
+    "addition_rate": 0.3529
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold describes cough and cold for 5 days; generated HPI-001 describes a 5-day history of dry cough and runny nose (cold symptoms), matching duration and general complaint."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies the cough is dry with no sputum or blood. Generated facts mention dry cough and no hemoptysis (blood), but do not address sputum explicitly; the 'no sputum' element is missing."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies wheezing. Generated HPI-002: patient denies wheezing, which matches."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies breathlessness. Generated HPI-002: patient denies shortness of breath (SOB), which is equivalent."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold documents headache. No generated fact mentions headache."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold notes no swollen neck glands. Generated facts do not address lymph nodes or neck glands."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: diabetes mellitus for 5\u20136 years. Generated PMH-001: diabetes for 5 to 6 years. This matches."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has hypertension. Generated PMH-002: patient has hypertension. This matches."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is taking metformin. Generated MED-001: patient is taking metformin. This matches."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is taking lisinopril. Generated MED-002: patient is taking lisinopril. This matches."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has used paracetamol for symptoms. Generated MED-003: patient is taking paracetamol. This captures the medication use, though ongoing vs symptomatic use is not distinguished; considered covered."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "COVERED",
+        "reasoning": "Gold: redness at the back of the throat on video assessment. Generated PF-001: mild redness in the throat. This is the same key finding (throat redness)."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "COVERED",
+        "reasoning": "Gold: tonsils are not enlarged. Generated PF-001: no tonsillar enlargement. This matches."
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: blood pressure and blood sugar levels are normal today. Generated PF-002: no blood pressure issues reported during home monitoring; does not mention blood sugar at all and shifts context to home monitoring rather than today's measurements, which conflicts with the specific gold finding of documented normal BP and sugar today."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: diagnosis is upper respiratory tract infection. Generated ASM-001: assessment is viral upper respiratory infection, which is a more specific but consistent formulation; core diagnosis is covered."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to use Night Nurse and Day Nurse. Generated PLAN-001: recommend OTC medications Night Nurse and Day Nurse. This matches."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: call back if breathlessness, wheezing, or cough >3 weeks. Generated PLAN-003 and PLAN-004: return if SOB or wheezing, and if symptoms last >3 weeks. This captures the same follow-up instructions, with 'symptoms' instead of specifically 'cough,' but clinically equivalent for this context."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint (patient presents with cough and cold) is not explicitly stated in the gold facts list, though consistent with the HPI; no direct gold statement to map, so treated as an addition."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Partially overlaps with gold HPI-001 (5-day history of cough and cold), but adds myalgia and occasional chills, which are not in gold. Also does not capture all of gold HPI-002 (no sputum). Overall treated as an addition rather than fully supported."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Denial of SOB and wheezing matches gold HPI-003 and HPI-004, and denial of hemoptysis aligns with 'no blood' in HPI-002, but this is a combined/expanded formulation not directly present as a single gold fact. It is consistent but adds structured grouping and is treated as an addition spanning multiple gold facts."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002"
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-003"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention social history at all; stating it is 'not mentioned' is additional meta-information, not derivable from the gold content."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pf-001"
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold PF-003 states 'Sugar levels and BP normal today.' Generated PF-002 says only that no BP issues were reported during home monitoring and omits sugar levels and the 'today' measurement. It reframes the finding and is inconsistent with the specific documented normal measurements today."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold provides the diagnosis (upper respiratory tract infection) but does not list supporting symptoms explicitly as diagnostic justification; generated ASM-002 adds explanatory linkage between symptoms and diagnosis, which is additional detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Advising to monitor symptoms is not explicitly stated in the gold plan or follow-up instructions; it is consistent but additional advice."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      }
+    ]
+  }
+}

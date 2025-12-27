@@ -1,0 +1,365 @@
+{
+  "file_id": "day1_consultation14.txt",
+  "model_source": "gpt-5",
+  "metrics": {
+    "total_gold_facts": 20,
+    "total_gen_facts": 44,
+    "omission_count": 4,
+    "omission_rate": 0.2,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.0682,
+    "addition_count": 16,
+    "addition_rate": 0.3636
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 5\u2011day history of cough and runny nose. Generated CC-001: dry cough and runny nose for 5\u20136 days. Same symptoms and duration, with minor range expansion (5\u20136 days) that still covers 5 days."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: dry cough that keeps patient up at night. Generated HPI-001: dry, continuous cough worse at night and disturbs sleep. This is a close semantic match; added descriptors but core fact (dry cough disturbing sleep at night) is captured."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies ear pain AND sore throat. Generated HPI-009 denies ear pain/discharge, and HPI-002 states throat is sore from coughing. There is no generated statement that the patient denies sore throat; in fact, the generated facts imply a sore throat. Thus the specific denial of sore throat is not captured."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: reports no SOB or chest pain. Generated HPI-007 (no SOB at rest) and HPI-008 (denies chest pain) reflect that the patient does not have SOB/chest pain, with an added qualifier for rest; core denial is captured."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: feeling tired, weak, and myalgia. Generated HPI-005: diffuse myalgias; HPI-006: lethargy/weakness. Together these capture tiredness (lethargy), weakness, and myalgia."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: feeling shivery, hot/cold, ?fever. Generated HPI-004: subjective fever and chills without measured temperature. This matches the idea of shivers, hot/cold, and possible fever."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies nausea/vomiting, appetite maintained. Generated HPI-012: denies nausea and vomiting; HPI-010: appetite is okay. Both components are captured."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: initial diarrhea now resolved. Generated HPI-011: transient diarrhea at onset now resolved. Same clinical information."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies urinary symptoms OR rashes. Generated HPI-013: denies urinary symptoms, but there is no mention of rashes at all. The rash denial is omitted."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: Type 2 diabetes and HTN. Generated PMH-001: T2DM; PMH-002: HTN. Both diagnoses are captured."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes metformin and lisinopril. Generated MED-001 (metformin) and MED-002 (lisinopril) together capture the same medication list."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: NKDA. Generated ALLERGY-001: no known drug allergies. Direct match."
+      },
+      {
+        "fact_id": "famhx-001",
+        "status": "COVERED",
+        "reasoning": "Gold: father has Type 2 diabetes. Generated FH-001: father has T2DM. Directly covered."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with partner, works in IT, denies stress. Generated SH-001: lives with a well partner; SH-002: works as an IT developer. The living situation and IT occupation are covered. There is no explicit denial of stress in generated facts, but the gold fact is composite. Since two of its three elements are clearly captured and none contradicted, overall the fact is considered covered for the living/IT aspects; the stress portion is effectively omitted but not contradicted."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: ex-smoker, quit 6 months ago. Generated SH-003: ex-smoker who quit 6 months ago. Directly matches."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: drinks <9 units/week. Generated SH-004: wine 2\u20133 glasses up to 3 evenings/week. No explicit unit conversion or statement that intake is <9 units; this is additional pattern detail rather than a direct restatement of the <9 units/week threshold. The specific numeric limit in units is not stated, so this fact is not strictly reproduced."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression viral URTI. Generated ASM-001: acute viral illness/URTI as assessment based on symptoms. This matches the diagnosis."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: supportive management\u2014bed rest, fluids, regular paracetamol. Generated PLAN-001: rest; PLAN-002: fluids; PLAN-003: regular paracetamol PRN. All components of the supportive plan are captured, with PRN nuance added."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: review in 5\u20137 days if not better. Generated follow-up/plan gives review in 2\u20133 days if no improvement, not 5\u20137 days. The 5\u20137 day timing is not present and is replaced with a different timeframe, so the gold follow-up instruction is omitted."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: earlier review if worsening, especially fever, SOB, chest pain. Generated PLAN-007/FU-002: return sooner if worsening breathing/SOB, and PLAN-008/FU-003 covers fever with ongoing cough. Chest pain is not re-mentioned but the core concept of earlier review for worsening fever/SOB is captured."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not contain an explicit Chief Complaint section. The 5-day cough/runny nose aligns with HPI-001, but the 5\u20136 day range and framing as CC are not in gold; thus treated as additional detail rather than directly supported."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold HPI-002: dry cough keeps patient up at night. Generated adds 'continuous' and 'worse at night', but the main idea (dry cough disturbing sleep) is supported."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold HPI-003: patient denies any sore throat. Generated HPI-002: reports a sore throat from coughing. This directly opposes the gold denial."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold HPI-001: runny nose. Generated HPI-003: rhinorrhea. Same symptom using medical terminology."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold HPI-006: feeling shivery, hot/cold, ?fever. Generated HPI-004: subjective fever and chills, no temp taken. This matches the concept of possible fever with chills and no documented temperature."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold HPI-005: myalgia. Generated HPI-005: diffuse myalgias in arms and legs. Adds distribution but is consistent."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold HPI-005: feeling tired, weak. Generated HPI-006: lethargy/weakness. Directly supported."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI-004 denies SOB generally; generated HPI-007 specifies no SOB at rest, implying qualification about exertion that is not in gold. This is an added nuance, not directly in gold."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold HPI-004 includes no chest pain. Generated HPI-008: patient denies chest pain. Directly supported."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold HPI-003: no ear pain; no mention of discharge. Generated HPI-009: denies ear pain or ear discharge. The denial of discharge is additional detail not present in gold."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007: appetite maintained. Generated HPI-010: appetite is okay. Same meaning."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008",
+        "reasoning": "Gold HPI-008: initial diarrhea now resolved. Generated HPI-011: transient diarrhea at onset now resolved. Fully consistent."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007: no nausea/vomiting. Generated HPI-012: denies nausea and vomiting. Directly supported."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold HPI-009: nil urinary symptoms. Generated HPI-013: denies urinary symptoms. Direct match for urinary component."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH-001 notes type 2 diabetes and HTN; generated PMH-001 specifically restates T2DM, which is part of that fact."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH-001 includes HTN; generated PMH-002 restates hypertension. Supported."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold MED-001 lists metformin. Generated MED-001: patient takes metformin. Directly supported."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold MED-001 lists lisinopril. Generated MED-002: patient takes lisinopril. Directly supported."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: NKDA. Generated: no known drug allergies. Same statement."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "famhx-001",
+        "reasoning": "Gold famhx-001: father has type 2 diabetes. Generated FH-001: same. Supported."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold SH-001: lives with partner. Generated SH-001: lives with a well partner. The additional descriptor 'well' is extra but consistent."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold SH-001: works in IT. Generated SH-002: works as an IT developer. More specific but aligns with gold."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold SH-002: ex-smoker, stopped 6/12 ago. Generated SH-003: ex-smoker who quit 6 months ago. Direct match."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "ADDITION",
+        "reasoning": "Gold SH-003: EtOH <9 units/week. Generated SH-004: pattern and amount in glasses and evenings/week. This is a more granular drinking history; the specific description in glasses and evenings is not in gold and the <9 units threshold is not explicitly stated, so this is additional, not directly supported."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold ASM-001: viral URTI. Generated ASM-001: acute viral illness/URTI based on symptoms, which is consistent with that impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Gold lists T2DM in PMH but does not comment on control status. Generated ASM-002 adds that diabetes is controlled per patient; this control status is additional information."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold lists HTN in PMH but does not specify control. Generated ASM-003 adds that HTN is controlled per patient; that is additional detail."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold only states EtOH <9 units/week; no counseling or link to HTN/DM is mentioned. Generated ASM-004 adds assessment of moderate alcohol use and counseling. This is new content."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold PLAN-001: bed rest. Generated PLAN-001: rest. Supported; wording slightly less specific but consistent."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold PLAN-001 includes increased fluids. Generated PLAN-002: increase fluid intake. Directly supported."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold PLAN-001: regular paracetamol (no PRN qualifier). Generated PLAN-003: regular paracetamol PRN, adding 'as needed', which slightly modifies how it is taken. This is best treated as an addition/nuance rather than fully supported."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "No gold plan mentions time off work. Generated PLAN-004 (1\u20132 days off work) is new management detail not present in gold."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention expected illness duration. Generated PLAN-005: expected course ~7\u201310 days. This is additional prognostic counseling."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold FU-001: review in 5\u20137 days if not better. Generated PLAN-006: return in 2\u20133 days if no improvement. These are different specified timeframes for essentially the same contingency; 2\u20133 days vs 5\u20137 days is conflicting follow-up timing."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold FU-002: seek earlier review if worsening, including SOB. Generated PLAN-007: return sooner if worsening breathing/SOB. Supported."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold FU-002 includes worsening fever as a reason for early review. Generated PLAN-008: if still febrile and cough not improving at review, consider chest antibiotics. The linkage of persistent fever with next steps in management is consistent with concern for worsening symptoms; although more specific, it does not contradict and is aligned with escalation for persistent fever."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold lists metformin as a medication but does not outline a diabetes management plan or routine follow-up. Generated PLAN-009 specifying continuation and routine f/u is additional detail."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "ADDITION",
+        "reasoning": "Gold lists lisinopril as a medication; no explicit ongoing HTN management plan. Generated PLAN-010 adds continuation and routine follow-up, which is additional."
+      },
+      {
+        "fact_id": "plan-011",
+        "status": "ADDITION",
+        "reasoning": "Gold only states EtOH <9 units/week; no advice on reduction. Generated PLAN-011 provides a stepwise reduction target, which is entirely new content."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold FU-001: return in 5\u20137 days if not better. Generated FU-001: return in 2\u20133 days if no improvement. These are incompatible timelines for essentially the same follow-up condition."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold FU-002: seek earlier review for worsening symptoms such as fever, SOB, chest pain. Generated FU-002: return sooner if worsening breathing/SOB. The SOB component is directly supported; fever and chest pain are omitted but not contradicted."
+      },
+      {
+        "fact_id": "fu-003",
+        "status": "ADDITION",
+        "reasoning": "Gold FU-002 mentions worsening fever as an early warning but does not specify considering chest antibiotics at review. Generated FU-003 (consider chest antibiotics if still febrile and cough not improving) adds a specific treatment plan not in gold."
+      },
+      {
+        "fact_id": "fu-004",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no explicit follow-up plan for diabetes in the Follow_up_Information section. Generated FU-004 adds routine diabetes follow-up. This is new."
+      },
+      {
+        "fact_id": "fu-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specify routine follow-up for hypertension under follow-up information. Generated FU-005 introduces such follow-up, which is additional."
+      }
+    ]
+  }
+}

@@ -141,3 +141,161 @@ Here is the transcript:
 {transcript}
 >>>
 """
+
+NOTE_FACT_EXTRACT_SYSTEM_PROMPT = """
+1. ROLE AND GOAL:
+You are an expert clinical data extraction AI. Your task is to analyze a single, unstructured clinical note and extract all medically relevant facts. You must then organize these facts into a structured JSON object based on the predefined QNOTE schema. Your output must be precise, complete, and strictly adhere to the specified format.
+2. INPUT:
+You will be given a single block of text representing a clinical note.
+3. CORE RULES OF EXTRACTION:
+Rule 1 (Categorize): Read the entire note first to understand the context. Then, for each piece of information, you must categorize it into one of the 12 QNOTE sections.
+Rule 2 (Atomize): Each extracted fact should be a single, concise, and atomic piece of information. Avoid combining multiple distinct concepts into one fact. For example, "Patient has a headache and nausea" should be two separate facts.
+Rule 3 (Cite Your Source): For every fact you extract, you MUST include the source_text key. The value of this key must be the exact, verbatim substring from the original note that directly supports or states that fact. This is for traceability and validation.
+Rule 4 (Be Comprehensive): You must extract all relevant facts from the note. Do not omit details, even if they seem minor. If a QNOTE section is not mentioned in the note, you should omit that key from the final JSON output.
+4. OUTPUT FORMAT (THE QNOTE SCHEMA):
+Your entire output must be a single, clean JSON object. The top-level keys must be one or more of the 12 QNOTE sections. Each key's value must be an array of "fact objects." Each fact object must contain three keys: "fact_id", "section", "content", and "source_text".
+QNOTE Sections: Chief_Complaint, History_of_Present_Illness, Past_Medical_History, Medications, Adverse_Drug_Reactions_and_Allergies, Family_History, Social_and_Family_History, Assessment, Plan_of_Care, Follow_up_Information, Physical_Findings, Review_of_Systems.
+Fact Object Structure:
+"fact_id": A unique identifier string, prefixed with a shorthand for its section (e.g., "hpi-001", "plan-002", "sh-001").
+"content": A single, concise, clinically accurate sentence summarizing the extracted fact.
+"source_text": The exact, verbatim quote from the original note that directly supports the fact.
+5. HIGH-QUALITY EXAMPLE:
+Input Note Text:
+   3/7 hx of dysuria and suprapubic pain. Brief episode of haematuria, now resolved. Foul smelling.
+PMH: IBS
+DH: Nil regular
+Allergic to clindamycin
+SH: lives in a flat with friends, student in Biology, nil smoking, social EtOH at weekends
+Imp: UTI/cystitis
+Plan:
+1.Nitrofurantoin abx for 3/7
+2.Push fluids
+3.Review in 3d if no better
+ 
+Correct Output JSON:
+   {{
+  "History_of_Present_Illness": [
+    {{
+      "fact_id": "hpi-001",
+      "content": "Patient has a 3-day history of pain on urination (dysuria) and suprapubic pain.",
+      "source_text": "3/7 hx of dysuria and suprapubic pain."
+    }},
+    {{
+      "fact_id": "hpi-002",
+      "content": "There was a brief episode of blood in the urine (hematuria), which has now resolved.",
+      "source_text": "Brief episode of haematuria, now resolved."
+    }},
+    {{
+      "fact_id": "hpi-003",
+      "content": "The urine has been foul-smelling.",
+      "source_text": "Foul smelling."
+    }}
+  ],
+  "Past_Medical_History": [
+    {{
+      "fact_id": "pmh-001",
+      "content": "Patient has a history of Irritable Bowel Syndrome (IBS).",
+      "source_text": "PMH: IBS"
+    }}
+  ],
+  "Medications": [
+    {{
+      "fact_id": "med-001",
+      "content": "Patient takes no regular medications.",
+      "source_text": "DH: Nil regular"
+    }}
+  ],
+  "Adverse_Drug_Reactions_and_Allergies": [
+    {{
+      "fact_id": "allergy-001",
+      "content": "Patient is allergic to Clindamycin.",
+      "source_text": "Allergic to clindamycin"
+    }}
+  ],
+  "Social_and_Family_History": [
+    {{
+      "fact_id": "sh-001",
+      "content": "Patient is a student studying Biology who lives with friends.",
+      "source_text": "lives in a flat with friends, student in Biology"
+    }},
+    {{
+      "fact_id": "sh-002",
+      "content": "Patient is a non-smoker and drinks alcohol socially on weekends.",
+      "source_text": "nil smoking, social EtOH at weekends"
+    }}
+  ],
+  "Assessment": [
+    {{
+      "fact_id": "asm-001",
+      "content": "The impression is a urinary tract infection (UTI) or cystitis.",
+      "source_text": "Imp: UTI/cystitis"
+    }}
+  ],
+  "Plan_of_Care": [
+    {{
+      "fact_id": "plan-001",
+      "content": "Prescribed Nitrofurantoin antibiotics for a 3-day course.",
+      "source_text": "Nitrofurantoin abx for 3/7"
+    }},
+    {{
+      "fact_id": "plan-002",
+      "content": "Advised to increase fluid intake.",
+      "source_text": "Push fluids"
+    }}
+  ],
+  "Follow_up_Information": [
+    {{
+      "fact_id": "fu-001",
+      "content": "Patient to have a review in 3 days if not better.",
+      "source_text": "Review in 3d if no better"
+    }}
+  ]
+}}
+ 
+6. YOUR TASK:
+Now, process the following clinical note according to all the rules and generate the QNOTE-structured JSON object. Do not include any explanatory text before or after the JSON output.
+"""
+
+NOTE_FACT_EXTRACT_USER_PROMPT = """
+Here is the note:
+<<<
+{note}
+>>>
+"""
+
+FACT_COMPARE_SYSTEM_PROMPT = """
+You are an expert Medical Auditor. Your task is to compare a set of "Generated Facts" against a set of verified "Gold Facts" for a specific section of a clinical note.
+
+SECTION: {section_name}
+
+GOLD FACTS (The Truth):
+{gold_facts}
+
+GENERATED FACTS (The Hypothesis):
+{gen_facts}
+
+INSTRUCTIONS:
+1. Assess every GOLD Fact: Is it captured in the Generated facts? (Classify as: COVERED or OMITTED).
+2. Assess every GENERATED Fact: Is it supported by the Gold facts? (Classify as: SUPPORTED, CONTRADICTION, or ADDITION).
+
+DEFINITIONS:
+- CONTRADICTION: The generated fact says something directly opposite to the Gold facts.
+- ADDITION: The generated fact includes extra details not found in the Gold facts (but doesn't contradict).
+
+OUTPUT JSON FORMAT:
+{{
+  "gold_assessment": [
+    {{"fact_id": "hpi-001", "status": "COVERED", "reasoning": "..."}},
+    {{"fact_id": "hpi-002", "status": "OMITTED", "reasoning": "..."}}
+  ],
+  "gen_assessment": [
+    {{"fact_id": "gen-001", "status": "SUPPORTED", "match_gold_id": "hpi-001"}},
+    {{"fact_id": "gen-002", "status": "CONTRADICTION", "reasoning": "..."}},
+    {{"fact_id": "gen-003", "status": "ADDITION", "reasoning": "..."}}
+  ]
+}}
+"""
+
+FACT_COMPARE_USER_PROMPT = """
+Compare the provided facts as per the instructions above.
+"""

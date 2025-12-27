@@ -1,0 +1,420 @@
+{
+  "file_id": "day3_consultation03.txt",
+  "model_source": "gpt-5-nano",
+  "metrics": {
+    "total_gold_facts": 21,
+    "total_gen_facts": 59,
+    "omission_count": 14,
+    "omission_rate": 0.6667,
+    "contradiction_count": 9,
+    "contradiction_rate": 0.1525,
+    "addition_count": 27,
+    "addition_rate": 0.4576
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold chief complaint is lack of energy only; generated chief complaints add low mood, decreased appetite, weight loss, etc., but none isolate lack of energy as the primary complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies lack of energy for the past 3 months; generated HPI mentions reduced energy for a long time without the 3\u2011month duration."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold states loss of appetite; generated facts mention decreased appetite but not explicitly in HPI as a simple symptom without added mood context or timeframe from the gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold states patient is lacking motivation; no generated fact explicitly mentions lack of motivation."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: breathlessness sometimes with palpitations, especially when in the lift. Generated facts add exertion and reinterpretation but do not cleanly restate the gold description."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: headaches at work. Generated facts mention headaches generically without the work\u2011related context."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: feels nauseous most of the time. Generated facts describe nausea as intermittent/occasional, which differs and does not capture 'most of the time.'"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: one stone of weight loss over 6 months. Generated HPI mentions weight loss over several months but does not explicitly match the exact 6\u2011month wording and value as HPI factual restatement."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold denies chest pain in ROS; generated ROS-010 also documents ROS negative for chest pain."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies feeling depressed or stressed; generated facts do not document a denial of depression or stress in ROS."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: bowels are normal; generated only mention 'bowels generally normal' within HPI, not specifically in ROS as in the gold."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold: denies diarrhoea; generated ROS-007: ROS negative for diarrhoea."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies blood in the bowels; no generated fact mentions blood in bowels."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "COVERED",
+        "reasoning": "Gold: denies vomiting; generated ROS-008: ROS negative for vomiting."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies history of acid reflux; generated ROS-011: ROS negative for reflux symptoms."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: underactive thyroid (hypothyroidism); generated PMH\u2011001 and HPI\u2011011 both note history of hypothyroidism."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: has not been taking thyroxine for some time since changing practice; generated HPI\u2011011 and MED\u2011001 both state thyroxine was previously taken and stopped after changing doctors/practice."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient changed job 3 months ago; no generated social/family history fact specifies job change or timeframe."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: specifically advises contacting support to organize blood tests and lists anaemia, thyroid, liver, kidney, and vitamin levels; generated plan mentions a general blood panel and thyroid but not the explicit support\u2011contact instruction with the same detail of analytes."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient needs to book another appointment after receiving a text from Babylon; generated facts discuss blood tests and texts but not this specific instruction tied to Babylon branding and post\u2011text booking of another appointment."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: contact urgently if chest pain occurs with palpitations or change in bowel habits; generated PLAN\u2011005 and FU\u2011001/FU\u2011002 capture similar urgent reporting of chest pain and bowel changes as follow\u2011up instructions."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold chief complaint is lack of energy only; generated adds low mood and decreased appetite, which are not stated as the primary complaint."
+      },
+      {
+        "fact_id": "cc-002",
+        "status": "ADDITION",
+        "reasoning": "Unintentional weight loss is documented in HPI and assessment in gold but not as a chief complaint."
+      },
+      {
+        "fact_id": "cc-003",
+        "status": "ADDITION",
+        "reasoning": "Breathlessness and palpitations are in the HPI gold facts but not designated as chief complaints."
+      },
+      {
+        "fact_id": "cc-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: nausea most of the time; generated chief complaint states intermittent nausea, which is opposite in frequency/intensity."
+      },
+      {
+        "fact_id": "cc-005",
+        "status": "ADDITION",
+        "reasoning": "Headaches are present in gold HPI but not as chief complaint; making them a chief complaint adds a new emphasis."
+      },
+      {
+        "fact_id": "cc-006",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold explicitly: patient is not depressed or stressed; generated claims stress at work and home, which directly conflicts."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions low energy and appetite loss but explicitly denies feeling depressed or stressed; describing mood as low is not supported and conflicts with that denial."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Gold: symptoms in the lift; generated adds occurrence with exertion, which is extra."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold does not describe the qualitative sensation of 'rapid heartbeat and feeling unable to breathe'; this is inferred/added description."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: nausea most of the time; generated: nausea present occasionally, which is the opposite frequency description."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Gold has bowels normal and no diarrhoea documented in ROS; generated places these within HPI instead, changing section context."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "No cough is not mentioned in the gold facts at all."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Gold contains no statement about absence of recent thyroid tests or blood tests."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "Gold has no information on allergies."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not address family history documentation status."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold social history only notes job change 3 months ago, not occupation as lawyer."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention wife noticing issues."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: nausea most of the time; generated ROS describes nausea as present but without frequency; combined with other generated facts framing it as intermittent/occasional, this under-represents severity."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-004"
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "ADDITION",
+        "reasoning": "No persistent cough is not addressed in gold facts."
+      },
+      {
+        "fact_id": "ros-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001"
+      },
+      {
+        "fact_id": "ros-011",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-007"
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Assessment of depressed mood conflicts with gold, which explicitly states patient is not depressed or stressed."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Differential including major depressive disorder conflicts with gold's explicit denial of depression or stress."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold does not present a psychiatric differential of adjustment disorder."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold does not list other mood or anxiety conditions as differential diagnoses."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "ADDITION",
+        "reasoning": "Gold does not explicitly state thyroid-related contribution to fatigue, weight loss, and mood as a differential; that is interpretive."
+      },
+      {
+        "fact_id": "asm-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "asm-008",
+        "status": "ADDITION",
+        "reasoning": "Gold does not enumerate a differential list for palpitations."
+      },
+      {
+        "fact_id": "asm-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007"
+      },
+      {
+        "fact_id": "asm-010",
+        "status": "ADDITION",
+        "reasoning": "Gold does not provide a differential list for weight loss."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIAL",
+        "reasoning": "Supported in that both mention a general blood panel for medical contributors, but generated lacks explicit mention of anaemia, liver, kidney, and vitamins and omits instruction to contact support."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold does not mention mood medications at all; stating none have been started is additional clarification."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold implies follow-up after results but does not explicitly state 'results will be reviewed when available.'"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions booking another appointment post-text; generated frames reassessment specifically post-lab review, which is an added linkage."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "ADDITION",
+        "reasoning": "Gold does not explicitly state using results to determine thyroid optimization."
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "ADDITION",
+        "reasoning": "Gold does not specifically tie palpitations and shortness of breath evaluation to blood tests beyond general workup."
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "ADDITION",
+        "reasoning": "Gold urgent instruction for chest pain is tied to palpitations or bowel changes; generated adds severe shortness of breath as a separate emergency criterion."
+      },
+      {
+        "fact_id": "plan-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-011",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: patient contacts support to arrange blood tests and then books another appointment after a text from Babylon; generated: clinician arranges tests via support and text is to book the blood test appointment once results are available\u2014this changes who initiates and timing relative to results."
+      },
+      {
+        "fact_id": "plan-012",
+        "status": "ADDITION",
+        "reasoning": "Gold only specifies urgent contact if chest pain occurs with palpitations or bowel change; generated adds markedly worsened shortness of breath and A&E context beyond what is explicitly stated."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Gold FU instruction is specifically around urgent contact for chest pain with palpitations or bowel habit change; generated follow-up focuses on reassessment after lab review, which is extra context."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: text message is to prompt booking another appointment after tests arranged via support; generated: text to book blood test appointment once results are available\u2014reverses sequence and purpose."
+      }
+    ]
+  }
+}

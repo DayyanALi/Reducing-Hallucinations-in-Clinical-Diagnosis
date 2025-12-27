@@ -1,0 +1,223 @@
+{
+  "file_id": "day4_consultation04.txt",
+  "model_source": "gpt-5-mini",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 21,
+    "omission_count": 5,
+    "omission_rate": 0.2941,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 8,
+    "addition_rate": 0.381
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: shortness of breath at rest as chief complaint. Generated CC: wheezy, SOB x2 days, without specifying 'at rest'. The key qualifier 'at rest' is missing."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: 2-day history of wheezing and SOB at rest after cleaning dusty environment. Generated HPI-001 and HPI-002 state SOB and wheeze began 2 days ago and started after cleaning a dusty carpet; this captures the duration and environmental trigger. The 'at rest' qualifier is not restated in HPI but is present in chief complaint in gold; overall the episode description is covered."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: SOB worse at night. Generated HPI-003: 'Symptoms are worse at night.' This is a direct match."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: Now having problems speaking in full sentences. Generated HPI-005: difficulty speaking, sometimes unable to complete sentences. This matches the concept and even specifies frequency."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: history of childhood asthma. Generated PMH-001: childhood asthma (mostly resolved). This clearly covers the existence of childhood asthma, with added qualifier."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: history of hayfever. Generated PMH-002: seasonal hay fever in summer. This is consistent and slightly more specific."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: no regular medications. There is no generated fact explicitly stating that the patient takes no regular medications."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: previous steroid use for asthma exacerbations is documented under Medications. Generated PMH-003 and ASM-002 mention prior systemic steroid use but place it under history/assessment, not current or past medications section. Since the task evaluates section-specific capture, this medication-history fact is not captured in the Medications section and so is treated as omitted."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: Allergy nil / no known allergies. Generated ALLERGY-001: no known allergies. Direct match."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold ROS: denies chest pain. Generated HPI-006: denies chest pain. Content is covered, though placed under HPI."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold ROS: denies nausea. There is no generated fact about nausea."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "OMITTED",
+        "reasoning": "Gold ROS: denies vomiting. There is no generated fact about vomiting."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold ROS: no problems with eating or drinking. Generated HPI-008: eating/drinking adequate (~4\u20135 glasses/day). This covers that there are no problems and adds quantity detail."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold assessment: acute exacerbation of asthma. Generated ASM-001: likely asthma exacerbation vs allergic reaction. This includes acute wheeze/SOB as likely asthma exacerbation; covered with added differential."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "COVERED",
+        "reasoning": "Gold assessment: possible allergy considered ('?? allergy'). Generated ASM-001 explicitly includes 'versus allergic reaction to dust exposure.' This captures possible allergy."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold plan: start an antihistamine. Generated PLAN-002: take oral OTC antihistamine now, GP can prescribe if unavailable. This matches starting an antihistamine with additional detail on route and logistics."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold plan: further examination and investigation. Generated PLAN-001: advises in-person respiratory assessment with pulse oximetry and further testing; PLAN-004: arranging prompt in-person review via letter. This clearly implements further examination/investigation."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Generated CC: wheezy, SOB x2 days. Gold CC: SOB at rest without duration. The 2-day duration in the chief complaint is additional detail; gold does not contradict it. The wheeze and SOB themselves are supported in gold HPI-001."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold HPI-001: 2-day history of wheezing and SOB at rest. Generated: SOB and wheeze began 2 days ago. Directly supported."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold notes dust exposure but not the approximately 1-hour delay. Generated adds 'started ~1 hr after exposure' and specifies 'dusty carpet.' These are additional temporal and environmental details not present in gold, but consistent with 'after cleaning dusty environment.'"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: SOB worse at night. Generated: symptoms worse at night. Same concept; supported."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Generated: progressive symptoms over past 2 days. Gold does not mention progression. No contradiction, but this is new information."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003",
+        "reasoning": "Gold: now having problems speaking in full sentences. Generated: difficulty speaking, unable to complete sentences at times. Same clinical finding with slightly more detail."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-001",
+        "reasoning": "Gold ROS: no chest pain. Generated HPI-006: denies chest pain. Content is the same; section differs but fact is supported."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "Generated: denies dizziness. Gold ROS does not mention dizziness. This is additional negative ROS, not contradicted by gold."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-004",
+        "reasoning": "Gold ROS: no problems with eating or drinking. Generated: eating/drinking adequate (~4\u20135 glasses/day). Supported; adds quantitative detail."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold: childhood asthma. Generated: childhood asthma (mostly resolved). The base condition is supported; 'mostly resolved' is additional but not contradictory."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-002",
+        "reasoning": "Gold: hayfever. Generated: seasonal hay fever in summer. This is a more specific description of the same condition."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Gold Med-002: previous steroid use for asthma exacerbations. Generated PMH-003: previously taken steroids for asthma. This matches the historical steroid use; placement under PMH is structural, but the fact is supported."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Generated: has an asthma inhaler at home from ~2 months ago. Gold medications only state no regular medications and prior steroid use; they do not mention any inhaler. This is new information. It could potentially coexist with 'no regular medications' (if not used regularly), so it's not clearly contradictory; treated as addition."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: Allergy nil / no known allergies. Generated: no known allergies. Directly supported."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Generated: GP a few minutes' drive away. No corresponding social history info in gold. Pure addition."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold assessment: acute exacerbation of asthma; possible allergy (?? allergy). Generated: likely asthma exacerbation vs allergic reaction to dust exposure. This matches both components (exacerbation and possible allergy) and adds explicit linkage to dust."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002",
+        "reasoning": "Gold Med-002: previous steroid use for asthma exacerbations. Generated ASM-002: history of asthma with prior systemic steroid use. This restates the steroid history in the assessment; supported by gold."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold Plan-002: arrange further examination and investigation. Generated PLAN-001: in-person GP/clinic respiratory assessment with pulse oximetry and testing. This operationalizes the gold plan; supported with extra detail."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold Plan-001: start an antihistamine. Generated PLAN-002: take oral OTC antihistamine now, GP to prescribe if unavailable. Same therapeutic intent with more detail."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Generated: possible need for systemic steroids after clinic assessment. Gold does not mention future systemic steroid therapy. This is an added management consideration, not contradicted by gold."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Generated: clinician will send letter to GP via app for prompt review. Gold only says 'further examination and investigation' without specifying communication method. This is additional process detail."
+      }
+    ]
+  }
+}

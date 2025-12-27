@@ -1,0 +1,435 @@
+{
+  "file_id": "day2_consultation10.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 33,
+    "total_gen_facts": 47,
+    "omission_count": 2,
+    "omission_rate": 0.0606,
+    "contradiction_count": 2,
+    "contradiction_rate": 0.0426,
+    "addition_count": 13,
+    "addition_rate": 0.2766
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 describes a left-sided headache since awakening today, matching onset and location; added descriptor 'really horrible' is consistent but extra."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Generated hpi-001 states the patient awoke at ~05:30 with pain on the left side of the head, matching the gold timing and awakening from sleep; severity/constancy are added details."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold notes headache is still present now; no generated fact explicitly states that the headache is ongoing at time of consultation."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold describes past less-severe frontal headaches; generated hpi-002 mentions previous headaches 'nothing as severe' and bifrontal, aligning with history though it adds 'cluster-like'."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: no neck stiffness. Generated hpi-005 and ros-003 both state no neck stiffness."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: no fever. Generated hpi-005 and ros-004 record no fever."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: some sensitivity to bright lights now. Generated hpi-003 and ros-001 describe mild photophobia; consistent with 'some sensitivity'."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: no nausea now. Generated hpi-005 and ros-005 document no nausea (and also no vomiting, which is additional)."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: felt dizzy this morning but not now. Generated hpi-004 and ros-002 indicate brief initial dizziness that resolved, matching timing and resolution."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: headache better when lying down. Generated hpi-006 states pain improves after lying down; same relationship."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: paracetamol taken, not helped. Generated hpi-007 and med-002 say paracetamol taken this morning with minimal relief; consistent, dose details are extra."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "COVERED",
+        "reasoning": "Gold: ongoing work stress and late nights for a few months. Generated hpi-008 and sh-004 describe work-related stress for a couple of months with long hours/late nights; consistent paraphrase."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies thoughts of self-harm. No generated fact mentions self-harm ideation."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: anxiety for 2 years. Generated pmh-001: generalized anxiety disorder for ~2 years, matching duration and condition with added specificity of 'GAD'."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold: otherwise PMH nil. Generated pmh-002 adds 'recurrent mild headaches' as a past medical history diagnosis, which introduces additional PMH beyond 'nil', directly conflicting with the statement of no other PMH."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: DH sertraline. Generated med-001: patient is taking Sertraline, with missing dose/frequency; this is consistent."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has taken paracetamol for current headache. Generated med-002 and hpi-007 both state paracetamol taken today; dose details are additional."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Both gold and generated allergy-001 state no known drug allergies."
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no FH of migraines. Generated fh-002: no family history of migraine reported; matches."
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has anxiety. Generated fh-001: mother's anxiety; consistent."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with partner. Generated sh-001: lives with partner and has a cat; living situation is captured."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Generated sh-002: non-smoker; matches."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: has cat. Generated sh-001: has a cat; matches."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: good exercise and reasonable diet. Generated sh-003 and plan-009 include regular exercise and balanced diet, capturing the same concepts with more detail (runs 3x/week)."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "COVERED",
+        "reasoning": "Gold: work stressful with late nights for a few months. Generated hpi-008 and sh-004: high-stress work with long hours/late nights for a couple of months; consistent."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression tension-type headache +/- migraine. Generated asm-002 and asm-003 list tension-type headache and migraine without aura as differentials; this corresponds to the gold impression."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: plan for ibuprofen first line per SIGN 2018. Generated plan-001: start NSAID ibuprofen as treatment; guideline reference missing but core plan is present."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advise 1.5\u20132 L water daily. Generated plan-003: hydration goal 1.5\u20132 L non-caffeinated fluids/day; consistent, slightly more specific."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: recommend 7\u20138 hours of sleep. Generated plan-004: ensure 7\u20138 h sleep nightly; matches."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "COVERED",
+        "reasoning": "Gold: consider time off, self-certify for a few days. Generated plan-007: recommend ~1 week self-certificated leave; this reflects the same concept but specifies duration (added detail)."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "COVERED",
+        "reasoning": "Gold: self-referral to IAPTs. Generated plan-008: provide link to local counselling service for self-referral; equivalent action."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: review in a week. Generated fu-001: follow-up telehealth in 1 week; aligns, with added 'or earlier if worsening/no improvement'."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "COVERED",
+        "reasoning": "Gold: if red-flag headache symptoms occur, ring back sooner. Generated plan-005 and fu-001 mention red-flag symptom advice and earlier review if worse; consistent concept, plus 'urgent care' option."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold states prior headaches were less severe and frontal. Generated hpi-002 describes them as bifrontal/cluster-like, adding 'cluster-like' characteristics not supported and implying a different pattern than simple frontal headaches.",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-011"
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Sleep duration (<7 h/night) is not mentioned in the gold facts, though work stress and late nights are; this is an inferred detail not documented.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006"
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-008"
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007"
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "Vomiting status is not mentioned in the gold facts; documenting 'negative for vomiting' is an added element.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "ADDITION",
+        "reasoning": "Focal neurological deficits are not addressed in the gold facts; stating they are negative is additional.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold PMH indicates 'nil' apart from anxiety. Adding 'recurrent mild headaches' as a PMH condition introduces extra pathology beyond 'nil', directly conflicting with the documented lack of other PMH.",
+        "match_gold_id": "pmh-002"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-002"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "fh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-002"
+      },
+      {
+        "fact_id": "fh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "fh-001"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "ADDITION",
+        "reasoning": "Gold only states 'good exercise'; specifying 'runs ~3\u00d7/week' adds detail not present in the gold facts.",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-005"
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "ADDITION",
+        "reasoning": "Vitals and the fact that this is a telehealth visit are not discussed in the gold facts; this is new contextual information.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "ADDITION",
+        "reasoning": "Non-performance of a physical exam and telehealth context are not mentioned in the gold facts.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "pf-003",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not address diagnostics/labs/imaging; stating none have been done is additional.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment focuses on tension-type headache +/- migraine; it does not separately list 'acute left-sided headache' as a primary assessment item, so this structuring is additional but not conflicting.",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold only notes specific negatives (no neck stiffness, fever, nausea) and advises red-flag awareness; a comprehensive statement about absence of all red flags including focal neurology and 'worst-ever' onset is more extensive than the gold content.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes work stress and anxiety but does not explicitly state that anxiety is 'stable on Sertraline' or directly link it as contributing to headache and reduced sleep; this is interpretive expansion.",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only states paracetamol has been taken and not helped; it does not explicitly advise continuing paracetamol as needed, so this is a new management recommendation.",
+        "match_gold_id": "med-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-003"
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-002"
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not mention considering blood tests or further evaluation if headaches persist; this is an extra plan element.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-004"
+      },
+      {
+        "fact_id": "plan-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-005"
+      },
+      {
+        "fact_id": "plan-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004"
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001"
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up notes red-flag instructions and review in a week but does not explicitly state 'remain at home with low threshold to re-contact'; this is a paraphrased, slightly expanded safety-netting instruction.",
+        "match_gold_id": "fu-002"
+      }
+    ]
+  }
+}

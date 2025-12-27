@@ -1,0 +1,207 @@
+{
+  "file_id": "day3_consultation01.txt",
+  "model_source": "gpt-5",
+  "metrics": {
+    "total_gold_facts": 17,
+    "total_gen_facts": 18,
+    "omission_count": 6,
+    "omission_rate": 0.3529,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 6,
+    "addition_rate": 0.3333
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states lip swelling for the past 1 hour. Generated CC-001 mentions upper lip swelling after prawn soup but does not mention the 1\u2011hour duration, so the timing element is missing."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lip swelling began after prawn soup. Generated HPI-001: upper lip swelling began ~30 minutes after ingestion of prawn soup and worsening. This includes and expands on the gold fact without contradiction."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: initial weird sensation around lips. No generated fact mentions an initial weird feeling/sensation around the lips."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: swelling started about 30 minutes after eating and localized to upper lip. Generated HPI-001: upper lip swelling began ~30 min after ingestion of prawn soup and has been worsening. This captures the 30\u2011minute onset and upper lip localization."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient reports sensation of throat closing. Generated facts report breathing difficulty and chest tightness but do not explicitly mention throat closing."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: chest tightness with difficulty breathing. Generated HPI-004: chest feeling tight and breathing being difficult. This is a direct restatement."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient feels dizzy. No generated fact mentions dizziness."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: similar episode approximately one year ago. Generated HPI-006: prior similar reaction about one year ago after late-night Chinese curry, with swelling and difficult breathing. This captures the existence and timing of a similar episode, adding context."
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: during consultation, patient appeared to have breathing difficulties. No generated fact explicitly describes physical exam/consultation appearance of breathing difficulty."
+      },
+      {
+        "fact_id": "pf-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: exam showed progressively increasing lip swelling. Generated facts mention progressive swelling conceptually (in assessment) but not as a specific physical finding during consultation; no direct match to this exam statement."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has asthma. Generated PMH-001: patient has a history of asthma. This matches."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient is currently using salbutamol inhalers. Generated MED-001: patient uses a salbutamol inhaler. This is equivalent for content."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient has a peanut allergy, with prior injection as a child. Generated ALLERGY-001: peanut allergy with childhood severe reaction requiring hospital and injection. This includes the peanut allergy and injection, with additional detail."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: suspected anaphylactic reaction. Generated ASM-001: suspected anaphylaxis after prawn exposure, with supporting features. This matches and elaborates."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: advised immediate administration of an antihistamine. Generated PLAN-002: advised to take available antihistamine while awaiting EMS. This covers the immediate antihistamine advice."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: advised mother to call an ambulance via 999. Generated PLAN-001 and PLAN-003: call 999 for EMS and mother to stay with patient and call 999. This aligns with the gold plan."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: after hospital discharge, book review with doctor to consider prescribing an epipen. Generated PLAN-004: after ED care, contact clinic to arrange emergency allergy injections (autoinjector) and further management. Autoinjector corresponds to epipen and post-ED/discharge review; this is consistent and covers the intent."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC mentions lip swelling for 1 hour but does not specify upper lip in the CC or explicitly tie onset to prawn soup in the CC section. The association with prawn soup and upper lip localization exist in HPI, not in CC. So as a CC statement, this is additional synthesis, not directly supported as documented."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001",
+        "reasoning": "Gold HPI-001 and HPI-003: swelling began after prawn soup and started after half an hour, localized to upper lip. Generated HPI-001 repeats this with worsening; worsening is an added detail but consistent."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only states that swelling is on the upper lip; it does not specify that it started at the left corner, progressed, or was pulsatile. These characteristics are new details, not present in gold and not contradicted."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold HPI-005: chest tightness with difficulty breathing. Generated HPI-003: can\u2019t breathe that well. This is consistent with difficulty breathing but omits chest tightness; it is still supported as a subset of the symptom complex."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold HPI-005: chest tightness with difficulty breathing. Generated HPI-004 states chest feeling tight and breathing difficult, which directly matches."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes timing of swelling (30 minutes after eating) but does not provide a clock time (1900) or mention eating after work. These are extra contextual details not present in the gold facts."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold HPI-007: similar episode about one year ago. Generated HPI-006 describes a similar reaction ~1 year ago with more specifics (late\u2011night Chinese curry, woke with swelling and difficult breathing). This adds detail but is consistent with a similar prior episode."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH-001: patient has asthma. Generated PMH-001 restates this."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold MED-001: patient is currently on salbutamol inhalers. Generated MED-001: uses a salbutamol inhaler. Content is equivalent."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "ADDITION",
+        "reasoning": "Gold only confirms use of salbutamol inhalers and does not mention the presence or absence of other inhalers. The statement that no other inhalers are reported is an added detail not covered in the gold facts."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: peanut allergy with childhood injection. Generated adds that this was a severe reaction with prior hospital visit. The core allergy and injection history are supported; severity and hospital visit are additional details."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold does not describe living situation or that the patient is staying with her mother or that the mother can provide antihistamines. Only plan mentions advising Mom to call 999. The social history content is new."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold ASM-001: suspected anaphylactic reaction. Generated ASM-001: suspected anaphylaxis after prawn exposure with supporting features; this is fully consistent and elaborates on the etiology and manifestations."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold PMH-001: patient has asthma (chronic condition). Generated ASM-002: asthma is an active diagnosis. It is reasonable and consistent to list known asthma as an active problem; no contradiction."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold Plan-002: advised Mom to call the ambulance as a 999 call. Generated PLAN-001: call 999 for immediate EMS/ED assessment for suspected anaphylaxis. This is aligned with the same plan element (calling 999)."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold Plan-001: advised to use an antihistamine straight away. Generated PLAN-002: take available antihistamine while awaiting EMS. This is consistent with immediate antihistamine use."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold states advising Mom to call 999 but does not explicitly say the patient must not be alone or that mother should stay with her. The \u2018not alone\u2019 and \u2018stay with patient\u2019 components are additional safety instructions not present in the gold facts."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold FU-001: after hospital discharge, book review to consider prescribing an epipen. Generated PLAN-004: after ED care, contact clinic to arrange emergency allergy injections (autoinjector) and further management. Autoinjector corresponds to epipen, and post\u2011ED/discharge follow\u2011up is consistent; added phrase \u2018further management\u2019 is elaborative."
+      }
+    ]
+  }
+}

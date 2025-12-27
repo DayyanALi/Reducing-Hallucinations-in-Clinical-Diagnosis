@@ -1,0 +1,362 @@
+{
+  "file_id": "day5_consultation08.txt",
+  "model_source": "gpt-4o",
+  "metrics": {
+    "total_gold_facts": 35,
+    "total_gen_facts": 29,
+    "omission_count": 23,
+    "omission_rate": 0.6571,
+    "contradiction_count": 3,
+    "contradiction_rate": 0.1034,
+    "addition_count": 4,
+    "addition_rate": 0.1379
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold states the chief complaint is wheeze; generated chief complaint describes shortness of breath over 2\u20133 days, not wheeze."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies wheezing for 2\u20133 days; generated facts describe shortness of breath for 2\u20133 days, not wheeze."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: no fever with temp 37 \u00b0C. Generated only mentions temp 37 \u00b0C and implies fever is present in hpi-004; absence of fever is not captured and is contradicted."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold describes cold symptoms. Generated facts do not mention cold symptoms."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: not coughing up sputum. Generated hpi-005: no phlegm, blood, or chest pain. \u2018No phlegm\u2019 covers no sputum; extra elements are additions."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: denies haemoptysis or chest pain. Generated hpi-005: no blood or chest pain. This captures no haemoptysis (blood) and no chest pain."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold notes no night-time waking due to symptoms; this is not mentioned in generated facts."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient is not exercising currently. Generated facts do not address current exercise status."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: sometimes can't complete sentences but no SOB at rest. Generated only notes difficulty completing sentences; the key qualifier \u2018no SOB at rest\u2019 is missing and partially contradicted by generated SOB as chief complaint."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: no problems walking upstairs. Not present in generated facts."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "OMITTED",
+        "reasoning": "Gold: more wheezy walking to work. No equivalent exertional wheeze description in generated facts."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "OMITTED",
+        "reasoning": "Gold: does not have a peak flow meter at home. Generated facts do not state current absence of a meter, only that one will be prescribed."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "OMITTED",
+        "reasoning": "Gold: has missed a few days of work because of symptoms. Not mentioned in generated facts."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: asthma since childhood. Generated pmh-001 notes asthma history but omits the childhood onset."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: previous hospital admissions for asthma but no ICU stays. Generated hpi-003 vaguely mentions previous hospital visits, without explicitly matching admissions and with no mention of \u2018no ITU\u2019."
+      },
+      {
+        "fact_id": "pmh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: hayfever. Generated pmh-002: history of hay fever. Terminology is equivalent."
+      },
+      {
+        "fact_id": "pmh-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: eczema. Generated facts do not mention eczema."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: intermittently uses salbutamol every few weeks. Generated med-001 only states that the patient uses salbutamol; intermittent use every few weeks is not captured."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: needs salbutamol when exercising. Generated facts do not tie salbutamol use to exercise."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: stopped regular asthma meds 3\u20134 years ago. Generated facts do not mention medication discontinuation."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: NKDA. Generated allergy-001: no known drug allergies. This matches."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: non-smoker. Generated sh-003: patient does not smoke. This is equivalent."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: drinks about 1 unit of alcohol every 2\u20133 days. Generated sh-004: one glass of wine every 2\u20133 days. Glass vs unit adds detail but is generally consistent; core frequency and low quantity are covered."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with partner. Generated sh-002: lives with a partner. This matches."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "COVERED",
+        "reasoning": "Gold: works as engineer. Generated sh-001: works as an engineer. This matches."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: impression is exacerbation of asthma. Generated asm-001: assessment is asthma exacerbation. This matches terminology."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: monitor temperature and contact clinic if spiking temperatures. Generated plan-004: monitor temperature and seek care if symptoms worsen. It lacks the specific focus on fever spikes and the instruction to contact \u2018us\u2019; the explicit fever-triggered contact is not fully captured."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: collect prescription for peak-flow meter and spacer. Generated plan-001/002 say to prescribe them but omit that they are to be collected (pickup aspect)."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: pharmacist will advise on how to use peak-flow meter and spacer. No pharmacist counseling is mentioned in generated facts."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: record PEFR twice daily, first on waking and at night (ongoing, no specified duration). Generated plan-007: record AM/PM for a week. Frequency and timing largely align, but the specific \u2018for a week\u2019 duration is added and the exact wording (PEFR, waking vs morning) differs. Because of the fixed 1-week duration, this does not fully capture the gold plan."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "COVERED",
+        "reasoning": "Gold: increase salbutamol with spacer to 2\u20134 puffs every 4 hours. Generated med-002/plan-003: increase salbutamol to 2\u20134 puffs every 4 hours as needed. Dose and interval match; \u2018as needed\u2019 is an added qualifier but core instruction is covered."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: may need to add another inhaler. No such contingency is described in generated facts."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "COVERED",
+        "reasoning": "Gold: advised to take a regular antihistamine. Generated med-003/plan-006: suggest an over-the-counter antihistamine for hay fever. This captures use of regular antihistamine; OTC and indication details are additions."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: arrange a review next week. Generated plan-005 and fu-001: review in 1 week. This matches."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: if wheeze not settling or worsening and patient feels unwell, seek urgent appointment. Generated fu-002: seek care if symptoms worsen. It omits the focus on wheeze, lack of settling, feeling unwell, and the \u2018urgent\u2019 appointment. Thus the specific follow-up condition is not fully captured."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated chief complaint is shortness of breath over 2\u20133 days; gold chief complaint is wheeze. SOB vs wheeze are distinct and SOB at rest is explicitly denied in gold (hpi-008)."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated describes SOB for 2\u20133 days; gold describes wheeze for 2\u20133 days and explicitly states no SOB at rest. This reframes the symptom and conflicts with the absence of SOB at rest."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold: sometimes can't complete sentences but no SOB at rest. Generated isolates the difficulty completing sentences without the contextual qualifier. This is a partial restatement missing key context; best classified as an incomplete ADDITION rather than fully supported."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Gold: asthma since childhood with prior admissions and no ITU. Generated adds \u2018exacerbation in adulthood\u2019 and vague \u2018previous hospital visits\u2019; \u2018exacerbation in adulthood\u2019 and non-specific visits are not in gold, and childhood onset is omitted."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "CONTRADICTION",
+        "reasoning": "Generated: current symptoms include cough and fever. Gold: cold symptoms, no sputum, and explicitly no fever with temp 37 \u00b0C. Presence of fever directly contradicts \u2018no fever\u2019 in gold."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold: not coughing up sputum and no haemoptysis or chest pain. Generated: no phlegm, blood, or chest pain. This aligns with \u2018no sputum\u2019 (no phlegm), \u2018no blood\u2019 (no haemoptysis), and no chest pain; it is a supported rephrasing."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold: history of asthma since childhood. Generated: past medical history of asthma. This matches the presence of asthma history, though it omits childhood onset."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-003",
+        "reasoning": "Gold: hayfever. Generated: past medical history of hay fever. This is consistent terminology."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold: sometimes takes salbutamol every few weeks. Generated: uses a salbutamol inhaler. This is consistent but less specific; frequency is omitted."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-005",
+        "reasoning": "Gold: increase salbutamol with spacer to 2\u20134 puffs every 4 hours. Generated: increase salbutamol to 2\u20134 puffs every 4 hours as needed. Dose and schedule match; \u2018as needed\u2019 is an added qualifier."
+      },
+      {
+        "fact_id": "med-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-007",
+        "reasoning": "Gold: advised to take regular antihistamine. Generated: suggest OTC antihistamine for hay fever. This is consistent with taking a regular antihistamine, with OTC and indication as added details."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: NKDA. Generated: no known drug allergies. Directly matches."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-004",
+        "reasoning": "Gold: works as an engineer. Generated: patient works as an engineer. Matches exactly."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-003",
+        "reasoning": "Gold: lives with partner. Generated: lives with a partner. Matches."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001",
+        "reasoning": "Gold: non-smoker. Generated: patient does not smoke. Equivalent."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002",
+        "reasoning": "Gold: 1 unit alcohol every 2\u20133 days. Generated: 1 glass of wine every 2\u20133 days. Frequency and low-volume alcohol use align; \u2018glass of wine\u2019 vs \u2018unit\u2019 is added specificity but not contradictory."
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: has checked temp \u2013 37 \u00b0C. Generated: self-reported temperature is 37 \u00b0C. Same value and self-report; however, gold additionally notes \u2018no fever,\u2019 which generated does not mention."
+      },
+      {
+        "fact_id": "pe-002",
+        "status": "ADDITION",
+        "reasoning": "Gold facts provided do not address whether any physical exam or diagnostics were done. Statement that none were reported is not grounded in gold."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: impression is exacerbation of asthma. Generated: assessment is asthma exacerbation. Fully consistent."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Generated attributes likely trigger to environmental factors or viral infection. Gold provides no trigger information, so this is speculative extra detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: collect prescription of peak flow meter and spacer. Generated: plan to prescribe a peak flow meter. This is consistent with providing a prescription for a meter but omits the spacer and explicit collection step."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: collect prescription of peak flow meter and spacer. Generated: prescribe a spacer for inhaler use. This aligns with providing a spacer though the collection detail is omitted."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-005",
+        "reasoning": "Gold: increase salbutamol with spacer to 2\u20134 puffs every 4 hours. Generated: plan to increase salbutamol to 2\u20134 puffs every 4 hours as needed. Matches core dosing plan; \u2018as needed\u2019 is extra."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "PARTIAL_SUPPORT",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: monitor temperature and speak to us if spiking temperatures. Generated: monitor temperature and seek care if symptoms worsen. Partially aligns on temperature monitoring but generalizes the trigger from fever spikes to any symptom worsening and lacks the specific instruction about spiking temperatures."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold follow-up: arrange review next week. Generated plan-005: review in 1 week. Timing and content are consistent."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-007",
+        "reasoning": "Gold: advised to take regular antihistamine. Generated: suggest OTC antihistamine for hay fever. Matches with added details (OTC, indication)."
+      },
+      {
+        "fact_id": "plan-007",
+        "status": "PARTIAL_SUPPORT",
+        "match_gold_id": "plan-004",
+        "reasoning": "Gold: record PEFR twice daily, first on waking and at night (no duration specified). Generated: record peak flow AM/PM for a week. Frequency and timing align, but generated imposes a 1-week limit that is not in gold."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold: arrange a review next week. Generated: return for review in 1 week. Fully consistent."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "PARTIAL_SUPPORT",
+        "match_gold_id": "fu-002",
+        "reasoning": "Gold: seek urgent appointment if wheeze not settling or getting worse and patient feels unwell. Generated: seek care if symptoms worsen. Captures the worsening-symptoms aspect but omits wheeze specifically, the \u2018not settling\u2019 component, feeling unwell, and the \u2018urgent\u2019 nature of the appointment."
+      }
+    ]
+  }
+}

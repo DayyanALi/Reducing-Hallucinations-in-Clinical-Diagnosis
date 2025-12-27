@@ -7,8 +7,8 @@ import os, json, re
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
-from detectionAG.configs.fact_extract_prompt import *
-from detectionAG.configs.combined_detection_prompt import DETECT_ALL_SYSTEM_PROMPT, DETECT_ALL_USER_PROMPT
+from configs.fact_extract_prompt import *
+from configs.combined_detection_prompt import DETECT_ALL_SYSTEM_PROMPT, DETECT_ALL_USER_PROMPT
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -20,8 +20,8 @@ class DetectionAgent:
         self.llm = ChatOpenAI(model=model)
         self.parser = JsonOutputParser()
 
-        self.PROMPT_EXTRACT_SYSTEM = TRANSCRIPT_FACT_EXTRACT_SYSTEM_PROMPT
-        self.PROMPT_EXTRACT_USER = TRANSCRIPT_FACT_EXTRACT_USER_PROMPT
+        self.PROMPT_EXTRACT_SYSTEM = NOTE_FACT_EXTRACT_SYSTEM_PROMPT
+        self.PROMPT_EXTRACT_USER = NOTE_FACT_EXTRACT_USER_PROMPT
         self.PROMPT_DETECT_ALL_SYSTEM = DETECT_ALL_SYSTEM_PROMPT
         self.PROMPT_DETECT_ALL_USER = DETECT_ALL_USER_PROMPT
 
@@ -31,9 +31,10 @@ class DetectionAgent:
             ("system", self.PROMPT_EXTRACT_SYSTEM),
             ("user", self.PROMPT_EXTRACT_USER),
         ])
-        out = (prompt | self.llm | self.parser).invoke({"note_text": note_text})
+        out = (prompt | self.llm | self.parser).invoke({"note": note_text})
+        print("out: ", out)
         facts = out.get("facts", [])
-        return [{"id": f["id"], "content": f["content"].strip()} for f in facts if "id" in f and "content" in f]
+        return [{"fact_id": f["fact_id"], "content": f["content"].strip(), "source_text": f["source_text"].strip()} for f in facts if "id" in f and "content" in f and "source_text" in f]
 
     # ---------------- Transcript Fact Extraction ----------------
     def transcript_extract_facts(self, transcript_text: str) -> List[Dict[str, str]]:
@@ -43,6 +44,32 @@ class DetectionAgent:
         ])
         out = (prompt | self.llm | self.parser).invoke({"transcript": transcript_text})
         facts = out.get("facts", [])
+        return facts
+
+    # ---------------- Note Fact Extraction ----------------
+    def extract_note_facts(self, note_text: str) -> List[Dict[str, str]]:
+        prompt = ChatPromptTemplate.from_messages([
+            ("system", self.PROMPT_EXTRACT_SYSTEM),
+            ("user", self.PROMPT_EXTRACT_USER),
+        ])
+
+        out = (prompt | self.llm | self.parser).invoke(
+            {"note": note_text}
+        )
+
+        facts = []
+        print("type: ",type(out))
+
+        if isinstance(out, dict):
+            for section_name, section_facts in out.items():
+                if isinstance(section_facts, list):
+                    for fact in section_facts:
+                        if isinstance(fact, dict):
+                            # Enforce section = top-level key
+                            fact = fact.copy()
+                            fact["section"] = section_name
+                            facts.append(fact)
+
         return facts
 
     # ---------------- Unified Detection ----------------
@@ -236,9 +263,8 @@ def run_transcript_fact_extraction():
         json.dump({"outputs": all_outputs}, f, indent=2, ensure_ascii=False)
 
     print(f"Done. Wrote results to: {OUT_DIR}")
-        
-
-if __name__ == "__main__":
+    
+def run_note_vs_transcript_comparisons():
     import os
     import re
     from pathlib import Path
@@ -306,3 +332,84 @@ if __name__ == "__main__":
         json.dump({"pairs": all_summaries}, f, indent=2, ensure_ascii=False)
 
     print(f"Done. Wrote {n} result files to: {OUT_DIR}")
+
+def run_note_fact_extraction():
+    import os
+    import re
+    import json
+    from pathlib import Path
+
+    # --- Configurable paths ---
+    NOTES_DIR = Path("detectionAG/output/erroneous_notes_text")
+    OUT_DIR = Path("detectionAG/output/erroneous_note_facts")
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Collect files
+    note_files = [p for p in NOTES_DIR.glob("*.txt")]
+
+    if not note_files:
+        raise FileNotFoundError(f"No .txt files found in {NOTES_DIR}")
+
+    # Init agent once
+    agent = DetectionAgent(model="gpt-5")
+
+    all_outputs = []
+    for i, note_path in enumerate(note_files, start=1):
+        if i == 10:
+            break
+        out_path = OUT_DIR / f"facts_{note_path.stem}.json"
+        print(f"--------Processing {note_path}")
+
+        # --- Skip if output file exists and contains "facts" key ---
+        if out_path.exists():
+            try:
+                with open(out_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if "facts" in data:
+                    print(f"[{i}/{len(note_files)}] Skipping {note_path.name}, output already exists with facts.")
+                    all_outputs.append({
+                        "note_file": note_path.name,
+                        "output_file": out_path.name
+                    })
+                    continue
+            except Exception:
+                # If file exists but is corrupted or invalid JSON, re-run extraction
+                pass
+
+        with open(note_path, "r", encoding="utf-8") as f:
+            note_text = f.read()
+
+        print(f"[{i}/{len(note_files)}] Extracting facts from note={note_path.name} ...")
+        try:
+            facts = agent.extract_note_facts(note_text)
+            result = {
+                "note_file": note_path.name,
+                "facts": facts,
+                "fact_count": len(facts),
+                "model_source": "gpt-5"
+            }
+        except Exception as e:
+            result = {
+                "note_file": note_path.name,
+                "error": str(e)
+            }
+
+        # Write JSON output
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=2, ensure_ascii=False)
+
+        all_outputs.append({
+            "note_file": note_path.name,
+            "output_file": out_path.name
+        })
+
+    # Write index file
+    index_path = OUT_DIR / "index_facts.json"
+    with open(index_path, "w", encoding="utf-8") as f:
+        json.dump({"outputs": all_outputs}, f, indent=2, ensure_ascii=False)
+
+    print(f"Done. Wrote results to: {OUT_DIR}")
+    
+
+if __name__ == "__main__":
+    run_note_fact_extraction()

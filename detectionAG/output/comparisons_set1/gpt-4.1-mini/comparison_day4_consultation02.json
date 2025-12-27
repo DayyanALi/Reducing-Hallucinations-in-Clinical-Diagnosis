@@ -1,0 +1,340 @@
+{
+  "file_id": "day4_consultation02.txt",
+  "model_source": "gpt-4.1-mini",
+  "metrics": {
+    "total_gold_facts": 28,
+    "total_gen_facts": 30,
+    "omission_count": 11,
+    "omission_rate": 0.3929,
+    "contradiction_count": 1,
+    "contradiction_rate": 0.0333,
+    "addition_count": 16,
+    "addition_rate": 0.5333
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 includes 'severe headaches' which captures the chief complaint of headaches."
+      },
+      {
+        "fact_id": "cc-002",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 includes 'decreased appetite', which matches loss of appetite."
+      },
+      {
+        "fact_id": "cc-003",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 includes 'tingling in arms', which corresponds to tingling sensations."
+      },
+      {
+        "fact_id": "cc-004",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 includes 'feeling hot', which matches feeling hot / fevers."
+      },
+      {
+        "fact_id": "cc-005",
+        "status": "COVERED",
+        "reasoning": "Generated cc-001 includes 'palpitations', matching the gold chief complaint of palpitations."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: symptoms began after starting a new high-stress job as a lawyer working at a computer. Generated facts mention stress and law job (hpi-012, asm-001, asm-006) but do not explicitly state that symptoms began after the new job; the temporal onset relationship is missing."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: headaches are frontal. Generated hpi-001 describes 'mostly frontal' headaches, which captures this."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: headaches occur without a pre-aura. No generated fact addresses presence or absence of aura or presymptoms for headaches."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "OMITTED",
+        "reasoning": "Gold: headaches do not radiate. Generated facts do not comment on radiation of headache pain."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: headaches associated with some nausea. Generated hpi-002 states headaches associated with mild nausea, which is consistent and captures the fact."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient denies vomiting with headaches. Generated facts do not mention vomiting."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: no prior medical history of headaches. Generated hpi-003 states 'no prior history of headaches.'"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: headaches are accompanied by fevers. Generated facts only mention 'feeling hot' in CC but do not explicitly link fevers with headaches in the HPI."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: reduced appetite with unintentional 5 lb weight loss. Generated facts split appetite decrease (hpi-008, hpi-010) and weight loss (hpi-009, hpi-010) but only hpi-009 mentions 5 lb weight loss and also adds 'loss of libido'; however, it does not explicitly state reduced appetite with the 5 lb loss in one statement as in the gold fact. Therefore the exact combined fact is not fully captured."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: pins and needles in both arms, no radiation to legs. Generated hpi-004 describes tingling both hands and hpi-005 says no leg involvement, capturing both distribution and lack of leg radiation."
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "OMITTED",
+        "reasoning": "Gold: despite tingling, motor and sensory function are maintained with no loss of function. No generated fact addresses preserved motor or sensory function or lack of functional loss."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "OMITTED",
+        "reasoning": "Gold: palpitations associated with mild SOBOE and SOBAR. Generated hpi-007 states SOB at rest/sitting and 'not on exertion,' which directly conflicts with SOBOE; thus the gold association of SOB both on exertion and at rest is not captured."
+      },
+      {
+        "fact_id": "hpi-013",
+        "status": "OMITTED",
+        "reasoning": "Gold: symptoms occur at random times of day while at work, sometimes together, sometimes individually, without presymptoms. Generated facts describe occurrences at work and stress but do not mention random timing, presence/absence of presymptoms, or that symptoms sometimes occur together/individually."
+      },
+      {
+        "fact_id": "hpi-014",
+        "status": "OMITTED",
+        "reasoning": "Gold: symptoms had an acute onset. No generated fact describes onset as acute or chronic."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: hypothyroidism. Generated pmh-001 states hypothyroidism."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient taking Thyroxine. Generated med-001 states patient is taking thyroxine."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no known drug allergies. Generated allergy-001: 'no allergies,' which is consistent."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient works as a lawyer. Generated hpi-012 references 'law firm job,' indicating employment as a lawyer."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: job is stressful. Generated hpi-012: stress level 7\u20138/10 related to law firm job, which captures job-related stress."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: patient drinks alcohol. Generated sh-001: drinks alcohol once weekly, a few glasses, captures alcohol use."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold assessment: differential includes hypothyroidism (DDx ??hypothyroid?). Generated asm-005 documents hypothyroidism as 'stable on thyroxine' and not as a differential diagnosis for current symptoms. The specific DDx consideration is not captured."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: plan is to perform further physical examination. Generated plan-001: schedule in-person visit for full physical exam including cardiovascular and respiratory systems captures further exam."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: plan includes ordering blood tests. Generated plan-002: laboratory tests including thyroid function panel captures ordering lab tests."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Portions are supported and portions are new. Supported: headaches (cc-001), feeling hot (cc-004), tingling (cc-003), palpitations (cc-005), decreased appetite (cc-002), 5 lb weight loss (hpi-009). Additions: severity of headaches, shortness of breath, and loss of libido are not present in the gold chief complaint list.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Supported piece: frontal headaches (hpi-002). Additions: 'intermittent', 'mostly', and that they occur during work/meetings/computer are not stated in the gold HPI (though work association appears only as onset trigger, not as situational occurrence).",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005",
+        "reasoning": "Gold hpi-005: headaches associated with some nausea. Generated: headaches associated with mild nausea. This is equivalent in meaning."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold hpi-007: no prior medical history of headaches. Generated: patient reports no prior history of headaches."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Supported in distribution but with added detail. Gold hpi-010: pins and needles in both arms. Generated narrows this to both hands and describes a 'prickling sensation.' Hands are part of the arms so location is consistent, but 'prickling' quality is additional.",
+        "match_gold_id": "hpi-010"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010",
+        "reasoning": "Gold: no radiation to legs. Generated: tingling does not involve the legs. This matches."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Gold describes palpitations but not their frequency. '~daily' frequency is new information not in the gold facts.",
+        "match_gold_id": "cc-005"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "CONTRADICTION",
+        "reasoning": "Gold hpi-012: palpitations with mild shortness of breath on exertion and at rest. Generated hpi-007: SOB at rest/sitting at desk, 'not on exertion.' This directly contradicts the presence of SOB on exertion.",
+        "match_gold_id": "hpi-012"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-002",
+        "reasoning": "Gold cc-002/hpi-009: loss/reduced appetite. Generated hpi-008: decreased appetite. This is consistent."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Gold hpi-009 notes 5 lb unintentional weight loss but does not mention lack of noticing clothing changes nor link it to libido in that same statement. Generated adds that clothes have not loosened and includes 'loss of libido' in the same sentence; these are additional details.",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "ADDITION",
+        "reasoning": "Gold hpi-009: unintentional 5 lb weight loss and reduced appetite. Generated hpi-010 notes unintentional weight loss and decreased appetite but explicitly states 'without noticeable clothes loosening,' which is an added nuance not in gold.",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention libido or its temporal association with job change. This is new information.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "ADDITION",
+        "reasoning": "Gold recognizes a stressful job (sh-002, hpi-001) but does not quantify stress level (7\u20138/10). Quantification is additional detail.",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Gold pmh-001: hypothyroidism. Generated pmh-001: hypothyroidism on thyroxine, compliant. The core diagnosis is supported; 'compliant' is added detail but consistent."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "Gold med-001: taking Thyroxine. Generated: taking thyroxine for hypothyroidism and compliant. Core medication use is supported; compliance is extra but non-contradictory."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: 'no known drug allergies' / 'nil'. Generated: 'no allergies.' This is consistent."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Gold sh-003 only indicates that patient drinks alcohol; frequency and amount (once weekly, few glasses) are additional details.",
+        "match_gold_id": "sh-003"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "ADDITION",
+        "reasoning": "Gold social history does not mention smoking. Generated 'does not smoke' introduces new information.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "ADDITION",
+        "reasoning": "Gold social history does not mention recreational drug use. Generated 'does not use recreational drugs' is new information.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold assessment includes DDx hypothyroid (asm-001) and headache-related HPI but does not explicitly state that new onset headaches are 'possibly work/stress-related,' though work and stress are mentioned as context. This causal phrasing is an interpretive addition.",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010",
+        "reasoning": "Gold hpi-010: pins and needles in both arms, no leg radiation, with maintained function (hpi-011). Generated asm-002 summarizes this as paresthesias in upper extremities with unclear etiology; this is a supported interpretation of symptoms with added note of unclear etiology (not in gold)."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "PARTIAL_CONTRADICTION",
+        "reasoning": "Gold hpi-012: palpitations with mild SOB on exertion and at rest. Generated asm-003: palpitations and intermittent SOB at rest, with no mention of exertional SOB. Taken with generated hpi-007 (which states no SOB on exertion), this under-represents and indirectly conflicts with the gold's exertional SOB component.",
+        "match_gold_id": "hpi-012"
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold hpi-009: reduced appetite with unintentional 5 lb weight loss. Generated asm-004: unintentional weight loss and decreased appetite. This matches the assessment of those findings."
+      },
+      {
+        "fact_id": "asm-005",
+        "status": "ADDITION",
+        "reasoning": "Gold pmh-001 and med-001 mention hypothyroidism and thyroxine but do not state 'stable on thyroxine.' Stability is additional interpretive information.",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "asm-006",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention decreased libido or its relation to job change/stress. Entire content is new.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: 'requires further examination.' Generated: schedule in-person clinic visit for full physical exam including cardiovascular and respiratory systems. This is a more detailed but consistent version of the same plan."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold: plan includes blood tests. Generated: laboratory tests including thyroid function panel. Labs are supported; specifying thyroid panel is added detail but aligned with known hypothyroidism."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Gold plan only mentions further examination and blood tests. Monitoring symptoms and counseling on stress management are additional plan components not in gold.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold plan does not address use or avoidance of empirical medications. This is new guidance.",
+        "match_gold_id": null
+      },
+      {
+        "fact_id": "pe-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold plan-001/002 imply no physical findings yet since exam is still required. Generated pe-001 explicitly states none documented yet, which is consistent with the gold plan indicating upcoming examination."
+      }
+    ]
+  }
+}

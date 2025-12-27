@@ -1,0 +1,230 @@
+{
+  "file_id": "day3_consultation06.txt",
+  "model_source": "gpt-5-mini",
+  "metrics": {
+    "total_gold_facts": 13,
+    "total_gen_facts": 29,
+    "omission_count": 4,
+    "omission_rate": 0.3077,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 16,
+    "addition_rate": 0.5517
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold specifies breathing difficulty for 15 minutes following a wasp sting. Generated HPI facts mention being stung 15 minutes prior and shallow breathing, but do not state the duration of breathing difficulty for 15 minutes. Therefore the specific temporal detail is not captured."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold describes a tingling sensation around the lips. This is captured in generated HPI fact id hpi-004: 'tingling sensation of the lips.'"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold notes chest tightness. This is captured in generated HPI fact id hpi-003 and again in ROS fact ros-002 as chest tightness."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold states the patient denies any sensation of throat closing. This is captured in generated HPI fact id hpi-006 ('denies throat closing') and ROS fact ros-005."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold states no previous similar episodes. This is captured in generated HPI fact id hpi-007: 'no prior similar episodes.'"
+      },
+      {
+        "fact_id": "pf-001",
+        "status": "OMITTED",
+        "reasoning": "Gold documents a blotchy rash as a physical exam finding. Generated facts mention blotchy rash only in HPI (hpi-005) and ROS (ros-004), not as a separate Physical_Findings section item, so this specific sectioned fact is not captured."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold indicates a history of eczema. Generated PMH fact pmh-001 and Assessment fact asm-004 both state eczema/atopic dermatitis."
+      },
+      {
+        "fact_id": "pmh-002",
+        "status": "OMITTED",
+        "reasoning": "Gold indicates a history of aerosinusitis. There is no mention of aerosinusitis in the generated facts."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold states allergy to penicillin. Generated allergy-001 documents penicillin allergy as well."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "OMITTED",
+        "reasoning": "Gold assessment: 'It might be just urticaria (hives).' No generated Assessment fact explicitly states possible urticaria/hives; rash is mentioned only in ROS/Plan and not as this specific assessment impression."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "COVERED",
+        "reasoning": "Gold states 'r/o possible anaphylactic reaction.' Generated asm-002: 'concern for possible progression to anaphylaxis,' and plan-001/plan-002 also reflect this concern."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: begin antihistamine therapy immediately. Generated plan-003: 'Administer an oral antihistamine at home while awaiting the ambulance,' which reflects starting antihistamines promptly."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: 'Call the ambulance to r/o possible anaphylactic reaction.' Generated plan-001 and plan-002 document advising to call an ambulance and that the wife called during the encounter."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Chief complaint summary (breathing difficulty after wasp sting) is consistent with the Gold HPI but the Gold set does not include a separate Chief_Complaint fact."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold confirms wasp sting and 15 minutes of breathing difficulty but does not mention that it occurred while gardening or '15 minutes prior to the call.' These contextual timing/location details are not in Gold."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "ADDITION",
+        "reasoning": "Gold mentions 'breathing difficulty' but not specifically 'shallow breathing' or that he ran inside. This adds descriptive detail not present in Gold."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold notes blotchy rash as a physical finding (pf-001), not as an HPI symptom. Content (blotchy rash) is consistent but the generated placement in HPI is an added framing rather than a contradiction."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "ADDITION",
+        "reasoning": "Seeking advice about whether to go to hospital is not described in any Gold fact."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001"
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "Gold Plan mentions starting antihistamines but does not state that patient already has antihistamines at home or uses them for flying."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001"
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "ADDITION",
+        "reasoning": "Living with wife and her calling the ambulance are not included in the Gold facts."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "ADDITION",
+        "reasoning": "Gold Assessment lists 'possible urticaria' and 'r/o anaphylaxis' but does not explicitly phrase it as 'Acute allergic reaction to insect sting with respiratory symptoms,' which is a reasonable but additional summary diagnosis."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-002"
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Gold lists penicillin allergy only in Allergies, not as a separate Assessment item; content is consistent but its use as an assessment problem is added structure."
+      },
+      {
+        "fact_id": "asm-004",
+        "status": "ADDITION",
+        "reasoning": "Gold has PMH of eczema but no Assessment item labeling it as 'chronic atopic dermatitis.' This frames existing information as an assessment diagnosis, so it is an addition."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Gold states to call an ambulance, but does not state that the wife actually initiated the call during the encounter."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001"
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold Plan only specifies calling an ambulance to rule out anaphylaxis and starting antihistamines; it does not explicitly state proceeding to the ED, though it is clinically implied."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Gold Plan does not itemize observation for progression of specific symptoms; this is new, though consistent, detail."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "ADDITION",
+        "reasoning": "Gold notes allergy to penicillin but does not describe documenting it in the chart or avoiding penicillin pending clarification."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "No Gold Follow_up_Information fact is provided; ED follow-up arrangements are not mentioned."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "ADDITION",
+        "reasoning": "Gold states 'breathing difficulty' but does not categorize it under ROS or specify 'shallow' breathing. This is structured and slightly more specific, so counted as an addition."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "pf-001"
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004"
+      }
+    ]
+  }
+}

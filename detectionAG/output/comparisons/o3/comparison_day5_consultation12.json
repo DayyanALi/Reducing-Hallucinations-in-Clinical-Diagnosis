@@ -1,0 +1,360 @@
+{
+  "file_id": "day5_consultation12.txt",
+  "model_source": "o3",
+  "metrics": {
+    "total_gold_facts": 29,
+    "total_gen_facts": 39,
+    "omission_count": 6,
+    "omission_rate": 0.2069,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 19,
+    "addition_rate": 0.4872
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient presents with headache. Generated cc-001: patient reports having a headache\u2014same complaint."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "COVERED",
+        "reasoning": "Gold: left-sided posterior headache. Generated hpi-002: headache located at left posterior/occipital region\u2014equivalent description."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: began mid-morning yesterday. Generated hpi-001: began yesterday mid-morning\u2014same onset."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "COVERED",
+        "reasoning": "Gold: severity 8/10. Generated hpi-005: severity reached 8/10 at worst\u2014same severity."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: not worsened by coughing, sneezing, or bending. Generated hpi-008: no positional component; this implies not made worse by positional changes such as bending, which covers the bending component but does not explicitly mention cough/sneeze; however, no generated fact contradicts this, and the core concept (no positional worsening) is present. Marked as covered."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "COVERED",
+        "reasoning": "Gold: did not wake her during the night and slept okay. Generated hpi-010: slept through the night\u2014captures same idea."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "OMITTED",
+        "reasoning": "Gold: eating and drinking are unaffected. No generated fact mentions eating or drinking status."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "OMITTED",
+        "reasoning": "Gold: finding it hard to concentrate on work. No generated fact addresses concentration or impact on work."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "OMITTED",
+        "reasoning": "Gold: no headaches in the past. Generated past medical history and medications do not state headache history; this specific point is absent."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "COVERED",
+        "reasoning": "Gold: no change in diet/lifestyle/increased stress. Generated hpi-012: no triggers identified and no recent stress, diet, or lifestyle change\u2014same content plus explicit reference to triggers."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "COVERED",
+        "reasoning": "Gold: denies visual disturbance. Generated hpi-011 and ros-004: deny blurred vision/visual disturbance\u2014equivalent."
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: denies visual floaters. Generated ROS mentions blurred vision, photophobia, visual aura but not floaters; hpi-011 lists visual disturbance but not specifically floaters as in gold. This specific symptom is not clearly present."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "COVERED",
+        "reasoning": "Gold: denies tingling. Generated hpi-011 and ros-003: no paresthesia/tingling\u2014covered."
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "COVERED",
+        "reasoning": "Gold: denies numbness. Generated hpi-011 and ros-003: negative numbness\u2014covered."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "COVERED",
+        "reasoning": "Gold: denies weakness. Generated hpi-011 and ros-003: negative weakness\u2014covered."
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "COVERED",
+        "reasoning": "Gold: denies nausea. Generated hpi-011 and ros-005: no nausea\u2014covered."
+      },
+      {
+        "fact_id": "ros-007",
+        "status": "COVERED",
+        "reasoning": "Gold: denies vomiting. Generated hpi-011 and ros-005: no vomiting\u2014covered."
+      },
+      {
+        "fact_id": "ros-008",
+        "status": "COVERED",
+        "reasoning": "Gold: denies fever. Generated hpi-011 and ros-001: no fever\u2014covered."
+      },
+      {
+        "fact_id": "ros-009",
+        "status": "COVERED",
+        "reasoning": "Gold: denies neck stiffness. Generated hpi-011: denies neck stiffness\u2014covered."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: takes no regular medications. Generated med-002: no regular prescription medications. This covers the key concept of no regular meds; one-time ibuprofen dose is separately documented."
+      },
+      {
+        "fact_id": "fam-001",
+        "status": "COVERED",
+        "reasoning": "Gold: mother has hypertension. Generated fhx-001: mother has hypertension\u2014same."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: lives with her partner. Generated sh-001: lives with partner\u2014same."
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "COVERED",
+        "reasoning": "Gold: works as a designer. Generated sh-002: occupation designer\u2014same."
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "COVERED",
+        "reasoning": "Gold: non-drinker. Generated sh-004: denies regular alcohol use. This is slightly weaker but compatible (can still be interpreted as effectively a non-drinker); no contradiction. Marked as covered."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: Impression: new onset headache. Generated asm-001: new-onset unilateral occipital headache of moderate-severe intensity\u2014includes new-onset headache plus more detail."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: prescribed stronger anti-inflammatory instead of ibuprofen. Generated plan-001: prescribe stronger NSAID to be taken regularly with food; context includes that prior ibuprofen had minimal relief. It reflects prescribing a stronger NSAID as alternative therapy\u2014substantively covered though explicit \u2018instead of ibuprofen\u2019 phrase is implicit."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: can take paracetamol alongside the anti-inflammatory. Generated plan-002: may use paracetamol concurrently\u2014same instruction."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "OMITTED",
+        "reasoning": "Gold: contact doctor immediately if pain not settling/worse or new symptoms. Generated plan-004/fu-001 mention urgent care/tele-review for worsening, persistence, or red-flag symptoms, but do not explicitly say 'contact a doctor immediately'; they specify 1\u20132 days and tele-review. Because wording and immediacy differ, the exact gold instruction is not cleanly mirrored."
+      },
+      {
+        "fact_id": "fu-002",
+        "status": "OMITTED",
+        "reasoning": "Gold: if recurring episodes, arrange further assessment with GP. No generated follow-up fact or plan explicitly mentions recurring episodes or GP reassessment."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "cc-001"
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002"
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-001"
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Throbbing character of headache is not described in any gold fact; no conflict."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "ADDITION",
+        "reasoning": "Detail that intensity built up over a short period is not present in gold facts; no conflict."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-003"
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "ADDITION",
+        "reasoning": "Persistence since onset is not specified in gold facts; does not contradict them."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "ADDITION",
+        "reasoning": "No particular time-of-day variation is not mentioned in gold facts; no contradiction."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold hpi-004: not worsened by coughing/sneezing/bending (positional elements). Generated hpi-008: no positional component. Conceptually consistent but broader; hence partially supported rather than fully matched to a single gold fact."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "ADDITION",
+        "reasoning": "Use of Nurofen with minimal relief is not in gold facts; gold only notes a plan to use a stronger anti-inflammatory. No conflict."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-005"
+      },
+      {
+        "fact_id": "hpi-011",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold ROS covers denial of visual disturbance, tingling, numbness, weakness, nausea, vomiting, fever, neck stiffness. Generated adds eye pain, photophobia, chills, sweats, rash. Supported for overlapping items (ros-001, ros-003\u2013ros-009) but includes additional negative symptoms not in gold, so classified as partial support/addition combination."
+      },
+      {
+        "fact_id": "hpi-012",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009"
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "ADDITION",
+        "reasoning": "Past medical history of no medical problems is not mentioned in any gold fact; no contradiction."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "ADDITION",
+        "reasoning": "One-time ibuprofen dose is not in gold facts (gold only says no regular meds); consistent but new detail."
+      },
+      {
+        "fact_id": "med-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001"
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "ADDITION",
+        "reasoning": "No medication allergies reported is not addressed in the gold set; no conflict."
+      },
+      {
+        "fact_id": "fhx-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "fam-001"
+      },
+      {
+        "fact_id": "fhx-002",
+        "status": "ADDITION",
+        "reasoning": "Maternal migraines are not described in gold facts; no contradiction."
+      },
+      {
+        "fact_id": "sh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-001"
+      },
+      {
+        "fact_id": "sh-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "sh-002"
+      },
+      {
+        "fact_id": "sh-003",
+        "status": "ADDITION",
+        "reasoning": "Tobacco use not mentioned in gold; this is extra history."
+      },
+      {
+        "fact_id": "sh-004",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold sh-003: non-drinker (implies no alcohol). Generated: denies regular alcohol use (could allow occasional drinking). This is compatible but slightly weaker, so partially supported rather than fully equivalent."
+      },
+      {
+        "fact_id": "sh-005",
+        "status": "ADDITION",
+        "reasoning": "Recreational drug use not addressed in gold facts; no conflict."
+      },
+      {
+        "fact_id": "ros-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-008"
+      },
+      {
+        "fact_id": "ros-002",
+        "status": "ADDITION",
+        "reasoning": "ROS statement of positive headache and negative neuro signs is more detailed than gold, which only lists specific negatives; extra but consistent."
+      },
+      {
+        "fact_id": "ros-003",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-003"
+      },
+      {
+        "fact_id": "ros-004",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold confirms no visual disturbance (ros-001) but does not explicitly state no photophobia or visual aura; thus blurred vision piece is supported, remainder is additional."
+      },
+      {
+        "fact_id": "ros-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "ros-006"
+      },
+      {
+        "fact_id": "ros-006",
+        "status": "ADDITION",
+        "reasoning": "No rash is not in gold ROS; gold only mentions no rash within hpi-011\u2019s analogue, but in the gold list ROS there is no rash fact\u2014this is new information without conflict."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001"
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "ADDITION",
+        "reasoning": "Detailed differential diagnosis is not listed in gold facts; extra clinical reasoning only."
+      },
+      {
+        "fact_id": "asm-003",
+        "status": "ADDITION",
+        "reasoning": "Statement that no red flags were elicited is not explicitly in gold facts, though consistent with negative ROS; still an addition."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "PARTIAL_SUPPORT",
+        "reasoning": "Gold plan-001: stronger anti-inflammatory instead of ibuprofen. Generated: stronger NSAID to be taken regularly with food, without explicitly saying it replaces ibuprofen. Supported for stronger NSAID prescription but missing the explicit substitution detail."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002"
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Rest and hydration advice is not in the gold plan; extra counseling."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "ADDITION",
+        "reasoning": "Gold follow-up/red flag instructions are framed as contacting doctor if pain not settling/worse or new symptoms; generated adds specific timeframe (1\u20132 days) and detailed red flags. Overlaps conceptually but not directly documented in gold; treated as addition."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "ADDITION",
+        "reasoning": "Outpatient BP check is not mentioned in gold facts; additional plan item."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "ADDITION",
+        "reasoning": "Tele-review within 48 hours/red-flag follow-up is not in gold follow-up (which focuses on contacting doctor ASAP and GP review for recurrence); similar intent but different modality/timing, so considered added detail rather than directly supported."
+      }
+    ]
+  }
+}

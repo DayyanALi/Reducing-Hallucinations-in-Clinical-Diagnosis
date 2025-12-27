@@ -1,0 +1,235 @@
+{
+  "file_id": "day3_consultation05.txt",
+  "model_source": "gpt-5-mini",
+  "metrics": {
+    "total_gold_facts": 19,
+    "total_gen_facts": 21,
+    "omission_count": 5,
+    "omission_rate": 0.2632,
+    "contradiction_count": 0,
+    "contradiction_rate": 0.0,
+    "addition_count": 6,
+    "addition_rate": 0.2857
+  },
+  "raw_assessment": {
+    "gold_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "OMITTED",
+        "reasoning": "Gold CC notes dizziness for the past few hours. Generated CC mentions acute dizziness/vertigo with room spinning, unsteady gait, ear buzzing, and nausea but does not include the duration 'past few hours'."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "OMITTED",
+        "reasoning": "Gold HPI specifies dizziness for the past few hours. Generated HPI states onset ~2 hours ago and constant since then, which is not the same wording and does not explicitly restate 'past few hours'; no generated fact directly restates this gold fact."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "COVERED",
+        "reasoning": "Gold: similar episode 1 month ago lasting 10 minutes. Generated hpi-002: similar shorter episode 1 month ago lasting 5\u201310 minutes. The 10-minute duration is encompassed by 5\u201310 minutes; therefore, covered."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient feels as though on a boat. No generated fact describes the vertigo as feeling like being on a boat."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies recent viral illness. Generated hpi-006: patient reports no recent viral illness. Same content."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "OMITTED",
+        "reasoning": "Gold: buzzing noise in ears (tinnitus). Generated facts refer to 'ear buzzing' in CC and 'hearing otherwise intact (buzzing only)' in HPI, but there is no explicit HPI statement 'patient reports buzzing noise in the ears.' The symptom appears, but not as a separate, clearly matched HPI gold fact, so it is not distinctly captured."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies hearing problems. Generated hpi-008: hearing otherwise intact aside from buzzing. This conveys no hearing problems apart from the buzzing, so covered."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies ear discharge. Generated hpi-007: no ear pain or discharge. Discharge denial is explicitly included."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies ear pain. Generated hpi-007: no ear pain or discharge. Ear pain denial is included."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "OMITTED",
+        "reasoning": "Gold: patient feels nauseous but has not vomited. Generated facts mention nausea in CC and as associated with vertigo (asm-002) and separately note no vomiting (hpi-004), but there is no single generated fact that combines both 'feels nauseous' and 'has not vomited' as in the gold statement."
+      },
+      {
+        "fact_id": "hpi-010",
+        "status": "COVERED",
+        "reasoning": "Gold: patient denies weakness of arms and legs. Generated hpi-009: no limb weakness or focal neurological symptoms. This covers absence of weakness of arms and legs."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "COVERED",
+        "reasoning": "Gold: premature ovarian failure. Generated pmh-001: history of premature ovarian failure. Identical content."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "COVERED",
+        "reasoning": "Gold: patient takes HRT. Generated med-001: patient is taking hormone replacement therapy. Same fact."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "COVERED",
+        "reasoning": "Gold: no known allergies. Generated allergy-001: no known drug allergies. This is consistent and reasonably captures the gold allergy status."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "COVERED",
+        "reasoning": "Gold: most likely diagnosis is labyrinthitis. Generated asm-001: acute vertigo with suspected labyrinthitis clinically diagnosed. This conveys labyrinthitis as the working diagnosis."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "COVERED",
+        "reasoning": "Gold: prescribe Stemetil, 1 tab TID for approximately 10 days for symptom relief. Generated plan-001: semitol 1 tab TID for 10 days, a spelling/brand variant but same dosing and duration, clearly referring to the same medication and regimen."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "COVERED",
+        "reasoning": "Gold: book face-to-face appointment to have ears checked. Generated plan-004: arrange face-to-face review with doctor for ear examination plus additional checks. Ear check is explicitly included."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "COVERED",
+        "reasoning": "Gold: recommend physical check-up including blood pressure and other basics. Generated plan-004 includes BP check and additional gait/neuro exam at face-to-face review, which encompasses the BP check and extends it."
+      },
+      {
+        "fact_id": "fu-001",
+        "status": "COVERED",
+        "reasoning": "Gold: if weakness of arms and legs or vomiting develops, go to A&E. Generated plan-005: go to A&E if new limb weakness, persistent/violent vomiting, or deterioration. This includes limb weakness and vomiting triggers."
+      }
+    ],
+    "gen_assessment": [
+      {
+        "fact_id": "cc-001",
+        "status": "ADDITION",
+        "reasoning": "Gold CC only notes dizziness for the past few hours. Generated CC adds vertigo phrasing, room spinning, unsteady gait, ear buzzing, and nausea\u2014none of which are specified in the gold CC, though some items appear elsewhere in HPI."
+      },
+      {
+        "fact_id": "hpi-001",
+        "status": "ADDITION",
+        "reasoning": "Gold states 'past few hours' but does not specify ~2 hours. The more precise onset (2 hours) is extra detail not present in the gold facts."
+      },
+      {
+        "fact_id": "hpi-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-002",
+        "reasoning": "Gold: similar episode 1 month ago lasting 10 minutes. Generated: similar episode 1 month ago lasting 5\u201310 minutes. This is a compatible elaboration."
+      },
+      {
+        "fact_id": "hpi-003",
+        "status": "ADDITION",
+        "reasoning": "Continuous dizziness since onset (constant) is not mentioned in any gold fact."
+      },
+      {
+        "fact_id": "hpi-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold hpi-009: nauseous but not been sick (no vomiting). Generated hpi-004: no vomiting. This matches the 'no vomiting' component."
+      },
+      {
+        "fact_id": "hpi-005",
+        "status": "ADDITION",
+        "reasoning": "Gold facts do not mention fever at all. Reporting no fever is new information, not contradicted by gold."
+      },
+      {
+        "fact_id": "hpi-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-004",
+        "reasoning": "Gold hpi-004: patient denies recent viral illness. Generated hpi-006 is identical in meaning."
+      },
+      {
+        "fact_id": "hpi-007",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-007",
+        "reasoning": "Gold hpi-007 and hpi-008: no ear discharge or pain. Generated hpi-007: no ear pain or discharge. Fully consistent."
+      },
+      {
+        "fact_id": "hpi-008",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-006",
+        "reasoning": "Gold hpi-006: denies hearing problems, with separate tinnitus noted. Generated hpi-008: hearing otherwise intact aside from buzzing, reflecting no general hearing loss aside from tinnitus."
+      },
+      {
+        "fact_id": "hpi-009",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-010",
+        "reasoning": "Gold hpi-010: no weakness of the arms and legs. Generated hpi-009: no limb weakness or focal neurological symptoms. Limb weakness component aligns; focal neuro is an extra detail but not contradictory."
+      },
+      {
+        "fact_id": "pmh-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "pmh-001",
+        "reasoning": "Matches premature ovarian failure exactly."
+      },
+      {
+        "fact_id": "med-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "med-001",
+        "reasoning": "HRT usage is the same in both."
+      },
+      {
+        "fact_id": "allergy-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "allergy-001",
+        "reasoning": "Gold: no allergies; generated: no known drug allergies. This is consistent and acceptable as support."
+      },
+      {
+        "fact_id": "asm-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "asm-001",
+        "reasoning": "Gold: likely labyrinthitis. Generated: acute vertigo with suspected labyrinthitis clinically diagnosed. Same diagnosis with more context."
+      },
+      {
+        "fact_id": "asm-002",
+        "status": "SUPPORTED",
+        "match_gold_id": "hpi-009",
+        "reasoning": "Gold hpi-009: patient feels nauseous. Generated asm-002: nausea associated with vertigo. This is compatible with and supported by the gold nausea symptom."
+      },
+      {
+        "fact_id": "plan-001",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-001",
+        "reasoning": "Gold: Stemetil 1 tab TID ~10 days. Generated: semitol 1 tab TID for 10 days sent to Lloyd Pharmacy. Same drug regimen; pharmacy detail is additional."
+      },
+      {
+        "fact_id": "plan-002",
+        "status": "ADDITION",
+        "reasoning": "Advice to use paracetamol for fever is not mentioned in any gold fact; fever is not discussed. New, non-contradictory plan element."
+      },
+      {
+        "fact_id": "plan-003",
+        "status": "ADDITION",
+        "reasoning": "Instruction to take semitol with or without food is not present in the gold plan; this is extra prescribing detail."
+      },
+      {
+        "fact_id": "plan-004",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold plan-002/003: book face-to-face appointment to have ears checked and recommend BP and basic assessments. Generated plan-004: face-to-face review for ear exam, BP, gait/neuro. This matches and extends the gold plan."
+      },
+      {
+        "fact_id": "plan-005",
+        "status": "SUPPORTED",
+        "match_gold_id": "fu-001",
+        "reasoning": "Gold fu-001: go to A&E if weakness of arms/legs or vomiting develops. Generated plan-005: go to A&E if new limb weakness, persistent/violent vomiting, or deterioration. Limb weakness and vomiting indications match; additional triggers are additions but not contradictions."
+      },
+      {
+        "fact_id": "plan-006",
+        "status": "SUPPORTED",
+        "match_gold_id": "plan-002",
+        "reasoning": "Gold plan-002: patient to book a face-to-face appointment. Generated plan-006: patient to call support to book an in-person appointment. Mechanism is specified but overall instruction is the same."
+      }
+    ]
+  }
+}
