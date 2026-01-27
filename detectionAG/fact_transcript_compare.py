@@ -15,7 +15,7 @@ from langchain_core.output_parsers import JsonOutputParser
 # Import the new prompt
 from configs.fact_extract_prompt import FACT_VERIFY_SYSTEM_PROMPT, FACT_VERIFY_USER_PROMPT
 
-load_dotenv()
+load_dotenv() 
 
 # --- CONFIGURATION ---
 VERIFIER_MODEL = "gpt-5.1"  # Needs a smart model for entailment
@@ -51,7 +51,7 @@ class FactVerifier:
         try:
             # We strip the 'source_text' from gen_facts to save tokens, 
             # the verifier only needs the 'content' claim.
-            slim_facts = [{"fact_id": f["id"], "content": f["content"]} for f in gen_facts]
+            slim_facts = [{"fact_id": f["fact_id"], "content": f["content"]} for f in gen_facts]
             
             return chain.invoke({
                 "transcript": transcript_text,
@@ -60,24 +60,36 @@ class FactVerifier:
         except Exception as e:
             return {"error": str(e), "verdict": []}
 
-def extract_consultation_id(filename: str) -> str:
-    # Matches "day1_consultation01"
-    match = re.search(r"(day\d+_consultation\d+)", filename)
-    if match:
+def extract_consultation_id(filename: str) -> str: # Matches "*day1_consultation01*" 
+    match = re.search(r"(day\d+_consultation\d+)", filename) 
+    if match: 
         return match.group(1)
     return None
+
+def extract_error_number(filename: str) -> int:
+    """
+    Extracts the last number before the extension in the filename.
+    Example:
+        day1_consultation04_change130.txt -> 130
+        facts_day1_consultation04_error131.json -> 131
+    """
+    match = re.search(r"(\d+)(?=\.\w+$)", filename)
+    if match:
+        return int(match.group(1))
+    return None
+
 
 # --- WORKER FUNCTION ---
 def process_verification(gen_path: Path, trans_path: Path, output_root: Path, verifier: FactVerifier):
     try:
-        model_name = gen_path.parent.name # e.g., "gpt-4.1"
+        model_name = "gpt-5.1" # e.g., "gpt-4.1"
         
         # Setup Output
         target_dir = output_root / model_name
         target_dir.mkdir(parents=True, exist_ok=True)
         
-        cid = extract_consultation_id(gen_path.name)
-        out_name = f"verification_{cid}.json"
+        cid = extract_error_number(gen_path.name)
+        out_name = f"error_{cid}.json"
         out_path = target_dir / out_name
         
         if not OVERWRITE and out_path.exists():
@@ -129,51 +141,70 @@ def process_verification(gen_path: Path, trans_path: Path, output_root: Path, ve
     except Exception as e:
         return f"Error: {str(e)}"
 
-# --- MAIN ---
-if __name__ == "__main__":
-    
-    BASE_PATH = Path("E:/hallucination/Reducing-Hallucinations-in-Clinical-Diagnosis")
-    
-    # PATHS
-    GEN_ROOT = BASE_PATH / "detectionAG/output/extracted_facts"
-    # Point this to where your raw .txt transcripts are
-    TRANS_DIR = BASE_PATH / "detectionAG/output/transcriptions" 
-    OUTPUT_ROOT = BASE_PATH / "detectionAG/output/verifications_vs_transcript"
-    
-    # 1. Index Transcripts
-    print(f"Indexing Transcripts...")
-    trans_index = {}
-    try:
-        # Assuming transcripts are named like "day1_consultation01.txt"
-        for p in TRANS_DIR.glob("*.txt"):
-            cid = extract_consultation_id(p.name)
-            if cid:
-                trans_index[cid] = p
-    except Exception as e:
-        print(f"Error reading Transcript Directory: {e}")
-        exit()
-    print(f"Found {len(trans_index)} Transcripts.")
+def compare_facts(erroneous=False):
+    BASE_PATH = Path(__file__).resolve().parents[1]  
+    # points to Reducing-Hallucinations-in-Clinical-Diagnosis/
 
-    # 2. Gather Tasks
-    print("Gathering generated fact files...")
+    GEN_ROOT = BASE_PATH / "detectionAG/output/erroneous_note_facts"
+    TRANS_DIR = BASE_PATH / "detectionAG/output/erroneous_transcripts"
+    OUTPUT_ROOT = BASE_PATH / "detectionAG/output/erroneous_notes_vs_transcript"
+
     all_tasks = []
-    
-    for gen_path in GEN_ROOT.rglob("*.json"):
-        cid = extract_consultation_id(gen_path.name)
+
+    if not erroneous:
+    # 1. Index Transcripts
+        print(f"Indexing Transcripts...")
+        trans_index = {}
+        try:
+            # Assuming transcripts are named like "day1_consultation01.txt"
+            for p in TRANS_DIR.glob("*.txt"):
+                cid = extract_consultation_id(p.name)
+                if cid:
+                    trans_index[cid] = p
+        except Exception as e:
+            print(f"Error reading Transcript Directory: {e}")
+            exit()
+        print(f"Found {len(trans_index)} Transcripts.")
+
+        # 2. Gather Tasks
+        print("Gathering generated fact files...")
         
-        # Link Gen Fact -> Transcript
-        if cid and cid in trans_index:
-            trans_path = trans_index[cid]
-            all_tasks.append((gen_path, trans_path))
+        for gen_path in GEN_ROOT.rglob("*.json"):
+            cid = extract_consultation_id(gen_path.name)
             
+            # Link Gen Fact -> Transcript
+            if cid and cid in trans_index:
+                trans_path = trans_index[cid]
+                all_tasks.append((gen_path, trans_path))
+    
+    else:
+        trans_index = {}  # number -> transcript path
+
+        for p in TRANS_DIR.glob("*.txt"):
+            error_num = extract_error_number(p.name)
+            if error_num is not None:
+                trans_index[error_num] = p
+                print("Transcript indexed:", error_num, "->", p.name)
+
+        print(f'Found {len(trans_index)} erroneous Transcripts.')
+        x = 0
+        for gen_path in GEN_ROOT.rglob("*.json"):
+            error_num = extract_error_number(gen_path.name)
+            x += 1
+            if error_num is not None and error_num in trans_index:
+                trans_path = trans_index[error_num]
+                all_tasks.append((gen_path, trans_path))
+                print(f"Linked: {gen_path.name} <-> {trans_path.name}")
+        print("found", x, "generated fact files.")
+                
     random.shuffle(all_tasks)
     print(f"Found {len(all_tasks)} pairs to verify.")
-
+    
     # 3. Run
     verifier = FactVerifier(model=VERIFIER_MODEL)
     stats_counter = {"Success": 0, "Skipped": 0, "Error": 0}
 
-    for gen_path, trans_path in tqdm(all_tasks[:5]):
+    for gen_path, trans_path in tqdm(all_tasks[5:]):
         status = process_verification(gen_path, trans_path, OUTPUT_ROOT, verifier)
         
         if status == "Success": stats_counter["Success"] += 1
@@ -183,3 +214,7 @@ if __name__ == "__main__":
             print(f"Failed {gen_path.name}: {status}")
 
     print(f"\nDone. Stats: {stats_counter}")
+
+# --- MAIN ---
+if __name__ == "__main__":
+    compare_facts(erroneous=True)
