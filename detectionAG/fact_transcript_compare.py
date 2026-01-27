@@ -3,7 +3,7 @@ import json
 import re
 import random
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict
 from dotenv import load_dotenv
 from tqdm import tqdm
 
@@ -12,13 +12,13 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 
-# Import the new prompt
+# Import your prompts (Make sure this file exists in your configs folder)
 from configs.fact_extract_prompt import FACT_VERIFY_SYSTEM_PROMPT, FACT_VERIFY_USER_PROMPT
 
 load_dotenv()
 
 # --- CONFIGURATION ---
-VERIFIER_MODEL = "gpt-5.1"  # Needs a smart model for entailment
+VERIFIER_MODEL = "gpt-5.1"  # Use a real model name (gpt-5.1 isn't public yet)
 OVERWRITE = False
 
 class FactVerifier:
@@ -32,15 +32,9 @@ class FactVerifier:
         self.parser = JsonOutputParser()
 
     def verify_facts(self, transcript_text: str, gen_facts: List[Dict]) -> Dict:
-        """
-        Sends the transcript and the list of facts to the LLM for verification.
-        """
         if not gen_facts:
             return {"verdict": []}
 
-        # Optimization: If facts list is huge (>50), chunking might be needed. 
-        # For now, we assume <50 facts fits in context.
-        
         prompt = ChatPromptTemplate.from_messages([
             ("system", FACT_VERIFY_SYSTEM_PROMPT),
             ("user", FACT_VERIFY_USER_PROMPT),
@@ -49,8 +43,7 @@ class FactVerifier:
         chain = prompt | self.llm | self.parser
         
         try:
-            # We strip the 'source_text' from gen_facts to save tokens, 
-            # the verifier only needs the 'content' claim.
+            # Send simplified facts to save tokens
             slim_facts = [{"fact_id": f["id"], "content": f["content"]} for f in gen_facts]
             
             return chain.invoke({
@@ -61,7 +54,7 @@ class FactVerifier:
             return {"error": str(e), "verdict": []}
 
 def extract_consultation_id(filename: str) -> str:
-    # Matches "day1_consultation01"
+    # Matches "day1_consultation01" inside filenames like "facts_day1_consultation01.json"
     match = re.search(r"(day\d+_consultation\d+)", filename)
     if match:
         return match.group(1)
@@ -70,9 +63,12 @@ def extract_consultation_id(filename: str) -> str:
 # --- WORKER FUNCTION ---
 def process_verification(gen_path: Path, trans_path: Path, output_root: Path, verifier: FactVerifier):
     try:
-        model_name = gen_path.parent.name # e.g., "gpt-4.1"
+        # AUTOMATICALLY DETECT MODEL NAME FROM FOLDER
+        # If path is .../extracted_facts_reasoning/gpt-5_high/facts_day1... 
+        # parent.name is "gpt-5_high"
+        model_name = gen_path.parent.name 
         
-        # Setup Output
+        # Setup Output Directory (e.g., .../verifications/gpt-5_high/)
         target_dir = output_root / model_name
         target_dir.mkdir(parents=True, exist_ok=True)
         
@@ -83,10 +79,11 @@ def process_verification(gen_path: Path, trans_path: Path, output_root: Path, ve
         if not OVERWRITE and out_path.exists():
             return "Skipped"
 
-        # Load Data
+        # Load Transcript
         with open(trans_path, 'r', encoding='utf-8') as f:
             transcript_text = f.read()
             
+        # Load Generated Facts
         with open(gen_path, 'r', encoding='utf-8') as f:
             gen_data = json.load(f)
             facts = gen_data.get('facts', [])
@@ -108,7 +105,7 @@ def process_verification(gen_path: Path, trans_path: Path, output_root: Path, ve
         
         final_report = {
             "file_id": gen_data.get("source_file"),
-            "model_source": gen_data.get("model_source"),
+            "model_source": model_name, # Storing the folder name as the model source
             "transcript_ref": trans_path.name,
             "metrics": {
                 "total_facts": total,
@@ -132,32 +129,37 @@ def process_verification(gen_path: Path, trans_path: Path, output_root: Path, ve
 # --- MAIN ---
 if __name__ == "__main__":
     
+    # 1. SETUP PATHS
     BASE_PATH = Path("E:/hallucination/Reducing-Hallucinations-in-Clinical-Diagnosis")
     
-    # PATHS
-    GEN_ROOT = BASE_PATH / "detectionAG/output/extracted_facts"
-    # Point this to where your raw .txt transcripts are
-    TRANS_DIR = BASE_PATH / "detectionAG/output/transcriptions" 
-    OUTPUT_ROOT = BASE_PATH / "detectionAG/output/verifications_vs_transcript"
+    # Points to the folder containing model subfolders (gpt-5_high, gpt-4, etc.)
+    GEN_ROOT = BASE_PATH / "detectionAG/experiements/extracted_facts_reasoning"
     
-    # 1. Index Transcripts
-    print(f"Indexing Transcripts...")
+    # Points to raw transcripts
+    TRANS_DIR = BASE_PATH / "data/babylon_data/babylonhealth primock57 main transcripts combined" 
+    
+    # Output location
+    OUTPUT_ROOT = BASE_PATH / "experiements/verifications_vs_transcript_reasoning"
+    
+    # 2. Index Transcripts
+    print(f"Indexing Transcripts from: {TRANS_DIR}")
     trans_index = {}
-    try:
-        # Assuming transcripts are named like "day1_consultation01.txt"
-        for p in TRANS_DIR.glob("*.txt"):
-            cid = extract_consultation_id(p.name)
-            if cid:
-                trans_index[cid] = p
-    except Exception as e:
-        print(f"Error reading Transcript Directory: {e}")
+    if not TRANS_DIR.exists():
+        print(f"CRITICAL ERROR: Transcript directory not found at {TRANS_DIR}")
         exit()
+
+    for p in TRANS_DIR.glob("*.txt"):
+        cid = extract_consultation_id(p.name)
+        if cid:
+            trans_index[cid] = p
+            
     print(f"Found {len(trans_index)} Transcripts.")
 
-    # 2. Gather Tasks
-    print("Gathering generated fact files...")
+    # 3. Gather Tasks (Recursive Search)
+    print(f"Gathering generated fact files from: {GEN_ROOT}")
     all_tasks = []
     
+    # rglob("*.json") searches recursively through all model subfolders
     for gen_path in GEN_ROOT.rglob("*.json"):
         cid = extract_consultation_id(gen_path.name)
         
@@ -165,15 +167,18 @@ if __name__ == "__main__":
         if cid and cid in trans_index:
             trans_path = trans_index[cid]
             all_tasks.append((gen_path, trans_path))
+        elif cid:
+            print(f"Warning: No transcript found for {cid} (File: {gen_path.name})")
             
     random.shuffle(all_tasks)
-    print(f"Found {len(all_tasks)} pairs to verify.")
+    print(f"Found {len(all_tasks)} pairs to verify across all models.")
 
-    # 3. Run
+    # 4. Run
     verifier = FactVerifier(model=VERIFIER_MODEL)
     stats_counter = {"Success": 0, "Skipped": 0, "Error": 0}
 
-    for gen_path, trans_path in tqdm(all_tasks[:5]):
+    # REMOVED the [:5] slice so it runs everything
+    for gen_path, trans_path in tqdm(all_tasks):
         status = process_verification(gen_path, trans_path, OUTPUT_ROOT, verifier)
         
         if status == "Success": stats_counter["Success"] += 1

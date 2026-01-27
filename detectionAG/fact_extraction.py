@@ -64,24 +64,28 @@ class FactExtractor:
 
 # --- 3. The Worker Function ---
 
-def process_single_file(note_path: Path, extractor: FactExtractor, out_dir: Path):
+def process_single_file(note_path: Path, extractor: FactExtractor, out_dir: Path, root_notes_dir: Path):
     """
-    This function runs inside a single thread.
+    Runs inside a single thread.
+    root_notes_dir: The base folder (reasoning_notes) used to calculate relative paths.
     """
     try:
-        # Determine Model Name from folder structure
-        # Structure: evaluations_set2 / [gpt-4.1] / notes_markdown / file.txt
-        model_folder_name = note_path.parent.parent.name
+        # --- PATH FIX ---
+        # Calculate path relative to "reasoning_notes"
+        # If path is: .../reasoning_notes/gpt-5_high/note.txt
+        # relative is: gpt-5_high/note.txt
+        relative_path = note_path.relative_to(root_notes_dir)
         
-        # Create output directory specific to this model
+        # The first part of the relative path is your model folder (gpt-5_high)
+        model_folder_name = relative_path.parts[0]
+        
+        # Create output directory: .../extracted_facts/gpt-5_high
         target_dir = out_dir / model_folder_name
         target_dir.mkdir(parents=True, exist_ok=True)
         
         out_name = f"facts_{note_path.stem}.json"
         out_path = target_dir / out_name
         
-        # --- RESUME LOGIC ---
-        # If OVERWRITE is False and file exists, skip it.
         if not OVERWRITE and out_path.exists():
              return f"Skipped (Exists): {note_path.name}"
         
@@ -108,57 +112,61 @@ def process_single_file(note_path: Path, extractor: FactExtractor, out_dir: Path
 
 # --- 4. Execution Main ---
 if __name__ == "__main__":
-    BASE_DIR = Path(".")
-    NOTES_DIR = BASE_DIR / "output/evaluations_set2"
-    OUT_DIR = BASE_DIR / "output/extracted_facts"
+    # Use absolute path if you are unsure where you are running the script from
+    # Or keep relative if you run this from the 'detectionAG' folder
+    BASE_DIR = Path(".") 
     
-    # 1. Gather Files
+    # Ensure this matches your actual folder structure
+    NOTES_DIR = BASE_DIR / "experiements/reasoning_notes"
+    OUT_DIR = BASE_DIR / "experiements/extracted_facts_reasoning"
+    
+    print(f"Scanning: {NOTES_DIR.resolve()}")
+
     try:
-        all_files = sorted([p for p in NOTES_DIR.rglob("**/notes_markdown/*.txt")])
+        # Get all text files recursively
+        all_files = sorted([p for p in NOTES_DIR.rglob("*.txt")])
         
-        # --- FILTERING LOGIC ---
-        # Exclude any file that belongs to 'gpt-4.1'
-        note_files = [
-            p for p in all_files 
-            if p.parent.parent.name != "gpt-4.1"
-        ]
+        # --- FILTERING LOGIC (UPDATED) ---
+        # Exclude files in 'gpt-4.1' folder
+        note_files = []
+        for p in all_files:
+            try:
+                # Check the top-level folder name inside NOTES_DIR
+                folder_name = p.relative_to(NOTES_DIR).parts[0]
+                if folder_name != "gpt-4.1":
+                    note_files.append(p)
+            except ValueError:
+                # Should not happen if p is inside NOTES_DIR
+                continue
         
     except Exception as e:
         print(f"Error reading directory {NOTES_DIR}: {e}")
         note_files = []
 
     if not note_files:
-        print(f"No notes found (after filtering gpt-4.1). Check your folder structure.")
+        print(f"No notes found in {NOTES_DIR}. Check your path.")
         exit()
 
-    # 2. Limit files for testing
-    TEST_LIMIT = None # Set to integer for testing, None for full run
-    files_to_process = note_files[:TEST_LIMIT] if TEST_LIMIT else note_files
-
-    # Shuffle to ensure parallel processing across different models
+    files_to_process = note_files # Set slice [:5] here for testing
     random.shuffle(files_to_process)
 
     print(f"Found {len(all_files)} total files.")
-    print(f"Processing {len(files_to_process)} files (Excluded 'gpt-4.1')...")
-    print(f"Overwrite Mode: {OVERWRITE}")
+    print(f"Processing {len(files_to_process)} files...")
     
-    # 3. Initialize Extractor
-    # NOTE: Ensure you are using the correct model here. The User prompt said "o3".
-    extractor = FactExtractor()
+    # Initialize Extractor
+    extractor = FactExtractor(model="gpt-4o") # Verify model name
 
-    # 4. Configure Parallelism
-    # o3 has stricter rate limits than GPT-4o. Keep workers low.
-    MAX_WORKERS = 3 
+    MAX_WORKERS = 5
     
     print(f"Starting parallel extraction with {MAX_WORKERS} threads...")
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        # Pass NOTES_DIR as the new 4th argument
         futures = {
-            executor.submit(process_single_file, file_path, extractor, OUT_DIR): file_path 
+            executor.submit(process_single_file, file_path, extractor, OUT_DIR, NOTES_DIR): file_path 
             for file_path in files_to_process
         }
         
-        # Stats counters
         stats = {"Success": 0, "Skipped": 0, "Failed": 0}
 
         for future in tqdm(concurrent.futures.as_completed(futures), total=len(files_to_process)):
@@ -166,12 +174,10 @@ if __name__ == "__main__":
             try:
                 result = future.result()
                 
-                # Update stats
                 if "Success" in result: stats["Success"] += 1
                 elif "Skipped" in result: stats["Skipped"] += 1
                 elif "Failed" in result: stats["Failed"] += 1
                 
-                # Print only non-skipped results to avoid clutter, or errors
                 if "Skipped" not in result:
                     tqdm.write(result)
                     
