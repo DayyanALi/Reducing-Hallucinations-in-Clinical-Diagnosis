@@ -30,7 +30,6 @@ class FactErrorGenerator:
         # ChatPromptTemplate
         self.error_prompt = ChatPromptTemplate.from_messages([
             ("system", self.PROMPT_ERROR_SYSTEM),
-            ("user", "Here are the facts:\n\n{facts_json}")
         ])
 
 
@@ -38,20 +37,18 @@ class FactErrorGenerator:
     def generate_fact_errors(
         self,
         consult_name: str,
-        facts_dict: Dict[str, Any]
+        clinical_note: str,
+        transcript: str
     ) -> List[Dict[str, Any]]:
-        """
-        Sends facts to LLM, selects 10 critical facts, returns altered versions.
-        """
-        json_payload = json.dumps(facts_dict, indent=2)
 
-        out = (self.error_prompt | self.llm | self.parser).invoke(
-            {"facts_json": json_payload}
-        )
+        out = (self.error_prompt | self.llm | self.parser).invoke({
+            "clinical_note": clinical_note,
+            "transcript": transcript
+        })
 
         rows = []
         for idx, item in enumerate(out, start=1):
-            filename = f"{consult_name}_{idx}"  # user will create this transcript file
+            filename = f"{consult_name}_{idx}"
 
             rows.append({
                 "consult_name": consult_name,
@@ -64,39 +61,50 @@ class FactErrorGenerator:
             })
 
         return rows
-    
 
     # ---------------- Iterate over all consults in a folder ----------------
     def generate_fact_errors_for_all_consults(
         self,
-        transcript_facts_folder: str
+        notes_folder: str,
+        transcripts_folder: str
     ) -> List[Dict[str, Any]]:
-        """
-        Iterates over all JSON files in transcript_facts_folder,
-        generates altered facts for each consult, and returns combined rows.
-        """
+
         all_rows = []
         i = 0
-        for fname in os.listdir(transcript_facts_folder):
-            if i == 0:
-                i+= 1
-                continue
-            if not fname.endswith(".json"):
-                continue
-
-            consult_name = fname.replace(".json", "")
-            path = os.path.join(transcript_facts_folder, fname)
-
-            with open(path, "r", encoding="utf-8") as f:
-                facts_dict = json.load(f)
-            print("Processing consult:", consult_name)
-            rows = self.generate_fact_errors(consult_name, facts_dict)
-            all_rows.extend(rows)
+        for fname in os.listdir(notes_folder):
             i += 1
-            if i % 20 == 0:
+            if i % 3 == 0:
                 break
 
+            if not fname.endswith(".txt"):
+                continue
+
+            consult_name = fname.replace(".txt", "")
+            note_path = os.path.join(notes_folder, fname)
+            transcript_path = os.path.join(transcripts_folder, f"{consult_name}.txt")
+
+            if not os.path.exists(transcript_path):
+                print(f"Skipping {consult_name}, transcript not found.")
+                continue
+
+            with open(note_path, "r", encoding="utf-8") as f:
+                clinical_note = f.read()
+
+            with open(transcript_path, "r", encoding="utf-8") as f:
+                transcript = f.read()
+
+            print("Processing consult:", consult_name)
+
+            rows = self.generate_fact_errors(
+                consult_name,
+                clinical_note,
+                transcript
+            )
+
+            all_rows.extend(rows)
+
         return all_rows
+
 
 
     # ---------------- Save CSV ----------------
@@ -127,7 +135,12 @@ agent = FactErrorGenerator(model="gpt-5")
 
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
-transcript_facts_folder = os.path.join(current_dir, "output", "transcript_facts")
+notes_folder = "detectionAG/output/notes_text/gpt-5-nano"
+transcripts_folder = "data/babylon_data_cleaned/babylonhealth primock57 main transcripts combined"
 
-all_rows = agent.generate_fact_errors_for_all_consults(transcript_facts_folder)
-agent.save_to_csv(all_rows, os.path.join(current_dir, "all_consults_errors.csv"))
+all_rows = agent.generate_fact_errors_for_all_consults(
+    notes_folder,
+    transcripts_folder
+)
+
+agent.save_to_csv(all_rows, os.path.join(current_dir, "updated_all_consults_errors.csv"))

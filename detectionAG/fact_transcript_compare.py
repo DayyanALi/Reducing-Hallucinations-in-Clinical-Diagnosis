@@ -7,6 +7,10 @@ from typing import List, Dict, Any
 from dotenv import load_dotenv
 from tqdm import tqdm
 
+##############################################
+# Raw Note Facts to Transcript Comparison
+##############################################
+
 # LangChain
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate

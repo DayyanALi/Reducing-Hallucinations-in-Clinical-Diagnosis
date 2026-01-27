@@ -13,11 +13,11 @@ from promptTemplate import NOTE_PROMPT, USER_PROMPT_NOTES
 # ---------------------------------------------------------------------
 load_dotenv()
 
-csv_path = "detectionAG/final_all_consults_errors.csv"  
+csv_path = "detectionAG/updated_all_consults_errors.csv"  
 transcripts_root = "data/babylon_data_cleaned/babylonhealth primock57 main transcripts combined"
-output_altered_dir = "detectionAG/output/erroneous_transcripts"
-output_json_dir = "detectionAG/output/erroneous_notes_json"
-output_txt_dir = "detectionAG/output/erroneous_notes_text"
+output_altered_dir = "detectionAG/output/erroneous_transcripts_2"
+output_json_dir = "detectionAG/output/erroneous_notes_json_2"
+output_txt_dir = "detectionAG/output/erroneous_notes_text_2"
 
 os.makedirs(output_altered_dir, exist_ok=True)
 os.makedirs(output_json_dir, exist_ok=True)
@@ -94,6 +94,7 @@ for consult_name, group in correction_groups:
             transcript = transcript.replace(original, altered)
             changed = True
             count += 1
+            print(f"changed {count}/6")
         else:
             print(f"⚠️ Skip: '{original}' not found in {consult_name}")
             continue  # skip to next correction
@@ -103,15 +104,15 @@ for consult_name, group in correction_groups:
             continue
 
         # Save altered transcript for this single change
-        # altered_file_name = f"{consult_name}_change{idx}.txt"
-        # altered_path = os.path.join(output_altered_dir, altered_file_name)
+        altered_file_name = f"{consult_name}_change{idx}.txt"
+        altered_path = os.path.join(output_altered_dir, altered_file_name)
 
-        # with open(altered_path, "w", encoding="utf-8") as f:
-        #     f.write(transcript)
+        with open(altered_path, "w", encoding="utf-8") as f:
+            f.write(transcript)
 
-        # print(f"✅ Saved altered transcript → {altered_path}")
-        # print("Applied change:", altered)
-        # print("Original text:", original)
+        print(f"✅ Saved altered transcript → {altered_path}")
+        print("Applied change:", altered)
+        print("Original text:", original)
 
         # -----------------------------------------------------------------
         # Generate SOAP note for this single change

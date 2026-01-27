@@ -7,6 +7,10 @@ from typing import List, Dict, Any
 from dotenv import load_dotenv
 from tqdm import tqdm
 
+##############################################
+# Note to Note Facts Comparison
+##############################################
+
 # LangChain
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -117,8 +121,13 @@ class NoteComparator:
 
         return full_report
 
-def extract_consultation_id(filename: str) -> str:
-    match = re.search(r"(day\d+_consultation\d+)", filename)
+def extract_consultation_id(filename: str, erroneous=False) -> str:
+    if erroneous:
+        # Match facts_day1_consultation12_error_130.json
+        match = re.search(r"facts_(day\d+_consultation\d+)_error_\d+\.json", filename)
+    else:
+        match = re.search(r"(day\d+_consultation\d+)", filename)
+    print("match for ", filename, " :  ", match)
     if match:
         return match.group(1)
     return None
@@ -130,15 +139,15 @@ def process_single_pair(gen_path: Path, gold_path: Path, output_root: Path, comp
         # gen_path = .../extracted_facts/gpt-4.1/facts_file.json
         # model_name = gen_path.parent.name
         model_name = "gpt-5" # Hardcoded for one-to-many erroneous notes comparison       
-        gen_stem = gen_path.stem
-
+        gen_stem = gen_path.stem[6:]  # Remove 'facts_' prefix
+        print("genstem: ", gen_stem)
+        
         # Ensure output directory exists for this model
         target_dir = output_root / model_name
         target_dir.mkdir(parents=True, exist_ok=True)
         
         # Determine output filename
-        cid = extract_consultation_id(gen_path.name)
-        out_name = f"comparison_{cid}__{gen_stem}.json"
+        out_name = f"{gen_stem}.json"
         out_path = target_dir / out_name
         
         # Resume Logic
@@ -164,7 +173,7 @@ def process_single_pair(gen_path: Path, gold_path: Path, output_root: Path, comp
         return f"Error: {str(e)}"
     
 def run_all_one_to_one_comparisons():
-    BASE_PATH = Path("E:/hallucination/Reducing-Hallucinations-in-Clinical-Diagnosis")
+    BASE_PATH = Path(__file__).resolve().parents[1]  
     
     # 1. Paths
     # Note: Scanning the ROOT of extracted_facts to find all model folders
@@ -236,8 +245,8 @@ def run_all_one_to_one_comparisons():
 def run_all_one_to_many_comparisons():
     # ---- Paths ----
     GEN_ROOT = Path("detectionAG/output/erroneous_note_facts")
-    GOLD_DIR = Path("detectionAG/output/extracted_facts_generated_notes/gpt-5")
-    OUTPUT_ROOT = Path("detectionAG/output/erroneous_notes_comparisons")
+    GOLD_DIR = Path("data/babylon_data/babylon_notes_facts")
+    OUTPUT_ROOT = Path("detectionAG/output/erroneous_note_gold_comparisons")
 
     # ---- Index gold files ----
     print("Indexing Gold Files...")
@@ -257,7 +266,8 @@ def run_all_one_to_many_comparisons():
     gen_index: Dict[str, List[Path]] = {}
 
     for gen_path in GEN_ROOT.rglob("*.json"):
-        cid = extract_consultation_id(gen_path.name)
+        print("genpath: ", gen_path)
+        cid = extract_consultation_id(gen_path.name, erroneous=True)
         if not cid:
             continue
         gen_index.setdefault(cid, []).append(gen_path)
@@ -278,7 +288,7 @@ def run_all_one_to_many_comparisons():
     print(f"Comparator Model: {COMPARATOR_MODEL}")
     print("Mode: Sequential Execution")
 
-    # ---- Run ----
+    # # ---- Run ----
     comparator = NoteComparator(model=COMPARATOR_MODEL)
 
     stats = {"Success": 0, "Skipped": 0, "Error": 0}
