@@ -80,21 +80,42 @@ class SoapEvaluator:
             return {}
 
         # --- PHASE 2: Verification ---
+        def normalize_id(f_id):
+            """Strips leading zeros to match keys (e.g., 'Plan-005' -> 'Plan-5')"""
+            if not f_id or '-' not in f_id: return f_id
+            parts = f_id.rsplit('-', 1)
+            if parts[1].isdigit():
+                return f"{parts[0]}-{int(parts[1])}"
+            return f_id
         gen_assessment = alignment_data.get('gen_assessment', [])
         
         # 1. Prepare facts for Phase 2 by RE-ATTACHING content
+        normalized_content_map = {normalize_id(k): v for k, v in fact_content_map.items()}
         facts_to_verify = []
+        
         for f in gen_assessment:
             if f.get('status') == 'NOT_IN_GOLD':
-                f_id = f.get('fact_id')
-                # Re-attach the content so the model knows what to verify!
+                raw_id = f.get('fact_id')
+                norm_id = normalize_id(raw_id)
+                
+                if norm_id not in normalized_content_map:
+                    continue 
+
+                content = normalized_content_map[norm_id]
+
+                # --- SAFETY CHECK 2: Empty Content Detection ---
+                # If the content is essentially empty, it's a structural error (Ghost Fact).
+                # We skip sending this to the LLM to save tokens and avoid confusion.
+                if not content or len(content.strip()) < 2:
+                    continue
+
+                # Re-attach the content safely
                 verification_payload = {
-                    "fact_id": f_id,
-                    "content": fact_content_map.get(f_id, "CONTENT NOT FOUND"), 
+                    "fact_id": raw_id, # Keep original ID for reporting
+                    "content": content, 
                     "status": "NOT_IN_GOLD"
                 }
                 facts_to_verify.append(verification_payload)
-
         if facts_to_verify:
             # Debug: Check if content is attached
             # print(f"DEBUG: Sending {len(facts_to_verify)} facts to Phase 2. Sample: {facts_to_verify[0]}")

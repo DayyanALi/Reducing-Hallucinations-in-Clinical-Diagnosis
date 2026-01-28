@@ -1,0 +1,299 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: vomiting started 3 days ago. Generated: notes vomiting a couple of times at onset of the illness, and HPI/ROS describe a 3\u2011day history of diarrhea; this reflects vomiting at onset of current 3\u2011day illness, so the timing is semantically consistent."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: now has diarrhea 5\u20136 times per day. Generated: '3\u2011day history of watery, loose diarrhea approximately 5\u20136 times per day.' Matches frequency and presence of diarrhea."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: stools watery and loose. Generated: 'watery, loose diarrhea.' Same stool description."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no blood in stools and no abdominal pain. Generated: 'No blood in stool' and 'No abdominal pain' in both HPI and ROS. Direct match."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: reduced oral intake, not drinking sufficient fluids, feels dehydrated. Generated: 'Feels very dehydrated with poor oral intake' and ROS 'feels very dehydrated; poor PO intake.' Fully consistent (adds weakness but does not contradict)."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: appetite reduced. Generated: 'low appetite' in HPI/ROS. Same concept."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: 'No fever/temp, but feels warm. Feels weak.' Indicates no fever. Generated: 'Felt warm and possibly febrile at the start of illness but now feels fine' and ROS 'felt warm/possible temp at start.' This introduces possible fever, contradicting the explicit 'no fever/temp' in Gold."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: no headaches or muscle pain. Generated: 'No headache or myalgias' in HPI/ROS. Direct match."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Gold: unaware of triggers and no unwell contacts. Generated: 'No known food triggers and no recent takeaway or suspicious food' and 'No known sick contacts.' This covers absence of triggers and sick/unwell contacts, with elaboration on food that is consistent."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: history of asthma. Generated: 'PMH: Asthma.' Same diagnosis."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: salbutamol inhaler PRN. Generated: 'Uses blue inhaler as needed.' In typical UK practice, 'blue inhaler' refers to salbutamol PRN, so this is semantically the same."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no known drug allergies. Generated: 'No known drug allergies.' Direct match."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold: father had hypertension and died of bowel cancer. Generated: 'Father had hypertension' and 'Father died of bowel cancer approximately 10 years ago.' Same conditions and death cause; added timing is consistent."
+    },
+    {
+      "fact_id": "famhx-002",
+      "status": "COVERED",
+      "reasoning": "Gold: mother has Type 2 diabetes. Generated: 'Mother has type 2 diabetes mellitus.' Direct match."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lives alone and works as a software engineer. Generated: 'Lives alone' and 'Works as a software engineer.' Same details."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: non-smoker, social alcohol. Generated: 'Nonsmoker' and 'Alcohol use infrequent and social.' Matches smoking status and social alcohol use."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression is gastroenteritis. Generated: 'Acute gastroenteritis with dehydration symptoms.' This includes 'gastroenteritis' and adds dehydration as a feature, which is consistent with HPI."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: supportive management with rest and increased fluids. Generated: 'Encourage increased fluid intake with oral rehydration salts' and 'Rest; off work\u2026'. Fluids and rest are both explicitly included."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: recommended OTC Dioralyte. Generated: 'Oral rehydration salts (Dioralyte) from pharmacy.' Directly matches."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: 'Recommended regular paracetamol.' Generated: 'Paracetamol as needed if feeling feverish or weak.' PRN use only when symptomatic contradicts the instruction for regular dosing."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review in 7 days if not better. Generated: 'Follow up next week if not improving.' 'Next week' is equivalent to 7 days; condition (not improving) is the same."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: explicit safety net to seek earlier review if worsening diarrhea, vomiting, abdominal pain, or reduced oral intake. Generated follow-up only mentions next week if not improving; no earlier/worsening red-flag advice is documented."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated chief complaint 'diarrhea' is clinically consistent with Gold HPI but Gold does not explicitly list a chief complaint field, so it is not directly present as a discrete Gold fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient states, 'I've been having, uh, diarrhoea, for like, let's say past three days,' as the main issue."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: '3-day history of watery, loose diarrhea approximately 5\u20136 times per day.' Gold: diarrhea 5\u20136 times per day is present, but Gold states vomiting began 3 days ago and only that 'has now developed diarrhea,' not that diarrhea has been present for the full 3 days. Assigning a 3-day duration to diarrhea conflicts with Gold's timing."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: vomiting a couple of times at onset, now resolved. Gold: developed vomiting 3 days ago; current HPI focuses on diarrhea and does not state ongoing vomiting, implying it may have resolved. This is a consistent elaboration without contradiction."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no blood in stool. Gold: no blood in stools. Direct match."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no abdominal pain. Gold: no abdominal pain. Direct match."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: very dehydrated, poor oral intake, low appetite, and weakness. Gold: reduced oral intake, not drinking sufficient fluids, feels dehydrated, appetite reduced, feels weak. All elements are present and consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: 'Felt warm and possibly febrile at the start of illness but now feels fine.' Gold: 'No fever/temp, but feels warm.' Gold explicitly denies fever; 'possibly febrile' conflicts with this."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no headache or myalgias. Gold: no headaches/muscle pain. Same concept."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no known food triggers and no recent takeaway/dodgy food. Gold: unaware of triggers. This adds specific examples but remains consistent with being unaware of triggers."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no known sick contacts. Gold: no unwell contacts. Directly matches."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: symptom onset occurred while at home working on computer. Gold provides no information about circumstance of onset.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked about triggers, patient says, 'I was at home I was working, on my computer and... then I had some diarrhoea, straight after that.'"
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: history of asthma. Gold: PMH asthma. Direct match."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: uses blue inhaler PRN. Gold: salbutamol PRN. Blue inhaler is the usual salbutamol inhaler, so this matches."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no known drug allergies. Gold: NKDA. Direct match."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: father had hypertension. Gold: father had hypertension. Direct match."
+    },
+    {
+      "fact_id": "Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: father died of bowel cancer ~10 years ago. Gold: father died of bowel cancer (no time given). Added approximate timing does not conflict with Gold."
+    },
+    {
+      "fact_id": "Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: mother has type 2 diabetes mellitus. Gold: mother has Type 2 diabetes. Same diagnosis."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: lives alone. Gold: lives alone. Direct match."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: works as a software engineer. Gold: works as a software engineer. Direct match."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: off work for the past 3 days. Gold: no reference to time off work.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, 'these last three days I've been feeling, really unwell, so I couldn't work,' indicating off work for 3 days."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: nonsmoker. Gold: non-smoker. Direct match."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: infrequent/social alcohol use. Gold: drinks alcohol socially. 'Infrequent/social' is a consistent elaboration."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: acute gastroenteritis with dehydration symptoms. Gold: impression gastroenteritis; HPI describes dehydration. The generated assessment adds dehydration, which is consistent with Gold data."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: encourage fluids with oral rehydration salts (Dioralyte). Gold: supportive management including rest and increased fluids plus OTC Dioralyte. The fluids and Dioralyte components are directly supported."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: paracetamol PRN if feverish/weak. Gold: recommended regular paracetamol. PRN-only use conflicts with a plan specifying regular dosing."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: rest and remain off work for 1\u20132 days, return when diarrhea-free for 24\u201348 hours. Gold advises rest but does not specify time off work or the diarrhea-free interval as a return-to-work criterion.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor advises, 'continue taking time off work for next day or two, until you get better' and 'normally you have to be diarrhea-free for about twenty four to forty eight hours, before you return back to work.'"
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: follow up next week if not improving. Gold: review in 7 days if not better. 'Next week' and '7 days' with condition of not improving/better are equivalent."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: positive for diarrhea. Gold HPI: patient has developed diarrhea 5\u20136\u00d7/day. Same symptom."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: prior vomiting at onset, now resolved. Gold: vomiting developed 3 days ago with current focus on diarrhea; no statement of ongoing vomiting, so resolution is a reasonable elaboration not in conflict."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: negative for blood in stool. Gold: no blood in stools. Direct match."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: negative for abdominal pain. Gold: no abdominal pain. Direct match."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: very dehydrated, poor intake, low appetite, weakness. Gold: reduced intake, not drinking enough, feels dehydrated, appetite reduced, feels weak. Fully consistent."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated ROS: history of feeling warm or possibly febrile at start. Gold: explicitly 'No fever/temp, but feels warm.' The suggestion of possible fever conflicts with the denial of fever."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: negative for headache. Gold: no headaches. Same concept."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "Generated ROS: negative for myalgias. Gold: no muscle pain. Same concept."
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 and HPI-001 state not feeling well for 4\u20135 days with cough/cold symptoms, which is semantically equivalent to a 5-day history of feeling generally unwell with cough and cold symptoms."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Generated HPI-001 describes a mostly/mostly dry cough, matching the Gold fact that the cough is mainly dry."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Generated HPI-004 and ROS-001 explicitly mention increased shortness of breath and no chest pain, matching the Gold fact."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold says feeling hot/cold and sweaty but no fevers; Generated HPI-005 and ROS-002 state fevers/chills/sweats at night, implying presence of fever, which directly conflicts with 'no fevers'."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Generated HPI-001 mentions rhinorrhea (runny nose); HPI-002 mentions sore throat; HPI-003 mentions ears a bit blocked. Together, these cover sore throat, blocked ears, and runny nose."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold describes myalgia/arthralgia mainly as stiffness in joints; Generated HPI-008 and ROS-004 describe generalized stiffness in elbows and knees with movement, which is consistent with those symptoms."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold notes diarrhea that has resolved; Generated HPI-006 and ROS-003 describe one day of diarrhea at onset that has resolved, which is aligned (extra detail but not conflicting)."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold states no unwell contacts and no nausea/vomiting. Generated HPI-006 and ROS-003 explicitly deny nausea and vomiting. Unwell contacts are not mentioned, but there is no contradiction; the positive denials for N/V are covered, so the overall concept is at least partially present and not contradicted."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold lists obesity, type 2 diabetes, and hypertension. Generated PMH-001 and PMH-002 cover T2DM and high BP/HTN; PMH-003 notes overweight, which is consistent with obesity. All components are represented."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold lists metformin, lisinopril, and aspirin. Generated Medications-001, -002, and -003 list metformin, lisinopril, and occasional aspirin, which is consistent (adds frequency qualifier but no contradiction)."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold has NKDA; Generated Allergies-001 also documents no known drug allergies."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lives with wife and works in factory/manufacturing. Generated Social-001 and Social-002 say lives with wife and works in a steel parts factory, which is a specific type of factory and consistent."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: smoking socially and >9 units/week alcohol. Generated Social-003, -004, and -005 describe ~9 pints/week and smoking a little 'now and again' while cutting down. This is consistent with social smoking and more than 9 units/week alcohol (pints imply >9 units)."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold impression: viral URTI/?LRTI. Generated Assessment-001 documents viral URI/influenza-like illness, which captures viral URTI; possible LRTI is not explicitly mentioned but not contradicted. Core concept of viral upper respiratory infection is present."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold plan includes conservative management with rest, fluids, and regular paracetamol. Generated Plan-001 and Plan-002 specify supportive care with rest, plenty of fluids, and regular paracetamol for fever/sweats, matching this."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: delayed amoxicillin to start in 24\u201348 hours if symptoms not improving. Generated Medications-005 and Plan-003 specify delayed amoxicillin, start one tablet TID if no improvement in 24\u201348 hours or ongoing breathlessness, which is consistent and slightly more detailed."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review in one week if not better. Generated FollowUp-001: follow up if not better by next week. These are equivalent."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: advised earlier review for worsening symptoms such as chest pain, SOB, or fevers. Generated Follow-up section does not specify warning signs or earlier review criteria; no equivalent safety-netting advice is documented."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-001 describing 5-day history of feeling unwell with cough and cold symptoms (4\u20135 days is semantically equivalent to 5 days)."
+    },
+    {
+      "fact_id": "HPI-001",
+      "status": "SUPPORTED",
+      "reasoning": "Captures duration (4\u20135 days), mostly dry cough, and rhinorrhea, aligning with Gold hpi-001 and hpi-002, plus runny nose from hpi-005."
+    },
+    {
+      "fact_id": "HPI-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-005 includes sore throat; the additional detail that he hasn\u2019t looked for spots is extra but not contradictory."
+    },
+    {
+      "fact_id": "HPI-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-005 notes blocked ears; the qualifier 'overall OK' is an elaboration and consistent."
+    },
+    {
+      "fact_id": "HPI-004",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-003: increased shortness of breath and no chest pain."
+    },
+    {
+      "fact_id": "HPI-005",
+      "status": "CONTRADICTED",
+      "reasoning": "States fevers, chills, and sweats; Gold hpi-004 explicitly says no fevers, so this conflicts."
+    },
+    {
+      "fact_id": "HPI-006",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-007 and hpi-008 describe diarrhea that resolved and no nausea/vomiting; Generated adds denial of abdominal pain, which is extra but not contradictory."
+    },
+    {
+      "fact_id": "HPI-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Appetite being okay and increasing fluids are not mentioned in the Gold facts; there is no supporting or contradicting statement.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says appetite has been all right and he is trying to keep fluids up: \"my appetite's been, been all right... I'm trying to, trying to keep, keep the fluids up as well\"."
+    },
+    {
+      "fact_id": "HPI-008",
+      "status": "SUPPORTED",
+      "reasoning": "Consistent with Gold hpi-006 describing myalgia/arthralgia mainly as stiffness in joints."
+    },
+    {
+      "fact_id": "HPI-009",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Specific onset after dinner out and absence of clear trigger are not documented in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports onset on Saturday after going out to dinner with his wife and no obvious cause: \"it would have been that, Saturday... I was out having dinner\" and later \"nothing that I can see\" as a trigger."
+    },
+    {
+      "fact_id": "PMH-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold pmh-001 lists type 2 diabetes; this directly matches."
+    },
+    {
+      "fact_id": "PMH-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold pmh-001 includes hypertension; 'told BP high' reflects the same condition."
+    },
+    {
+      "fact_id": "PMH-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold pmh-001 lists obesity; Generated describes overweight, which is consistent, though slightly less severe."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold med-001 lists metformin; same medication is documented."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold med-001 includes lisinopril; matches directly."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold med-001 lists aspirin; 'occasional' is an added qualifier but not contradictory."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan-001 includes regular paracetamol; using it for fever/sweats is consistent with its antipyretic use."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan-002 notes delayed amoxicillin in 24\u201348 hours if symptoms not improving; Generated adds dosage and 'or ongoing breathlessness', which is elaborative and consistent."
+    },
+    {
+      "fact_id": "Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold allergy-001 (NKDA)."
+    },
+    {
+      "fact_id": "Social-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-001: lives with wife; directly aligned."
+    },
+    {
+      "fact_id": "Social-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-001 states works in factory/manufacturing; 'steel parts factory' is a specific and consistent detail."
+    },
+    {
+      "fact_id": "Social-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-002: >9 units/week; ~9 pints/week is consistent with a high alcohol intake above 9 units."
+    },
+    {
+      "fact_id": "Social-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Using a vape to cut down smoking is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states he is cutting down on cigarettes with a vaporiser: \"a wee, every now and again, but I'm, I, I am trying to cut that down. I've got a wee... vaporisers... I've been cutting down on the cigarettes. Uh, and I just got this wee, this wee thing\"."
+    },
+    {
+      "fact_id": "Social-005",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-002 describes 'smoking socially'; 'smokes a little now and again' is semantically equivalent."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Most elements (viral URI/influenza-like illness, cough, rhinorrhea, sore throat, myalgias/stiffness, mild SOB, no chest pain, brief resolved diarrhea) are consistent with multiple Gold HPI and assessment facts, but it additionally asserts 'fevers/chills', which contradicts Gold hpi-004 stating no fevers. Because fever is integral to this composite statement, the fact as written is in conflict."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold pmh-001 listing type 2 diabetes and is also reflected in Gold assessment as a problem."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold pmh-001 lists hypertension; Gold does not separately restate it in assessment but it is consistent with the overall diagnosis list."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-002 documents smoking and significant alcohol intake; summarizing this as tobacco and alcohol use is consistent."
+    },
+    {
+      "fact_id": "Plan-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold plan-001: rest and increased fluids."
+    },
+    {
+      "fact_id": "Plan-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold plan-001 recommendation for regular paracetamol; specifying its indication (fever/sweats) is elaborative."
+    },
+    {
+      "fact_id": "Plan-003",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold plan-002 for delayed amoxicillin in 24\u201348 hours if no improvement; 'or ongoing breathlessness' is consistent additional criteria."
+    },
+    {
+      "fact_id": "FollowUp-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold fu-001: review in one week if not better; 'follow up if not better by next week' is equivalent."
+    },
+    {
+      "fact_id": "Physical-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not mention vitals availability; this is additional contextual information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No vital signs are mentioned or measured in this telephone consultation; the transcript contains no blood pressure, heart rate, temperature, or oxygen saturation values."
+    },
+    {
+      "fact_id": "Physical-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not discuss phone exam findings such as sniffling or nasal congestion; this is new, not contradicted.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor notes audible sniffling and runny nose over the phone: \"Yeah, I can certainly hear you've got the sniffles. So, bit of a runny, bit of a runny nose, you mentioned.\""
+    },
+    {
+      "fact_id": "ROS-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-003: increased SOB and no chest pain."
+    },
+    {
+      "fact_id": "ROS-002",
+      "status": "CONTRADICTED",
+      "reasoning": "States fevers/chills/sweats; Gold hpi-004 explicitly denies fevers, so this conflicts."
+    },
+    {
+      "fact_id": "ROS-003",
+      "status": "SUPPORTED",
+      "reasoning": "Consistent with Gold hpi-007 (resolved diarrhea) and hpi-008 (no nausea/vomiting); denial of abdominal pain is added but not conflicting."
+    },
+    {
+      "fact_id": "ROS-004",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-006 describing stiffness in joints (myalgia/arthralgia)."
+    }
+  ]
+}

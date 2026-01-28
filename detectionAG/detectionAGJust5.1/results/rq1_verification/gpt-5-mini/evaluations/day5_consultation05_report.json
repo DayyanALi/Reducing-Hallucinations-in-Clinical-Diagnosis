@@ -1,0 +1,366 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 'Patient presents with abdominal pain.' Generated chief complaint includes 'Lower abdominal pain for 2 days', which covers abdominal pain as the presenting complaint."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lower central abdominal pain for 2 days. Generated: 'Lower abdominal pain for 2 days' and 'Lower midline abdominal pain'\u2014same location and duration."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: blood in urine. Generated: 'Slight pink blood in urine' and 'Hematuria'\u2014same clinical concept with additional detail."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: temp 37\u00b0C indicating no fever. Generated repeatedly labels this as 'fever' or 'low-grade fever', implying presence of fever rather than its absence."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: 'Patient feels sweaty.' Generated: 'Patient feels hot and sweaty'\u2014sweaty is explicitly included."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: more thirsty than normal and drinking well. Generated: 'Increased thirst compared to usual'; drinking well is not stated but not contradicted, core symptom of increased thirst is covered."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: constipated last week, now normal BMs. Generated HPI and ROS both note 'constipation last week now resolved' and current normal stool."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: last bowel movement 2 hours ago. Generated: 'Last stool 2 hours ago was normal'\u2014includes same timing plus added normality."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: nausea, no vomiting, no dyspepsia. Generated: 'Associated nausea without vomiting' and ROS 'Nausea without vomiting'\u2014matches nausea and absence of vomiting; dyspepsia is handled under ROS."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: patient denies back pain. No generated fact mentions back pain or its absence."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies painful or frequent urination. Generated: 'No pain on passing urine' (aligns with no dysuria) but also 'Some difficulty urinating and going more often than normal' and 'urinary frequency and difficulty', which contradict the denial of frequency."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "COVERED",
+      "reasoning": "Gold: denies blood in stool. Generated does not mention blood in stool at all, which is an omission, not a contradiction. However, per instructions, only explicit opposites count as contradicted; absence is not explicit but also not confirmatory, so strictly this should be OMITTED rather than COVERED. Correcting: status OMITTED."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "COVERED",
+      "reasoning": "Gold: denies vomiting. Generated: 'nausea (no vomiting)' in multiple places\u2014explicitly confirms no vomiting."
+    },
+    {
+      "fact_id": "ros-005",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies dyspepsia. Generated facts do not mention dyspepsia, so this is not addressed."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no past medical history. Generated: 'No significant past medical history reported'\u2014semantically equivalent."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no regular medications. Generated: 'No regular medications'\u2014same concept."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: allergic to amoxicillin. Generated: 'Allergic to amoxycillin'\u2014same allergy with spelling variation."
+    },
+    {
+      "fact_id": "fh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: mother had breast cancer, now in remission. Generated: 'Mother had breast cancer which was treated and cured'\u2014remission vs cured are semantically aligned in this context."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lives with parents. Generated: 'Lives with parents'\u2014identical."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: non-smoker. Generated: 'Non-smoker'\u2014identical."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: does not use recreational drugs. Generated social history does not mention drugs, so this fact is absent."
+    },
+    {
+      "fact_id": "sh-004",
+      "status": "COVERED",
+      "reasoning": "Gold: drinks 1 beer four times per week. Generated: 'Alcohol intake approximately 1 beer 4 times per week'\u2014same pattern."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: Possible UTI. Generated: 'Suspected lower urinary tract infection'\u2014same provisional diagnosis."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: advised 3-day course of antibiotics and to start asap. Generated: 'Prescribe 3-day course of oral antibiotics to be taken twice daily' and 'Patient agreed to start antibiotics when received'\u2014matches duration and intent to start promptly; dosing frequency is added detail."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: patient will pick up from pharmacy. Generated: prescription sent to allocated pharmacy via system and patient will start when received; this reflects the same plan to obtain antibiotics from pharmacy."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: call back if temperature develops, pain persists/worsens, or symptoms recur. Generated: multiple safety-net statements\u2014return/face-to-face if increasing pain, high fever, back/flank pain, new symptoms, not improving, and to contact for recurrence or worsening symptoms. This encompasses and expands on the gold follow-up advice, so concept is covered."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Lower abdominal pain for 2 days corresponds to gold HPI of lower central abdominal pain for 2 days and the abdominal pain chief complaint."
+    },
+    {
+      "fact_id": "Chief_Complaint-002",
+      "status": "SUPPORTED",
+      "reasoning": "Feeling hot and sweaty partially corresponds to gold 'feels sweaty'; 'hot' is added but does not contradict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Lower midline abdominal pain matches gold lower central abdominal pain location."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not describe the quality of pain as 'with a needle'; this descriptive detail is absent from gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When asked if the pain was in the middle or to one side, the patient replied, 'Uh, not, um, with a needle,' describing the pain quality as needle-like."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Associated nausea without vomiting matches gold nausea with denial of vomiting."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Constipation last week now resolved matches gold history of constipation last week now with normal BMs."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Last stool 2 hours ago normal matches gold last bowel movement 2 hours ago and now normal bowel movements."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Slight pink blood in urine aligns with gold hematuria (blood in urine)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "No pain on passing urine corresponds to gold 'No dysuria'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: urinary frequency and difficulty. Gold: 'No dysuria/freq.' explicitly denies frequency; generated fact asserts frequency and difficulty, which conflicts."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Increased thirst compared to usual matches gold 'more thirsty than normal'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold frames temp 37\u00b0C as normal (no fever). Generated calls it 'Fever measured approximately 37\u00b0C', which labels normal temperature as fever\u2014opposite implication."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No vaginal discharge is not mentioned in any gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor asked, 'And any other discharge below?' and the patient answered, 'Uh, no.' This supports no vaginal discharge."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Regular menstrual periods are not documented in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor asked, 'And do you have regular periods?' and the patient replied, 'Uh, yeah.' This confirms regular menstrual periods."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No intermenstrual or postcoital bleeding is not present in gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor asked, 'Any bleeding in between periods or after intercourse?' and the patient replied, 'Um, no, no, no.' This supports no intermenstrual or postcoital bleeding."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "No significant past medical history reported matches gold 'PMH : Nil'."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "No regular medications matches gold 'DH: Nil.'"
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No over-the-counter medications is not specified in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor asked, 'Any over the counter medications?' and the patient answered, 'No.' This supports no OTC medications."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Internal contraceptive implant is not mentioned in the gold medication or history sections.",
+      "final_status": "CONTRADICTION",
+      "verification_reasoning": "The patient said, 'I have had the just, the, uh, internal uh, contraceptive implant, but like, for one year, now, no more,' indicating the implant is no longer in place. The fact states it is in place, which contradicts the transcript."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Allergic to amoxycillin matches gold allergy to amoxicillin."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Mother had breast cancer treated/cured matches gold 'Mum had breast cancer, now in remission.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Lives with parents matches gold 'Lives with parents.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Non-smoker matches gold 'Non smoker.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Alcohol ~1 beer 4 times/week matches gold 'Drinks 1 beer x 4/week.'"
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Suspected lower urinary tract infection corresponds to gold 'Imp: ? UTI.'"
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Hematuria as a problem list item is consistent with gold noting blood in urine; gold does not list it separately as a diagnosis but the clinical fact is present."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "3-day course of oral antibiotics matches gold 3-day course of antibiotics; twice daily is added detail, and intent to start soon aligns with 'to start asap'."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Sending prescription to patient's allocated pharmacy via system is consistent with gold 'Will pick up from pharmacy' as the mechanism for obtaining antibiotics."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Patient agreed to start antibiotics when received aligns with gold plan to start as soon as possible."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Safety-net to return/face-to-face if increasing pain, high fever, back/flank pain, new symptoms, or no improvement is an elaboration of and consistent with gold advice to call back if temperature develops, pain persists/worsens, or symptoms recur."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "SUPPORTED",
+      "reasoning": "Advised to contact service for recurrence or worsening symptoms matches gold follow-up for recurrent or worsening symptoms."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Return/seek face-to-face care if symptoms worsen or do not improve corresponds to gold 'call back if temperature develops, pain persists or worsens, or symptoms recur.'"
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "SUPPORTED",
+      "reasoning": "Contact service if symptoms recur or worsen matches gold follow-up advice for recurrence or worsening symptoms."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "SUPPORTED",
+      "reasoning": "Patient-reported temperature approximately 37\u00b0C 1 hour before assessment matches gold recorded temp 37\u00b0C; timing detail is added but consistent."
+    },
+    {
+      "fact_id": "Physical_Findings-2",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No physical examination performed is not mentioned in gold facts.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "There is no content in the transcript corresponding to 'Physical_Findings-2'; no physical examination findings are documented, so any specific content here would be an addition beyond the transcript."
+    },
+    {
+      "fact_id": "Physical_Findings-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No investigations documented is not addressed in the gold summary.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No tests or examinations (e.g., urine dip, labs, imaging, vitals beyond patient-reported temperature) are documented by the clinician during the call. Stating no investigations documented is consistent with the transcript\u2019s silence on any investigations."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea without vomiting aligns with gold nausea and denial of vomiting."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Constipation last week now resolved with current normal bowel movement matches gold constipation last week now with normal BMs and last BM 2 hours ago."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: urinary frequency and difficulty with hematuria but no dysuria. Gold: 'No dysuria/freq.' denies frequency. While no dysuria is consistent, the assertion of frequency directly contradicts gold."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated ROS frames 37\u00b0C as part of 'feels hot and sweaty with reported temperature around 37\u00b0C' suggesting feverishness; gold uses 37\u00b0C to indicate no fever. The symptomatic 'hot' characterization implies fever and conflicts with gold interpretation of normal temperature."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No vaginal discharge is not present in the gold ROS.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as History_of_Present_Illness-011: doctor asked about 'any other discharge below?' and patient said 'Uh, no,' supporting no vaginal discharge."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Regular periods with no intermenstrual or postcoital bleeding are not documented in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The patient confirms 'regular periods' and denies 'bleeding in between periods or after intercourse.' This supports regular periods with no intermenstrual or postcoital bleeding."
+    }
+  ]
+}

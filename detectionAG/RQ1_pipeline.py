@@ -16,7 +16,7 @@ from classes import SoapGenerator, FactExtractor, SoapEvaluator
 load_dotenv()
 
 # --- TEST MODE SETTINGS ---
-TEST_MODE = True
+TEST_MODE = False
 NUM_TEST_FILES = 10
 
 # --- PATHS (Fixed for Windows) ---
@@ -25,7 +25,7 @@ TRANSCRIPT_DIR = r"E:\hallucination\Reducing-Hallucinations-in-Clinical-Diagnosi
 GOLD_FACTS_DIR = r"E:\hallucination\Reducing-Hallucinations-in-Clinical-Diagnosis\data\babylon_data\babylon_notes_facts"
 BASE_OUTPUT_DIR = r"detectionAGJust5.1\results\rq1_verification"
 
-MODELS_TO_RUN = ["gpt-5-nano"]
+MODELS_TO_RUN = ["o3"]
 
 # ---------------- HELPER FUNCTIONS ---------------- #
 
@@ -98,17 +98,25 @@ def main():
                 print(f"   ❌ Error reading transcript: {e}")
                 continue
             
+            # --- FIX STARTS HERE ---
+            # Try exact match first
             gold_path = os.path.join(GOLD_FACTS_DIR, f"{base_name}.json")
+            
+            # If exact match doesn't exist, try with '_facts' suffix
             if not os.path.exists(gold_path):
-                print(f"   ⚠️  Skipping: Gold Facts not found at {gold_path}")
-                continue
-                
+                gold_path_alt = os.path.join(GOLD_FACTS_DIR, f"{base_name}_facts.json")
+                if os.path.exists(gold_path_alt):
+                    gold_path = gold_path_alt
+                else:
+                    print(f"   ⚠️  Skipping: Gold Facts not found at {gold_path} OR {gold_path_alt}")
+                    continue
+
             try:
-                with open(gold_path, 'r', encoding='utf-8') as f: gold_facts = json.load(f)
+                with open(gold_path, 'r', encoding='utf-8') as f: 
+                    gold_facts = json.load(f)
             except Exception as e:
                 print(f"   ❌ Error reading Gold Facts JSON: {e}")
                 continue
-
             # 2. GET GENERATED NOTE
             gen_note_json = None
             
