@@ -13,7 +13,7 @@ from promptTemplate import NOTE_PROMPT, USER_PROMPT_NOTES
 # ---------------------------------------------------------------------
 load_dotenv()
 
-csv_path = "detectionAG/updated_all_consults_errors.csv"  
+csv_path = "detectionAG/final_all_consults_errors.csv"  
 transcripts_root = "data/babylon_data_cleaned/babylonhealth primock57 main transcripts combined"
 output_altered_dir = "detectionAG/output/erroneous_transcripts_2"
 output_json_dir = "detectionAG/output/erroneous_notes_json_2"
@@ -99,7 +99,7 @@ for consult_name, group in correction_groups:
             print(f"⚠️ Skip: '{original}' not found in {consult_name}")
             continue  # skip to next correction
 
-        if not changed:
+        if original in transcript:
             print(f"↪️ No edits made for this change in: {consult_name}")
             continue
 
