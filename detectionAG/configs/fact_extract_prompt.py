@@ -1,340 +1,229 @@
-FACT_EXTRACT_SYSTEM_PROMPT = """
-You are a careful clinical information extraction assistant.
-Return STRICT JSON ONLY that matches the schema. No prose, no markdown, no comments.
+# ==============================================================================
+# 1. GENERATION PROMPTS (Standard Note Gen)
+# ==============================================================================
 
-General rules:
-- Be conservative: if unsure, omit the fact.
-- Keep facts short, checkable, and self-contained (a single idea each).
-- Do not deduplicate IDs after generation; ensure unique IDs F1, F2, ...
-- Never infer from clinical knowledge, guidelines, or common sense.
-- Do not include section headers, formatting artifacts, or meta-text as facts.
-"""
+NOTE_GEN_SYSTEM = "You are an expert physician. Generate a detailed SOAP note based on the transcript."
 
-
-FACT_EXTRACT_USER_PROMPT = """
-Extract atomic facts from the medical content. 
-        Each fact should be the smallest, indivisible piece of clinical information.
-
-        ###GUIDELINES
-        1. Each fact should contain exactly ONE piece of clinical information.
-        2. Facts must be self-contained and context-independent.
-        3. Remove redundant information.
-        4. Preserve temporal and contextual qualifiers when clinically relevant.
-        5. Maintain numerical values and units exactly as stated.
-
-        ###EXAMPLES
-        GOOD (Atomic):
-        Patient experiences headaches three times per week.
-        Blood  was 140/90 mmHg.
-        Patient takes 10mg Lipressure readingsinopril daily.
-
-        BAD (Not Atomic):
-        Patient has headaches three times per week and feels nauseous (Should be split into two facts).
-        Patient's vitals were normal (Too vague, should specify each vital sign).
-        Patient takes medications for blood pressure (Should specify medication and dosage).
-### STRICT OUTPUT SCHEMA
-Return ONLY:
-{{
-  "facts": [
-    {{"id": "F1", "content": "<short fact phrase>"}},
-    {{"id": "F2", "content": "<short fact phrase>"}}
-  ]
-}}
-
-NOTE:
-<<<
-{note_text}
->>>
-"""
-
-TRANSCRIPT_FACT_EXTRACT_SYSTEM_PROMPT = """
-1. ROLE AND GOAL:
-You are an expert clinical data extraction AI. Your task is to analyze a raw transcript of a doctor-patient conversation and extract all medically relevant facts. You must then organize these facts into a structured JSON object based on the predefined QNOTE schema. Your output must be precise, complete, and strictly adhere to the specified format.
-
-2. INPUT:
-You will be given a single block of text representing a full, verbatim clinical transcript.
-
-3. CORE RULES OF EXTRACTION:
-    Rule 1 (Categorize): Read the entire transcript to understand the context. For each piece of clinical information, you must categorize it into one of the 12 QNOTE sections. Do not include generic or administrative information (e.g., “the hospital will call you back soon”).
-    Rule 2 (Atomize): Each extracted fact should be a single, concise, precise, self-contained and atomic piece of information. Avoid combining multiple distinct concepts into one fact. For example, "Patient has a headache and nausea" should be two separate facts.
-    Rule 3 (Cite Your Source): For every fact you extract, you MUST include the source_text key. The value of this key must be the exact, verbatim quote from the original transcript that directly supports or states that fact. This quote could be a single doctor dialogue, a single patient dialogue, or a doctor-patient question-answer pair. This is for traceability and validation.
-    Rule 4 (Be Conservative Yet Complete): Extract every clinically relevant fact that is explicitly stated in the transcript, but do not infer or assume anything unstated. Do not include redundant facts. If a QNOTE section is not mentioned in the transcript, omit that key from the JSON output. 
-    Rule 5 (Synthesize and Summarize): The "content" field should be a clean, clinical summary of the fact, while the "source_text" is the direct quote. For example, if the source is "My, my friend's mum, she she recently died of a brain tumor," the content could be "Patient is concerned due to a friend's mother recently passing away from a brain tumor."
-
-4. OUTPUT FORMAT (THE QNOTE SCHEMA):
-Your entire output must be a single, clean JSON object with a single key "facts". The value of "facts" must be one JSON object for which the top-level keys must be one or more of the 12 QNOTE sections. Each QNOTE key's value must be an array of "fact objects." Each fact object must contain three keys: "fact_id", "content", and "source_text".
-    QNOTE Sections: Chief_Complaint, History_of_Present_Illness, Past_Medical_History, Medications, Adverse_Drug_Reactions_and_Allergies, Family_History, Social_and_Family_History, Assessment, Plan_of_Care, Follow_up_Information, Physical_Findings.
-    Fact Object Structure:
-        "fact_id": A unique identifier string, prefixed with a shorthand for its section (e.g., "hpi-001", "plan-002", "sh-001").
-        "content": A single, concise, precise, self-contained, clinically accurate sentence summarizing the extracted fact.
-        "source_text": The exact, verbatim quote from the original transcript that directly supports the fact.
-
-5. HIGH-QUALITY EXAMPLE:
-Input Transcript Text:
-Doctor: How can I help you?
-Patient: I've had this terrible headache since mid-day on my left side. I'm worried because my mum has migraines. I take the pill, Microgynon.
-Doctor: I see. Based on your story, this sounds like a migraine. I'll prescribe some strong painkillers. Come back in a week if it's not better.
-
-Correct Output JSON:
-{{
-  facts: {{
-    "Chief_Complaint": [
-    {{
-        "fact_id": "cc-001",
-        "content": "Patient presents with a terrible headache since mid-day.",
-        "source_text": "I've had this terrible headache since mid-day"
-      }}
-    ],
-    "History_of_Present_Illness": [
-      {{
-        "fact_id": "hpi-001",
-        "content": "The headache is located on the left side.",
-        "source_text": "on my left side."
-      }}
-    ],
-    "Medications": [
-      {{
-        "fact_id": "med-001",
-        "content": "Patient takes the contraceptive pill Microgynon.",
-        "source_text": "I take the pill, Microgynon."
-      }}
-    ],
-    "Family_History": [
-      {{
-        "fact_id": "famhx-001",
-        "content": "Patient's mother has a history of migraines.",
-        "source_text": "my mum has migraines."
-      }}
-    ],
-    "Assessment": [
-      {{
-        "fact_id": "asm-001",
-        "content": "The impression is a migraine headache.",
-        "source_text": "Based on your story, this sounds like a migraine."
-      }}
-    ],
-    "Plan_of_Care": [
-      {{
-        "fact_id": "plan-001",
-        "content": "Patient will be prescribed strong painkillers.",
-        "source_text": "I'll prescribe some strong painkillers."
-      }}
-    ],
-    "Follow_up_Information": [
-      {{
-        "fact_id": "fu-001",
-        "content": "Patient to return for review in one week if symptoms do not improve.",
-        "source_text": "Come back in a week if it's not better."
-      }}
-    ]
-  }}
-}} 
-
-6. YOUR TASK:
-Now, process the following clinical transcript according to all the rules and generate the QNOTE-structured JSON object. Do not include any explanatory text before or after the JSON output.
-
-"""
-
-TRANSCRIPT_FACT_EXTRACT_USER_PROMPT = """
-Here is the transcript:
-<<<
+NOTE_GEN_USER = """TRANSCRIPT: 
 {transcript}
->>>
+
+Generate a SOAP note in strict JSON format.
 """
 
-NOTE_FACT_EXTRACT_SYSTEM_PROMPT = """
+# ==============================================================================
+# 2. EXTRACTION PROMPTS (QNOTE Schema - Zero Shot)
+# ==============================================================================
+
+FACT_EXTRACT_SYSTEM = """
+You are a specialized Clinical Data Extraction Engine.
+Your ONLY function is to convert clinical text into strict QNOTE-schema JSON.
+
+CRITICAL BEHAVIORAL CONSTRAINTS:
+1. NO CONVERSATION: Do not output "Here is the JSON" or any introductory text. Output ONLY the JSON object.
+2. NO HALLUCINATION: Extract only what is explicitly stated in the text. Do not infer diagnoses or medications not present in the source.
+3. STRICT SCHEMA: Use only the 12 allowed QNOTE section keys. Do not invent new sections.
+4. FORMATTING: Output raw JSON. Do not wrap the output in markdown code blocks.
+"""
+
+FACT_EXTRACT_USER = """
+The Universal Prompt for QNOTE Fact Extraction
 1. ROLE AND GOAL:
-You are an expert clinical data extraction AI. Your task is to analyze a single, unstructured clinical note and extract all medically relevant facts. You must then organize these facts into a structured JSON object based on the predefined QNOTE schema. Your output must be precise, complete, and strictly adhere to the specified format.
+You are an expert clinical data extraction AI. Your task is to analyze a single, unstructured clinical note and extract all medically relevant facts into a structured JSON object based on the QNOTE schema.
+
 2. INPUT:
 You will be given a single block of text representing a clinical note.
+
 3. CORE RULES OF EXTRACTION:
-Rule 1 (Categorize): Read the entire note first to understand the context. Then, for each piece of information, you must categorize it into one of the 12 QNOTE sections.
-Rule 2 (Atomize): Each extracted fact should be a single, concise, and atomic piece of information. Avoid combining multiple distinct concepts into one fact. For example, "Patient has a headache and nausea" should be two separate facts.
-Rule 3 (Cite Your Source): For every fact you extract, you MUST include the source_text key. The value of this key must be the exact, verbatim substring from the original note that directly supports or states that fact. This is for traceability and validation.
-Rule 4 (Be Comprehensive): You must extract all relevant facts from the note. Do not omit details, even if they seem minor. If a QNOTE section is not mentioned in the note, you should omit that key from the final JSON output.
+Rule 1 (Categorize): Categorize information into one of the 12 QNOTE sections.
+Rule 2 (Atomize): Each extracted fact should be a single, concise, and atomic piece of information.
+Rule 3 (Cite Your Source): Every fact MUST include the "source_text" key with the exact, verbatim substring from the note.
+Rule 4 (Be Comprehensive): Extract all relevant facts.
+
 4. OUTPUT FORMAT (THE QNOTE SCHEMA):
-Your entire output must be a single, clean JSON object. The top-level keys must be one or more of the 12 QNOTE sections. Each key's value must be an array of "fact objects." Each fact object must contain three keys: "fact_id", "section", "content", and "source_text".
-QNOTE Sections: Chief_Complaint, History_of_Present_Illness, Past_Medical_History, Medications, Adverse_Drug_Reactions_and_Allergies, Family_History, Social_and_Family_History, Assessment, Plan_of_Care, Follow_up_Information, Physical_Findings, Review_of_Systems.
+Your output must be a single, clean JSON object. 
+Keys: Chief_Complaint, History_of_Present_Illness, Past_Medical_History, Medications, Adverse_Drug_Reactions_and_Allergies, Family_History, Social_and_Family_History, Assessment, Plan_of_Care, Follow_up_Information, Physical_Findings, Review_of_Systems.
+
 Fact Object Structure:
-"fact_id": A unique identifier string, prefixed with a shorthand for its section (e.g., "hpi-001", "plan-002", "sh-001").
-"content": A single, concise, clinically accurate sentence summarizing the extracted fact.
-"source_text": The exact, verbatim quote from the original note that directly supports the fact.
-5. HIGH-QUALITY EXAMPLE:
-Input Note Text:
-   3/7 hx of dysuria and suprapubic pain. Brief episode of haematuria, now resolved. Foul smelling.
-PMH: IBS
-DH: Nil regular
-Allergic to clindamycin
-SH: lives in a flat with friends, student in Biology, nil smoking, social EtOH at weekends
-Imp: UTI/cystitis
-Plan:
-1.Nitrofurantoin abx for 3/7
-2.Push fluids
-3.Review in 3d if no better
- 
-Correct Output JSON:
-   {{
-  "History_of_Present_Illness": [
-    {{
-      "fact_id": "hpi-001",
-      "content": "Patient has a 3-day history of pain on urination (dysuria) and suprapubic pain.",
-      "source_text": "3/7 hx of dysuria and suprapubic pain."
-    }},
-    {{
-      "fact_id": "hpi-002",
-      "content": "There was a brief episode of blood in the urine (hematuria), which has now resolved.",
-      "source_text": "Brief episode of haematuria, now resolved."
-    }},
-    {{
-      "fact_id": "hpi-003",
-      "content": "The urine has been foul-smelling.",
-      "source_text": "Foul smelling."
-    }}
-  ],
-  "Past_Medical_History": [
-    {{
-      "fact_id": "pmh-001",
-      "content": "Patient has a history of Irritable Bowel Syndrome (IBS).",
-      "source_text": "PMH: IBS"
-    }}
-  ],
-  "Medications": [
-    {{
-      "fact_id": "med-001",
-      "content": "Patient takes no regular medications.",
-      "source_text": "DH: Nil regular"
-    }}
-  ],
-  "Adverse_Drug_Reactions_and_Allergies": [
-    {{
-      "fact_id": "allergy-001",
-      "content": "Patient is allergic to Clindamycin.",
-      "source_text": "Allergic to clindamycin"
-    }}
-  ],
-  "Social_and_Family_History": [
-    {{
-      "fact_id": "sh-001",
-      "content": "Patient is a student studying Biology who lives with friends.",
-      "source_text": "lives in a flat with friends, student in Biology"
-    }},
-    {{
-      "fact_id": "sh-002",
-      "content": "Patient is a non-smoker and drinks alcohol socially on weekends.",
-      "source_text": "nil smoking, social EtOH at weekends"
-    }}
-  ],
-  "Assessment": [
-    {{
-      "fact_id": "asm-001",
-      "content": "The impression is a urinary tract infection (UTI) or cystitis.",
-      "source_text": "Imp: UTI/cystitis"
-    }}
-  ],
-  "Plan_of_Care": [
-    {{
-      "fact_id": "plan-001",
-      "content": "Prescribed Nitrofurantoin antibiotics for a 3-day course.",
-      "source_text": "Nitrofurantoin abx for 3/7"
-    }},
-    {{
-      "fact_id": "plan-002",
-      "content": "Advised to increase fluid intake.",
-      "source_text": "Push fluids"
-    }}
-  ],
-  "Follow_up_Information": [
-    {{
-      "fact_id": "fu-001",
-      "content": "Patient to have a review in 3 days if not better.",
-      "source_text": "Review in 3d if no better"
-    }}
-  ]
+{{
+  "fact_id": "section-001",
+  "content": "atomic fact string",
+  "source_text": "verbatim quote"
 }}
- 
-6. YOUR TASK:
-Now, process the following clinical note according to all the rules and generate the QNOTE-structured JSON object. Do not include any explanatory text before or after the JSON output.
+
+5. TASK:
+Process the following clinical note and generate the QNOTE-structured JSON object.
+Here is the note: 
+{note_text}
 """
 
-NOTE_FACT_EXTRACT_USER_PROMPT = """
-Here is the note:
-<<<
-{note}
->>>
+# ==============================================================================
+# 3. PHASE 1: ALIGNMENT (Note vs Note) - New Logic
+# ==============================================================================
+
+PHASE1_SYSTEM = """
+You are an expert Clinical Auditor. 
+Your task is to compare "Generated Facts" against "Gold Facts" (Ground Truth) to evaluate accuracy.
+
+You must handle **Semantic Equivalence** intelligently: 
+1. **Time/Units:** Treat "24-48 hours" as equal to "1-2 days". Treat "bid" as "twice daily". 
+2. **Implied Negatives:** If Gold says "No spread", and Generated says "Rash localized to chest" (implying no spread), mark as COVERED.
+3. **Elaboration:** If the Generated fact adds detail that is logically consistent with the Gold fact (e.g., Gold: "Pain", Generated: "Throbbing Pain"), check if it contradicts. If it implies the same clinical reality, it is SUPPORTED. 
+
+**Constraint:** - You must distinguish between a FACT MISSING (Omission) and a FACT WRONG (Contradiction).
 """
 
-FACT_COMPARE_SYSTEM_PROMPT = """
-You are an expert Medical Auditor. Your task is to compare a set of "Generated Facts" against a set of verified "Gold Facts" for a specific section of a clinical note.
-
-SECTION: {section_name}
-
-GOLD FACTS (The Truth):
+PHASE1_USER = """
+GOLD FACTS:
 {gold_facts}
 
-GENERATED FACTS (The Hypothesis):
+GENERATED FACTS:
 {gen_facts}
 
-INSTRUCTIONS:
-1. Assess every GOLD Fact: Is it captured in the Generated facts? (Classify as: COVERED or OMITTED).
-2. Assess every GENERATED Fact: Is it supported by the Gold facts? (Classify as: SUPPORTED, CONTRADICTION, or ADDITION).
+### STEP 1: ASSESS GOLD FACTS (Recall & Accuracy)
+For every GOLD Fact, determine its status in the Generated Facts:
+- **COVERED**: The clinical concept is present (even if phrased differently).
+- **CONTRADICTED**: The Generated facts actively state the opposite (e.g., Gold: "No fever", Gen: "Fever").
+- **OMITTED**: The concept is completely absent.
 
-DEFINITIONS:
-- CONTRADICTION: The generated fact says something directly opposite to the Gold facts.
-- ADDITION: The generated fact includes extra details not found in the Gold facts (but doesn't contradict).
+### STEP 2: ASSESS GENERATED FACTS (Precision)
+For every GENERATED Fact, determine its relationship to the Gold Facts, STRICTLY following the categories below. DO NOT invent new categories:
+- **SUPPORTED**: Matches a Gold fact (semantically).
+- **CONTRADICTED**: Conflicts with a Gold fact.
+- **NOT_IN_GOLD**: The fact is NOT present in the Gold Facts. 
 
-OUTPUT JSON FORMAT:
+### OUTPUT JSON:
 {{
   "gold_assessment": [
-    {{"fact_id": "hpi-001", "status": "COVERED", "reasoning": "..."}},
-    {{"fact_id": "hpi-002", "status": "OMITTED", "reasoning": "..."}}
+    {{
+      "fact_id": "hpi-001", 
+      "status": "COVERED", 
+      "reasoning": "Gen fact 'hpi-x' mentions '1-2 days' which matches Gold '24-48 hrs'."
+    }},
+    {{
+      "fact_id": "hpi-002", 
+      "status": "CONTRADICTED", 
+      "reasoning": "Gold says 'No blood', Gen says 'Blood in stool'."
+    }}
   ],
   "gen_assessment": [
-    {{"fact_id": "gen-001", "status": "SUPPORTED", "match_gold_id": "hpi-001"}},
-    {{"fact_id": "gen-002", "status": "CONTRADICTION", "reasoning": "..."}},
-    {{"fact_id": "gen-003", "status": "ADDITION", "reasoning": "..."}}
+    {{
+      "fact_id": "gen-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Mentions working from home. Not found in Gold summary."
+    }}
   ]
 }}
 """
 
-FACT_COMPARE_USER_PROMPT = """
-Compare the provided facts as per the instructions above.
-"""
+# ==============================================================================
+# 4. PHASE 2: VERIFICATION (Fact vs Transcript) - New Logic
+# ==============================================================================
 
-FACT_VERIFY_SYSTEM_PROMPT = """
-You are an expert Clinical Fact Checker. Your task is to verify if specific clinical facts extracted from a generated note are supported by the original patient-doctor consultation transcript.
+PHASE2_SYSTEM = """
+You are an expert Clinical Fact Checker. Your task is to verify "Extra Facts" that were found in an AI-generated note but were missing from the human Gold Summary. 
+You must determine if these facts are valid details found in the Transcript or if they are hallucinations.
 
 You will be given:
 1. The Original Transcript (The absolute truth).
-2. A list of Extracted Facts (Claims made by the AI model).
+2. A list of Extracted Facts (The "Extra" details to verify).
 
-For EACH fact, you must classify it into one of these categories:
-- "SUPPORTED": The fact is explicitly stated in the transcript, or is a direct clinical inference (e.g., "LLQ pain" is supported by "pain in lower left belly"), or correctly states that information is missing (e.g., "Allergies not recorded" is SUPPORTED if the transcript does not mention allergies).
-- "ADDITION": The fact introduces new positive information not present in the transcript (e.g., specific values, dates, or events that never happened).
-- "CONTRADICTION": The fact directly conflicts with information in the transcript (e.g., Transcript says "Left side", Fact says "Right side").
+For EACH fact, you must classify it into one of these strict categories:
+
+- "VALID_ELABORATION": The fact is supported by the transcript. It may be a direct quote, a clear clinical inference, or a correct statement that something was negative/not discussed. (This is a GOOD extra detail).
+- "TRUE_ADDITION": The fact introduces information that is NOT present in the transcript. The model hallucinated specific values, dates, or events. (This is a BAD hallucination).
+- "CONTRADICTION": The fact directly conflicts with the transcript. (e.g., Transcript says "No fever", Fact says "Fever").
 
 **Crucial Evaluation Rules:**
-1. **Implicit Negatives:** If the fact states something was "not discussed", "not documented", or "unremarkable", and the transcript indeed lacks that information, mark it as **SUPPORTED**. Do not mark it as an ADDITION.
-2. **Clinical Synonyms:** Treat standard medical abbreviations and synonyms as equivalent (e.g., "Tylenol" = "Acetaminophen", "Dyspnea" = "Shortness of breath").
-3. **Approximate Values:** Accept reasonable approximations for time ranges if they overlap (e.g., "3-4 days" supports "few days").
+1. **Implicit Negatives:** If the fact states something was "not discussed" or "unremarkable", and the transcript is silent on it, mark as **VALID_ELABORATION**.
+2. **Clinical Synonyms:** Treat medical synonyms (Tylenol = Acetaminophen) as matches.
+3. **Inference:** If the fact is a logical clinical conclusion from the transcript (e.g., "Blue inhaler" -> "SABA"), mark as **VALID_ELABORATION**.
 
-**Constraint:**
-- You must output a JSON object with a single key "verdict" containing a list of objects.
-- Each object must have: 
-    - "fact_id": (The exact ID string from the input),
-    - "status": ("SUPPORTED", "ADDITION", or "CONTRADICTION"),
-    - "reasoning": (A brief explanation citing the specific quote from the transcript that supports or contradicts the fact).
+**Output Schema:**
+You must output a single valid JSON object containing a "verdict" list. Each object in the list must use EXACTLY these keys:
+{
+  "verdict": [
+    {
+      "fact_id": "The exact ID provided in the input",
+      "status": "MUST be one of: VALID_ELABORATION, TRUE_ADDITION, CONTRADICTION",
+      "reasoning": "A concise explanation quoting the transcript if possible"
+    }
+  ]
+}
 """
 
-FACT_VERIFY_USER_PROMPT = """
+PHASE2_USER = """
 TRANSCRIPT:
 <<<
 {transcript}
 >>>
 
-FACTS TO VERIFY:
+FACTS TO VERIFY (These were missing from the Gold Summary):
 <<<
 {facts_json}
 >>>
 
-Verify each fact against the transcript. Output ONLY valid JSON.
+Verify each fact against the transcript. 
+Output ONLY valid JSON with the key "verdict" and "reasoning".
+"""
+
+# ==============================================================================
+# 5. RQ2 SPECIFIC PROMPTS (Stability Analysis)
+# ==============================================================================
+
+RQ2_DIFF_SYSTEM = """
+You are a "Stability Analyst" for Clinical AI. 
+Your Goal: Compare two sets of clinical facts generated by the SAME model but from slightly different inputs (Input A vs. Input B).
+
+You must identify stability issues:
+1. Did the model drop information present in the clinical note? (OMISSION)
+2. Did the model change details regarding the same event? (CONTRADICTION)
+3. Did the model add new things not in the initial clean set? (ADDITION)
+
+Definitions:
+- REFERENCE = Facts from the "Clean" Transcript run.
+- CANDIDATE = Facts from the "Noisy/Modified" Transcript run.
+"""
+
+RQ2_DIFF_USER = """
+We ran a clinical model on a "Clean Transcript" (Reference) and then again on a "Noisy Transcript" (Candidate).
+Compare the extracted facts to see how the noise affected the output.
+
+REFERENCE FACTS (Clean Baseline):
+{clean_facts}
+
+CANDIDATE FACTS (Noisy Run):
+{noisy_facts}
+
+INSTRUCTIONS:
+1. **Map Reference to Candidate:** For every fact in the Reference, check if it survived in the Candidate.
+   - **PRESERVED:** The fact exists in the Candidate (semantically equivalent).
+   - **OMITTED:** The fact is completely missing in the Candidate.
+   - **CONTRADICTED:** The Candidate contains a conflicting version (e.g., "Seroxat" vs "Cerazette", "Left side" vs "Right side").
+
+2. **Check for Ripple Effects (Additions):** Check if the Candidate contains *new* facts not present in the Reference.
+   - **NEW_ADDITION:** Information found in Candidate but NOT in Reference. (This suggests the noise triggered a hallucination).
+
+OUTPUT JSON FORMAT:
+{{
+  "stability_analysis": [
+    {{
+      "ref_fact_id": "clean-hpi-01",
+      "status": "PRESERVED",
+      "candidate_match_id": "noisy-hpi-01", 
+      "reasoning": "Both state patient has headache."
+    }},
+    {{
+      "ref_fact_id": "clean-hpi-02",
+      "status": "OMITTED",
+      "reasoning": "Reference mentions 'Diabetes', but Candidate completely ignores it."
+    }}
+  ],
+  "noise_induced_hallucinations": [
+    {{
+      "candidate_fact_id": "noisy-plan-04",
+      "content": "Patient referred to Cardiology.",
+      "reasoning": "This referral was NOT in the Clean run. The noise might have confused the model into adding it."
+    }}
+  ]
+}}
 """
