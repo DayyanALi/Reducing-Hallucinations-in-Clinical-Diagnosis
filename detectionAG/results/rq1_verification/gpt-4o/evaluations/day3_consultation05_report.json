@@ -1,0 +1,224 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold: dizziness for past few hours as chief complaint. Generated: chief complaint includes 'Dizziness'; timing 'started 2 hrs ago' aligns with 'past few hours'. Nausea is an added complaint but does not contradict."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: dizziness for the past few hours. Generated: 'Dizziness ... started 2 hours ago', which semantically matches 'past few hours'."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: similar dizziness episode 1 month ago lasting 10 minutes. Generated: similar episode 1 month ago lasting 5\u201310 minutes. The 5\u201310 minute range is a non-contradictory elaboration."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: patient feels as though on a boat (vertiginous description). Generated: describes room spinning and unsteady gait but does not mention a 'boat-like' sensation or equivalent metaphor; this specific description is absent."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no recent viral illness. Generated: 'No viral illness' explicitly matches."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: buzzing noise in ears (tinnitus). Generated: 'ear buzzing' in HPI and in assessment; this is the same symptom."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: denies hearing problems. Generated: 'No hearing loss' which is the key hearing problem; semantically equivalent."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: denies ear discharge. Generated: 'No ear discharge'; direct match."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: denies ear pain. Generated: 'No ear pain'; direct match."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "OMITTED",
+      "reasoning": "Gold: feels nauseous but has not vomited. Generated: nausea only appears as chief complaint text but no explicit HPI statement that patient feels nauseous and has not vomited; vomiting status is not specified, so the 'not been sick' component is missing."
+    },
+    {
+      "fact_id": "hpi-010",
+      "status": "COVERED",
+      "reasoning": "Gold: denies weakness of arms and legs. Generated: 'No weakness in arms or legs'; direct match."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: premature ovarian failure. Generated PMH lists 'Premature ovarian failure'; direct match."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: takes hormone replacement therapy (HRT). Generated: 'Hormone replacement therapy'; direct match."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no allergies. Generated: 'No known allergies'; semantically equivalent."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: most likely diagnosis is labyrinthitis. Generated: assessment includes 'Labyrinthitis' as diagnosis; direct match."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: prescribe Stemetil, 1 tablet three times a day for ~10 days for symptom relief. Generated: plan/medication describes 'medication for middle ear stability' 1 tablet TID for 10 days. The drug name is generalized but dose and duration match, and context (labyrinthitis/ear) supports this as the same therapeutic plan."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: book face-to-face appointment to have ears checked. Generated: 'Refer patient to a doctor for ear examination and assessment of gait.' The ear examination referral covers the ear-check component; added gait assessment is extra but not contradictory."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: recommend physical check-up including BP and other basic assessments. Generated: refers to doctor for ear exam and gait assessment, but does not mention a general physical check-up or blood pressure measurement."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: if weakness of arms/legs or vomiting develops, go to A&E. Generated: monitor for limb weakness and vomiting, and advise A&E visit if symptoms worsen; this includes the same triggers and destination, with additional non-contradictory triggers (severe headache)."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dizziness as chief complaint aligns with Gold chief complaint and HPI dizziness."
+    },
+    {
+      "fact_id": "Chief_Complaint-002",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea is present in Gold HPI ('You feel nauseous but not been sick'), so including it as a chief complaint is consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Start time '2 hours ago' aligns with 'past few hours', and 'ear buzzing' and unsteady gait are compatible, but 'room spinning' is a specific vertigo description not stated in Gold and 'unsteady gait' is absent in Gold; more importantly, Gold explicitly describes sensation as feeling as though on a boat, which is a different characterization. The inclusion of unsteady gait is not supported by any Gold fact and effectively conflicts with the Gold summary of associated symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Similar episode 1 month ago lasting 5\u201310 minutes is consistent with Gold 'only lasted 10 minutes'; the range includes 10 minutes and does not conflict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "No recent viral illness matches Gold 'There is no recent viral illness'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "No ear pain matches Gold denial of ear pain."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "No ear discharge matches Gold denial of ear discharge."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "No hearing loss matches Gold denial of hearing problems."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "No weakness in arms or legs matches Gold 'There is no weakness of the arms and legs'."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Premature ovarian failure matches Gold PMH 'You have premature ovarian failure'."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Hormone replacement therapy corresponds to Gold 'take HRT'."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Medication for middle ear stability 1 tablet TID for 10 days matches the Gold plan for Stemetil 1 tablet three times daily for approximately 10 days for symptom relief in labyrinthitis; drug is unnamed but regimen and indication align."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known allergies matches Gold 'There is no allergies'."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Labyrinthitis corresponds to Gold 'Most likely diagnosis is labyrinthitis'."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Linking labyrinthitis specifically to dizziness, ear buzzing, and unsteady gait: dizziness and ear buzzing are in Gold, but unsteady gait is not mentioned; this explicit association is not present in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor diagnoses labyrinthitis: 'the most common... diagnosis... is something called labyrinthitis.' The patient reports 'feeling very sick... the room is sort of spinning,' 'ears are buzzing a bit,' and 'I can walk properly but not straight... I don't feel like I'm stable.' These are dizziness, ear buzzing, and unsteady gait associated with the working diagnosis."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Middle ear stability medication 1 tablet three times daily for 10 days corresponds to Gold prescription of Stemetil 1 tablet TID for about 10 days for labyrinthitis-related symptom relief."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Referral for ear examination matches Gold instruction to book a face-to-face appointment to have ears checked; added gait assessment is extra but not conflicting."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Monitor for limb weakness and vomiting aligns with Gold advice to seek A&E if weakness of arms/legs or vomiting develop. Severe headache is an added monitored symptom not mentioned in Gold but not contradictory."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Advise A&E visit if symptoms worsen is consistent with Gold 'Please go to A & E' if limb weakness or vomiting develop; both direct patient to A&E for deterioration."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated explicitly states 'Schedule follow-up appointment.' Gold mentions booking a face-to-face appointment for ear check (a specific next visit), but does not separately describe a generic follow-up appointment as an additional plan item.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor instructs the patient to see another doctor: 'I would still like you to be seen by one of our doctors...' and 'while you're with the doctors, we'd like to do your blood pressure...' and 'In the interim, obviously in the next few days, you'll get to see one of my doctors...' and 'Just make sure you call support to book that appointment.' This clearly indicates a planned follow\u2011up appointment."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Advised A&E visit if symptoms worsen is consistent with Gold follow-up instruction to go to A&E if weakness or vomiting occurs (a form of worsening)."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Follow-up appointment scheduling is stated; Gold only specifies a face-to-face appointment for ear check, not a general follow-up framing, so this specific follow-up statement is not in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The transcript states: 'while you're with the doctors...' and 'In the interim, obviously in the next few days, you'll get to see one of my doctors...' and 'Just make sure you call support to book that appointment.' This explicitly indicates that a follow\u2011up appointment is to be scheduled."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Statement that no physical examination or vitals are documented is not addressed in Gold facts, which do not discuss physical examination documentation at all.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "There is no documentation of an examination or vital signs in the transcript; instead the doctor says they would like to check these in the future: 'while you're with the doctors, we'd like to do your blood pressure, just examine your... how your walking and everything is.' This supports that no physical exam or vitals were performed/documented in this encounter."
+    }
+  ]
+}

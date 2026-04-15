@@ -1,0 +1,343 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 records a chief complaint of chest discomfort; while it omits 'acute onset' and 'left-sided', it semantically covers presentation with chest discomfort."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-002 and -003 describe mid-sternal pressure 'like someone's sitting on my chest' rated 7/10, matching the pressure description and intensity in the gold fact."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-007 and Review_of_Systems-004 both state pain radiating to the left shoulder and arm, matching the gold radiation description."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-001 notes sudden onset a couple of hours ago, which is semantically equivalent to an episode lasting 1\u20132 hours so far."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-001 explicitly states onset a couple of hours ago while gardening, matching the gold description that the first episode started while gardening."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "OMITTED",
+      "reasoning": "Gold states there is no radiation of pain to the head; no generated fact mentions presence or absence of radiation to the head, so this specific negative is not addressed."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-006 and Review_of_Systems-003 document nausea without vomiting, matching the gold fact."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold specifies shortness of breath at rest; Generated History_of_Present_Illness-004 and Review_of_Systems-001 record associated shortness of breath with the chest discomfort (a resting scenario), which is consistent though less explicit about 'at rest'."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-008 and -009 describe exertional dyspnea when climbing stairs/uphill that limits activity to moving around the house, matching a longer-term history of reduced ADLs due to shortness of breath on exertion."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "OMITTED",
+      "reasoning": "Gold notes that previously the patient could walk up hills and stairs without chest discomfort; generated facts describe current exertional dyspnea/limitations but do not explicitly state the prior ability without chest discomfort."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Past_Medical_History-002 documents a history of hypercholesterolemia, which is equivalent to high cholesterol/hyperlipidemia."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Past_Medical_History-001 documents a history of hypertension, matching the gold fact of high blood pressure."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states an aspirin allergy. Generated Adverse_Drug_Reactions_and_Allergies-001 states drug allergies are not documented, which conflicts with the presence of a known allergy."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Social_and_Family_History-002 notes the patient lives with his wife, aligning with the gold fact of living at home with his wife (home location is implied)."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "OMITTED",
+      "reasoning": "Gold states the patient was previously able to walk up stairs without difficulty; generated history discusses current exertional dyspnea but does not explicitly mention previous ease of climbing stairs without difficulty."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Assessment-001 documents concern for acute cardiac ischemia/acute coronary syndrome due to acute chest discomfort and associated symptoms, semantically including myocardial infarction within the differential."
+    },
+    {
+      "fact_id": "asm-002",
+      "status": "OMITTED",
+      "reasoning": "Gold lists pulmonary embolism (PE) in the differential. No generated assessment fact explicitly mentions PE."
+    },
+    {
+      "fact_id": "asm-003",
+      "status": "OMITTED",
+      "reasoning": "Gold lists GORD in the differential. The generated assessment does not mention gastro-oesophageal reflux disease or equivalent."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Plan_of_Care-001 describes ambulance dispatch for immediate ED transfer for acute chest discomfort concerning for ACS, which is consistent with calling an ambulance for suspected MI and further investigation."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold chief complaint documents acute onset left-sided chest discomfort/pressure, which semantically supports a chief complaint of chest discomfort."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches gold details of acute onset chest discomfort a couple of hours ago while gardening and duration of 1\u20132 hours."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold describes chest discomfort as pressure 'like someone sitting on his chest'; generated fact gives the same description and localizes it mid-sternum, which is consistent refinement."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold rates pain intensity at 7/10; generated fact states severity 7/10 at onset and unchanged, which aligns and adds non-contradictory detail."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold indicates shortness of breath at rest and with chest discomfort; generated fact records associated shortness of breath with chest discomfort, which is consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Light-headedness associated with chest discomfort is not mentioned in any gold facts, and there is no conflicting statement.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: patient reports chest discomfort plus light\u2011headedness (\u201cApart from this light-headedness, and this chest discomfort, have you noticed anything else unusual?\u201d / \u201cUm, nothing else unusual.\u201d). These are associated symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Gold records nausea without vomiting since presentation; generated fact documents associated nausea without vomiting, which directly matches."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Gold fact hpi-002 describes radiation to the left shoulder and arm; generated fact states chest pain radiating to left shoulder and arm, consistent with this."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "Gold notes longer-term reduced ADLs due to shortness of breath on exertion; generated fact that exertional dyspnea occurs when climbing stairs/uphill matches this exertional SOBOE description."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Gold states reduced ADLs due to SOBOE; this fact adds that dyspnea on exertion limits activity to moving around the house, which elaborates but is consistent with reduced ADLs."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Calf pain is not documented in the gold facts; there is no supporting or contradicting information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cthere's often calf pain and, leg swellings.\u201d Confirms calf pain."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Leg swelling is reported in the generated history but not mentioned in the gold facts at all.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cthere's often calf pain and, leg swellings.\u201d Confirms leg swelling."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recent intake of no food or drink this morning is not discussed in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cDid you have anything to eat or drink this morning?\u201d / Patient: \u201cUm, no.\u201d Indicates no food or drink this morning."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches gold past medical history of high blood pressure (hypertension)."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches gold past medical history of high cholesterol (hyperlipidemia)."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not address current medications; stating 'none' is additional and neither supported nor contradicted by gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cDo you take any medicines for that?\u201d / Patient: \u201cNo, I don't take any medicine.\u201d"
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold explicitly documents an aspirin allergy, while this generated fact states allergies are not documented, which conflicts."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Current smoker status is not mentioned in the gold social history; there is no supporting or conflicting statement.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript early: \u201cUh, yes I do smoke, yeah.\u201d Confirms current smoking."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold social history states the patient lives at home with his wife; this fact that he lives with his wife is consistent and supported."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold assessment lists MI as a differential; concern for acute cardiac ischemia/ACS is compatible with MI as part of this spectrum, so it is supported."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Untreated hypertension is not specified in gold; gold only notes history of high blood pressure without treatment status.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: patient has hypertension and later confirms, \u201cNo, I don't take any medicine.\u201d for high blood pressure and cholesterol. This supports hypertension that is untreated."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Untreated hypercholesterolemia is not specified in gold; gold documents high cholesterol but not that it is untreated.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: patient has high cholesterol and states, \u201cNo, I don't take any medicine.\u201d for it. This supports untreated hypercholesterolemia."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Concern for cardiorespiratory or vascular pathology based on exertional dyspnea with leg swelling/calf pain goes beyond gold, which does not mention leg symptoms or this specific concern.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: exertional dyspnea (\u201cdifficulty climbing the stairs\u201d and \u201cwalk uphill\u201d), plus \u201ccalf pain and, leg swellings.\u201d Concern for cardiorespiratory or vascular pathology is a reasonable clinical inference."
+    },
+    {
+      "fact_id": "Assessment-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Current tobacco use is not discussed in the gold facts; no support or contradiction.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cUh, yes I do smoke, yeah.\u201d This supports current tobacco use."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan notes that an ambulance was called for suspected MI and further investigation; ambulance dispatch for immediate ED transfer is consistent with this."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Clinician remaining on the phone while awaiting paramedics is not mentioned in the gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cBut in the meantime, I think we should stay on the phone. So I can gather some more information\u2026 Is that OK?\u201d Confirms clinician will remain on phone while awaiting ambulance."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Paramedics monitoring vitals and assessing cardiac/respiratory status is additional detail not present in the gold facts.",
+      "final_status": "CONTRADICTION",
+      "verification_reasoning": "Transcript: \u201cthey will give you lots of things to breathe through, and attach things to your arms. Just to check, things like your blood pressure, and your heart rate.\u201d Oxygen saturation monitoring is not mentioned and is an added specific detail."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice to stay calm and sip water if needed is not in the gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cIn the meantime, I would suggest that you stay calm, and have some water if you need to.\u201d Matches advice to stay calm and sip water."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice to avoid taking any medications prior to paramedic assessment is not discussed in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cDon't take any of those medications.\u201d This is consistent with avoiding medications prior to paramedic assessment."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Expectation of hospital evaluation by ED/consultant is not explicitly stated in gold, which only says ambulance called for further investigation and assessment.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cget you to the hospital as soon as possible\u2026 When you get to the hospital, you'll be seen by a consultant, pretty, pretty much immediately.\u201d This supports expectation of hospital/consultant evaluation."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan for clinician update after hospitalization and arranging follow-up is not present in gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cthe consultant would normally call me within a couple of minutes, to let me know how everything's going.\u201d and \u201cI'll um, book another appointment, to see you soon. Uh, , once you've had your adventure.\u201d Supports update after hospitalization and arranging follow\u2011up."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Follow-up appointment arrangement after hospitalization is additional information not contained in the gold summary.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cI'll um, book another appointment, to see you soon. Uh, , once you've had your adventure.\u201d Confirms follow\u2011up appointment after hospital visit."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts are a summary and do not address whether vitals or physical exam were recorded; this statement is not supported or contradicted.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript contains no vitals or physical exam findings. Stating that none were recorded is consistent with the transcript."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Shortness of breath is consistent with gold hpi-007 (shortness of breath at rest) and hpi-008 (SOBOE)."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Light-headedness is not mentioned in the gold narrative, and there is no conflicting information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cI've got shortness of breath. And I feel slightly, light-headed.\u201d Confirms light\u2011headedness."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea without vomiting directly matches gold fact hpi-006."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Pain radiating to the left shoulder and arm matches gold fact hpi-002."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Dyspnea on exertion when climbing stairs or uphills is consistent with gold hpi-008 (SOBOE reducing ADLs)."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Calf pain is not present in the gold facts, so this is an additional finding.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cthere's often calf pain and, leg swellings.\u201d Confirms calf pain."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Leg swelling is not mentioned in the gold facts and thus is an additional, unsupported detail.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: \u201cthere's often calf pain and, leg swellings.\u201d Confirms leg swelling."
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 states soreness and cracked skin on hands, mainly palms, for 3\u20134 months, which matches the Gold description of 3\u20134 months of sore and cracked skin on the hands, mainly on the palms."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states the skin is occasionally itchy and bleeding on scratching but is not painful. Generated History_of_Present_Illness-001 says pain is limiting work, which directly contradicts the Gold assertion of no pain, although itch and bleeding are covered elsewhere."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold notes possible trigger from work as a cleaner with not always wearing gloves. Generated Social_and_Family_History-001, -002, and -003 describe working as a housekeeper in a hotel with frequent cleaning product exposure and inconsistent glove use, semantically matching the trigger."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold says the patient tried E45 cream and antihistamines with minimal relief. Generated History_of_Present_Illness-008 and -009 state the patient tried E45 cream and an antihistamine with no effect, which is equivalent to minimal relief."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold denies fever, bowel/urinary symptoms, and notes appetite maintained. Generated History_of_Present_Illness-006 and Review_of_Systems-001, -003, -004 deny fever and bowel/urinary symptoms, and History_of_Present_Illness-007 and Review_of_Systems-005\u2013006 state appetite and eating/drinking are normal. Added nausea/vomiting denial is consistent and not contradictory."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold lists a history of Type 2 diabetes. Generated Past_Medical_History-001 and Assessment-003 both document Type 2 diabetes mellitus, matching the Gold fact."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold notes the patient takes metformin. Generated Medications-001 states the patient is taking metformin, which is the same medication."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold states no known drug allergies. Generated Adverse_Drug_Reactions_and_Allergies-001 documents no known drug allergies (and also no general allergies), which covers the Gold fact."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold notes a family history of Type 2 diabetes. Generated Family_History-001 records a family history of diabetes, which semantically includes Type 2 diabetes and does not conflict."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "PARTIALLY_COVERED",
+      "reasoning": "Gold states the patient works as a housekeeper in a hotel and changed jobs 4 months ago. Generated Social_and_Family_History-001 confirms work as a housekeeper in a hotel, but there is no mention of the job change 4 months ago, so employment role is covered while timing of job change is omitted."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold states no smoking and minimal alcohol intake. Generated Social_and_Family_History-004 and -005 state no smoking and alcohol at a couple of pints per week, which is consistent with minimal alcohol intake."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold impression is contact dermatitis. Generated Assessment-001 documents hand dermatitis, likely irritant or contact and occupational, which matches a diagnosis of contact dermatitis of the hands."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "PARTIALLY_COVERED",
+      "reasoning": "Gold specifies a steroid cream to be used twice daily (BD). Generated Plan_of_Care-002 and Medications-002 prescribe a topical steroid cream for the hands but do not state the dosing frequency, so the existence of a steroid cream is covered but the BD regimen is omitted."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold advises regular use of emollients. Generated Medications-003 and Plan_of_Care-003 prescribe a stronger emollient to be applied 3\u20134 times/day for 2 weeks, which is a specific form of regular use and does not contradict Gold."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold advises avoiding triggers and wearing cleaning gloves. Generated Plan_of_Care-001 advises strict glove use during cleaning and Social_and_Family_History-002 highlights cleaning product exposure as a trigger; advising strict glove use is consistent with avoiding triggers and wearing gloves."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold instructs review in 10\u201314 days if not better. Generated Plan_of_Care-004 and Follow_up_Information-001 specify review in 1\u20132 weeks if no improvement, which is equivalent to 7\u201314 days and overlaps fully with 10\u201314 days, so this is semantically aligned."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Gold advises earlier review if symptoms worsen. Generated Plan_of_Care-004 and Follow_up_Information-001 also advise earlier review if worsening or spreading, which includes the Gold condition and adds non-contradictory detail."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "States soreness and cracked skin on hands, mainly palms, for 3\u20134 months, which matches Gold HPI hpi-001."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Claims pain worsening and limiting work. Gold hpi-002 explicitly states no pain, so this conflicts with Gold, even though soreness and cracked skin are otherwise consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Being off work for the past 3 days due to symptoms is not mentioned anywhere in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks if symptoms have stopped her working; patient says, 'yeah like the past three days, I haven't been able to go to work.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Itchy palms align with Gold hpi-002, which notes the skin is occasionally itchy."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Occasional bleeding with scratching matches Gold hpi-002, which reports bleeding on scratching."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Mild, longstanding dryness on the legs is not described in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient reports mild, longstanding leg dryness: 'I have dryness, like you know, in other parts, like my legs. But it's not very, it's not severe... Is that something you've had for a while now? Patient: Yeah.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Denies fever, bowel, and urinary symptoms, which matches Gold hpi-005. Added denial of nausea/vomiting is not in Gold but does not contradict; thus the overlapping elements are supported while N/V is extra."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Normal appetite and eating/drinking are consistent with Gold hpi-005 (appetite maintained) and do not conflict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "Tried E45 cream with no effect matches Gold hpi-004 (tried E45 with minimal relief)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Tried antihistamine with no effect matches Gold hpi-004 (antihistamines with minimal relief)."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "History of type 2 diabetes mellitus is identical to Gold pmh-001."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Ongoing metformin matches Gold med-001."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Prescription of topical steroid cream for hand dermatitis aligns with Gold plan-001 (steroid cream BD). However, dosing frequency is not specified in the generated fact, so the existence of a steroid cream is supported but frequency is omitted."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Stronger emollient 3\u20134 times/day for 2 weeks is a more detailed version of Gold plan-002 (regular emollient use) and does not conflict."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known drug allergies matches Gold allergy-001."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No known general allergies (e.g., non-drug) is not specified in the Gold facts, which only mention drug allergies.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked about allergies, patient replies, 'No.' This includes general allergies."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Family history of diabetes aligns with Gold famhx-001 (Type 2 diabetes) and is consistent at a slightly less specific level."
+    },
+    {
+      "fact_id": "Family_History-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No family history of skin problems is not mentioned in the Gold family history.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks, 'Again, any skin problems?' Patient replies, 'Uh no, not that I know of.' indicating no family history of skin problems."
+    },
+    {
+      "fact_id": "Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No family history of asthma is not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks, 'Any history of asthma, or bowel problems?' Patient answers, 'Uh, no.' which applies to both asthma and bowel problems in family history context."
+    },
+    {
+      "fact_id": "Family_History-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No family history of bowel problems is not documented in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported by same exchange: 'Any history of asthma, or bowel problems?' Patient: 'Uh, no.' indicating no family history of bowel problems."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Working as a housekeeper in a hotel matches Gold sh-001, though Gold also notes a recent job change which is not mentioned here."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Frequent cleaning product exposure is consistent with Gold\u2019s implication of cleaning work being a trigger (hpi-003), though the Gold fact itself is less explicit; this is a logical elaboration, not a contradiction."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Inconsistent glove use corresponds to Gold hpi-003, which states the patient does not always wear gloves."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "No smoking matches Gold sh-002 (nil smoking)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "SUPPORTED",
+      "reasoning": "Alcohol intake of a couple of pints per week is consistent with Gold sh-002 (minimal alcohol)."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Hand dermatitis likely irritant/contact and occupational aligns with Gold asm-001 (contact dermatitis) plus the occupational context given in Gold hpi-003 and sh-001."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Explanation of hand dermatitis based on sore, cracked, itchy palms, cleaning product exposure, glove noncompliance, and failed OTC treatments is consistent with the combination of Gold hpi-001 to hpi-004 and hpi-003 (trigger) and does not conflict."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 diabetes mellitus as an assessment matches Gold pmh-001; Gold lists it in PMH, and using it as a problem list item is consistent."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Advising strict glove use during cleaning matches Gold plan-003, which advises wearing cleaning gloves and avoiding triggers."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Prescribing topical steroid cream for the hands matches Gold plan-001\u2019s steroid cream, but the Gold fact specifies BD (twice daily), which is not mentioned here."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Stronger emollient 3\u20134 times/day for 2 weeks is a detailed implementation of Gold plan-002 (regular emollient use), with no conflict."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Review in 1\u20132 weeks if no improvement or earlier if worsening/spreading matches Gold fu-001 (review in 10\u201314 days if not better) and fu-002 (earlier if worsening). The timeframes are equivalent and the mention of spreading is an added, non-contradictory precaution."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Prescription being sent to the pharmacy is not documented in any Gold fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: In response to 'Where do I get the medicine from?', doctor says, 'I'll... do a prescription for you now, and send it over to your pharmacy.'"
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Follow-up in 1\u20132 weeks if no improvement or earlier if worsening/spreading is the same concept as Gold fu-001 and fu-002 combined."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not mention whether an exam or vitals were documented, so stating no exam or vitals is not supported by Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported as an implicit negative: The transcript contains no physical examination or vital signs; only history and plan are documented."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Denial of fever matches Gold hpi-005 and is consistent with the same detail in the Gold record."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denial of nausea and vomiting is not present in any Gold fact; Gold only mentions no fever, bowel, or urinary symptoms.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks, 'Any nausea, or any vomiting?' Patient replies, 'No.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Denial of bowel symptoms matches Gold hpi-005, which denies bowel symptoms."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Denial of urinary symptoms matches Gold hpi-005, which denies urinary symptoms."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Normal appetite is consistent with Gold hpi-005 (appetite maintained)."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Normal eating and drinking are consistent with Gold hpi-005\u2019s indication that appetite is maintained; this adds non-conflicting detail."
+    }
+  ]
+}

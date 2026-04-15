@@ -1,0 +1,228 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "OMITTED",
+      "reasoning": "Gold specifies lip swelling for the past 1 hour. Generated chief complaint notes upper lip swelling after prawn soup with ~30 min onset but does not state total duration of 1 hour."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: swelling began after prawn soup. Generated: chief complaint and HPI explicitly state upper lip swelling after consuming prawn soup."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "OMITTED",
+      "reasoning": "Gold notes an initial 'weird feeling' around the lips. Generated describes a 'pumping blood' sensation, which is a different description and not clearly the same initial weird feeling."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: swelling started ~30 minutes after eating and localized to upper lip. Generated: onset ~30 minutes after prawn soup and specifies upper lip swelling."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: sensation of throat closing. Generated: reports throat tightness and difficulty breathing, which semantically reflects throat closing."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: chest tightness with difficulty breathing. Generated: shortness of breath and difficulty breathing are present; chest tightness is not explicitly mentioned, but breathing difficulty is covered. Core concept of respiratory distress is present, so treated as covered."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: patient feels dizzy. Generated: dizziness associated with the current reaction is documented."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: similar episode about one year ago. Generated: prior similar episode about one year ago with similar swelling and breathing difficulty."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: during consultation, patient appeared to have breathing difficulties. Generated: explicitly states no vitals or exam findings documented, and does not include this observed physical finding."
+    },
+    {
+      "fact_id": "pf-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: exam showed progressively increasing lip swelling. Generated: describes symptoms and sensation but does not state this as an observed exam finding; also claims no exam findings documented."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: patient has asthma. Generated PMH lists history of asthma."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: currently on salbutamol inhalers. Generated: regular use of salbutamol inhaler."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: peanut allergy with prior injection as child. Generated: peanut allergy with childhood anaphylaxis requiring hospital visit and injection\u2014consistent elaboration."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: suspected anaphylactic reaction. Generated: assessment of suspected anaphylaxis based on acute symptoms and past severe allergy."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: advised immediate administration of an antihistamine. Generated: explicitly states no antihistamines were available at home and only advises taking available antihistamines while awaiting EMS, implying none present at the time. This conflicts with clear immediate-use advice in Gold."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised mother to call ambulance via 999. Generated: advises immediate ambulance call (999); relationship to mother is not specified but ambulance instruction is present."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: after hospital discharge, book review to consider prescribing an epipen. Generated: follow-up post-hospital for further allergy management, including possible prescription of emergency injection, which is semantically equivalent."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold that patient has lip swelling after prawn soup and that swelling is localized to the upper lip; onset of ~30 minutes aligns with HPI timing."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Consistent with Gold: swelling began ~30 minutes after prawn soup and involves upper lip; worsening course is a reasonable elaboration not contradicted by Gold."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold mentions a 'weird feeling' around lips but not a 'pumping blood' sensation; this specific characterization is not present in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported. Patient says, \"it still feel it like, really pumping blood and it's kinda getting bigger it feels like it's getting worse,\" referring to upper lip swelling."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Shortness of breath, throat tightness, and difficulty breathing are consistent with Gold's throat closing and chest tightness with difficulty breathing."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold explicitly states the patient feels dizzy."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state availability or unavailability of antihistamines at home.",
+      "final_status": "CONTRADICTION",
+      "verification_reasoning": "Initially patient says, \"No, I don't think I have no\" to having antihistamines, but later when asked to check with her mum she says, \"Yes, uh Mum, Mum do we have any antihistamines around? Yes\" and \"Ohh yeah yeah we do.\" This shows antihistamines were available at home."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Gold notes a similar episode about one year ago; generated adds context (late-night meal with alcohol and similar symptoms), which is consistent but not detailed in Gold."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Directly matches Gold: patient has asthma."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: peanut allergy with prior injection as a child. Generated clarifies this as childhood anaphylaxis requiring hospital and injection\u2014consistent elaboration."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: currently on salbutamol inhalers. Generated: regular use of salbutamol inhaler\u2014same concept."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Occasional antihistamine use is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported. Patient states, \"Hmm, no. I, I got no I do sometimes but I don't know which ones,\" in response to antihistamine use, indicating occasional use with type uncertain."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not reference a brown inhaler or its use.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported. When asked, \"any other brown inhalers?\" patient replies, \"Ohh I, no I don't think so, no,\" confirming no regular use of a brown inhaler."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Aligns with Gold description of peanut allergy and childhood injection; generated adds that it was anaphylaxis with hospital visit, which is consistent."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention alcohol intake at the time of the current reaction.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Alcohol use is not discussed for the current episode. Past episode a year ago involved alcohol (\"I remember that I was quite drunk\"), but nothing is said about alcohol at the time of the current reaction; stating no alcohol now is an unsupported addition."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold notes a similar episode about a year ago; generated adds trigger details (late-night meal with alcohol), which are not in Gold but do not contradict it."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: suspected anaphylactic reaction. Generated: suspected anaphylaxis based on acute symptoms and history\u2014same assessment with more detail."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: advised mom to call ambulance as a 999 call. Generated: advise immediate ambulance call (999). Core instruction to call emergency services is the same."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: advised immediate administration of an antihistamine. Generated: notes no antihistamines available at home and frames use only if available while awaiting EMS, which conflicts with unconditional immediate-use advice."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Ensuring the patient is not alone until ambulance arrives is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported. After someone arrives, doctor says, \"So just call the ambulance make sure that person's with you till the ambulance comes,\" advising that she not be alone until the ambulance arrives."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold follow-up: review to consider prescribing an epipen after hospital discharge. Generated: follow-up for allergy management including possible prescription of emergency injection\u2014semantically equivalent."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold instruction to book a post-hospital review to consider an epipen (emergency injection)."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold documents observed breathing difficulty and progressive lip swelling during consultation. Generated explicitly states no vitals or exam findings documented, which conflicts with Gold's recorded physical findings."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Respiratory symptoms (shortness of breath and difficulty breathing) align with Gold's chest tightness and difficulty breathing."
+    },
+    {
+      "fact_id": "Review_of_Systems-2",
+      "status": "SUPPORTED",
+      "reasoning": "ENT throat tightness corresponds to Gold's sensation of throat closing."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Neurologic dizziness is directly supported by Gold stating the patient feels dizzy."
+    }
+  ]
+}

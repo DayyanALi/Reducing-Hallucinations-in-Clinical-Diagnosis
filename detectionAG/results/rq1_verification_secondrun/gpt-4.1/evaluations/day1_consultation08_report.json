@@ -1,0 +1,363 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold specifies a 3-day history; generated HPI/CC repeatedly state 'a few days' without specifying 3 days, which is temporally inconsistent with the explicit '3-day' duration."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: mainly arms, hands, palms. Generated HPI/CC: mainly arms and hands. Palms are part of hands, so the main location is semantically covered."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: rash has not spread elsewhere. Generated: rash has not spread to chest, legs, or face, which implies no spread beyond the primary sites."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "OMITTED",
+      "reasoning": "Gold: no bleeding, discharge, or cracked skin. Generated: no sore or cracked skin but says nothing about bleeding or discharge, so bleeding and discharge components are missing."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: symptoms started after swimming. Generated: onset after swimming a few days ago. Same temporal trigger relationship."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: no previous history of skin problems. Generated PMH: no prior skin problems. Same concept."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies fevers or vomiting. Generated HPI/ROS: no vomiting (agrees) but repeatedly documents no fever; this matches the 'no fever' but not the absent 'fever' in gold; however, the key issue is vomiting: both agree on 'no vomiting', so overall this is actually COVERED, not contradicted. Correction: COVERED because both 'no fever' and 'no vomiting' are present in both sets."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: appetite maintained but lethargic. Generated: appetite and eating/drinking normal, feels tired but generally well otherwise. This supports maintained appetite and tiredness; 'generally well otherwise' does not contradict 'lethargic'. Therefore this is COVERED, not contradicted. Correction: COVERED due to semantic equivalence (maintained appetite & tiredness)."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies any bowel or urinary symptoms. Generated: no loose stools, bowels normal, but no mention of urinary symptoms. The bowel component is covered; urinary symptoms are omitted rather than contradicted. Overall, the combined statement is only partially represented, so status should be OMITTED rather than contradicted. Correction: OMITTED because the urinary part is missing."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: lactose intolerance as past medical history. Generated lists lactose intolerance under 'Allergies' rather than PMH. While misclassified sectionally, the clinical fact 'lactose intolerance' is present, so this is COVERED as a fact. Correction: COVERED."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: takes Microgynon. Generated: currently taking Microgynon. Same medication fact."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no known drug allergies. Generated: lists lactose intolerance as an allergy; this introduces an allergy when Gold indicates none, so it contradicts the NKDA statement."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold: father has asthma. Generated: father has asthma. Same fact."
+    },
+    {
+      "fact_id": "famhx-002",
+      "status": "COVERED",
+      "reasoning": "Gold: mother has hayfever. Generated: mother has hayfever. Same fact."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lives alone and works as a primary school teacher. Generated: lives alone; works as a primary school teacher. Both elements present."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: denies smoking, alcohol, or recreational drugs. Generated: separately denies smoking, alcohol, and recreational drug use. Fully matches."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: significant recent stress. Generated: increased work stress and long working hours, which is a more specific elaboration consistent with significant stress."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold impression: dermatitis. Generated assessment: dermatitis, likely irritant or allergic, with onset after swimming and described features. This includes dermatitis as the primary diagnosis."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: steroid cream to be used twice daily (BD). Generated: start topical steroid cream for inflammation but does not specify BD/twice-daily dosing. The existence of a steroid cream is covered, but the dosing frequency is omitted; since the gold fact explicitly includes BD, the BD component is missing."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to use emollients. Generated: start emollients and apply throughout the day. Same therapeutic advice, with added detail."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to use antihistamines. Generated: consider OTC antihistamines (Piriton, Loratadine) for itch. Same core plan."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review symptoms in one week. Generated: review if no improvement in 1 week. Review timing is the same; condition 'if no improvement' is an elaboration but consistent with a 1-week review plan."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: advised earlier review for worsening symptoms or any concerns. Generated follow-up: only mentions review in 1 week, no explicit advice to seek earlier review for worsening/concerns."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Matches Gold in description and location of rash, but conflicts on duration (few days vs Gold 3-day history). Overall, because of the explicit mismatch in duration with the gold 3 days, it is best classed as contradicted."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Same issue as Chief_Complaint-001: description and location align, but duration 'few days' conflicts with explicit '3-day history' in Gold."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no prior similar episodes. Gold: no previous history of skin problems. Clinically equivalent in context."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Onset after swimming a few days ago aligns with Gold: symptoms started after going swimming; the 'few days' relates to timing from onset, which is not specified in Gold but does not contradict it."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "No spread to chest, legs, face is consistent with Gold: no spread elsewhere."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention presence or absence of 'spots'; this detail is new and not inferable from Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient explicitly states: \"I don't have any spots\" in relation to the skin complaint."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "No fever associated with the skin complaint matches Gold: patient denies any fevers."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No sweating associated with the skin complaint is not mentioned in Gold, so it is additional, not supported or contradicted.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient explicitly states: \"no fever , and I'm not sweating either\" in the context of the skin symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "No sore or cracked skin: Gold notes no cracked skin and no bleeding/discharge, but not soreness explicitly. The 'no cracked skin' portion is supported; 'no sore' is extra but not contradictory. Overall treated as supported."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Use of coconut butter without relief is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says: \"my skin's quite red, um, and I'm using coconut butter for the past few days\" and confirms it has not helped: \"the coconut butter hasn't helped, with the itch?\" / \"No\"."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "No vomiting matches Gold: patient denies any vomiting."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No loose stools is not specified in Gold; Gold only states no bowel or urinary symptoms but not this particular detail. This could be considered implied under 'no bowel symptoms', but the Gold is summary-level; however, per rules, that is still semantically consistent. This is SUPPORTED. Correction: SUPPORTED as a bowel symptom being absent.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks: \"no problems with vomiting, or loose stools?\" Patient replies: \"No.\" indicating absence of loose stools."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "Bowel habits normal is consistent with Gold: denies bowel symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "SUPPORTED",
+      "reasoning": "Appetite and eating/drinking normal supports Gold: appetite maintained."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "SUPPORTED",
+      "reasoning": "Feels tired but generally well otherwise is consistent with Gold: lethargic, appetite maintained."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "No prior skin problems matches Gold: no previous history of skin problems."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Currently taking Microgynon matches Gold medication list."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated lists lactose intolerance as an allergy; Gold states NKDA (no known drug allergies). This introduces a drug-related allergy where Gold has none."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Father has asthma matches Gold family history."
+    },
+    {
+      "fact_id": "Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Mother has hayfever matches Gold family history."
+    },
+    {
+      "fact_id": "Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No family history of skin problems is not stated in Gold family history, which only lists asthma and hayfever.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks: \"any, again, any skin problems that you're aware of?\" Patient first says \"Yep.\" then clarifies \"Uh, no.\" Thus there is no known family history of skin problems."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Lives alone matches Gold social history."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Works as a primary school teacher matches Gold social history."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Experiencing increased work stress and long working hours elaborates on Gold: significant recent stress, in a consistent way."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Denies smoking matches Gold: nil smoker."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "SUPPORTED",
+      "reasoning": "Denies alcohol use matches Gold: nil etOH."
+    },
+    {
+      "fact_id": "Social_and_Family_History-006",
+      "status": "SUPPORTED",
+      "reasoning": "Denies recreational drug use matches Gold: nil recreational drugs."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dermatitis as main impression is supported by Gold: impression is dermatitis. Additional qualifiers (likely irritant/allergic, post-swimming, no systemic symptoms) are elaborations consistent with Gold."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Work-related stress as a formal assessment/diagnosis is not listed in Gold assessment; Gold only assesses dermatitis.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports: \"I've been really stressed at work\" and \"I've been working really long hours.\" Doctor later notes stress as a contributing factor: \"sometimes stress can be a contributing factor\" and links it to her symptoms."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Providing a patient information leaflet on dermatitis is not mentioned in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor says: \"Well I can give you a patient information leaflet about that, which gives a bit more information about the disease.\" referring to dermatitis."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Start topical steroid cream aligns with Gold: prescribed a steroid cream; Gold additionally specifies BD dosing not mentioned here."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Start emollients and apply throughout the day is consistent with Gold: advised to use emollients."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Consider OTC antihistamines for itch matches Gold: advised to use antihistamines, with added examples."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Paracetamol or other painkillers not indicated is not addressed in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor states: \"Paracetamol on this occasion, wouldn't be helpful. Um, uh, uh, painkillers wouldn't be helpful on this occasion\" indicating they are not indicated."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Review if no improvement in 1 week is consistent with Gold: review symptoms in one week; the added condition is a reasonable elaboration."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold summary contains no statement about whether an exam was or was not performed.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor says: \"normally at this stage I like to proceed to examination, but um, based on your uh, story\" and then proceeds to assessment and plan without any examination, indicating no physical exam was performed."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "No fever reported matches Gold: patient denies fevers."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No sweating is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient explicitly reports: \"I'm not sweating either\" when listing associated symptoms."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "No vomiting matches Gold: no vomiting."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "No loose stools is consistent with Gold: denies bowel symptoms, representing absence of a specific bowel symptom."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Bowel movements normal is consistent with Gold: nil bowel symptoms."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Appetite and eating/drinking normal supports Gold: appetite maintained."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "SUPPORTED",
+      "reasoning": "Feels tired is consistent with Gold: lethargic."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generally well otherwise is not specified in Gold; Gold notes lethargy but does not comment positively or negatively on other systems.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When asked \"How's your health otherwise?\" patient responds: \"It's pretty good, yeah.\" and later denies systemic symptoms (no fever, vomiting, loose stools, urinary issues), supporting that she is generally well otherwise."
+    }
+  ]
+}

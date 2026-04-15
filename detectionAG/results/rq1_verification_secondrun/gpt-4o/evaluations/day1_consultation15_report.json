@@ -1,0 +1,239 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated History_of_Present_Illness-001 states soreness and cracked skin on hands for 3\u20134 months, which matches the gold description of a 3\u20134 month history of sore and cracked skin on the hands, mainly palms. History_of_Present_Illness-002 specifies palms as the affected area."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states the skin is occasionally itchy and has bled on scratching, but is not painful. Generated facts include itchiness (History_of_Present_Illness-003) and occasional bleeding on scratching (History_of_Present_Illness-004) but explicitly add soreness in the chief complaint and HPI (Chief_Complaint-001, History_of_Present_Illness-001), which implies pain and contradicts 'No pain'."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold notes a possible trigger related to work as a cleaner and not always wearing gloves. Generated Assessment-002 states contact dermatitis likely related to cleaning products and lack of glove use, capturing the same trigger concept even though it does not restate the job title in that specific fact."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold says the patient tried E45 cream and antihistamines with minimal relief. Generated History_of_Present_Illness-005 and -006 separately state tried E45 cream and antihistamine without relief, which is semantically equivalent to minimal relief."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states no fever, no bowel/urinary symptoms, and appetite maintained. Generated History_of_Present_Illness-007 and Review_of_Systems facts agree on no fever and no bowel/urinary issues but additionally state no nausea or vomiting and omit appetite. Appetite status is missing, not contradicted; however, the presence of extra negatives (no nausea/vomiting) does not conflict. Thus overall systemic symptom negation is largely covered but appetite is omitted. As the fact bundles all three, it is partially covered; by task definition requiring a single label, this is best treated as OMITTED/partially captured, but not contradicted. Therefore: status = OMITTED."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Generated Past_Medical_History-001 lists Type 2 diabetes, matching the gold past medical history."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Generated Medications-001 lists Metformin, which corresponds to the gold medication metformin."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold notes no known drug allergies. Generated Adverse_Drug_Reactions_and_Allergies-001 states no known allergies, which semantically aligns with NKDA."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold states a family history of Type 2 diabetes. Generated Family_History-001 notes family history of diabetes, which is consistent though slightly less specific."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: works as a housekeeper in a hotel and changed jobs 4 months ago. Generated Social_and_Family_History-001 and -002 mention working as a housekeeper and recent job change, but do not specify hotel or 4-month duration. Core concepts of role and recent change are covered; hotel and exact timing are omitted."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: does not smoke and has minimal alcohol intake. Generated Social_and_Family_History-003 and -004 specify minimal alcohol use and non-smoker, which matches."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold impression is contact dermatitis. Generated Assessment-001 lists contact dermatitis, matching exactly."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: steroid cream twice daily (BD). Generated Plan_of_Care-002 prescribes steroid cream for inflammation but omits frequency. The presence of steroid cream treatment is covered; dosing detail is omitted but not contradicted."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold advises regular use of emollients. Generated Plan_of_Care-003 recommends stronger emollients applied 3\u20134 times daily, which is consistent with and more specific than 'regular use'."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to avoid triggers and wear cleaning gloves. Generated Plan_of_Care-001 advises wearing gloves during cleaning, capturing the glove advice; explicit 'avoid triggers' wording is not present but is implied in the context of glove use for cleaning products. Core concept substantially covered."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review in 10\u201314 days if not better. Generated Follow_up_Information-001: follow-up in 1\u20132 weeks if no improvement or worsening. 10\u201314 days semantically equals 1\u20132 weeks and includes the 'if no improvement' condition."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to seek review earlier if symptoms worsen. Generated Follow_up_Information-001 includes follow-up in 1\u20132 weeks if no improvement or worsening, which incorporates the worsening condition, covering the concept of review if symptoms worsen."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Chief complaint of soreness and cracked skin on hands conflicts with gold HPI which specifies no pain (hpi-002). Cracked skin matches, soreness (pain) contradicts."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Duration (3\u20134 months) and cracked skin are supported by gold hpi-001, but describing the symptom as soreness contradicts gold 'No pain'. Recent worsening and impact on work are not in gold; these extra elements are NOT_IN_GOLD but the pain element introduces contradiction. Overall best labeled CONTRADICTED."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "States palms are the affected area, which matches gold hpi-001 indicating mainly palms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Associated itchiness of affected skin matches gold hpi-002 'Occasionally itchy'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Occasional bleeding when scratched matches gold hpi-002 'has bled on scratching'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Tried E45 cream without relief aligns with gold hpi-004 (E45 with minimal relief)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Tried antihistamine without relief aligns with gold hpi-004 (antihistamines with minimal relief)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No fever, bowel, or urinary issues are supported by gold hpi-005, but 'no nausea, vomiting' are additional negatives not mentioned in gold. Because this fact is bundled and includes elements not in gold, it is best treated as NOT_IN_GOLD (partially supported but containing extra content).",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about \u2018fever, or temperatures,\u2019 \u2018nausea, or any vomiting,\u2019 \u2018problem with your bowels,\u2019 and \u2018problem with your urine,\u2019 and the patient answers \u2018No\u2019 to each, so absence of fever, nausea, vomiting, bowel, and urinary issues is supported."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 diabetes is explicitly present in gold pmh-001."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Metformin matches gold med-001."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known allergies matches gold allergy-001 (NKDA)."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Family history of diabetes is consistent with gold famhx-001 (Type 2 diabetes)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Works as a housekeeper matches gold sh-001 (housekeeper in a hotel)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Recent job change matches gold sh-001 'changed jobs 4 months ago', though the exact timeframe is not restated."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Minimal alcohol use matches gold sh-002 minimal alcohol intake."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Non-smoker matches gold sh-002 'does not smoke'."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Contact dermatitis matches gold asm-001 impression."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Contact dermatitis likely related to cleaning products and lack of glove use is consistent with gold hpi-003 (cleaner, does not always wear gloves; possible trigger)."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Advise wearing gloves during cleaning aligns with gold plan-003 'wear cleaning gloves'."
+    },
+    {
+      "fact_id": "Plan_of_Care-2",
+      "status": "SUPPORTED",
+      "reasoning": "Prescribe steroid cream for inflammation corresponds to gold plan-001 'steroid cream BD'; the presence of steroid cream is supported though dosing frequency is omitted."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Recommend stronger emollients applied 3\u20134 times daily is consistent with gold plan-002 'regular use of emollients' and adds non-contradictory detail on frequency and strength."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Follow-up in 1\u20132 weeks if no improvement or worsening matches gold fu-001 (10\u201314 days if not better) and fu-002 (earlier if worsening)."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "General dryness noted on legs is not mentioned in any gold fact, so it is new information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states: \u2018I have dryness, like you know, in other parts, like my legs. But it's not\u2026 very severe,\u2019 which supports general dryness noted on legs."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "No fever is present in gold hpi-005."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No nausea is not documented in the gold facts; nausea is not mentioned there.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor: \u2018Any nausea, or any vomiting?\u2019 Patient: \u2018No.\u2019 This directly supports that there is no nausea."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No vomiting is not documented in the gold facts; vomiting is not mentioned there.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "In the same question, \u2018Any nausea, or any vomiting?\u2019 the patient replies \u2018No,\u2019 which confirms no vomiting reported."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "No bowel issues matches gold hpi-005 (no bowel symptoms)."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "No urinary issues matches gold hpi-005 (no urinary symptoms)."
+    }
+  ]
+}

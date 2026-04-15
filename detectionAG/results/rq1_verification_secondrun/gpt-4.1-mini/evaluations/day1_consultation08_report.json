@@ -1,0 +1,374 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 3-day history of dry, itchy skin. Generated HPI-001/HPI-001 & Chief_Complaint-001 describe 3\u20134 day history of dry, itchy skin on arms and hands; 3\u20134 days is close enough to 3 days to count as covered."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: mainly on arms, hands, palms. Generated repeatedly localizes to arms and hands; palms are part of the hands and not contradicted, so location is covered."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: rash has not spread elsewhere. No generated fact mentions spread/no spread of rash, so this concept is absent."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no bleeding, discharge, or cracked skin. Generated explicitly denies cracked skin (HPI-007) and does not mention bleeding or discharge, which is consistent though not explicit; at least the cracked-skin component is clearly covered."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: symptoms started after swimming. Generated HPI-003 explicitly states symptoms started after swimming."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: no previous history of skin problems. Generated HPI-002: 'No prior skin problems reported' matches this."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies any fevers or vomiting. Generated repeatedly denies fever but does not mention vomiting anywhere, so the vomiting component is omitted."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: appetite maintained but patient feels lethargic. Generated ROS says appetite normal but separately states 'Reports tiredness'; lethargy and tiredness are similar, but the gold explicitly mentions lethargy and maintained appetite, which is consistent. However, the generated text does not include 'lethargic' term, but uses 'tiredness'. This is not a contradiction; it is an elaboration. Therefore, this is actually COVERED. [Note: Adjusting] "
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: appetite maintained, patient feels lethargic. Generated: appetite normal (ROS-004, ROS-003/ROS-004) and reports tiredness (HPI-010, Assessment-003). Tiredness is semantically equivalent to lethargy in this context, so this is covered."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Gold: denies any bowel or urinary symptoms. Generated ROS-005 and ROS-006 state bowels and urine normal, which is equivalent."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: history of lactose intolerance. Generated PMH-002 mentions possible lactose intolerance. This reflects the same condition, though with softer wording, so concept is covered."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: takes Microgynon. Generated Medications-001 states taking Microgynon contraceptive pill."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: no known drug allergies. Generated facts do not mention allergies or NKDA."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold: father has asthma. Generated Family_History-001: father (dad) has asthma."
+    },
+    {
+      "fact_id": "famhx-002",
+      "status": "COVERED",
+      "reasoning": "Gold: mother has hayfever. Generated Family_History-002: mother has hayfever."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lives alone and works as a primary school teacher. Generated Social_and_Family_History-001 (works as a teacher) and -002 (lives alone) together cover this; the primary-school detail is not specified but not contradicted."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: denies smoking, alcohol, recreational drugs. Generated SH-003/004/005 state does not smoke, does not drink alcohol, and does not use recreational drugs."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: significant recent stress. Generated HPI-009 and Assessment-002 clearly describe recent work stress and long hours contributing to symptoms."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression is dermatitis. Generated Assessment-001: acute dermatitis, likely irritant or allergic, triggered by swimming and/or stress; this matches and adds plausible detail."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: steroid cream BD. Generated Plan_of_Care-002 and Medications-003: prescribe topical steroid cream; dosing frequency not specified but does not contradict, so the prescription itself is covered."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to use emollients. Generated Plan_of_Care-002 and Medications-004 include emollients for dryness."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: advised antihistamines. Generated Plan_of_Care-003 and Medications-005/006 recommend OTC antihistamines (Piriton, Loratadine) for itch relief."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review of symptoms in one week. Generated Plan_of_Care-005 and Follow_up_Information-001 specify follow-up in 1 week if no improvement; same timeframe and purpose."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: advised to seek earlier review for worsening symptoms/concerns. Generated follow-up plan does not mention earlier review for worsening symptoms or concerns."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dry, itchy skin for 3 days is in Gold (hpi-001); arms and hands location matches (hpi-002). Redness and 3\u20134 day duration are additional details but consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Restates age, sex, 3\u20134 day history of dry, itchy red skin on arms and hands, which aligns with Gold hpi-001 and hpi-002; redness and slightly broader duration are non-contradictory elaborations."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "No prior skin problems matches Gold hpi-006 (no previous history of skin problems)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Symptoms started after swimming matches Gold hpi-005."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies spots is not mentioned in the Gold facts at all.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient states, \"I don't have any spots\" when describing the rash."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Denies fever matches Gold hpi-007 (no fevers)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies sweating is not referenced in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, \"and no fever , and I'm not sweating either.\""
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Denies cracked skin matches part of Gold hpi-004 (no cracked skin)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Use of coconut butter without relief is not mentioned in any Gold fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, \"my skin's quite red, um, and I'm using coconut butter for the past few days\" and later confirms it has not helped with the itch: Doctor: \"the coconut butter hasn't helped, with the itch?\" Patient: \"No.\""
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Recent work stress and long hours are consistent with Gold sh-003 (significant recent stress), adding context but no contradiction."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "Reports tiredness is consistent with Gold hpi-008 (lethargic), which is semantically similar."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Eating, drinking, appetite, bowels, and urine normal: appetite, bowels, and urine normal match Gold hpi-008 (appetite maintained) and hpi-009 (no bowel/urinary symptoms). Eating and drinking normal are not mentioned but do not contradict; overall mostly supported. [Note: Only categories allowed are SUPPORTED/CONTRADICTED/NOT_IN_GOLD; reclassifying as SUPPORTED.]"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "Normal appetite, bowels, and urine match Gold hpi-008 and hpi-009. Eating/drinking normal are reasonable, non-contradictory additions."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "CONTRADICTED",
+      "reasoning": "States 'No past medical history except use of Microgynon' which implies PMH is otherwise none. Gold pmh-001 lists lactose intolerance as a past medical history condition, so saying 'none except Microgynon' understates PMH and conflicts with presence of lactose intolerance."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Possible lactose intolerance corresponds to Gold pmh-001 (lactose intolerance); the 'possible' qualifier softens but does not contradict the presence of this issue."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Taking Microgynon matches Gold med-001 (patient takes Microgynon)."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Use of coconut butter for skin symptoms without relief is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported and consistent with HPI: same coconut butter use for symptoms without relief, as above."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Topical steroid cream prescribed aligns with Gold plan-001 (steroid cream BD), despite lack of dosing detail in the generated fact."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "SUPPORTED",
+      "reasoning": "Emollients prescribed for dryness matches Gold plan-002 (advised to use emollients)."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "SUPPORTED",
+      "reasoning": "OTC antihistamines (Piriton) for itch relief matches Gold plan-003 (advised antihistamines). Specific drug name is a consistent elaboration."
+    },
+    {
+      "fact_id": "Medications-006",
+      "status": "SUPPORTED",
+      "reasoning": "OTC antihistamines (Loratadine) for itch relief also matches Gold plan-003."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Father has asthma matches Gold famhx-001."
+    },
+    {
+      "fact_id": "Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Mother has hayfever matches Gold famhx-002."
+    },
+    {
+      "fact_id": "Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No family history of skin problems is not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: After discussing asthma and hayfever, doctor asks about skin problems in the family and patient responds, \"Uh, no.\""
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Works as a teacher matches Gold sh-001 (works as a primary school teacher)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Lives alone matches Gold sh-001."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Does not smoke matches Gold sh-002 (nil smoker)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Does not drink alcohol matches Gold sh-002 (nil etOH)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "SUPPORTED",
+      "reasoning": "Does not use recreational drugs matches Gold sh-002."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Acute dermatitis, likely irritant or allergic, triggered by swimming/stress is consistent with Gold asm-001 (impression is dermatitis), adding plausible etiologic detail."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Work-related stress contributing to symptoms aligns with Gold sh-003 (recent stress ++) as a clinical interpretation."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Tiredness likely related to stress is consistent with Gold hpi-008 (lethargic) and sh-003 (stress)."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Providing a patient information leaflet on dermatitis is not mentioned in the Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor says, \"Well I can give you a patient information leaflet about that, which gives a bit more information about the disease.\""
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Prescribe topical steroid cream and emollients aligns with Gold plan-001 and plan-002; indication for inflammation/dryness is consistent with dermatitis."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Recommend OTC antihistamines (Piriton, Loratadine) for itch relief matches Gold plan-003 (advised antihistamines)."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice against painkillers/paracetamol is not discussed in the Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor states, \"Paracetamol on this occasion, wouldn't be helpful. Um, uh, uh, painkillers wouldn't be helpful , on this occasion.\""
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Monitor symptoms and follow-up in 1 week if no improvement: the 1-week follow-up matches Gold fu-001, but the Gold also advises earlier review for worsening symptoms (fu-002), which is not mentioned. However, presence of the 1-week follow-up itself is supported; missing detail is omission, not contradiction. [Reclassifying to SUPPORTED as per allowed categories.]"
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "SUPPORTED",
+      "reasoning": "Follow-up in 1 week if no improvement is consistent with Gold fu-001; it omits but does not contradict the additional Gold advice for earlier review."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Follow-up in 1 week if no improvement matches Gold fu-001."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not comment on whether vitals or physical exam were documented.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported as an implicit negative: Doctor says, \"normally at this stage I like to proceed to examination, but um, based on your uh, story\" and no vitals or physical exam findings are documented in the transcript."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Denies fever matches Gold hpi-007 (no fevers)."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies sweating is not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: As above, patient explicitly states, \"I'm not sweating either.\""
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Eating and drinking normal is consistent with Gold hpi-008 (appetite maintained), and does not conflict with any Gold data."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Appetite normal matches Gold hpi-008 (appetite maintained)."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Bowel habits normal matches Gold hpi-009 (denies bowel symptoms)."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Urine normal matches Gold hpi-009 (denies urinary symptoms)."
+    }
+  ]
+}

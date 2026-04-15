@@ -1,0 +1,365 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold chief complaint is lack of energy; Generated Chief_Complaint-002 is 'Low energy', which is semantically equivalent."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lack of energy for 3 months; Generated History_of_Present_Illness-001: low mood/energy for ~3\u20133.5 months. Slightly broader range but same symptom and timeframe."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: loss of appetite; Generated includes decreased/low appetite in HPI-002 and Chief_Complaint-001, which matches."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: lacking motivation; Generated mentions low mood and feeling 'out of place' and 'down' but does not explicitly mention lack of motivation or equivalent functional description."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: breathlessness sometimes with palpitations, especially in lift; Generated HPI-006: episodic palpitations with sensation of breathlessness, notably in lifts. Same concept."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "OMITTED",
+      "reasoning": "Gold: headaches at work; no mention of headaches in any Generated fact."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "MISMATCH",
+      "reasoning": "Gold: feels nauseous most of the time; Generated HPI-003 and ROS-004: intermittent nausea. This directly conflicts in frequency (most of the time vs intermittent)."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: lost about one stone in 6 months; Generated HPI-005: ~1 stone loss over ~6 months. Fully consistent."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "COVERED",
+      "reasoning": "Gold denies chest pain; Generated HPI-008 and ROS-008: no chest pain reported/No chest pain. Matches."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "MISMATCH",
+      "reasoning": "Gold: patient denies feeling depressed or stressed; Generated repeatedly documents low mood and depressive symptoms (e.g., Assessment-001, CC 'low mood'), which conflicts."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "COVERED",
+      "reasoning": "Gold: bowels normal; Generated HPI-009 and ROS-009: bowel movements/habit normal. Same concept."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "COVERED",
+      "reasoning": "Gold: denies diarrhoea; Generated HPI-010 and ROS-010: no diarrhoea. Matches."
+    },
+    {
+      "fact_id": "ros-005",
+      "status": "COVERED",
+      "reasoning": "Gold: denies blood in bowels; Generated HPI-011 and ROS-011: no blood in stool reported. Equivalent."
+    },
+    {
+      "fact_id": "ros-006",
+      "status": "COVERED",
+      "reasoning": "Gold: denies vomiting; Generated HPI-012 and ROS-012: no vomiting. Matches."
+    },
+    {
+      "fact_id": "ros-007",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies history of acid reflux; Generated facts do not mention reflux or heartburn at all."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: underactive thyroid (hypothyroidism); Generated PMH-001: history of hypothyroidism. Same condition."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: not taking thyroxine for some time since changing practice; Generated Medications-001: thyroxine for hypothyroidism, currently stopped. Same fact, though timing not specified."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: changed job 3 months ago; Generated HPI-001: 3\u20133.5 months since changing to new law firm, consistent with job change timing."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: contact support to organise blood tests for anaemia, thyroid, liver, kidney, vitamin levels; Generated Plan_of_Care-001 and -002 cover arranging general blood tests via app for anaemia, renal/liver function, vitamins, thyroid. Same content."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: needs to book another appointment after receiving a text from Babylon; Generated Plan_of_Care-004: will receive text to book follow-up appointment when results available. Equivalent process."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "MISMATCH",
+      "reasoning": "Gold: contact urgently if chest pain with palpitations OR change in bowel habits; Generated Follow_up_Information-001: seek A&E for chest pain, severe palpitations, or acute deterioration; Follow_up_Information-002: contact clinic if vomiting or change in bowel habits. This changes the destination/urgency for change in bowel habits (clinic vs urgent) and introduces vomiting as a trigger, so it does not cleanly match the Gold urgent-contact advice."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Low appetite corresponds to Gold HPI-002 loss of appetite and is part of presenting problem, though not explicitly listed as chief complaint there."
+    },
+    {
+      "fact_id": "Chief_Complaint-002",
+      "status": "SUPPORTED",
+      "reasoning": "Low energy as chief complaint aligns with Gold cc-001 and hpi-001 (lack of energy)."
+    },
+    {
+      "fact_id": "Chief_Complaint-003",
+      "status": "MISMATCH",
+      "reasoning": "Low mood as a chief complaint conflicts with Gold ros-002, where the patient denies being depressed or stressed."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "MISMATCH",
+      "reasoning": "The low energy duration (~3\u20133.5 months) is consistent with Gold hpi-001, but inclusion of low mood conflicts with Gold ros-002 denial of depression/stress."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Decreased appetite over 3\u20133.5 months is consistent with Gold hpi-002 loss of appetite and hpi-001 duration (~3 months)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "MISMATCH",
+      "reasoning": "Generated describes intermittent nausea, whereas Gold hpi-006 states nausea most of the time; this directly conflicts in frequency."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Feeling 'out of place' and 'down' is not mentioned in the Gold facts, and Gold explicitly denies depression/stress.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states: \"nothing is like, feeling right and I feel out of place. And, and, it's, it's, yeah, just down\" which supports feeling \"out of place\" and \"down\"."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Approximately 1 stone weight loss over 6 months matches Gold hpi-007."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Episodic palpitations with breathlessness in lifts matches Gold hpi-004 (breathlessness sometimes with palpitations, especially in the lift)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Ability to walk 1 mile without shortness of breath is not described in Gold; there is no corresponding exercise tolerance detail.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor says: \"you so you can walk about a mile and you don't feel short of breath at all\" and patient responds \"That's right, yes.\" This supports ability to walk about 1 mile without SOB."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "No chest pain reported matches Gold ros-001 (patient denies chest pain)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Bowel movements normal matches Gold ros-003 (bowels are normal)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "No diarrhoea matches Gold ros-004."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "No blood in stool reported matches Gold ros-005 (no blood in bowels)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "No vomiting matches Gold ros-006."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recent reduced activity and walking is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient later says: \"I haven't been walking lately at all... I haven't been feeling good enough\" which supports recent reduced activity and walking."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "History of hypothyroidism matches Gold pmh-001 underactive thyroid."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Previously taking thyroxine, currently stopped matches Gold med-001 (not been using thyroxine for a while). Extra note on dose/frequency not documented is additional but not contradictory."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Working as a lawyer is not captured in Gold Social_and_Family_History.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says: \"who likes to be a lawyer?\" and then confirms liking the work, indicating he works as a lawyer."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Having a wife is not mentioned in any Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient mentions: \"my, my, my wife was starting to complain as well\" indicating he has a wife."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recent reduction in activity/walking is not present in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as HPI-013: patient states he \"hasn't been walking lately at all\" supporting recent reduction in activity and walking."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "MISMATCH",
+      "reasoning": "Describes low mood and depressive symptoms as a primary assessment, which conflicts with Gold ros-002 (patient denies being depressed or stressed), although decreased appetite, low energy, and weight loss are individually supported."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "History of hypothyroidism off thyroxine as possible contributing cause aligns with Gold pmh-001 and med-001; the causal interpretation is reasonable elaboration."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Episodic palpitations with dyspnea situationally in lifts is supported by Gold hpi-004. The differential (anxiety vs thyroid tachyarrhythmia) is not in Gold but is a clinical interpretation, not a factual conflict."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Linking weight loss/nausea with mood, thyroid status, and palpitations, and ruling out anemia/metabolic causes is interpretive assessment absent from Gold factual summary.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "The doctor plans blood tests but does not explicitly state correlating weight loss and nausea with mood, thyroid status, and palpitations or specifically to rule out anemia and metabolic causes, although he lists several labs; this integrated assessment statement is not explicitly in the transcript."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Arranging blood tests for anemia, renal/liver function, vitamins, and thyroid matches Gold plan-001 (anaemia, thyroid, liver, kidney, vitamin levels)."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Patient to contact support via app to organize blood tests matches Gold plan-001 instruction to contact support to organize blood tests."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Review blood results is a reasonable next step but is not explicitly stated in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor says blood tests will be done and: \"when you get the result, you will receive a text message through your phone to tell you to book an appointment\" and \"we'll take it from there,\" implying review of blood test results when available."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Receiving a text to book follow-up appointment when results available matches Gold plan-002 (book another appointment after receiving a text)."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Conditional plan to arrange physical exam and mood/anxiety assessment if bloods are normal is not in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor states: \"after we get those set of bloods... If that's all clear, then we would need to do a physical examination\". While mood/anxiety reassessment is not explicitly mentioned, arranging physical exam if blood tests normal is clearly stated; the added mood/anxiety assessment is inferred but not explicit, making this overall an acceptable clinical inference."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Reviewing thyroid management and considering restart/adjustment of thyroxine after bloods is an added management step not documented in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Although thyroid history and thyroxine cessation are discussed, there is no explicit plan to review thyroid management after results or to consider restarting/adjusting thyroxine."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "MISMATCH",
+      "reasoning": "Gold fu-001 indicates contacting the service urgently if chest pain occurs with palpitations or change in bowel habits; Generated advises seeking A&E for chest pain, severe palpitations, or acute deterioration. This changes criteria (no requirement for association of chest pain with palpitations) and destination, partially conflicting with Gold instructions."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "MISMATCH",
+      "reasoning": "Gold fu-001 includes change in bowel habits as an urgent-contact trigger; Generated adds vomiting and suggests contacting the clinic if vomiting or change in bowel habits. This downgrades urgency for change in bowel habits and adds a new trigger not in Gold."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not address whether vitals or exam were documented; stating 'no vitals, exam, or diagnostics documented' is not supported or contradicted by Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No vitals, physical exam maneuvers, or diagnostic test results are documented anywhere in the transcript, so stating that none are documented is consistent."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Low appetite in ROS corresponds to Gold hpi-002 loss of appetite; symptom presence is consistent."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Low energy reported aligns with Gold cc-001 and hpi-001 lack of energy."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "MISMATCH",
+      "reasoning": "Low mood reported conflicts with Gold ros-002 where patient denies being depressed or stressed."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "MISMATCH",
+      "reasoning": "Intermittent nausea in ROS conflicts with Gold hpi-006 describing nausea most of the time."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Episodic palpitations are contained within Gold hpi-004 (palpitations) even if not labeled 'episodic'; the characterization is reasonable elaboration."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Sensation of breathlessness, particularly in lifts, matches Gold hpi-004 (breathlessness especially in the lift)."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Ability to walk ~1 mile without SOB is not reported in Gold; no exercise tolerance details exist.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "As above, doctor confirms: \"you so you can walk about a mile and you don't feel short of breath at all\" and patient replies \"That's right, yes,\" supporting the statement."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "No chest pain matches Gold ros-001."
+    },
+    {
+      "fact_id": "Review_of_Systems-009",
+      "status": "SUPPORTED",
+      "reasoning": "Bowel habit normal matches Gold ros-003."
+    },
+    {
+      "fact_id": "Review_of_Systems-010",
+      "status": "SUPPORTED",
+      "reasoning": "No diarrhoea matches Gold ros-004."
+    },
+    {
+      "fact_id": "Review_of_Systems-011",
+      "status": "SUPPORTED",
+      "reasoning": "No blood in stool matches Gold ros-005."
+    },
+    {
+      "fact_id": "Review_of_Systems-012",
+      "status": "SUPPORTED",
+      "reasoning": "No vomiting matches Gold ros-006."
+    }
+  ]
+}

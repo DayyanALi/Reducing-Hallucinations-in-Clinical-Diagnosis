@@ -1,0 +1,293 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Generated chief complaint notes acute dizziness/vertigo; timing of 'past few hours' is covered in HPI (onset ~2 hours ago, continuous since)."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: dizziness for the past few hours. Generated: onset of vertigo approximately 2 hours ago and continuous since. Semantically equivalent duration and symptom."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: similar episode 1 month ago lasting 10 minutes. Generated: similar episode ~1 month ago lasting 5\u201310 minutes that resolved. This is an elaboration but consistent."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: sensation as though on a boat. Generated describes room spinning vertigo but does not mention a 'boat-like' sensation."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: denies recent viral illness. Generated: denies recent viral illness including no cough or cold. Same concept with additional detail."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: buzzing noise in ears. Generated: reports ears 'buzzing'. Direct match."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: denies hearing problems. Generated: denies hearing loss or muffled hearing, which captures hearing problems."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: denies ear discharge. Generated: denies ear pain or discharge. Discharge is explicitly denied."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: denies ear pain. Generated: denies ear pain or discharge. Ear pain is explicitly denied."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Gold: feels nauseous but not vomited. Generated: has nausea and denies vomiting. Same combined concept."
+    },
+    {
+      "fact_id": "hpi-010",
+      "status": "COVERED",
+      "reasoning": "Gold: no weakness of arms and legs. Generated: denies limb weakness, which includes arms and legs."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: premature ovarian failure. Generated PMH lists premature ovarian failure (and also notes it is on HRT)."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: takes HRT. Generated medications include hormone replacement therapy for premature ovarian failure."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no known allergies. Generated: no known drug allergies (NKDA), equivalent in this context."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: most likely diagnosis is labyrinthitis. Generated assessment: acute vertigo, probable labyrinthitis. Same leading diagnosis."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: specifically prescribes Stemetil, 1 tablet TID x ~10 days. Generated: unspecified medication (name not captured) 1 tab TID x10 days. The generated text explicitly indicates the name was not captured, contradicting the specific Stemetil prescription in Gold."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: book face-to-face appointment to have ears checked. Generated: arrange in-person appointment for otoscopic examination, which is an ear check."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: recommend physical check-up including blood pressure and other basic assessments. Generated: at in-person appointment, check BP and assess gait/neurologic status, which fits within 'physical check-up and basic assessments.'"
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: if weakness of arms/legs or vomiting develops, go to A&E. Generated safety-net: attend A&E if weakness of arms/legs, sudden headache, or become violently sick. 'Violently sick' reasonably covers severe vomiting, plus extra detail."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold chief complaint: dizziness for the past few hours. Generated adds 'unsteady gait' as part of chief complaint. Unsteady gait is not mentioned anywhere in Gold and is a positive neurologic symptom, so this component conflicts with the absence of gait problems in Gold (only limb weakness is queried)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Onset of vertigo ~2 hours ago, continuous since, corresponds to Gold's dizziness for the past few hours."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Room spinning sensation is not described in Gold, which instead uses 'feeling as though on a boat.' These are different qualitative descriptions; room spinning is not stated in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, 'the the room is sort of spinning' and later, 'My, the room is spinning.' This corresponds to a room spinning sensation."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Unsteady when walking (gait unsteadiness) is not mentioned in Gold; Gold does not describe gait.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, 'I can't, I can't walk properly. Uh, well I can walk properly but not straight' and clarifies feeling 'a bit unsteady.' This indicates unsteadiness when walking."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea matches Gold 'You feel nauseous but not been sick.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Ears buzzing matches Gold tinnitus/buzzing noise in ears."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Denies vomiting agrees with Gold 'nauseous but not been sick.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Denies ear pain or discharge matches Gold denials of ear pain and ear discharge."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "Denies recent viral illness (no cough/cold) is consistent with Gold 'no recent viral illness.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Patient not aware of fever is not mentioned in Gold; Gold has no statement about fever.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked, 'Do you have a temperature at all?' patient replies, 'I don't think so.' This reflects not being aware of having a fever."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "Denies limb weakness matches Gold 'no weakness of arms and legs.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "Denies hearing loss/muffled hearing is consistent with Gold 'no hearing problems.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "Similar episode ~1 month ago lasting 5\u201310 minutes aligns with Gold 'similar a month ago but only lasted 10 minutes.'"
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Premature ovarian failure matches Gold PMH."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Premature ovarian failure on HRT is consistent with Gold PMH plus medication list of HRT."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "HRT for premature ovarian failure matches Gold 'take HRT' in the setting of premature ovarian failure."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: unspecified medication (name not captured) prescribed 1 tab TID x10 days. Gold: specifically Stemetil 1 tab TID x ~10 days. The assertion that the name is not captured contradicts the explicit Stemetil prescription in Gold."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known drug allergies (NKDA) aligns with Gold 'no allergies.'"
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Acute vertigo, probable labyrinthitis matches Gold 'Most likely diagnosis is labyrinthitis.'"
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Contains multiple elements: continuous room-spinning vertigo ~2 hours (duration and vertigo supported by Gold timing and dizziness), tinnitus (supported), gait unsteadiness (not in Gold), and absence of focal weakness, ear pain/discharge, recent URI, fever, hearing loss (all supported except fever, which is not in Gold). Because it includes both supported and NOT_IN_GOLD components (room-spinning, unsteady gait, no fever), it is only partially supported overall."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea appears in Gold as feeling nauseous."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "Premature ovarian failure on HRT is consistent with Gold PMH and medication."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Medication details (dose, frequency, duration) match Gold, but the generated note states the name is not captured, whereas Gold clearly states Stemetil. This conflicts with the Gold record."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "In-person appointment for otoscopic exam corresponds to Gold plan to book a face-to-face appointment to have ears checked."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Checking blood pressure at the in-person appointment fits Gold's recommendation for a physical check-up including blood pressure and basic assessments."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Assessing gait/neurologic status at the visit is consistent with Gold's 'other basic assessments' as part of physical check-up."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "SUPPORTED",
+      "reasoning": "Safety-net: attend A&E if weakness of arms/legs or become violently sick matches Gold criteria (weakness of arms/legs, vomiting) and adds sudden headache as extra, but not contradictory, detail."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated includes explicit follow-up appointment in next few days; Gold plan does not mention a short-interval follow-up booking (only face-to-face ear check and physical check-up without timing or booking via support).",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor says, 'In the interim, obviously in the next few days, you'll get to see one of my doctors' and later, 'Just make sure you call support to book that appointment, OK?' This indicates booking a follow-up via support in the next few days."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Follow-up via support and review in next few days is not specified in Gold follow-up information, which only mentions A&E criteria.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported by same lines: 'In the interim, obviously in the next few days, you'll get to see one of my doctors' and 'Just make sure you call support to book that appointment, OK?' This matches the instruction to book a follow-up appointment via support in the next few days."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "SUPPORTED",
+      "reasoning": "Advice to attend A&E if weakness of arms/legs or become violently sick matches Gold trigger of weakness or vomiting; sudden headache is an additional, not conflicting, safety criterion."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Denies vomiting aligns with Gold 'not been sick.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Denies ear pain or discharge matches Gold 'No ear discharge or ear pain.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Denies recent viral illness with no cough/cold is consistent with Gold 'no recent viral illness.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies fever is not mentioned in Gold; there is no statement about fever in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: On review of fever, doctor asks, 'Do you have a temperature at all?' and patient responds, 'I don't think so.' This is accurately summarized as denying fever with 'don't think so.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Denies limb weakness agrees with Gold denial of weakness of arms and legs."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Denies hearing loss/muffled hearing matches Gold 'no hearing problems.'"
+    }
+  ]
+}

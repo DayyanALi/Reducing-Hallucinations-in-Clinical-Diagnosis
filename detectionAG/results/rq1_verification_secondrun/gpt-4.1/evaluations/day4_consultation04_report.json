@@ -1,0 +1,236 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold: shortness of breath at rest. Generated CC/HPI/ROS state wheeze and SOB for 2 days, and ROS explicitly reports SOB; although 'at rest' is not restated, the same presenting SOB complaint is captured."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 2\u2011day history of wheezing and SOB at rest after cleaning a dusty environment. Generated HPI-001 and HPI-002: wheeze and SOB for 2 days, onset after house cleaning with possible dust exposure. Duration, wheeze/SOB, and dust/cleaning trigger are all present; 'at rest' is not explicitly repeated but not contradicted."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: SOB worse at night. Generated HPI-001: wheezy, SOB x2 days, worse at night. Fully aligns."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: now having problems speaking in full sentences. No Generated fact mentions difficulty speaking or speaking in full sentences."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: history of childhood asthma. Generated Past_Medical_History-001: childhood asthma with occasional symptoms on exertion. The core concept (childhood asthma) is present; added exertional detail is consistent."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: history of hayfever. Generated Past_Medical_History-002: history of hay fever in summer. Same condition; seasonal detail is an elaboration."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: no regular medications. Generated lists an unused asthma inhaler, prior steroids, and no regular hay fever meds, but does not state 'no regular medications' globally. That specific fact is not present."
+    },
+    {
+      "fact_id": "med-002",
+      "status": "COVERED",
+      "reasoning": "Gold: previous steroid use for asthma exacerbations. Generated Medications-002: previously received steroids for asthma. Same clinical concept of prior steroid treatment for asthma."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no known allergies. Generated Adverse_Drug_Reactions_and_Allergies-001 and -002: no known drug allergies and no known other allergies. Together they capture absence of known allergies."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "COVERED",
+      "reasoning": "Gold: denies chest pain. Generated documents 'no chest pain with deep breath'. This is a slightly narrower description but semantically supports absence of chest pain and does not contradict the generic denial."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies nausea. Generated ROS/HPI do not mention nausea at all."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies vomiting. Generated facts do not address vomiting."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no problems with eating or drinking. Generated HPI-005 and ROS-004: eating/drinking OK; appetite and intake adequate. Same concept."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression is acute exacerbation of asthma. Generated Assessment-001: wheeze/SOB likely asthma or allergic reaction. Asthma as a likely cause is explicitly included and is consistent with an acute exacerbation impression."
+    },
+    {
+      "fact_id": "asm-002",
+      "status": "COVERED",
+      "reasoning": "Gold: possible allergy is also considered. Generated Assessment-001: likely asthma or allergic reaction related to dust exposure. Consideration of allergic reaction matches the possible allergy."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: start an antihistamine. Generated Plan_of_Care-002: consider antihistamine (OTC or prescribed) if allergy suspected. The plan to use an antihistamine is present, though phrased as 'consider'; this is reasonably aligned with initiating antihistamine therapy."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: arrange further examination and investigation. Generated plan includes in-person GP review for assessment and O2 sats, but does not clearly state 'further examination and investigation' as a general plan; however, an in-person GP review with assessment can be interpreted as further examination. Given that the gold specifies examination/investigation and the generated only explicitly mentions assessment and O2 sats, this partially overlaps but does not fully and explicitly cover 'further investigation' beyond O2 sats, so this is treated as omitted for strictness."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Wheezy and SOB for 2 days, worse at night corresponds to Gold HPI-001 (2-day history of wheeze and SOB after dusty cleaning) and HPI-002 (SOB worse at night)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Repeats wheeze and SOB for 2 days, worse at night, which matches Gold HPI-001 and HPI-002."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Onset after house cleaning with possible dust exposure matches Gold HPI-001: after cleaning a dusty environment."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "No chest pain with deep breath aligns with Gold ROS-001, which states no chest pain, and is a consistent, slightly more specific form."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No dizziness is not mentioned in the Gold facts at all.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about dizziness: 'have you noticed yourself feeling dizzy or the rooms spinning more than normal?' Patient replies: 'Uh, no. No dizziness. Uh, none of that.' This supports no dizziness associated with current symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Eating/drinking OK corresponds to Gold ROS-004: no problems with eating or drinking."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Specific fluid intake (4\u20135 glasses of water/day) is not described in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about eating and drinking; patient says: 'Yeah, yeah. I think I'm having, like, you know, four or five glasses a day.' This matches drinking 4 to 5 glasses of water per day."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "History of childhood asthma matches Gold PMH-001; the detail 'occasional symptoms with exertion' is additional but not conflicting."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "History of hay fever in summer matches Gold PMH-002 history of hayfever; 'in summer' is additional."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "An unused asthma inhaler for months is not listed in Gold; Gold instead notes no regular medications but does not mention a specific inhaler.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says: 'I have, uh, I have, like, an asthma inhaler. I use that.' Doctor then: 'So, do you still have your inhalers?' Patient: 'Um, I think I might have one from, like, a couple of months ago.' This supports having an inhaler that has not been used recently (for months)."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Previously received steroids for asthma matches Gold med-002: previous steroid use for asthma exacerbations."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No regular hay fever meds is not mentioned in Gold, which only states no regular medications globally and prior steroids.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks: 'when you get hay fever, do you take any medications for it?' Patient responds: 'Not really.' This supports that she does not take regular hay fever medications."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known drug allergies is consistent with Gold allergy-001: patient reports no known allergies."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-002",
+      "status": "SUPPORTED",
+      "reasoning": "No known other allergies further specifies absence of allergies, consistent with Gold allergy-001."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "GP surgery being minutes away is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks: 'How far are you away from a doctor's surgery at the moment?' Patient: 'Uh, they may be minutes' drive away.' This supports that the practice is only minutes away, even though the exact number is unclear."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Assessment of wheeze/SOB likely due to asthma or allergic reaction with history of childhood asthma and hay fever corresponds to Gold asm-001 (acute exacerbation of asthma) and asm-002 (possible allergy considered) plus PMH of asthma and hayfever."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advise in-person GP review for assessment and O2 sats is not explicitly in the Gold Plan, which only mentions antihistamine and further examination/investigation without specifying GP review or O2 sats.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor: 'what you'll need is visit one of our clinics, so we can do some more tests ... use a small device on your finger, to check the amount of oxygen in your blood.' This is an in-person review for assessment including oxygen saturation measurement."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Consider antihistamine if allergy suspected aligns with Gold plan-001 (start an antihistamine) and asm-002 (possible allergy)."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Possible need for steroids pending assessment is not present in Gold\u2019s plan, which does not mention future steroid use.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient: 'I have, before, taken steroids for asthma.' Doctor: 'Yes, that is. And, you may need to take some steroids now. But, we ... won't be able to know until we've done those tests first.' This supports possible need for steroids pending assessment."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "GP letter to be sent via app is not referenced in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor: 'I'm gonna write a letter for your GP, just to let him know what's happened.' and 'you should get the letter over the app.' This matches that the GP letter will be sent via the app."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Statement that no exam or vitals were performed is not described in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The encounter is via remote/video consult; no point in the transcript describes a physical examination or vital signs being taken. Stating that none were performed is consistent with the transcript and allowed as an implicit negative."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Reports wheeze and SOB is consistent with Gold CC and HPI descriptions of SOB and wheezing."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Denies chest pain with deep breath matches Gold ROS-001 denial of chest pain."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies dizziness is not mentioned in the Gold Review of Systems.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about dizziness and patient explicitly denies it: 'Uh, no. No dizziness. Uh, none of that.' This supports that the patient denies dizziness."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Appetite and oral intake are adequate matches Gold ROS-004: no problems with eating or drinking."
+    }
+  ]
+}

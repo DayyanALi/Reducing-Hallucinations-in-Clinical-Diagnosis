@@ -1,0 +1,335 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 states 'Cough and cold for approximately 5 days', matching duration and symptoms in Gold ('Cough and cold for 5 days')."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: dry cough, no sputum or blood. Generated History_of_Present_Illness-001 ('Dry, hacking cough'), -006 ('No sputum production'), and -007 ('No hemoptysis') convey the same: dry cough without sputum or blood."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold denies wheezing. Generated History_of_Present_Illness-009 and Review_of_Systems-009 both state 'No wheeze', which is semantically identical."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold denies breathlessness. Generated History_of_Present_Illness-008 and Review_of_Systems-008 both state 'No shortness of breath', which matches 'no breathlessness'."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold reports headache. Generated History_of_Present_Illness-004 and Review_of_Systems-004 mention 'occasional headache,' which is consistent with having a headache."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: no swollen neck glands. Generated History_of_Present_Illness-011 and Review_of_Systems-011 state 'No neck gland swelling', which is equivalent."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: diabetes mellitus for 5\u20136 years. Generated Past_Medical_History-001: 'Type 2 diabetes mellitus for 5-6 years', matching both diagnosis and duration (the type specification is consistent, not contradictory)."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: patient has hypertension. Generated Past_Medical_History-002: 'Hypertension', and Assessment-003: 'Hypertension, stable', both confirm this."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: taking metformin. Generated Medications-001 lists 'Metformin', matching this medication."
+    },
+    {
+      "fact_id": "med-002",
+      "status": "COVERED",
+      "reasoning": "Gold: taking lisinopril. Generated Medications-002 lists 'Lisinopril', which is the same drug."
+    },
+    {
+      "fact_id": "med-003",
+      "status": "COVERED",
+      "reasoning": "Gold: has used paracetamol for symptoms. Generated Medications-003: 'Paracetamol as needed', which is consistent with symptomatic use."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "COVERED",
+      "reasoning": "Gold: redness at back of throat on video. Generated Physical_Findings-001: 'Mild pharyngeal erythema', which is the same clinical finding described more technically."
+    },
+    {
+      "fact_id": "pf-002",
+      "status": "COVERED",
+      "reasoning": "Gold: tonsils not enlarged. Generated Physical_Findings-002: 'No tonsillar enlargement', which matches exactly."
+    },
+    {
+      "fact_id": "pf-003",
+      "status": "COVERED",
+      "reasoning": "Gold: blood pressure and blood sugar levels normal today. Generated Social_and_Family_History-001 ('Monitors blood glucose at home; no recent abnormalities') and -002 ('Last BP this morning, normal range') together confirm normal blood sugar and BP today."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold diagnosis: upper respiratory tract infection. Generated Assessment-001: 'Viral upper respiratory tract infection (URI)', which is the same diagnosis with added etiology (viral) but not contradictory."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to use Night Nurse and Day Nurse. Generated Medications-004 & -005 and Plan_of_Care-001 state 'Symptomatic treatment with Night Nurse/Day Nurse', which covers this advice."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: call back if breathlessness, wheezing, or cough >3 weeks. Generated Plan_of_Care-002: 'Monitor for worsening symptoms such as shortness of breath, wheeze, or prolonged symptoms lasting more than 3 weeks', and follow-up/plan statements to seek evaluation if symptoms worsen or persist, which align with the same follow-up triggers."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-001 (cough and cold for 5 days); the detail 'started weekend' is additional but not contradictory."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dry, hacking cough is consistent with Gold hpi-002 (dry cough) and does not conflict with any Gold fact."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Runny nose is not mentioned in the Gold Facts at all.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports 'runny nose': 'just like coughing, and like running nose'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Muscle aches are not referenced in any Gold Fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports muscle aches: 'kind of muscles aching and stuff'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Occasional headache aligns with Gold hpi-005 (patient reports headache) with added frequency detail but no conflict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Chills are not described in the Gold Facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports chills: 'cold, chills, and things like that'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "No sputum production matches the 'no sputum' part of Gold hpi-002."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "No hemoptysis is consistent with 'no blood' in sputum from Gold hpi-002; it specifies no blood in coughed-up material."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "No shortness of breath matches Gold hpi-004 (patient denies breathlessness)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "No wheeze matches Gold hpi-003 (patient denies wheezing)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No chest noises reported is not addressed anywhere in the Gold Facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about wheezy or rattly chest noises and patient answers 'No', so no abnormal chest noises were reported."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "No neck gland swelling corresponds to Gold hpi-006 (no swollen neck glands)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Absence of sore throat (besides mild redness) is not stated in the Gold Facts; Gold only mentions redness at back of throat, not symptom of soreness.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "The transcript notes mild redness in the throat but contains no question or statement about the presence or absence of sore throat symptoms, so denying sore throat is not supported."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 diabetes mellitus for 5\u20136 years supports Gold pmh-001 (diabetes since 5\u20136 years) with added type specification."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Hypertension matches Gold pmh-002 (patient has hypertension)."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Metformin is listed in both Generated and Gold (med-001)."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Lisinopril is listed in both Generated and Gold (med-002)."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Paracetamol as needed matches Gold med-003 (used paracetamol for symptoms)."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "SUPPORTED",
+      "reasoning": "Planned Night Nurse treatment is consistent with Gold plan-001 (advised to use Night Nurse and Day Nurse)."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "SUPPORTED",
+      "reasoning": "Planned Day Nurse treatment also aligns with Gold plan-001 (advised to use Night Nurse and Day Nurse)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Home glucose monitoring with no recent abnormalities supports Gold pf-003 (blood sugar levels normal today); both indicate normal glycemic control currently."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Last BP this morning in normal range supports Gold pf-003 (BP normal today)."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Viral upper respiratory tract infection corresponds to Gold asm-001 (upper respiratory tract infection); viral etiology is an added but consistent detail."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Type 2 diabetes mellitus, stable is not explicitly assessed as 'stable' in the Gold Facts; stability status is not mentioned.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient is diabetic on metformin with home glucose 'no issues nothing like out of the ordinary'; this supports type 2 diabetes mellitus that is currently stable."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Hypertension, stable includes a stability assessment not present in the Gold Facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient is on lisinopril 'for slight blood pressure' and reports a normal BP reading that morning; doctor says 'there's no problems with your blood pressure control at the moment', supporting stable hypertension."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Symptomatic treatment with Night Nurse/Day Nurse matches Gold plan-001 (advised to use Night Nurse and Day Nurse)."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Monitoring for SOB, wheeze, and prolonged symptoms >3 weeks matches Gold fu-001 (call back if breathlessness, wheezing, or cough >3 weeks)."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Seek further evaluation if symptoms worsen or persist is consistent with the action implied in Gold fu-001 (to call back if symptoms worsen/prolong)."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Reiterates the plan to seek further evaluation if symptoms worsen or persist, which aligns with Gold fu-001 follow-up advice."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "SUPPORTED",
+      "reasoning": "Mild pharyngeal erythema corresponds to Gold pf-001 (redness at the back of throat)."
+    },
+    {
+      "fact_id": "Physical_Findings-002",
+      "status": "SUPPORTED",
+      "reasoning": "No tonsillar enlargement matches Gold pf-002 (tonsils are not enlarged)."
+    },
+    {
+      "fact_id": "Physical_Findings-003",
+      "status": "SUPPORTED",
+      "reasoning": "No cervical lymphadenopathy aligns with Gold hpi-006 (no swollen neck glands), describing the same absence of neck lymph node enlargement."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dry, hacking cough is consistent with Gold hpi-002 (dry cough)."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Runny nose is not mentioned in Gold Facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Runny nose is explicitly reported: 'just like coughing, and like running nose'."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Muscle aches do not appear in the Gold Facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Muscle aches are explicitly reported: 'kind of muscles aching and stuff'."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Occasional headache agrees with Gold hpi-005 (patient reports headache)."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Chills are not discussed in any Gold Fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Chills are explicitly reported: 'cold, chills, and things like that'."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Denies sputum production matches 'no sputum' from Gold hpi-002."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "SUPPORTED",
+      "reasoning": "Denies hemoptysis is consistent with 'no blood' in sputum in Gold hpi-002."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "Denies shortness of breath matches Gold hpi-004 (denies breathlessness)."
+    },
+    {
+      "fact_id": "Review_of_Systems-009",
+      "status": "SUPPORTED",
+      "reasoning": "Denies wheeze matches Gold hpi-003 (patient denies wheezing)."
+    },
+    {
+      "fact_id": "Review_of_Systems-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies chest noises is not recorded in the Gold Facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks 'you're not wheezy or rattly noises in your chest' and patient answers 'No', indicating denial of chest noises."
+    },
+    {
+      "fact_id": "Review_of_Systems-011",
+      "status": "SUPPORTED",
+      "reasoning": "Denies neck gland swelling corresponds to Gold hpi-006 (no swollen neck glands)."
+    },
+    {
+      "fact_id": "Review_of_Systems-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies sore throat (besides mild redness) is not explicitly addressed in Gold; Gold notes throat redness but not presence/absence of sore throat symptoms.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "While mild redness of the throat is described on exam, the patient never confirms or denies having sore throat symptoms; stating denial of sore throat is not supported."
+    }
+  ]
+}

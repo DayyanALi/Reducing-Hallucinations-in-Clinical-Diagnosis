@@ -1,0 +1,253 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 'Patient presents with chest pain.' Generated: 'Chest discomfort' as chief complaint. Chest discomfort/pain are semantically equivalent in this context."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: onset earlier today while gardening (mild exertion). Generated: chest pressure while gardening; timing 'earlier today' is implied by being current consult. Activity and context are captured."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: central chest pain. Generated: describes chest pressure but does not specify central location, so this detail is missing."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: radiation to shoulder and neck. Generated: radiation to left arm and shoulder. Shoulder overlaps but neck radiation is replaced by arm radiation, which conflicts with the specified pattern."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: associated nausea. Generated: explicitly states chest pain associated with nausea."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: associated sweatiness. Generated: chest pain associated with sweating, which is equivalent."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: associated palpitations. Generated: 'Palpitations noted with chest symptoms.' Same concept."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: pain still present now. Generated: 'Symptoms ongoing at time of consult,' which covers ongoing chest symptoms."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "OMITTED",
+      "reasoning": "Gold: no previous similar episodes. Generated HPI contains no mention of previous episodes, so this is missing."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: patient has hypertension. Generated: history of hypertension. Same condition."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: patient is overweight. Generated history does not mention weight/BMI or overweight status."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: mild allergy to aspirin. Generated: allergic to aspirin, causes mild swelling. This is consistent with a mild aspirin allergy."
+    },
+    {
+      "fact_id": "fh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: family history of ischemic heart disease. Generated: father died of heart attack and mother had heart problems, described as family history of heart disease. This supports IHD FH."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: chronic smoker. Generated: 10 cigarettes/day for 15 years, which is consistent with chronic smoking."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: moderate alcohol intake. Generated: drinks 7\u20138 pints of beer per week, which fits moderate intake in this context."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: lives alone. Generated: 'Lives alone.' Identical concept."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: haemodynamically stable now. Generated physical findings do not comment on haemodynamic stability."
+    },
+    {
+      "fact_id": "pf-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: examined at rest, seated. Generated findings do not mention patient position or activity at exam."
+    },
+    {
+      "fact_id": "pf-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: well perfused on video inspection. Generated does not describe perfusion status or video appearance."
+    },
+    {
+      "fact_id": "pf-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: not short of breath. Generated HPI/assessment: chest pain associated with shortness of breath. That directly conflicts with 'not SOB'."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression is an acute cardiac event. Generated: 'Possible myocardial infarction' and concern for MI\u2014this is a specific acute cardiac event."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: urgent ECG and troponin T required. Generated plan: anticipate ECG and further assessment by ambulance team. ECG is explicitly covered; troponin T is not mentioned but ECG as urgent investigation is captured, so partially covered."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: LAS ambulance called with blue lights (emergency priority). Generated: 'Call ambulance for immediate evaluation,' but no mention of blue lights or priority status; the specific 'blue light' detail is missing."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: front door left open for paramedic access if collapse. Generated plan has no mention of front door or access arrangements."
+    },
+    {
+      "fact_id": "plan-004",
+      "status": "COVERED",
+      "reasoning": "Gold: clinician stayed on line until LAS arrived and handed over. Generated: clinician will stay on line until ambulance arrives. The ongoing presence until arrival is covered; explicit handover detail is not but main action is captured."
+    },
+    {
+      "fact_id": "plan-005",
+      "status": "OMITTED",
+      "reasoning": "Gold: LAS to clarify other medications not obtained. Generated plan does not mention missing medication history or request for LAS to clarify."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold chief complaint: chest pain. Generated: chest discomfort. These are clinically equivalent descriptions of the presenting symptom."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Gold: chest pain began earlier today while gardening (mild exertion). Generated: chest pressure 'like someone sitting on chest' while gardening. Gardening/exertion and chest symptom context match; descriptive quality ('pressure') is an added, consistent detail, but timing 'earlier today' is not explicit."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-004: chest pain associated with nausea. Generated: chest pain associated with nausea. Exact match."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-005: associated sweatiness. Generated: chest pain associated with sweating. Same symptom."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold pf-004: patient is not short of breath. Generated HPI: chest pain associated with shortness of breath. This introduces SOB where Gold explicitly denies it."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold hpi-003: radiation to shoulder and neck. Generated: radiation to left arm and shoulder. Shoulder matches, but adding left arm instead of neck conflicts with the Gold-specified pattern and omits neck radiation."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-006: associated palpitations. Generated: palpitations noted with chest symptoms. Same clinical finding."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold pmh-001: hypertension. Generated PMH: history of hypertension. Same diagnosis."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: mild aspirin allergy. Generated: allergic to aspirin causing mild swelling. Swelling as a mild reaction is consistent and does not conflict."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: family history of ischemic heart disease. Generated: father died of heart attack at ~60, which is ischemic heart disease; supports and elaborates FH of IHD."
+    },
+    {
+      "fact_id": "Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: family history of IHD without detail. Generated: mother had heart problems\u2014additional detail that fits within a broad FH of heart disease; not contradictory."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: chronic smoker. Generated: smokes 10 cigarettes/day for 15 years. This quantifies chronic smoking and is consistent."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: moderate alcohol intake. Generated: drinks 7\u20138 pints of beer/week, consistent with moderate intake."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-003: lives alone. Generated: lives alone. Same fact."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: works as a restaurant owner. Gold social history does not mention occupation.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The transcript explicitly states: 'I work as a restaurant owner. So I own a sushi shop.' This directly supports the fact that the patient works as a restaurant owner."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold asm-001: impression is acute cardiac event. Generated: possible myocardial infarction. MI is a specific acute cardiac event and aligns with the Gold impression."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Generated: chest pressure with radiation to left arm, SOB, nausea, sweating supports MI. Gold supports acute cardiac event with chest pain, radiation to shoulder/neck, nausea, sweatiness, palpitations but explicitly states not SOB. Thus, nausea and sweating support are consistent; left arm radiation and SOB conflict with Gold details."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: FH of heart disease supports concern for MI. Gold: FH of ischemic heart disease. This is consistent reasoning based on the same family history concept."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Gold: LAS blue light called (emergency ambulance). Generated: call ambulance for immediate evaluation. The need for an urgent ambulance is consistent, but 'blue light' priority detail is not specified."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold allergy: mild aspirin allergy. Generated plan: advise patient to inform medical team of aspirin allergy. This is an appropriate plan arising from the Gold allergy and does not conflict."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan-004: clinician stayed on line until LAS arrived. Generated: clinician will stay on line until ambulance arrives. Same action."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Gold plan-001: needs urgent ECG + trop T. Generated: anticipate ECG and further assessment by ambulance team. ECG component is supported; troponin T requirement is omitted."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-007: pain still present now. Generated: symptoms ongoing at time of consult. This indicates ongoing current symptoms, matching persistence of pain."
+    }
+  ]
+}

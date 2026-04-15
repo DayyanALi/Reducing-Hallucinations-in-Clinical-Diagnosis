@@ -1,0 +1,345 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001, History_of_Present_Illness-001, Review_of_Systems-004 describe 4 days of feeling unwell with sore throat, runny nose, fatigue, myalgias, and joint aches, matching the gold description."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-003 notes throat pain improving and History_of_Present_Illness-005 notes nasal congestion, matching improving sore throat and nasal congestion."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-006 describes a dry, constant cough that started recently (yesterday), aligning with a newly developed mainly dry, constant cough."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Review_of_Systems-002 and Assessment-003 document night sweats, consistent with night sweats for the past 4 days (duration detail is not repeated but presence is covered)."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Review_of_Systems-001 states fever present at onset and now decreased after taking paracetamol/ibuprofen, matching an initial fever settling with those medications."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Assessment-002 and Review_of_Systems-007 describe dyspnea on exertion with no chest pain reported, matching no chest pain and more SOB on exertion."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Review_of_Systems-003 and Assessment-003 describe intermittent headaches, consistent with generalized, intermittent headaches (location detail not repeated but not contradicted)."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "OMITTED",
+      "reasoning": "Gold denies visual symptoms and photophobia; generated facts do not mention vision or photophobia at all. Nausea/vomiting and ear discharge are covered separately, but the visual/photophobia part is absent."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Review_of_Systems-011 notes normal bowel/urinary habits and Review_of_Systems-009 notes no rash, matching no bowel or urinary symptoms and no rashes."
+    },
+    {
+      "fact_id": "hpi-010",
+      "status": "COVERED",
+      "reasoning": "Review_of_Systems-005 notes slightly decreased appetite and Review_of_Systems-006 notes increased fluid intake, matching drinking fluids with reduced appetite."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Past_Medical_History-001 states no past medical history reported, equivalent to no significant past medical history."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states the patient takes no regular medications. Generated Medications-001 and Medications-002 indicate use of paracetamol and ibuprofen currently. As gold explicitly says 'no regular medications' and gen lists current meds without clarifying chronic vs acute, this is taken as a contradiction regarding current medication list."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Adverse_Drug_Reactions_and_Allergies-001 states allergies: none, matching no known drug allergies."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Family_History-001 notes grandmother with type 2 diabetes, identical to the gold fact."
+    },
+    {
+      "fact_id": "famhx-002",
+      "status": "COVERED",
+      "reasoning": "Family_History-002 notes great-grandfather had eczema, matching the gold fact."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Social_and_Family_History-001 and -002 state the patient lives alone and works as an accountant, matching the gold fact."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Social_and_Family_History-003 and -004 describe occasional cigars and social alcohol use, consistent with being an occasional smoker and alcohol consumer."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Social_and_Family_History-005 describes stress related to year-end work; gold notes work slightly stressful. Both agree on work-related stress and no mood symptoms are present in gold; generated does not contradict mood status."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Assessment-001 and Assessment-004 both state acute viral URI/viral upper respiratory infection or early influenza-like illness, aligning with viral URTI/influenza."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Plan_of_Care-001, -002, and -003 recommend rest, maintain hydration, and continue PRN acetaminophen/ibuprofen, consistent with conservative management including rest, increased fluids, regular paracetamol/ibuprofen, and monitoring (temperature monitoring is implicitly included via red flag monitoring in Plan_of_Care-004)."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Follow_up_Information-001 and Plan_of_Care-004 say to return if not better by next week, which corresponds to review in 5\u20137 days if not better."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Plan_of_Care-004 instructs self-monitoring for red flags (persistent or high fever, worsening SOB, chest pain) and to return urgently, matching discussion of red flag symptoms and advice to seek urgent review if they occur."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches hpi-001 and hpi-003 regarding 4 days of feeling unwell with sore throat, runny nose, dry cough, and fatigue."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Repeats the same 4-day symptom history present in hpi-001 and hpi-003."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Exposure to a sneezing colleague is not mentioned in any gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient states it started after a colleague who 'kept sneezing next to me all the time' and mentions her kids catching something from kindergarten."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Consistent with hpi-002 that sore throat is improving; adds duration detail without conflict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Dysphagia for 1\u20132 days is not mentioned in the gold summary.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked about pain on swallowing, patient says it was 'quite painful to swallow, for one or two days,' which indicates transient dysphagia."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Matches hpi-002 and hpi-001 regarding runny nose/nasal congestion; elaborates that discharge is clear, which is not contradicted in gold."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Aligns with hpi-003 describing a newly developed mainly dry, constant cough."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches pmh-001 stating no significant past medical history."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "CONTRADICTED",
+      "reasoning": "States current use of paracetamol, while gold med-001 says patient takes no regular medications; taken as conflicting with the gold medication list."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Similarly lists ibuprofen use, conflicting with gold statement of no regular medications."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "A plan to continue PRN acetaminophen is part of management; gold plan-001 recommends regular paracetamol/ibuprofen, but this specific PRN continuation wording is an elaboration of the plan, not explicitly in gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient reports taking 'Paracetamol and Ibuprofen' which 'help,' and doctor advises to 'continue with the regular Paracetamol, Ibuprofen.' Inference that paracetamol is used as-needed for fever/pain is consistent with the transcript."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "As with Medications-003, continuation PRN ibuprofen is a treatment-plan detail; gold mentions regular paracetamol/ibuprofen but does not specify PRN continuation.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Same segment\u2014doctor advises to 'continue with the regular Paracetamol, Ibuprofen' for viral illness symptoms, which reasonably implies as-needed use for fever/pain."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold plan does not mention antibiotics at all; the explicit statement that no antibiotics are indicated is new, though clinically consistent.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported by omission and diagnosis: Doctor attributes symptoms to a viral illness/upper respiratory tract infection or early flu and recommends only rest, fluids, and paracetamol/ibuprofen; no antibiotics are prescribed or suggested, so stating that none are indicated is a valid clinical inference."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches allergy-001 (NKDA)."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches famhx-001 (grandmother with type 2 diabetes)."
+    },
+    {
+      "fact_id": "Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches famhx-002 (great-grandfather with eczema)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches sh-001 (lives alone)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches sh-001 (works as an accountant)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Equivalent to sh-002 describing occasional smoking."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Equivalent to sh-002 describing alcohol consumption (social alcohol)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "SUPPORTED",
+      "reasoning": "Matches sh-003 that work is slightly stressful; adds year-end detail without conflict."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches asm-001 (viral URTI/influenza)."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Aligns with hpi-006 and the concept of exertional SOB without chest pain."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Matches hpi-004, hpi-007, and hpi-001 regarding intermittent headaches, myalgias, and night sweats."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "Restates asm-001 with note of no red flags, consistent with fu-002 and plan-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Rest for supportive care matches plan-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Maintain hydration corresponds to increased fluid intake in plan-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Use of PRN acetaminophen/ibuprofen for fever/pain is consistent with gold plan-001 recommending regular paracetamol/ibuprofen; difference in regular vs PRN is minor and not contradictory to the treatment concept."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Matches fu-002 red flag advice and fu-001 timing about returning if not better by next week."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice to take 1\u20132 days off work is not present in gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor says, 'I'd probably advise you taking a day or two off work if you can,' and the patient replies they will 'take a couple days off, and see how it goes,' matching the statement."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention imaging or antibiotics; explicit statement that no imaging is indicated is new, though clinically aligned.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported by omission and context: No imaging is mentioned or ordered; given a straightforward viral URTI/flu assessment, noting that no imaging is indicated is a reasonable clinical inference."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Equivalent to fu-001: review/return if not better by next week (5\u20137 days)."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches hpi-005 (initial fever now settling with paracetamol/ibuprofen)."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Night sweats present, matching hpi-004."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Intermittent headache matches hpi-007."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Myalgias/joint aches present match hpi-001 (myalgia and general joint pain)."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Slightly decreased appetite matches hpi-010 (reduced appetite)."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Increased fluid intake is consistent with hpi-010 (drinking fluids)."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "SUPPORTED",
+      "reasoning": "DOE with no resting breathlessness is consistent with hpi-006 (more SOB on exertion) and absence of resting SOB implied."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "No ear pain/discharge partially overlaps with hpi-008, which includes no ear discharge; lack of ear pain is an added, consistent negative."
+    },
+    {
+      "fact_id": "Review_of_Systems-009",
+      "status": "SUPPORTED",
+      "reasoning": "No rash matches hpi-009 (no rashes)."
+    },
+    {
+      "fact_id": "Review_of_Systems-010",
+      "status": "SUPPORTED",
+      "reasoning": "No nausea/vomiting matches hpi-008."
+    },
+    {
+      "fact_id": "Review_of_Systems-011",
+      "status": "SUPPORTED",
+      "reasoning": "Normal bowel and urinary habits correspond to hpi-009 (no bowel or urinary symptoms)."
+    }
+  ]
+}

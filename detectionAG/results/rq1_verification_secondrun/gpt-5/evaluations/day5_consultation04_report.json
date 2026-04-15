@@ -1,0 +1,362 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold: abdominal pain. Generated chief complaint: constant lower abdominal midline pain below the umbilicus; this is a more specific description of abdominal pain."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: constant periumbilical pain that is worsening. Generated: constant lower abdominal pain below the umbilicus. 'Below umbilicus' localizes to suprapubic/lower abdomen rather than periumbilical; this is a different location, so the anatomical description is contradictory."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: pain severity 8/10. Generated chief complaint/HPI: pain rated 8/10. Same severity."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: light per vaginal bleeding. Generated: associated per vaginal light pink spotting. This is the same concept."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: some difficulty passing urine. Generated HPI/ROS: 'No problems passing urine' and 'no urinary symptoms' in Assessment. This states the opposite."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: daily bowel movements with normal stool. Generated: 'Constipated last week (~1 wk); this week bowels OK' and 'bowels now okay' in Assessment. This supports current normal bowel habit, though without explicitly stating 'daily', but semantically aligns."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: constipation for one week last week. Generated: 'Constipated about one week last week.' This is the same."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: LMP 2 weeks ago. Generated: LMP approximately 2\u20133 weeks ago. The ranges overlap and are semantically equivalent in this context."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: last foreign travel 1 year ago. Generated: traveled abroad one year ago with no recent travel. This matches and adds consistent clarification."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies dysuria or urinary frequency. Generated: 'No problems passing urine' and 'no urinary symptoms' but Gold HPI says 'some difficulty passing urine'. Within ROS alone, 'no problems passing urine' is consistent with 'no dysuria/frequency', but global record conflict exists due to HPI. However, this ROS item itself (no dysuria/frequency) is supported, not contradicted by generated; Generated does not mention dysuria or frequency at all. Therefore for this specific Gold fact, it's effectively OMITTED rather than contradicted. However, the prompt requires strict per-fact comparison against generated: generated never explicitly addresses dysuria/frequency; so status is OMITTED."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies any additional per vaginal discharge. Generated: states 'associated small vaginal discharge' and later 'minimal discharge'. This is not clearly 'no additional PV discharge'; the generated text appears to indicate presence of discharge, which conflicts with the Gold concept of no other discharge beyond the bleeding. However, the Gold wording is about additional PV discharge beyond what is already described; the generated facts do not clearly separate baseline vs additional discharge. Since there's no explicit mention of 'no additional discharge', this specific denial is not captured. Marked as OMITTED for strictness."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "COVERED",
+      "reasoning": "Gold: eating and drinking ok. Generated HPI-013: eating and drinking are okay. Same fact."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "COVERED",
+      "reasoning": "Gold: not checked temperature and does not feel feverish. Generated HPI-011/ROS-001: no thermometer at home and denies feeling feverish. Same concept."
+    },
+    {
+      "fact_id": "ros-005",
+      "status": "COVERED",
+      "reasoning": "Gold: not feeling faint. Generated HPI-012/ROS-002: denies feeling faint on standing. Semantically equivalent in clinical context."
+    },
+    {
+      "fact_id": "ros-006",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies shortness of breath or shoulder tip pain. Generated facts include no mention of dyspnea or shoulder tip pain. Thus this ROS item is absent."
+    },
+    {
+      "fact_id": "ros-007",
+      "status": "COVERED",
+      "reasoning": "Gold: nausea. Generated: nausea without vomiting, and noted in Assessment. This is consistent and slightly more detailed."
+    },
+    {
+      "fact_id": "ros-008",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies vomiting or diarrhoea. Generated: explicitly 'nausea without vomiting' and no mention of diarrhoea. 'No vomiting' is consistent; no statement about diarrhoea. So vomiting part is covered, diarrhoea part omitted. Overall the combined Gold fact is partially covered and partially omitted, not contradicted. Status should be COVERED with respect to vomiting, but diarrhoea is not addressed. Because we must choose one label per fact, and the majority of the statement (no vomiting) is explicitly supported while diarrhoea is simply not mentioned, marking as COVERED."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: no significant past medical history. Generated: no explicit statement about past medical history; PSH and obstetric history are separate and do not address medical history. Therefore omitted."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: takes no regular medications. Generated: only mentions Implanon as contraception; does not explicitly state no other regular medications. Hence this specific negative medication history is not captured."
+    },
+    {
+      "fact_id": "med-002",
+      "status": "COVERED",
+      "reasoning": "Gold: Implanon implant inserted one year ago. Generated: Implanon in situ for about one year. Same fact."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: allergic to amoxicillin. Generated: allergic to amoxicillin. Same."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: patient works as a teacher. Generated Social-005 and HPI-014: works as a school teacher. Same."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: has been able to work as usual. Generated HPI-014: working and ADLs as usual as a school teacher. Same concept."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: lives with her husband and his family. Generated social history contains no living situation details. Omitted."
+    },
+    {
+      "fact_id": "sh-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: does not smoke, drink alcohol, or use recreational drugs. Generated: smoking/alcohol \u2013 patient responded 'I don\u2019t know'; recreational drugs: no. So drug part is covered, but smoking and alcohol are not confirmed negative and instead documented as 'I don\u2019t know', which conflicts with a clear 'no smoker/alcohol'. Net effect is contradiction for smoking and alcohol while supporting no drugs. As a combined fact, this is best labeled CONTRADICTED."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "OMITTED",
+      "reasoning": "Gold assessment: abdominal pain of unclear cause. Generated Assessment lists descriptive summaries and pregnancy status uncertain but does not explicitly state 'cause unclear' or similar. No direct equivalent diagnostic impression. Omitted."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to perform pregnancy test today. Generated Plan-003: do pregnancy test today. Same."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: contact clinic immediately if pregnancy test is positive. Generated Plan-004 and FollowUp-002: if positive, call back or attend urgently for same-day assessment. This is equivalent or stronger safety-net advice."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: urgent examination with the doctor has been booked. Generated Plan-001: arrange face-to-face clinic visit for abdominal exam via support line. This matches the idea of booking an in-person examination, though phrased slightly differently."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: get in touch earlier if pain worsens or new symptoms develop. Generated Plan-002/FollowUp-001: seek earlier review if pain worsens or unable to keep fluids down. Worsening pain is covered; 'unable to keep fluids down' is one type of new concerning symptom but not all; nonetheless the core safety-net of returning earlier with worsening pain/new concerning symptoms is present. Marked as COVERED."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: constant lower abdominal midline pain below the umbilicus for a few days, 8/10, worsening. Gold: constant periumbilical pain, 8/10, worsening, with no duration specified. The severity and worsening are supported, but the anatomical location (periumbilical vs below umbilicus) conflicts. Overall labeled CONTRADICTED due to location mismatch."
+    },
+    {
+      "fact_id": "HPI-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Same content as Chief_Complaint-001: lower abdominal pain below umbilicus vs Gold periumbilical pain. Thus contradicted on pain location."
+    },
+    {
+      "fact_id": "HPI-002",
+      "status": "SUPPORTED",
+      "reasoning": "Associated per vaginal light pink spotting matches Gold 'light per vaginal bleeding.'"
+    },
+    {
+      "fact_id": "HPI-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold notes light PV bleeding and 'no other PV discharge.' Generated adds 'associated small vaginal discharge.' This is additional and in tension with Gold but Gold does not explicitly record presence of small discharge; rather it denies additional discharge. This is better classified as NOT_IN_GOLD than directly contradicted because Gold's single fact (ros-002) was treated as omitted/uncertain regarding discharge specifics.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript supports small vaginal discharge: Patient says, 'Just very small, extra, like, a vaginal discharge, just.'"
+    },
+    {
+      "fact_id": "HPI-004",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea without vomiting is consistent with Gold: nausea; no vomiting/diarrhoea. This elaborates but matches."
+    },
+    {
+      "fact_id": "HPI-005",
+      "status": "SUPPORTED",
+      "reasoning": "Constipated about one week last week; bowels okay this week. Gold: constipation for a week last week; BO daily, normal stool now. Same clinical course."
+    },
+    {
+      "fact_id": "HPI-006",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: no problems passing urine. Gold HPI-004: some difficulty passing urine. Direct conflict."
+    },
+    {
+      "fact_id": "HPI-007",
+      "status": "SUPPORTED",
+      "reasoning": "LMP approximately 2\u20133 weeks ago and normal. Gold: LMP 2 weeks ago; no statement that period was abnormal. Timing and normality are consistent."
+    },
+    {
+      "fact_id": "HPI-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: menstrual cycles irregular while on implant. Gold only notes Implanon and timing of LMP, no cycle pattern. New fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript indicates irregular cycles on implant: Doctor asks if periods are regular or sporadic and patient replies, 'Close, they, they are spreading like, not the time. It changes. Yeah.' indicating irregular menses."
+    },
+    {
+      "fact_id": "HPI-009",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: sexually active, last intercourse 4 days ago. Gold contains no sexual history. New information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript confirms sexual activity and timing: Doctor asks if she has intercourse regularly; patient says yes and clarifies 'four days ago, sorry. I just had'. This supports sexual activity with last intercourse 4 days ago."
+    },
+    {
+      "fact_id": "HPI-010",
+      "status": "SUPPORTED",
+      "reasoning": "Implanon in situ for about 1 year. Gold: Implanon contraceptive implant inserted one year ago. Same."
+    },
+    {
+      "fact_id": "HPI-011",
+      "status": "SUPPORTED",
+      "reasoning": "No thermometer and denies feeling feverish matches Gold: not checked temp and does not feel feverish."
+    },
+    {
+      "fact_id": "HPI-012",
+      "status": "SUPPORTED",
+      "reasoning": "Denies feeling faint on standing is consistent with Gold: not feeling faint."
+    },
+    {
+      "fact_id": "HPI-013",
+      "status": "SUPPORTED",
+      "reasoning": "Eating and drinking are okay matches Gold: E&D ok."
+    },
+    {
+      "fact_id": "HPI-014",
+      "status": "SUPPORTED",
+      "reasoning": "Able to work and perform ADLs as usual as school teacher matches Gold: teacher and has been able to work as usual."
+    },
+    {
+      "fact_id": "HPI-015",
+      "status": "SUPPORTED",
+      "reasoning": "Traveled abroad one year ago with no recent travel matches Gold: last foreign travel 1 yr ago."
+    },
+    {
+      "fact_id": "HPI-016",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: pregnancy test done ~1 month ago, not since pain onset. Gold only contains a plan to do a pregnancy test today; no record of past tests. New detail.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor asks, 'Have you taken a pregnancy test this time? when was that?' Patient: 'Yeah, I did... around like a month ago, yeah.' Doctor then clarifies, 'But not since you've had the abdominal pain?' indicating it has not been repeated since onset."
+    },
+    {
+      "fact_id": "HPI-017",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated describes patient response when asked about weight loss or blood in stool/urine. Gold has no mention of this query or response. New fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor asks, 'any weight loss or blood in the stool, or urine?' Patient replies, 'Yes. I have . As I said, I have some, I guess, discharge and pain. But, then I there's isn't a lot of discharge.' She does not address weight loss or blood; instead she references small vaginal discharge and pain with minimal discharge."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Implanon in situ for about 1 year matches Gold Implanon implant 1 year ago."
+    },
+    {
+      "fact_id": "Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Allergic to amoxicillin matches Gold."
+    },
+    {
+      "fact_id": "Social-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: no prior surgeries (past surgical history). Gold has no statement regarding surgeries. New fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor asks, 'Anything else? Have you had any operations?' Patient responds, 'No.' This supports no prior surgeries."
+    },
+    {
+      "fact_id": "Social-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: no prior pregnancies. Gold obstetric history not mentioned. New fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript clearly states: Doctor asks, 'Have you had any pregnancies?' Patient: 'No.'"
+    },
+    {
+      "fact_id": "Social-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: when asked about smoking or alcohol, patient said 'I don\u2019t know.' Gold: no smoker/alcohol/drugs. Directly conflicts with clear negative history for smoking and alcohol."
+    },
+    {
+      "fact_id": "Social-004",
+      "status": "SUPPORTED",
+      "reasoning": "Generated: no recreational drug use. Gold: no drugs. Same."
+    },
+    {
+      "fact_id": "Social-005",
+      "status": "SUPPORTED",
+      "reasoning": "Works as a school teacher matches Gold: teacher."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Generated: summary of lower abdominal pain with light PV bleeding x few days, constant 8/10, worsening, associated nausea (no vomiting), bowels now OK, no urinary symptoms, afebrile, ADLs intact. Gold supports: pain severity/worsening, nausea, bowels OK, afebrile, ADLs/work intact. However, Gold has periumbilical pain and some difficulty passing urine; generated states lower abdominal and no urinary symptoms. Location and urinary symptoms portions are contradicted. Because only one label is allowed but this fact mixes supported and contradicted elements, best categorized as CONTRADICTED due to inclusion of 'no urinary symptoms' and changed location."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Generated: explicit assessment of pregnancy status uncertain on Implanon with details of sexual activity, last test, irregular cycles. Gold assessment only states 'abdominal pain ? cause' and plan to check pregnancy test; no explicit assessment phrased this way. New synthesized assessment.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "All components are supported: (1) Pregnancy status uncertain is a reasonable inference given abdominal pain and need for repeat test; (2) On Implanon: 'it's called implant' and later 'your Implanon was just put in a year ago?'; (3) Sexual activity 4 days ago: 'Yes, I do. Four weeks ago. four days ago, sorry. I just had'; (4) Last pregnancy test 1 month ago: 'around like a month ago, yeah'; (5) Last menstrual period 2\u20133 weeks ago: 'about two weeks, two or three weeks ago'; (6) Cycles irregular on implant: 'they are spreading like, not the time. It changes. Yeah.'"
+    },
+    {
+      "fact_id": "Plan-001",
+      "status": "SUPPORTED",
+      "reasoning": "Arrange face-to-face clinic visit for abdominal exam corresponds to Gold: urgent examination with the doctor has been booked."
+    },
+    {
+      "fact_id": "Plan-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Generated: seek earlier review if pain worsens or unable to keep fluids down. Gold: get in touch if pain worse or new symptoms develop. Worsening pain advice is supported; 'unable to keep fluids down' is a specific new symptom consistent with 'new symptoms.' Overall aligns, so treated as SUPPORTED despite narrower wording."
+    },
+    {
+      "fact_id": "Plan-003",
+      "status": "SUPPORTED",
+      "reasoning": "Do pregnancy test today matches Gold: needs to check pregnancy test today."
+    },
+    {
+      "fact_id": "Plan-004",
+      "status": "SUPPORTED",
+      "reasoning": "If pregnancy test is positive, call back/attend urgently matches Gold: contact us immediately if positive."
+    },
+    {
+      "fact_id": "FollowUp-001",
+      "status": "SUPPORTED",
+      "reasoning": "Seek earlier review if pain worsens or unable to keep fluids down matches core of Gold follow-up: get in touch earlier if pain worsens or new symptoms develop; 'unable to keep fluids down' is one new symptom example."
+    },
+    {
+      "fact_id": "FollowUp-002",
+      "status": "SUPPORTED",
+      "reasoning": "If pregnancy test positive, call back/attend urgently matches Gold instruction to contact clinic immediately if test is positive."
+    },
+    {
+      "fact_id": "ROS-001",
+      "status": "SUPPORTED",
+      "reasoning": "Denies feeling feverish matches Gold: does not feel feverish and has not checked temperature."
+    },
+    {
+      "fact_id": "ROS-002",
+      "status": "SUPPORTED",
+      "reasoning": "Denies feeling faint on standing matches Gold: not feeling faint."
+    },
+    {
+      "fact_id": "ROS-003",
+      "status": "SUPPORTED",
+      "reasoning": "Reports nausea without vomiting aligns with Gold: nausea; no vomiting/diarrhoea."
+    },
+    {
+      "fact_id": "ROS-004",
+      "status": "CONTRADICTED",
+      "reasoning": "ROS-004: no problems passing urine, conflicts with Gold HPI-004: some difficulty passing urine, though Gold ROS did not mention this. At the overall patient level, this is a contradiction."
+    },
+    {
+      "fact_id": "ROS-005",
+      "status": "SUPPORTED",
+      "reasoning": "Constipated last week about one week; bowels okay this week matches Gold: constipation for one week last week and BO daily/normal now."
+    }
+  ]
+}

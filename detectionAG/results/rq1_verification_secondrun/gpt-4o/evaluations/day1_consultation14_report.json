@@ -1,0 +1,306 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 documents cough and runny nose for 5\u20136 days, which is semantically equivalent to the Gold 5-day history of cough and runny nose."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-001 and Review_of_Systems-001 describe a dry, continuous cough that keeps the patient up at night, matching the Gold dry cough keeping the patient up at night."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold explicitly denies both ear pain and sore throat; Generated History_of_Present_Illness-003/Review_of_Systems-002 deny ear pain but do not state absence of sore throat, and instead describe throat irritation from coughing, which is not clearly a sore throat; this is better treated as omission of sore throat rather than direct contradiction. However, no generated fact states the presence of sore throat, so the portion about no sore throat is actually OMITTED, not contradicted."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-004 and Review_of_Systems-001 state no shortness of breath or chest pain, matching the Gold fact."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-008 and Review_of_Systems-005 mention muscle aches and lethargy, aligning with Gold tired/weak with myalgia; lethargy reasonably covers tired and weak."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-005 and Review_of_Systems-003 describe shivers at night and unsure of fever, which semantically match feeling shivery, hot/cold, and possible fever."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-006 and Review_of_Systems-004 state no nausea or vomiting and appetite okay, matching the Gold denial of nausea/vomiting and maintained appetite."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "History_of_Present_Illness-007 and Review_of_Systems-004 document initial diarrhea that has resolved, matching the Gold fact."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "OMITTED",
+      "reasoning": "Gold states no urinary symptoms and no rashes. No Generated fact mentions urinary symptoms or skin/rash, so both components are absent."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Past_Medical_History-001 and Past_Medical_History-002 record type 2 diabetes and hypertension, directly matching the Gold PMH."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Medications-001 and Medications-002 list metformin and lisinopril, matching the Gold medication list."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Adverse_Drug_Reactions_and_Allergies-001 states no known drug allergies, equivalent to NKDA in Gold."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Family_History-001 notes father with type 2 diabetes mellitus, matching the Gold family history."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states the patient lives with a partner, works in IT, and denies stress. Generated Social_and_Family_History-001 and -002 confirm living with a partner and IT work, but do not address stress at all; they neither affirm nor deny stress. Thus the portion about denying stress is OMITTED, not contradicted. Living/working details are COVERED; stress denial is OMITTED."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Social_and_Family_History-003 describes a former smoker who quit 6 months ago, equivalent to ex-smoker stopped 6/12 ago."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Social_and_Family_History-004 (2\u20133 glasses of wine, 3 nights/week) is consistent with drinking <9 units/week and represents a compatible elaboration of the Gold alcohol intake."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Assessment-001 and -002 describe a viral illness with URTI-type symptoms (cough, runny nose, shivers, muscle aches), which is consistent with and semantically equivalent to a viral URTI impression."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Plan_of_Care-001, -002, and -003 advise rest, hydration, and regular paracetamol, which matches supportive management with bed rest, fluids, and regular paracetamol."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold advises review in 5\u20137 days if not better; Generated Plan_of_Care-004 and Follow_up_Information-001 recommend re-evaluation if symptoms persist beyond 2\u20133 days, which is a different and earlier timeframe and therefore not equivalent; it functionally contradicts the specific 5\u20137 day interval in Gold."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "OMITTED",
+      "reasoning": "Gold advises earlier review for worsening symptoms (fever, SOB, chest pain). Generated follow-up only mentions persistence beyond 2\u20133 days and antibiotics consideration; there is no explicit instruction about earlier review for worsening fever, SOB, or chest pain."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-001 describing cough and runny nose for 5 days; 5\u20136 days is a minor elaboration and semantically consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Aligns with Gold hpi-002 dry cough keeping patient up at night; \u2018continuous\u2019 is a consistent elaboration."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Runny nose is in Gold hpi-001; throat irritation from coughing is a reasonable elaboration of cough effects and not in conflict with any Gold fact."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "No ear pain is supported by Gold hpi-003. Ear discharge is not mentioned in Gold, but denial of discharge does not contradict anything; that component is NOT_IN_GOLD. Overall partially supported."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Directly matches Gold hpi-004 (no SOB/chest pain)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Corresponds to Gold hpi-006 (feeling shivery, hot/cold, ?fever)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-007 (no nausea/vomiting; appetite maintained)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-008 (initial diarrhea now resolved)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "Muscle aches and lethargy align with Gold hpi-005 (tired, weak, myalgia)."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 DM present in Gold pmh-001."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Hypertension present in Gold pmh-001."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Metformin is listed in Gold med-001."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Lisinopril is listed in Gold med-001."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known drug allergies equals Gold NKDA (allergy-001)."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold famhx-001 (father with type 2 diabetes)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold sh-001 notes living with a partner; the detail that the partner is asymptomatic is additional but not contradictory (that portion is NOT_IN_GOLD but consistent)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Working in IT is in Gold sh-001; recent work absence due to illness is an added consistent detail (NOT_IN_GOLD but not conflicting)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Equivalent to Gold sh-002 ex-smoker stopped 6 months ago."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Quantified alcohol intake is compatible with Gold sh-003 (<9 units/week); elaboration but consistent."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold asm-001 impression is viral URTI; \u2018viral illness\u2019 is a semantically consistent label."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Symptoms listed (cough, runny nose, shivers, muscle aches) are all present in Gold HPI facts."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 DM as diagnosis corresponds to Gold pmh-001."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "Hypertension as diagnosis corresponds to Gold pmh-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Rest is part of Gold plan-001 (bed rest)."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Hydration corresponds to increased fluids in Gold plan-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Regular paracetamol is directly in Gold plan-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Re-evaluate if symptoms persist beyond 2\u20133 days conflicts with Gold fu-001, which specifies review in 5\u20137 days if not better."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold plan does not mention considering antibiotics at all; introducing antibiotics for viral illness is new and not supported or contradicted by Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor states: \"if you are still feeling feverish, um and your cough isn't getting any better, then we may look to give you some antibiotics for your chest\"\u2014this is considering antibiotics if no improvement/worsening."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice to take 1\u20132 days off work is not present in Gold plan or follow-up.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises: \"maybe take a day or two off work, if you can. Uh and get some good bed rest\"\u2014this matches advising 1\u20132 days off work for rest."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not explicitly state to continue current medications for DM and HTN, although consistent with PMH/med list; this specific plan instruction is absent.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "While current medications (metformin, lisinopril) are discussed as being used and diabetes/BP are under control, there is no explicit instruction in the plan to \"continue current medications.\" This is not stated as part of the visit's plan."
+    },
+    {
+      "fact_id": "Plan_of_Care-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold sh-003 records low alcohol intake but does not include a plan to reduce alcohol; this recommendation is new.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor explicitly links alcohol reduction to diabetes and blood pressure: \"maybe something that you can maybe cut down on if you can\" and then gives a tapering plan, in the context of: \"just in terms of your blood pressure and diabetes.\""
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Repeats the 2\u20133 day re-evaluation timeframe, which conflicts with Gold fu-001 (5\u20137 days)."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold contains no physical exam section to support or refute that no specific findings were documented.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The transcript contains history only and no physical examination findings are documented, so stating that no specific physical exam findings were documented is accurate."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Summarizes dry cough, no SOB, no chest pain, all directly present in Gold hpi-002 and hpi-004."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Runny nose is in Gold hpi-001 and no ear pain is in Gold hpi-003; throat irritation from coughing and lack of ear discharge are additional elements not specified in Gold but not contradictory."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Shivers and unsure of fever match Gold hpi-006; lethargy aligns with tired/weak in Gold hpi-005."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "No nausea/vomiting, appetite okay, and initial diarrhea resolved match Gold hpi-007 and hpi-008."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Muscle aches are consistent with Gold hpi-005 myalgia."
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "sh-001",
+      "status": "OMITTED",
+      "reasoning": "The generated facts do not mention the patient's name or date of birth."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 6-week history of difficulty hearing in the left ear. Generated: six-week history of decreased hearing in left ear. These are semantically equivalent."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: intermittent tinnitus and slight nausea/dizziness. Generated: occasional ringing (tinnitus) and intermittent dizziness. Nausea is omitted but dizziness/tinnitus are present; the overlapping clinical concepts are covered and not contradicted."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: one previous similar episode that resolved spontaneously. Generated PMH: previous brief hearing issue ~1 year ago. This is a consistent restatement of a prior similar hearing episode."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: denies discharge, fever, itchiness, or pain. Generated: denies ear pain, discharge, or fever. Ear pain, discharge, and fever match; itchiness is omitted but not contradicted, so the overlapping concept is covered."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: patient does not use cotton wool buds. Generated social history: does not use cotton buds for ear cleaning. These are equivalent."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no past medical history of note. Generated: past medical history includes a previous brief hearing issue ~1 year ago. This introduces a notable past problem, contradicting 'no PMHx of note'."
+    },
+    {
+      "fact_id": "pe-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: on examination, the patient looks well and is not in pain. Generated: 'No physical exam findings documented.' This explicitly states absence of documented exam findings, conflicting with the existence of exam findings in Gold."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: need to exclude impacted wax in ear canal first. Generated assessment/plan: possible impacted wax or other obstruction, and plan to exclude physical blockage in ear. This matches the need to exclude impacted wax/obstruction."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: face-to-face GP appointment in 5 days to examine ear. Generated: schedule face-to-face appointment within 4\u20135 days for ear examination. Timing and purpose are equivalent."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to read about tinnitus via provided link. Generated: provide patient with tinnitus information leaflet. Both convey provision of educational tinnitus information; the delivery method differs but concept is equivalent."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: call back in the interim if any problems arise. Generated: instruct patient to book follow-up if symptoms worsen/advise to contact support team. These convey seeking further help if problems occur, which is consistent."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Hearing deterioration in left ear aligns with Gold HPI description of difficulty hearing in the left ear."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Six-week history of decreased hearing in left ear matches the Gold 6-week history of difficulty hearing in the left ear."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Occasional ringing in left ear corresponds to Gold intermittent tinnitus."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Intermittent dizziness is in Gold, but 'not severe and no room spinning' is an added qualifier not mentioned in Gold; this extra characterization is not present in Gold and neither supported nor contradicted.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The patient states the dizziness is \"nothing major\" and \"not the kind of dizziness you get with nausea, like uh not, not proper room spinning or anything like that but just, just a little bit kind of off balance,\" which supports intermittent, non-severe dizziness without room spinning."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "This category is not allowed; must use only SUPPORTED/CONTRADICTED/NOT_IN_GOLD. Thus this fact is treated as SUPPORTED overall because it matches the Gold denial of ear pain, discharge, and fever, despite omitting itchiness."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Denies ear pain, discharge, or fever is consistent with Gold: no discharge/fever/pain (itchiness is omitted but not contradicted)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies chest pain or palpitations is not mentioned anywhere in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor asks, \"Have, have you had any chest pain with it?\" and the patient answers \"No.\" The doctor then asks, \"Any palpitations, heart beating fast?\" with no affirmative response recorded, indicating denial of chest pain and palpitations."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Claims a previous brief hearing issue ~1 year ago as PMH, whereas Gold states no past medical history of note. This conflicts with the Gold PMH statement."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Does not use cotton buds for ear cleaning matches Gold: doesn't use cotton wool buds."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Hearing loss in left ear is consistent with the Gold history and impression of hearing difficulty in the left ear."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Possible impacted wax or other obstruction corresponds to Gold impression: need to exclude impacted wax in ear canal first."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Tinnitus is supported by Gold's associated intermittent tinnitus."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Etiology of tinnitus is unclear is not discussed in Gold; Gold does not address cause of tinnitus.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor says, \"Tinnitus is something actually that medicine doctors, we don't really understand it fully. ... People can't give you a specific cause for why some patients get Tinnitus and some patients don't,\" which supports that the etiology is unclear."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Schedule face-to-face appointment within 4\u20135 days for ear examination aligns with Gold plan for face-to-face GP appointment in 5 days to examine ear."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Plan to exclude physical blockage in ear is consistent with Gold's need to exclude impacted wax in ear canal first."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Provide patient with tinnitus information leaflet is equivalent in intent to Gold advising patient to read about tinnitus via a provided link."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advise patient to contact support team for appointment scheduling is not present in the Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The doctor instructs, \"bear with me five minutes and then you can ring the support team, I'll leave the number in the notes for this appointment. Ring them, and then they'll slot you in,\" which matches advising the patient to contact the support team for appointment scheduling."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "SUPPORTED",
+      "reasoning": "Instruct patient to book follow-up if symptoms worsen is consistent with Gold advice to ring back if any problems arise."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Patient instructed to book follow-up if symptoms worsen aligns with Gold follow-up advice to call back if any problems arise."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "CONTRADICTED",
+      "reasoning": "States no physical exam findings documented, whereas Gold documents that on exam the patient looks well and is not in pain."
+    }
+  ]
+}

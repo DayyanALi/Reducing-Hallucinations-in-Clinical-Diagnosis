@@ -1,0 +1,376 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: cough and cold symptoms for 5 days. Generated Chief_Complaint-001 and History_of_Present_Illness-007: cough and cold/upper respiratory symptoms for ~5 days. Same concept and duration."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: dry cough, no sputum or blood. Generated History_of_Present_Illness-001: dry, hacking cough; History_of_Present_Illness-006: no sputum production. Blood is not mentioned but absence of hemoptysis is in Review_of_Systems-003 (no hemoptysis). Together they cover dry cough with no sputum or blood."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: patient denies wheezing. Generated Review_of_Systems-002: no wheeze/rattly chest; Physical_Findings-004: no wheeze on chest exam. Same negative finding."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no breathlessness. Generated Review_of_Systems-001: no shortness of breath reported. Semantically equivalent."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: patient reports headache. Generated History_of_Present_Illness-004: intermittent headache. This is consistent elaboration of having a headache."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: no swollen neck glands. Generated Physical_Findings-003: no palpable lymphadenopathy in neck. Same clinical concept."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: diabetes for 5\u20136 years. Generated Past_Medical_History-001: diabetes ~5\u20136 yrs. Same duration."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: hypertension. Generated Past_Medical_History-003: Hypertension on lisinopril. Confirms presence of hypertension."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: metformin being taken. Generated Medications-001: metformin is being taken. Same medication."
+    },
+    {
+      "fact_id": "med-002",
+      "status": "COVERED",
+      "reasoning": "Gold: lisinopril being taken. Generated Medications-002: lisinopril is being taken. Same medication."
+    },
+    {
+      "fact_id": "med-003",
+      "status": "COVERED",
+      "reasoning": "Gold: used paracetamol. Generated Medications-003 and Plan_of_Care-002: paracetamol PRN. Indicates use of paracetamol for symptoms."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "COVERED",
+      "reasoning": "Gold: redness at back of throat on video. Generated Physical_Findings-001: mild erythema at posterior pharynx. This is the same finding."
+    },
+    {
+      "fact_id": "pf-002",
+      "status": "COVERED",
+      "reasoning": "Gold: tonsils not enlarged. Generated Physical_Findings-002: no tonsillar enlargement. Same negative finding."
+    },
+    {
+      "fact_id": "pf-003",
+      "status": "MISMATCH",
+      "reasoning": "Gold: blood pressure and blood sugar levels normal today. Generated explicitly states Physical_Findings-005: no vital signs recorded and Physical_Findings-006: no diagnostics recorded. This conflicts with Gold\u2019s explicit statement of normal BP and sugar levels being known for today."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: diagnosis upper respiratory tract infection. Generated Assessment-001/002: acute viral upper respiratory tract infection. Adds etiology (viral, acute) but same core diagnosis."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to use Night Nurse and Day Nurse. Generated Medications-005 and Plan_of_Care-003: OTC Night Nurse/Day Nurse acceptable with current meds. This conveys the same plan to use these preparations."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: call back if breathlessness, wheezing, or cough >3 weeks. Generated Plan_of_Care-006/007/009 and Follow_up_Information-001: return/contact if SOB, wheeze, symptoms persist >3 weeks. Same safety-net advice."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-001: cough and cold for 5 days."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dry, hacking cough aligns with Gold hpi-002: cough is dry."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Rhinorrhea is not mentioned in any Gold fact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports 'runny nose' which corresponds to rhinorrhea: 'sort of like, coughing, and like, general runny nose, and stuff'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Myalgias are not documented in the Gold summary.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports muscle aches: 'kind of muscles aching and stuff'. Myalgias present is a direct restatement."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Intermittent headache is consistent with Gold hpi-005: headache reported."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Chills are not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports chills: 'occasional feeling like headache, cold, chills, and things like that.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "No sputum production is part of Gold hpi-002: no sputum."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Duration ~5 days matches Gold hpi-001: 5 days."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Diabetes for ~5\u20136 years matches Gold pmh-001."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 diabetes mellitus is consistent with Gold pmh-001 (diabetes mellitus) and not contradicted."
+    },
+    {
+      "fact_id": "Past_Medical_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Hypertension on lisinopril matches Gold pmh-002 (hypertension) and med-002 (lisinopril)."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Metformin being taken matches Gold med-001."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Lisinopril being taken matches Gold med-002."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Paracetamol PRN is consistent with Gold med-003: used paracetamol."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention ibuprofen use or non-use.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks 'Any Ibuprofen at all?' and patient replies 'No'. Thus patient is not taking ibuprofen."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "SUPPORTED",
+      "reasoning": "OTC Night Nurse/Day Nurse acceptable corresponds to Gold plan-001 advising their use."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Home blood glucose monitoring with no issues is not in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks 'Do you monitor your blood sugars at home?' Patient: 'Yes.' Doctor: 'And how have they been doing at the moment?' Patient: 'Uh, no issues nothing like out of the ordinary there.' This supports home monitoring with no issues."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "MISMATCH",
+      "reasoning": "Generated says BP this morning within normal range by patient report, whereas Gold pf-003 states BP normal today as a documented current finding; additionally Generated Physical_Findings-005 says no vitals recorded. The self-report of normal BP today plus later statement of no vitals recorded introduces inconsistency with Gold\u2019s explicit vital sign documentation."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Acute viral upper respiratory tract infection matches Gold asm-001 (URTI) with added etiology that does not conflict."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Describes same acute viral URTI diagnosis and symptom context as Gold asm-001 and hpi-001/002/005, pf-001."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold notes diabetes but does not state stability per self-monitoring.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient is diabetic on metformin and reports home sugars have 'no issues nothing like out of the ordinary'; this supports that diabetes is stable per self\u2011monitoring."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold mentions hypertension and that BP is normal today but does not explicitly link this to lisinopril in the assessment wording; the stability framing is additional and not present in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient takes lisinopril for 'slight blood pressure' and reports BP this morning 'was within the normal range'; doctor confirms 'there's nothing alarming yeah?'. This supports controlled hypertension on lisinopril."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "General statement of supportive care for viral URTI is not explicitly in Gold, which only notes Night/Day Nurse and follow-up advice.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor states 'it looks like, it's just a viral infection... just a cold and a cough' and recommends OTC symptomatic medications (Night Nurse, Day Nurse). This corresponds to supportive care for a viral URI."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Paracetamol PRN is consistent with Gold med-003 (used paracetamol) and reflects continued symptomatic use."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "OTC Night Nurse/Day Nurse acceptable matches Gold plan-001 advising these preparations."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention that antibiotics are not indicated.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor diagnoses a viral infection and specifically says no further treatment or examination is needed now; no antibiotics are mentioned or prescribed. Given viral etiology and no prescription, 'no antibiotics are indicated' is a supported clinical inference."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state that no new prescriptions are indicated.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When patient asks, 'so I don't need any prescription, or anything like that,' doctor replies 'No, no you don't need anything at the moment.' This directly supports no new prescriptions."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "SUPPORTED",
+      "reasoning": "Return/contact if shortness of breath corresponds to Gold fu-001: call back if breathlessness."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "SUPPORTED",
+      "reasoning": "Return/contact if wheeze aligns with Gold fu-001: call back if wheezing."
+    },
+    {
+      "fact_id": "Plan_of_Care-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Return/contact if clinical deterioration is broader safety-net advice not specified in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises: 'If there's any change, like you're feeling short of breath or ... you're becoming poorly... then you need to get in touch with us.' This is advising contact if clinical deterioration occurs."
+    },
+    {
+      "fact_id": "Plan_of_Care-009",
+      "status": "SUPPORTED",
+      "reasoning": "Symptoms persist >3 weeks matches Gold fu-001: cough more than 3 weeks to call back."
+    },
+    {
+      "fact_id": "Plan_of_Care-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold mentions call back if cough >3 weeks but does not mention possible chest examination.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor: 'If there's any change... or be your symptoms are lasting more than three weeks or something... then you need to get in touch with us, then probably we might need to examine you and especially your chest.' This matches the fact."
+    },
+    {
+      "fact_id": "Plan_of_Care-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continuing metformin is not explicitly stated in Gold plan or medication section (only current use is noted).",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Metformin use is discussed but there is no explicit instruction to continue or change it; continuing metformin is reasonable but not stated in the transcript."
+    },
+    {
+      "fact_id": "Plan_of_Care-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continuing lisinopril as explicit plan is not in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Lisinopril use is discussed but the doctor does not explicitly advise to continue or adjust it. The plan to 'continue lisinopril' is not stated."
+    },
+    {
+      "fact_id": "Plan_of_Care-013",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continue home blood glucose monitoring is not present in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Patient confirms home blood glucose monitoring, but no explicit recommendation is given to 'continue' monitoring; that directive is not present in the transcript."
+    },
+    {
+      "fact_id": "Plan_of_Care-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continue home BP monitoring is not present in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Patient mentions measuring blood pressure this morning, but there is no instruction to continue home BP monitoring in the plan."
+    },
+    {
+      "fact_id": "Plan_of_Care-015",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Seek review if out-of-range readings is additional safety advice not in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "The doctor does not give any advice tied to out-of-range home glucose or blood pressure readings; all follow-up advice is about respiratory symptom changes or duration. This specific recommendation is not present."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Return/contact if SOB, wheeze, symptoms >3 weeks corresponds to Gold fu-001."
+    },
+    {
+      "fact_id": "Follow_up_Information-2",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice that symptoms >3 weeks may require chest examination is not present in Gold follow-up information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor: 'If there's any change... or be your symptoms are lasting more than three weeks or something... then you need to get in touch with us, then probably we might need to examine you and especially your chest.' This is essentially the same statement."
+    },
+    {
+      "fact_id": "Follow_up_Information-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Seek review if out-of-range home BG/BP is not documented in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "No mention is made of seeking review specifically for abnormal home blood glucose or blood pressure readings; follow-up advice is solely about respiratory symptoms and duration."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "SUPPORTED",
+      "reasoning": "Mild erythema at posterior pharynx matches Gold pf-001: redness at back of throat."
+    },
+    {
+      "fact_id": "Physical_Findings-002",
+      "status": "SUPPORTED",
+      "reasoning": "No tonsillar enlargement matches Gold pf-002."
+    },
+    {
+      "fact_id": "Physical_Findings-003",
+      "status": "SUPPORTED",
+      "reasoning": "No palpable neck lymphadenopathy is equivalent to Gold hpi-006: no swollen neck glands."
+    },
+    {
+      "fact_id": "Physical_Findings-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No wheeze/abnormal respiratory sounds on exam is not described in the Gold physical findings (Gold only has a symptom denial of wheeze/breathlessness).",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks 'So you're not wheezy or rattly noises in your chest.' Patient says 'No.' While no physical chest exam is done, the absence of wheeze or abnormal sounds is explicitly reported by history; documenting 'no wheeze or abnormal respiratory sounds' is consistent with this."
+    },
+    {
+      "fact_id": "Physical_Findings-005",
+      "status": "MISMATCH",
+      "reasoning": "Generated: no vital signs recorded conflicts with Gold pf-003 which states BP and blood sugar levels are normal today, implying vitals/measurements were known."
+    },
+    {
+      "fact_id": "Physical_Findings-006",
+      "status": "MISMATCH",
+      "reasoning": "Generated: no diagnostic tests recorded conflicts with Gold pf-003\u2019s documentation of blood sugar level being normal today (a diagnostic measure)."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "No shortness of breath reported matches Gold hpi-004: no breathlessness."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "No wheeze/rattly chest matches Gold hpi-003: no wheeze."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "No hemoptysis aligns with Gold hpi-002\u2019s note of no blood in cough, representing the same negative concept."
+    }
+  ]
+}

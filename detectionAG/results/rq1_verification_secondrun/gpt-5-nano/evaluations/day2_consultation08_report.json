@@ -1,0 +1,414 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 and History_of_Present_Illness-001 both describe a 7-day/one-week history of fever, matching the gold chief complaint."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated HPI-001, 002, 003, 005, 006, 007 describe a week of fever with sweats, myalgia, nausea, fatigue, night sweats, and alternating hot/cold episodes, which matches the gold description. 'Sweatiness' is captured as 'fever sweats' and 'night sweats'."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "OMITTED",
+      "reasoning": "Gold notes drinking less than normal, which is not mentioned anywhere in the generated facts."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold states OTC ibuprofen and paracetamol give only slight temperature relief and otherwise do not help. Generated Medications-001 and -002 state they are taken daily with only partial relief, which is semantically equivalent."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold describes travel to Vietnam with rural and urban tourism, trekking and cycling. Generated HPI-008 and HPI-010 record return from Vietnam and trekking/cycling in rural and city areas, covering this."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "OMITTED",
+      "reasoning": "Gold notes the patient took daily malaria prophylaxis but cannot recall the name. Generated facts describe prophylaxis including an additional medication but do not mention inability to recall the name."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold says no significant PMH apart from back pain. Generated PMH-001 and PMH-003 state chronic back pain and no other major illnesses, which is equivalent."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Gold notes back pain under physiotherapy. Generated PMH-002 states chronic back pain is being treated with physiotherapy, matching this."
+    },
+    {
+      "fact_id": "pmh-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold identifies hayfever (allergic rhinitis) as a past condition. Generated assigns 'pollen allergy' under allergies, not as a medical history diagnosis; however, this does not contradict the existence of hayfever but rather misclassifies it. Since the question is about presence of the condition itself, pollen allergy is consistent with hayfever. Thus this is actually COVERED, not contradicted. [Meta-correction: status should be COVERED]."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "OMITTED",
+      "reasoning": "Gold states the patient is on Cerazette. This medication does not appear in the generated medication list."
+    },
+    {
+      "fact_id": "med-002",
+      "status": "COVERED",
+      "reasoning": "Gold notes OTC ibuprofen for symptom relief. Generated Medications-001 confirms OTC ibuprofen taken daily for current illness with partial relief."
+    },
+    {
+      "fact_id": "med-003",
+      "status": "COVERED",
+      "reasoning": "Gold notes OTC paracetamol for symptom relief. Generated Medications-002 reports OTC paracetamol taken daily with partial relief."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no known drug allergies. Generated: Adverse_Drug_Reactions_and_Allergies-001 lists a pollen allergy. This directly conflicts with 'Nil allergies' in the gold data."
+    },
+    {
+      "fact_id": "fh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: father had MI at 68. Generated Family_History-001: father had MI in his 60s, diagnosed around 68, which is compatible and covers this."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: works as a nurse and is up to date with hepatitis B vaccination. Generated SH-001: works as a nurse, and SH-004: up to date with vaccines. Together they cover the gold content (being up to date with hep B is subsumed under being up to date with vaccines)."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: non-smoker. Generated SH-002: non-smoker."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: moderate alcohol intake. Generated SH-003: moderate alcohol use."
+    },
+    {
+      "fact_id": "sh-004",
+      "status": "COVERED",
+      "reasoning": "Gold: moderate physical exercise. Generated SH-005: engages in moderate exercise."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "COVERED",
+      "reasoning": "Gold: denies cough. Generated ROS-001: no productive cough. This implies absence of a significant lower respiratory cough; while not explicit on dry cough, it is reasonable as coverage of the gold 'no cough' in this context."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "COVERED",
+      "reasoning": "Gold: denies sore throat. Generated ROS-002: no sore throat."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies runny nose. No generated fact mentions rhinorrhea or runny nose."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies ear pain. No generated fact addresses ear pain."
+    },
+    {
+      "fact_id": "ros-005",
+      "status": "COVERED",
+      "reasoning": "Gold: denies diarrhea. Generated ROS-003: no diarrhoea."
+    },
+    {
+      "fact_id": "ros-006",
+      "status": "COVERED",
+      "reasoning": "Gold: denies neck stiffness. Generated ROS-005: neck stiffness absent/no neck stiffness."
+    },
+    {
+      "fact_id": "ros-007",
+      "status": "COVERED",
+      "reasoning": "Gold: denies headache beyond usual screen-related one. Generated ROS-006: headaches present but described as screen-related and often centralized, which matches the gold description."
+    },
+    {
+      "fact_id": "ros-008",
+      "status": "COVERED",
+      "reasoning": "Gold: denies rash. Generated ROS-007: no rash."
+    },
+    {
+      "fact_id": "ros-009",
+      "status": "COVERED",
+      "reasoning": "Gold: denies joint swelling (ongoing back pain). Generated ROS-008: no joint swelling. Back pain is captured under PMH; the key element of no joint swelling is covered."
+    },
+    {
+      "fact_id": "ros-010",
+      "status": "COVERED",
+      "reasoning": "Gold: denies dysuria or urinary frequency. Generated ROS-004: no urinary symptoms, which implies absence of both dysuria and frequency."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression is PUO with need to exclude malaria. Generated Assessment-001, -002, -003, and -005 describe fever with systemic symptoms after travel, consider malaria and other travel-related infections, and note pending diagnostics. This collectively matches pyrexia of unknown origin with exclusion of malaria."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: arrange face-to-face appointment with GP today. Generated Plan_of_Care-001 and -005 describe arranging an examination in clinic or local A&E and clinician arranging booking; timing 'today' is not explicitly stated but arrangement of urgent examination is implied, sufficiently covering the intent."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: order CRP, ESR, and thick/thin blood films. Generated Plan_of_Care-002 (malaria screening with thick and thin films) and Plan_of_Care-003 (order inflammatory markers) cover malaria films and inflammatory markers, which include CRP/ESR conceptually."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: testing may be routine or via A&E depending on second GP\u2019s assessment. Generated Plan_of_Care-001 offers clinic or local A&E options for workup, which is consistent with the same flexibility in setting."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Aligns with gold chief complaint of one-week history of fever and systemic unwellness."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches gold description of fever for a week."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Myalgia corresponds to body/muscle aches in gold HPI."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Nausea is explicitly listed in gold HPI-001."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Poor appetite is not mentioned in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports nausea and poor intake: 'I'm feeling quite nauseous, uh, so I've not been able to eat very much'. This supports poor appetite associated with current illness."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Fatigue is explicitly listed in gold HPI-001."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Night sweats are explicitly listed in gold HPI-001."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Alternating hot and cold episodes are explicitly in gold HPI-001."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold only notes recent return from Vietnam, not the specific timing of ~4 weeks.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states: 'I went to Vietnam. Uh, I came back four weeks ago now.' This directly supports the timing."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold notes malaria prophylaxis taken daily but does not mention an additional medication on top of the first prophylaxis.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Regarding malaria prophylaxis: Patient says it was a daily tablet and 'another one that I took on top of the first one.' This matches daily prophylaxis with an additional medication."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "Matches gold description of rural and urban tourism including trekking and cycling."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Chronic back pain aligns with gold back pain under physiotherapy."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Physiotherapy treatment for back pain is explicitly in gold PMH-002."
+    },
+    {
+      "fact_id": "Past_Medical_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold states PMH nil of note except back pain; equivalent to no other major illnesses."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "OTC ibuprofen for current illness with partial relief matches gold HPI-003 and med-002."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "OTC paracetamol for current illness with partial relief matches gold HPI-003 and med-003."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Seroxat is not listed among medications in the gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When asked about medications, patient says: 'Uh, just Seroxat.' This confirms current use of Seroxat."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Daily malaria prophylaxis is in gold, but the detail of an additional medication on top of the first prophylaxis is not.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as History_of_Present_Illness-009: daily prophylaxis plus an additional tablet is explicitly described in the travel history."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states no allergies; generated states pollen allergy."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Father having MI in his 60s diagnosed around 68 aligns with gold father MI at 68."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Working as a nurse is captured in gold SH-001."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Non-smoker matches gold SH-002."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Moderate alcohol use matches gold SH-003."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Up to date with vaccines is consistent with gold being up to date with hepatitis B vaccination as part of occupational vaccines."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "SUPPORTED",
+      "reasoning": "Engages in moderate exercise matches gold SH-004."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Fever with systemic symptoms after travel, no focal source, aligns with gold impression of PUO with need to exclude malaria."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Possible malaria is explicitly the concern in gold asm-001."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Other travel-related infection is consistent with PUO after travel (though not explicitly in gold, it is a reasonable extension). However, since gold only mentions excluding malaria, this is better categorized as NOT_IN_GOLD."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "Chronic back pain being stable and not primary concern is consistent with gold PMH indicating back pain but focus on fever as main issue."
+    },
+    {
+      "fact_id": "Assessment-005",
+      "status": "SUPPORTED",
+      "reasoning": "Travel history raising exotic infections and pending testing is in line with gold plan for tests including malaria films and inflammatory markers."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Arranging examination in clinic or local A&E corresponds to gold plan for F2F appointment with GP and possible A&E route."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Malaria screening with thick and thin blood films matches gold plan for thick and thin blood films."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Ordering inflammatory markers corresponds to gold CRP and ESR."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Additional blood tests as guided by exam is compatible with gold's more general further testing plan; gold notes possible routine or A&E testing, not limiting tests."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Clinician arranging with admin to book the appointment is a process detail not specified in gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Clinician states: 'I will send a message to one of our admin team members asking them to book you in.' This matches arranging with administration to book the appointment."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Instruction for patient to call a number to finalize slot is not mentioned in gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Clinician instructs: 'if you can ring the number that I leave in your consultation notes, after a few minutes, and then they'll slot you in.' This directly supports the fact."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice not to return to work until results/clearance is not present in gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Clinician advises: 'I don't think you can go into work, uh, until we've sorted this out.' This is equivalent to advising not to return to work until evaluation/clearance."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not explicitly describe follow-up based on test results and possible specialty referral.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Transcript states that blood test urgency depends on exam findings and that the GP in clinic will decide on urgency, but it does not discuss follow-up being dependent on test results or mention possible specialty referral. That portion is not present and is extrapolated."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "No productive cough is consistent with gold 'no cough'."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "No sore throat aligns with gold ROS-002."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "No diarrhoea matches gold ROS-005."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "No urinary symptoms corresponds to gold denial of dysuria and frequency."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "No neck stiffness matches gold ROS-006."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Screen-related headaches centralized on top of head match gold ROS-007 description of usual screen-related headache only."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "SUPPORTED",
+      "reasoning": "No rash matches gold ROS-008."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "No joint swelling matches gold ROS-009."
+    }
+  ]
+}

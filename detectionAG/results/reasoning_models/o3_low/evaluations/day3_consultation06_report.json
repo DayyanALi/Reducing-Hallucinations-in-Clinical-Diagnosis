@@ -1,0 +1,245 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 states 'Breathing difficulty after wasp sting (~15 min ago)', which matches the Gold fact of breathing difficulty for 15 minutes following a wasp sting."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Generated History_of_Present_Illness-004 notes 'tingling lips', which is semantically equivalent to the Gold fact 'tingling sensation around the lips'."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Generated History_of_Present_Illness-003 documents 'chest tightness', matching the Gold complaint of chest tightness."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold states 'no closing of the throat feeling'; Generated History_of_Present_Illness-005 states 'no throat swelling'. Both convey absence of throat compromise and are clinically aligned, so treated as covered."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Generated History_of_Present_Illness-007 notes '1st episode' of this type of reaction, which matches the Gold fact of no previous similar episodes."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "COVERED",
+      "reasoning": "Generated History_of_Present_Illness-006 states 'Patient has a blotchy rash', which matches the Gold physical finding of a blotchy rash observed on examination."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Generated Past_Medical_History-001 lists 'History of eczema', identical to the Gold past medical history of eczema."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Generated Past_Medical_History-002 lists 'History of aerosinusitis', matching the Gold history of aerosinusitis."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Generated Adverse_Drug_Reactions_and_Allergies-001 and -002 both state allergy to penicillin, matching the Gold allergy to penicillin."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "OMITTED",
+      "reasoning": "Gold assessment includes 'It might be just urticaria (hives)'; the Generated assessment focuses on suspected early anaphylaxis and does not mention urticaria or hives as a diagnostic consideration."
+    },
+    {
+      "fact_id": "asm-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states that an anaphylactic reaction needs to be ruled out (r/o possible anaphylactic reaction), implying diagnostic uncertainty; Generated Assessment-001 states 'Suspected early anaphylactic reaction to wasp sting', which treats anaphylaxis as the working diagnosis rather than something merely to be ruled out."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold advises to start antihistamines straight away; Generated Medications-003 and Plan_of_Care-002 specify taking an oral antihistamine now, which is equivalent immediate antihistamine therapy."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: 'Call the ambulance to r/o possible anaphylactic reaction'; Generated Plan_of_Care-001 instructs wife to call ambulance immediately, which covers calling EMS to address possible anaphylaxis."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-001: breathing difficulty after wasp sting about 15 minutes ago."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold mentions a wasp sting but does not specify that it occurred while gardening.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, 'about fifteen minutes ago, I was gardening and, um, I was stung by wasp.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold describes 'breathing difficulty'; Generated describes 'shallow breaths' after the sting, which is a consistent elaboration of breathing difficulty."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Directly matches Gold hpi-003 chest tightness after the sting."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-002 tingling sensation around the lips."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-004 notes no closing of the throat feeling; Generated notes no throat swelling. Both indicate absence of throat compromise and are clinically aligned."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold pf-001 blotchy rash observed."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-005: no previous similar episodes / first episode."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention the patient's uncertainty about needing hospital care.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient states, 'to be honest, I'm just doing this to establish whether I should go to the hospital,' indicating uncertainty about needing to go."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold pmh-001 history of eczema."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold pmh-002 history of aerosinusitis."
+    },
+    {
+      "fact_id": "Past_Medical_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold notes history of aerosinusitis but does not state that the patient uses antihistamines when flying.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked about antihistamines, patient says, 'yes, I've used them for flying. I have aerosinusitis, so yes, I do.'"
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention whether the patient is on regular medications.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Implied: Doctor asks, 'Are you on any regular medication at all?' followed by silence and 'OK.' No regular medications are mentioned, so documenting 'no regular medications' is a reasonable clinical inference."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state that the patient has over-the-counter antihistamines at home.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient confirms having antihistamines at home: 'yes, I've used them for flying... so yes, I do,' in response to 'do you have any antihistamines in your house at all?'"
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Equivalent to Gold plan-001: begin antihistamine therapy immediately."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold allergy-001: allergic to penicillin."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-002",
+      "status": "SUPPORTED",
+      "reasoning": "Also matches Gold allergy-001; redundant but consistent statement of penicillin drug allergy."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold asm-002 frames anaphylaxis as needing to be ruled out (diagnostic uncertainty), whereas this Generated fact asserts 'Suspected early anaphylactic reaction', treating it as the working diagnosis."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Builds on Assessment-001 by supporting suspected early anaphylaxis as the diagnosis; this is stronger than Gold's 'r/o possible anaphylactic reaction' and thus conflicts with the level of certainty in the Gold assessment."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Consistent with Gold allergy-001: drug allergy to penicillin."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold plan-002: call an ambulance to address possible anaphylactic reaction."
+    },
+    {
+      "fact_id": "Plan_of_Care-2",
+      "status": "SUPPORTED",
+      "reasoning": "Equivalent to Gold plan-001: take/start antihistamines immediately."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention advice against self-transport to hospital.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor says, 'I wouldn't want your wife to take you, I would like her to call the ambulance,' which advises against self-transport by car."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold plan does not explicitly state priority of airway protection and rapid ED assessment.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Partially implicit but supported: Doctor emphasizes urgency and risk of anaphylaxis\u2014'your breathing problem can get worse very quickly,' 'we are worried about... an anaphylactic reaction,' and wants an ambulance so 'you will be sorted out quickly,' which aligns with prioritizing airway protection and rapid ED assessment."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not include instructions to monitor for worsening SOB, lip/throat swelling, or dizziness.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Not supported: The transcript does not include explicit instructions to monitor for worsening shortness of breath, lip or throat swelling, or dizziness; these specific warning signs are not mentioned."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention ED consideration of intramuscular epinephrine.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Not supported: There is no mention of intramuscular epinephrine or specific ED treatments in the transcript."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention ED consideration of steroids.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Not supported: Steroids are not discussed in the transcript as part of ED management."
+    },
+    {
+      "fact_id": "Plan_of_Care-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention ED observation for biphasic reaction.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Not supported: Observation for biphasic reaction is not mentioned in the transcript."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold plan does not specify return instructions for deterioration.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Not supported: There are no explicit return or deterioration instructions such as 'for any deterioration, call EMS promptly' beyond the immediate instruction to call an ambulance now."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated states 'No vitals or physical examination findings available due to tele-consult', whereas Gold pf-001 documents a blotchy rash seen on examination, indicating that at least some physical findings were available."
+    }
+  ]
+}

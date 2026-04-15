@@ -1,0 +1,440 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 5\u2011day history of feeling unwell with cough and cold symptoms. Generated: chief complaint and HPI describe not feeling well for ~5 days with viral URI\u2011like illness, covering duration and symptom cluster."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: cough mainly dry. Generated: cough mostly dry, occasionally small amount of sputum. This is consistent with 'mainly' dry rather than contradictory."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: denies chest pain but more short of breath. Generated: SOB reported but not chest pain; breathing not clearly laboured. This matches and elaborates without contradiction."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: feeling hot/cold and sweaty, but has had no fevers. Generated: night sweats with feverish sensations and chills; no explicit denial of fever. The description of feverish sensations is compatible, but the Gold explicitly says no fevers, while the Generated record elsewhere uses 'high fever' as a red flag to monitor for, not documenting presence. However, presence/absence of fever is not clearly reversed; yet Gold explicitly states 'no fevers' as a current status, while Generated does not document 'no fever.' There is no direct statement that the patient has fever, so this is better considered OMISSION of the explicit 'no fever' rather than contradiction of it."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: sore throat, blocked ears, runny nose. Generated: sore throat and hoarseness, nasal congestion/runny nose. Sore throat and runny nose are covered; blocked ears are not mentioned but omission of that detail doesn\u2019t contradict the others. Overall symptom complex is covered."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: myalgia and arthralgia mainly stiffness in joints. Generated: musculoskeletal stiffness with bending elbows/knees. This is a compatible elaboration of joint stiffness."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: initial episode of diarrhea now resolved. Generated: diarrhea on day 1 of illness. Assessment notes diarrhea at onset now improving. This matches the temporal pattern and resolution trajectory."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "OMITTED",
+      "reasoning": "Gold: no unwell contacts and no nausea/vomiting. Generated HPI does not mention exposure/contacts or nausea/vomiting at all, so these negatives are not represented."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: obesity, type 2 diabetes, hypertension. Generated: DM2, HTN, and 'overweight' in PMH and Assessment. Overweight/obesity are semantically consistent, so the triad is covered."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: takes metformin, lisinopril, aspirin. Generated: metformin and lisinopril as chronic meds, and occasional aspirin PRN. All three drugs are present."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: NKDA. Generated: Allergies none documented / none known. This matches no known drug allergies."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: lives with wife, works in factory/manufacturing. Generated: lives with wife; works in a steel parts factory. This is a consistent specialization of factory/manufacturing."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: smoking socially, alcohol >9 units/week. Generated: smokes occasionally; drinks roughly 9 pints/week (~4 pints on weekends). Social smoking and occasional smoking are aligned; alcohol intake is elaborated but consistent with high use."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression viral URTI with possible LRTI. Generated: acute viral URI with cough, rhinorrhea, sore throat, hoarseness; SOB compatible with viral upper respiratory process. The possible LRTI element is not explicitly mentioned, but the viral URI impression is clearly covered; absence of '?LRTI' wording is omission of that nuance, not contradiction."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: conservative management with rest, fluids, regular paracetamol. Generated: symptom management; paracetamol PRN for fever/aches; encourage rest and fluids. This matches the conservative plan; PRN vs 'regular' is a minor regimen nuance but same treatment elements are present."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: delayed prescription for amoxicillin to start in 24\u201348 hours if symptoms not improving. Generated: amoxicillin 1 tab TID started today, with reassessment in 24\u201348 hours and continuation if not improved. This is the opposite timing and condition of use for antibiotics."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review in 1 week if not better. Generated plan/follow\u2011up: if not better by next week, return for re\u2011evaluation. This is semantically identical."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "PARTIALLY_COVERED",
+      "reasoning": "Gold: review earlier for worsening chest pain, SOB, or fevers. Generated: return sooner for increasing SOB, chest pain, high fever, inability to keep fluids down (adds another red flag). The listed red\u2011flag symptoms from Gold (chest pain, SOB, fevers) are covered, with an extra symptom added."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold history of 5\u2011day history of feeling unwell with cough and cold symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Type 2 diabetes and URI\u2011like illness are consistent with Gold PMH and assessment of viral URTI, but Gold does not specify age or explicitly call it viral in the HPI text. Viral URTI impression is in Assessment. So partially supported by Gold Assessment/PMH."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Cough mostly dry aligns with Gold 'mainly dry cough'; 'worse in the morning' is extra detail not in Gold but not contradictory."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Small amount of sputum at times is compatible with 'mainly dry cough' and does not contradict Gold."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Nasal congestion/runny nose aligns with Gold 'runny nose'; congestion is added but consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Sore throat is explicitly in Gold HPI."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Hoarseness due to vocal strain is not mentioned in Gold facts, which list only sore throat and blocked ears.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports shouting at football and being 'a wee bit hoarse'; this is consistent with hoarseness from vocal strain: 'I do a lot of shouting at that\u2026 I\u2019ve been, shouting myself a wee bit hoarse.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Shortness of breath but no chest pain matches Gold 'No chest pain. Feeling more SOB.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Breathing 'not clearly laboured' is not described in Gold; there is no confirmatory exam/observation note about work of breathing.",
+      "final_status": "CONTRADICTION",
+      "verification_reasoning": "The doctor explicitly checks if breathing is laboured and the patient says, 'No it's, it's, it's, it's not, it's not good. It's not good\u2026 Yeah, yeah' when asked if more short of breath, indicating some degree of laboured breathing rather than 'not clearly laboured.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Night sweats, feeling feverish, and chills are partially aligned with Gold 'feeling hot/cold and sweaty.' However, Gold explicitly states 'no fevers', whereas Generated uses 'feverish sensations' without documenting absence of fever. The symptom description (hot/cold, sweats) is supported; the implication about fever is not clearly supported or contradicted."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state that symptoms respond to rest and fluids; that response characteristic is not described.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Night sweats/feverish sensations and chills are described ('having to\u2026 get the blanket off, and put it back on again'), but there is no statement that these 'respond to rest and fluids.' That response is not mentioned."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "Diarrhea on day 1 of illness aligns with Gold 'diarrhea but resolved', which implies early in course and now resolved; further specified in Gold Assessment as 'at onset.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Current appetite status is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says, 'my appetite's been, been all right yeah, yeah. I'm trying to, trying to keep, keep the fluids up as well,' which supports that appetite is currently okay."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "SUPPORTED",
+      "reasoning": "Musculoskeletal stiffness with bending elbows/knees matches Gold description of myalgia/arthralgia mainly stiffness in joints (an elaboration)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "SUPPORTED",
+      "reasoning": "All symptoms started 4\u20135 days ago is consistent with Gold 5\u2011day history of generally unwell with cough and cold symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-015",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Specific calendar reference (Saturday before Wednesday) is not in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient dates onset to the prior Saturday and confirms current day is Wednesday: 'what day is it today? It's uh, Wednesday\u2026 it would have been that, Saturday\u2026 So, what's that about five, five days ago?'"
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 diabetes mellitus is listed in Gold PMH."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Hypertension is listed in Gold PMH."
+    },
+    {
+      "fact_id": "Past_Medical_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Overweight is semantically consistent with Gold 'obesity' in PMH."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Metformin for DM2 matches Gold medication list."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Lisinopril for hypertension matches Gold medication list."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "SUPPORTED",
+      "reasoning": "Taking metformin is explicitly in Gold medication list."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "SUPPORTED",
+      "reasoning": "Taking lisinopril is explicitly in Gold medication list."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "SUPPORTED",
+      "reasoning": "Occasional aspirin PRN is consistent with Gold listing aspirin in the drug history."
+    },
+    {
+      "fact_id": "Medications-006",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Paracetamol PRN for fever/aches is supported in Gold Plan as 'regular paracetamol' for conservative management. The indication matches, but dosing schedule (PRN vs regular) differs slightly."
+    },
+    {
+      "fact_id": "Medications-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: amoxicillin 1 tab TID started today. Gold: delayed prescription with instructions to start amoxicillin in 24\u201348 hours only if symptoms not improving. The timing and condition for starting differ and are opposite."
+    },
+    {
+      "fact_id": "Medications-008",
+      "status": "SUPPORTED",
+      "reasoning": "Continuing metformin and lisinopril during illness is consistent with Gold listing these as ongoing meds; Gold does not advise holding them."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No allergies documented corresponds to Gold NKDA."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-002",
+      "status": "SUPPORTED",
+      "reasoning": "No known allergies matches Gold NKDA."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recent celebration of wife\u2019s promotion is not mentioned in Gold social history.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient describes going out to celebrate wife's promotion: 'my wife, has just been, uh, promoted. So, she's now going to be, uh, a head teacher\u2026 So, just took her out\u2026 wee, a wee night on the tiles.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state whether there are children at home.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient confirms no children at home: 'no, no, kids, the kids have uh, they've flown the nest. So uh, now it's just me and the missus.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Working in a steel parts factory is a specific form of factory/manufacturing job noted in Gold."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Smokes occasionally is consistent with Gold 'smoking socially.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Use of e\u2011cigarettes/vaping is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports using a vaporizer: 'I've got a wee uh, what are those wee things called? The wee vaporisers\u2026 I just got this wee, this wee thing, it's great.' This supports use of e-cigarettes/vaping products."
+    },
+    {
+      "fact_id": "Social_and_Family_History-006",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Alcohol consumption is in Gold as >9 units/week; Generated specifies approximately 9 pints/week and weekend pattern. Quantity/pattern elaboration is not in Gold but consistent with high intake; base concept of regular alcohol use is supported."
+    },
+    {
+      "fact_id": "Social_and_Family_History-007",
+      "status": "SUPPORTED",
+      "reasoning": "Lives with wife is in both Gold and Generated."
+    },
+    {
+      "fact_id": "Social_and_Family_History-008",
+      "status": "SUPPORTED",
+      "reasoning": "Employed is consistent with Gold 'works in factory/manufacturing.'"
+    },
+    {
+      "fact_id": "Social_and_Family_History-009",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Tobacco use is in Gold as smoking socially; vaping is additional and not present in Gold. Thus tobacco portion is supported, vaping is extra."
+    },
+    {
+      "fact_id": "Social_and_Family_History-010",
+      "status": "SUPPORTED",
+      "reasoning": "Alcohol use as above is supported by Gold note of >9 units/week."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Acute viral URI with cough, rhinorrhea, sore throat, hoarseness matches Gold impression of viral URTI; hoarseness is additional."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "SOB on exertion compatible with viral upper respiratory process and no chest pain is consistent with Gold SOB, no chest pain, and viral URTI impression."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "SUPPORTED",
+      "reasoning": "Diarrhea at onset now improving matches Gold 'diarrhea but resolved.'"
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "DM2 on metformin, HTN on lisinopril, overweight/obesity aligns with Gold PMH and meds."
+    },
+    {
+      "fact_id": "Assessment-005",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Tobacco use and alcohol use are in Gold social history; vaping and counseling are not described in Gold but are reasonable additions. Thus tobacco and alcohol use are supported; vaping and counseling are extra."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Symptom management for viral illness corresponds to Gold conservative management for viral URTI."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Paracetamol for fever/aches is supported by Gold regular paracetamol advice. PRN vs regular schedule differs, but the medication and indication are aligned."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Encouraging rest and fluids matches Gold plan for rest and increased fluid intake."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: amoxicillin started today. Gold: delayed script to start amoxicillin only in 24\u201348 hours if not improving. This directly conflicts on timing/criteria for initiating antibiotics."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Reassessment in 24\u201348 hours after starting amoxicillin is not in Gold; Gold uses 24\u201348 hours as the window before starting a delayed prescription, not as a reassessment point.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Doctor advises to start antibiotics in 24\u201348 hours if not improving, not to reassess clinical status 24\u201348 hours after starting: 'I'll give you a script today, give it about twenty four to forty eight hours. If you feel like you're still feeling breathless and, run-down, I think there's no harm in starting a course of antibiotics.' No separate reassessment at 24\u201348 hours post-start is planned."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Instruction to continue amoxicillin course if still breathless or not improved is not present in Gold, which instead conditions starting the antibiotic on lack of improvement.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Plan is to start a full course of amoxicillin if not better in 24\u201348 hours; there is no conditional instruction about what to do 'if still breathless or not improved at reassessment' or an explicit directive to continue in that scenario. The transcript does not mention such a reassessment or continuation decision."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "SUPPORTED",
+      "reasoning": "Return if not better by next week aligns with Gold 'review in 1 week if not better.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-008",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Monitoring for increasing SOB, chest pain, and high fever matches Gold earlier review for worsening chest pain, SOB, or fevers; 'inability to keep fluids down' is an extra red flag not in Gold."
+    },
+    {
+      "fact_id": "Plan_of_Care-009",
+      "status": "SUPPORTED",
+      "reasoning": "Continuing metformin and lisinopril is consistent with ongoing medications in Gold; no instruction to stop is given there."
+    },
+    {
+      "fact_id": "Plan_of_Care-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Monitoring for dehydration or worsened BP is not discussed in Gold plan.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "There is no mention of monitoring for dehydration or worsened blood pressure during this illness. Only general advice is given: rest, fluids, paracetamol, and possible antibiotics."
+    },
+    {
+      "fact_id": "Plan_of_Care-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Lifestyle counseling on smoking/vaping reduction is not present in Gold record.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor gives brief lifestyle counseling on smoking/vaping: 'Well, I wish you, all the best on your journey to quit, I, I highly recommend it. Um, if you can, it'll certainly help your health as well.' This supports counseling to reduce/quit smoking and vaping."
+    },
+    {
+      "fact_id": "Plan_of_Care-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Lifestyle counseling on moderation of alcohol intake is not present in Gold record.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Alcohol intake is discussed descriptively, but there is no explicit counseling or advice about moderating alcohol use."
+    },
+    {
+      "fact_id": "Plan_of_Care-013",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Emphasis on flu\u2011like illness considerations with comorbidities is not mentioned in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "The doctor does not explicitly tie flu-like illness management to comorbidities (diabetes, hypertension). They are documented but not discussed as part of the illness considerations."
+    },
+    {
+      "fact_id": "Plan_of_Care-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Follow\u2011up after completing antibiotics if not improved and more general persistence/worsening plan are not specified in Gold; Gold only states 1\u2011week review if not better and earlier review if worsening SOB/chest pain/fever.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor states: 'if you're still not better by next week, come back and see me, we can have another look.' This supports follow-up if symptoms persist or worsen after the antibiotics course timeframe, though it does not explicitly say 'after completing antibiotics'."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Reassessment in 24\u201348 hours after starting amoxicillin is not in Gold; 24\u201348 hours in Gold refers to when to start a delayed antibiotic, not to follow\u2011up timing.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "24\u201348 hours is the waiting period before starting antibiotics, not a scheduled reassessment after starting them: 'give it about twenty four to forty eight hours. If you feel like you're still feeling breathless\u2026 start\u2026 antibiotics.' No reassessment is planned at that point."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "SUPPORTED",
+      "reasoning": "If not better by next week return for re\u2011evaluation is identical to Gold follow\u2011up in one week if not better."
+    },
+    {
+      "fact_id": "Follow_up_Information-003",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Return sooner for increasing SOB, chest pain, or high fever is supported by Gold earlier review for worsening chest pain, SOB, or fevers; 'inability to keep fluids down' is additional."
+    },
+    {
+      "fact_id": "Follow_up_Information-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Instruction for follow\u2011up after completing antibiotics if not improved is not present in Gold, which does not describe a full antibiotic course unless needed.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises: 'if you're still not better by next week, come back and see me, we can have another look.' This covers returning if symptoms persist/not improved; the note\u2019s addition of 'after completing antibiotics if not improved' partly extrapolates from the one-week timeframe but is consistent with the intent for follow-up if not better."
+    }
+  ]
+}

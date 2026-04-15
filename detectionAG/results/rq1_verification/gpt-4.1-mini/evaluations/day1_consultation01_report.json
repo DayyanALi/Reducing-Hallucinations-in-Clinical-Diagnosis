@@ -1,0 +1,332 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 3\u2011day history of mainly watery diarrhea. Generated: multiple facts (Chief_Complaint-001, History_of_Present_Illness-001, Review_of_Systems-001) describe a 3\u2011day history of diarrhea with loose/watery stools; this is semantically equivalent, with only minor elaboration on frequency."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "OMITTED",
+      "reasoning": "Gold explicitly states no blood in the stool. Generated facts describe diarrhea and vomiting but do not address presence or absence of blood in stool at all, so the concept is missing rather than contradicted."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: bowels opening 6 times/day. Generated: 6\u20137 times/day (Chief_Complaint-002, History_of_Present_Illness-001, Review_of_Systems-001). Slight numerical elaboration (6\u20137 vs 6) is acceptable as equivalent coverage."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "OMITTED",
+      "reasoning": "Gold: LLQ intermittent crampy pain with no radiation. Generated facts (Chief_Complaint-003, History_of_Present_Illness-002, Review_of_Systems-002) cover LLQ, crampy, intermittent abdominal pain but do not mention radiation at all. Absence of the radiation detail makes the 'no radiation' part omitted rather than contradicted."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: vomiting with no blood in vomit. Generated: initial vomiting without blood, now resolved (History_of_Present_Illness-003, Review_of_Systems-003). This matches and adds that vomiting has resolved, which is a consistent elaboration."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: fever on first day, none since. Generated: felt feverish at symptom onset, no current fever (History_of_Present_Illness-004, Review_of_Systems-004). This is semantically equivalent to transient early fever that has resolved."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: feeling lethargic and weak. Generated: weakness and shakiness (History_of_Present_Illness-005, Review_of_Systems-005). Weakness is directly covered; shakiness is an added, consistent symptom. Lethargy is reasonably encompassed within weakness/fatigue context."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: loss of appetite. Generated: explicitly notes loss of appetite (History_of_Present_Illness-005, Review_of_Systems-006)."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Gold: Chinese takeaway 4 days ago. Generated: recent Chinese takeaway 4 days ago (History_of_Present_Illness-008). Same exposure and timing."
+    },
+    {
+      "fact_id": "hpi-010",
+      "status": "OMITTED",
+      "reasoning": "Gold: wife and one child unwell with vomiting, but no diarrhea. Generated: only mentions one child with vomiting without diarrhea (History_of_Present_Illness-009, Family_History-001); it omits that the wife is also unwell. The child\u2019s symptom pattern is covered, but the wife's illness is missing."
+    },
+    {
+      "fact_id": "hpi-011",
+      "status": "OMITTED",
+      "reasoning": "Gold: no other unwell contacts. Generated facts do not state anything about other contacts being well or unwell beyond the one child; thus this explicit exclusion is not represented."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: history of asthma. Generated: history of asthma, well\u2011controlled with inhaler (Past_Medical_History-001, -002). This matches and expands with control status."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: uses inhalers. Generated: uses inhaler for asthma control (Medications-001). Same medication use with added context of indication."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: works as an accountant. Generated: works as accountant (Social_and_Family_History-003)."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: lives with wife and children. Generated: mentions family context only through a child with vomiting; there is no explicit statement about living with wife and children, so the living arrangement is omitted."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: symptoms affecting ADLs as he must stay near a toilet. Generated: symptoms affecting work attendance and daily activities (History_of_Present_Illness-010, Social_and_Family_History-004). The impact on ADLs is covered, though the toilet\u2011proximity detail is not specified but is not contradicted."
+    },
+    {
+      "fact_id": "sh-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no history of smoking or alcohol use. Generated: non\u2011smoker and no alcohol (Social_and_Family_History-001, -002). Semantically equivalent."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression gastroenteritis. Generated: acute gastroenteritis, likely viral (Assessment-001). This matches the diagnosis and adds an etiologic suggestion that does not conflict with Gold."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: conservative management with rest, increased fluids, and paracetamol if feverish. Generated: conservative management focused on hydration (Plan_of_Care-001) and paracetamol for fever/weakness (Plan_of_Care-003) but does not explicitly mention rest as an element of conservative management; rest is only implied later via work absence. Since the plan fact explicitly includes rest, that component is missing here."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: recommended OTC Dioralyte. Generated: consider use of oral rehydration solutions such as Dioralyte (Plan_of_Care-002). Same intervention, phrased as consideration rather than directive but clinically aligned."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: review in 3\u20135 days if no improvement. Generated: review if no improvement in 3\u20134 days (Plan_of_Care-005, Follow_up_Information-001). The upper bound (4 vs 5 days) is narrower and therefore conflicts with the 3\u20135 day range rather than simply being a paraphrase."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to seek review earlier if more unwell. Generated: instructs review if condition worsens (Plan_of_Care-005, Follow_up_Information-001/002 imply reassessment if ongoing or worsened). While phrased via lack of improvement and consideration of further investigations, it preserves the idea of earlier/more urgent review with worsening or non-improvement."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "3\u2011day history of diarrhea matches Gold hpi-001 (3\u2011day history of mainly watery diarrhea)."
+    },
+    {
+      "fact_id": "Chief_Complaint-002",
+      "status": "SUPPORTED",
+      "reasoning": "Loose, watery stools 6\u20137 times per day corresponds to Gold hpi-001 and hpi-003 (mainly watery diarrhea, opening bowels 6 times/day). Minor difference 6\u20137 vs 6 is acceptable."
+    },
+    {
+      "fact_id": "Chief_Complaint-003",
+      "status": "SUPPORTED",
+      "reasoning": "LLQ crampy, intermittent abdominal pain matches Gold hpi-004 (LLQ intermittent crampy pain)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "3\u2011day history of diarrhea with loose, watery stools 6\u20137 times/day aligns with Gold hpi-001 and hpi-003."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "LLQ crampy, intermittent abdominal pain matches Gold hpi-004 description of LLQ intermittent crampy pain (radiation detail is in Gold but its absence here does not contradict)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Initial vomiting without blood is consistent with Gold hpi-005 (vomiting, no blood in vomit); resolution of vomiting is an added, non\u2011conflicting detail."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Felt feverish at onset with no current fever matches Gold hpi-006 (fever on first day, nil since)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Weakness and loss of appetite match Gold hpi-007 and hpi-008 (lethargic/weak and loss of appetite); shakiness is an added, not\u2011in\u2011Gold element but overall the fact is supported for the overlapping components."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Ability to hold down fluids is not mentioned in the Gold facts, so it is an additional detail.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient states, 'I haven't been eating as much, but I've been able to hold down fluids.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Diet limited to soups, smoothies, and light foods is not described in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked what foods he has managed to eat, patient answers, 'just soups, and, uh, yeah, light foods. Like smoothies and, yeah, liquid foods mainly.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "Chinese takeaway 4 days prior to onset matches Gold hpi-009 (takeaway 4/7 ago \u2013 Chinese restaurant)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "CONTRADICTED",
+      "reasoning": "States no similar symptoms in family except one child with vomiting without diarrhea. Gold hpi-010 says wife and one child are unwell with vomiting but no diarrhea. Generated fact omits the wife and implies others (including wife) do not have similar symptoms, which conflicts with Gold."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "Symptoms affecting work attendance and daily activities is consistent with Gold sh-003 (affecting ADLs due to frequent toilet need)."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "History of asthma matches Gold pmh-001."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Asthma being well\u2011controlled with inhaler is not specified in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, 'other than um athsma, um I use an inhaler, everything else is fine,' and when asked if asthma is well-controlled responds, 'yeah, that's fine. I just, yeah, use an inhaler, and uh that's under control.'"
+    },
+    {
+      "fact_id": "Past_Medical_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Statement that there are no other bowel problems is absent from the Gold summary.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks, 'you don't have any other tummy problem, bowel problems I should be aware of?' Patient replies, 'No.'"
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Uses inhaler for asthma matches Gold med-001 (uses inhalers) and pmh-001 (asthma)."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state that there are no other medications; it only lists inhalers.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks, 'apart from the inhalers, do you take any other medications?' Patient answers, 'Uh, no, no other medications.'"
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Paracetamol for fever and weakness is consistent with Gold plan-001 (paracetamol if feverish). The specific dose 'up to 2 tablets four times daily' is not in Gold, so the dosing detail is not in Gold while the general recommendation is supported."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "One child with vomiting without diarrhea matches part of Gold hpi-010 (wife and one child unwell with vomiting, but no diarrhea)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Non\u2011smoker corresponds to Gold sh-004 (nil smoking/etOH history)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "No alcohol matches Gold sh-004 (nil smoking/etOH history)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Works as an accountant matches Gold sh-001."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Symptoms affecting work attendance and daily activities is consistent with Gold sh-003 (symptoms affecting ADLs)."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Acute gastroenteritis matches Gold asm-001 (gastroenteritis); viral etiology is an additional, not\u2011in\u2011Gold elaboration but not a contradiction."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Summarizes symptoms (diarrhea, vomiting, LLQ cramps, transient fever, weakness) that are all present in the Gold HPI facts (hpi-001, hpi-004, hpi-005, hpi-006, hpi-007)."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Conservative management with focus on maintaining hydration aligns with Gold plan-001 (conservative management, push fluids). However, Gold also explicitly includes rest and paracetamol if feverish; this specific fact mentions only hydration, so it is partially supported."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Oral rehydration solutions such as Dioralyte match Gold plan-002 (recommend OTC Dioralyte)."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Paracetamol for fever/weakness is consistent with Gold plan-001 (paracetamol if feverish). The explicit dosing regimen (up to 2 tablets QID) is not present in Gold and is therefore not supported by Gold facts."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice for 2\u20133 days off work for rest and recovery is not described in the Gold plan or social history.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor advises, 'I will certainly advise you to take some time off work... I would say the next two, two to three days as the infection clears from your system to take some time off and rest.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Specifies review if no improvement in 3\u20134 days and consideration of stool studies/further investigations. Gold fu-001 advises review in 3\u20135 days, not 3\u20134; the shorter time window (3\u20134 vs 3\u20135) conflicts with the Gold follow\u2011up interval, although consideration of additional investigations if no improvement is not present in Gold and is otherwise NOT_IN_GOLD."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Review if no improvement in 3\u20134 days conflicts with Gold fu-001 which states 3\u20135 days."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Consideration of stool studies and further investigations if no improvement is not mentioned in the Gold follow\u2011up plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor states, 'if your symptoms haven't got better, you know, in in three to four days, I'd like to come and see you again... we may need to do further tests like um taking a sample of your stool so we can test that.'"
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not describe the status of objective physical examination documentation; this meta\u2011statement is not present in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript contains no examination findings; doctor says he would normally examine, but no actual physical exam details are documented, so stating no objective physical examination findings were documented is consistent."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "GI: diarrhea with loose, watery stools 6\u20137 times/day aligns with Gold hpi-001 and hpi-003."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "GI: LLQ crampy, intermittent abdominal pain matches Gold hpi-004 description."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "GI: initial vomiting without blood, now resolved is consistent with Gold hpi-005 (vomiting, no blood) and Gold hpi-006 regarding the time course of symptoms, though vomiting resolution is an added detail."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "Constitutional: felt feverish at onset, no current fever matches Gold hpi-006 (fever on first day, nil since)."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "Weakness corresponds to Gold hpi-007 (lethargic and weak); shakiness is an additional symptom not in Gold but does not contradict it."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Loss of appetite matches Gold hpi-008."
+    }
+  ]
+}

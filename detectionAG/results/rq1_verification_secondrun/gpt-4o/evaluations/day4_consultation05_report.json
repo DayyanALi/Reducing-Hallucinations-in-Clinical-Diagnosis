@@ -1,0 +1,288 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Generated Chief_Complaint-001 includes 3-day history of diarrhea and abdominal pain; vomiting is an added symptom but does not contradict."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "OMITTED",
+      "reasoning": "Gold specifies watery diarrhea 5\u20136 times/day, no blood, and sensation of incomplete evacuation. Generated facts mention diarrhea, no blood, and high frequency (needing to stay near toilet) but do not specify 5\u20136/day or the incomplete evacuation sensation; therefore the specific Gold fact is not fully represented."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "OMITTED",
+      "reasoning": "Gold describes pain since onset, non-radiating, mild\u2013moderate tenderness and cramping. Generated facts only localize central pain below umbilicus and note partial relief with bowel movements; they do not address radiation, severity, or cramping."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold states eating and drinking provoke nausea and a feeling of gas. Generated History_of_Present_Illness-009 says oral intake is limited due to frequent bowel movements, not nausea; this gives a different reason and implicitly conflicts with nausea as the main limiting factor."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "OMITTED",
+      "reasoning": "Gold: some vomiting, now unable to tolerate fluids and solids. Generated facts mention vomiting and timing but do not state inability to tolerate fluids or solids."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "OMITTED",
+      "reasoning": "Gold: after eating this morning, patient vomited immediately. Generated facts only say last vomiting episode was this morning, without linking it directly and immediately to eating."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "OMITTED",
+      "reasoning": "Gold: patient feels and appears dehydrated. Generated History_of_Present_Illness-010 says hydration may be inadequate, which is weaker and does not clearly state that the patient feels and looks dehydrated."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "OMITTED",
+      "reasoning": "Gold: unable to go to work due to frequency of bowel movements. Generated Social_and_Family_History-001 only notes concern about work impact, not actual inability to go to work."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: childhood asthma. Generated Past_Medical_History-001: history of asthma. Age of onset not specified but consistent and covering the concept."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: NKDA. Generated Adverse_Drug_Reactions_and_Allergies-001: no known drug allergies. Semantically identical."
+    },
+    {
+      "fact_id": "fh-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: father has a history of stomach cancer. Generated Family_History-001: father died of bowel cancer. Different cancer site and adds death, so it conflicts with the Gold detail."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "COVERED",
+      "reasoning": "Gold: denies fever. Generated History_of_Present_Illness-013 and Review_of_Systems-003 both state no fever reported."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "COVERED",
+      "reasoning": "Gold: denies breathing problems. Generated History_of_Present_Illness-012 and Review_of_Systems-002: no breathing difficulties beyond usual asthma symptoms\u2014equivalent denial of acute breathing problems."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "COVERED",
+      "reasoning": "Gold: denies chest pain. Generated History_of_Present_Illness-011 and Review_of_Systems-001: no chest pain."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies headache. No generated fact addresses headache."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: DDx gastroenteritis. Generated Assessment-001: gastroenteritis, which matches the working diagnosis."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: advised fluids for rehydration. Generated Plan_of_Care-001: increase fluid intake\u2014same recommendation."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: advised to stay at home for the time being. Generated Plan_of_Care-003: stay home until symptoms improve\u2014same underlying plan."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: monitor for development of fever. Generated Plan_of_Care-002: monitor for fever\u2014equivalent."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: if symptoms do not improve, visit GP surgery. Generated Plan_of_Care-005 and Follow_up_Information-001: follow-up with GP if symptoms worsen\u2014clinically equivalent trigger for GP review."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold Chief_Complaint includes diarrhea and abdominal pain for 3 days; vomiting is also present in HPI. Combining them in CC is consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: diarrhea and abdominal pain for 3 days. Generated: diarrhea for ~3 days\u2014matches duration."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold hpi-001: only fluid, no blood. Generated explicitly states diarrhea without blood."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold notes frequency 5\u20136/day and impact on work, but does not specify needing to stay near the toilet.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states they need to be close to the toilet: \"I need to be like close to the toilet uh, all the time\" and \"I can't go to work because I need to go...\" indicating diarrhea frequency requires staying near the toilet."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: central abdominal pain. Generated: central abdominal pain below umbilicus\u2014adds location detail without contradiction."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not state that pain is relieved by bowel movements, so this is new information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says pain improves after bowel movements: \"it seems to be alleviate a bit, toilet\" which indicates abdominal pain is alleviated slightly by going to the toilet."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold describes some vomiting and a specific immediate episode after eating this morning, but not a 3-day history of vomiting as such.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Transcript mentions vomiting occurred, and that diarrhea has lasted 3 days, but does not state vomiting has been ongoing for 3 days: \"I have... abdominal pain. And I, had a bit of vomiting\" and later \"I think it was this morning\" for last vomit. Duration of vomiting for 3 days is not supported."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: ate this morning and vomited immediately; this implies a vomiting episode this morning consistent with \u2018last episode this morning\u2019."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not describe presence or absence of blood in vomit.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient denies blood in vomitus: initially unsure but clarifies it's from strawberries: \"I don't think there is blood because uh, yeah it was, it was the strawberries that I was having for breakfast.\" Thus vomiting without blood is supported."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: eating and drinking provoke nausea and gas; limitation of intake is implied due to nausea. Generated attributes limited intake to frequent bowel movements instead, conflicting with Gold\u2019s stated cause."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold states patient feels and looks dehydrated (more definite). \u2018Possibly inadequate\u2019 is not directly present and understates the Gold finding.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient suggests inadequate water intake: \"maybe I'm not drinking enough water, yeah. I drink uh, I think I, yeah I don't know. I, I think I don't drink enough water.\" This supports that hydration may be inadequate."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS: no chest pain; same statement appears in generated HPI."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS-002 denies breathing problems. Generated clarifies no breathing difficulties beyond baseline asthma\u2014semantically equivalent denial of acute dyspnea."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS-001: no fevers. Generated: no fever reported with current illness."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Mild sweating is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports sweating over the last few days: \"I was sweating a little bit the last four days\" which supports mild sweating."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: childhood asthma. Generated: history of asthma and uses inhaler. This aligns with a history of asthma; inhaler use is added detail."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold PMH lists asthma but does not mention inhaler use or specific medications.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient clearly states: \"I have, I have, I have a, asthma, and I take some uh, some uh, um, inhaler\" and later references using an inhaler. This supports that patient uses an inhaler for asthma."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold allergy-001: NKDA. Generated: no known drug allergies\u2014same concept."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: father had stomach cancer. Generated: father died of bowel cancer, differing organ and outcome; conflicts with Gold FH detail."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold states inability to work due to bowel frequency, but does not describe subjective concern about work impact.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Illness affects work due to toilet needs: \"I can't go to work because I need to go...\" and needing to be close to a toilet, which indicates concern about impact on work."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold asm-001 lists gastroenteritis as differential; Generated Assessment-001 uses gastroenteritis as diagnosis\u2014consistent with that assessment."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention suspected dietary origin or explicitly label symptoms as infectious.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor attributes symptoms to likely infection from bad food: \"you might have eaten something bad, and it's causing your tummy pain... this is normally called gastroenteritis, so, an infection of the tummy\" and \"Normally, it's when you eat, um, bad food or food that has gone off\" indicating infection likely of dietary origin."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan-001: fluids. Generated: increase fluid intake\u2014same management step."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan-003: monitor for fever. Generated Plan_of_Care-002: monitor for fever\u2014identical."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold plan-002: stay at home for the time being. Generated: stay home until symptoms improve\u2014same intent."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold plan does not address antibiotic use.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises against antibiotics: \"Normally, things like antibiotics don't help, they make the situation worse.\" This supports the recommendation to avoid antibiotics."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "SUPPORTED",
+      "reasoning": "Gold fu-001: if symptoms do not improve, visit GP. Generated: follow-up with GP if symptoms worsen\u2014clinically equivalent trigger."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold fu-001 instruction to see GP if symptoms are not improving/worsening."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS-003: no chest pain. Same statement here."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS-002: denies breathing problems. Generated: no breathing difficulties beyond usual asthma\u2014equivalent."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS-001: no fevers. Same in generated ROS."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Mild sweating is not captured in the Gold review of systems.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports mild sweating: \"I was sweating a little bit the last four days\" which aligns with mild sweating in the review of systems."
+    }
+  ]
+}
