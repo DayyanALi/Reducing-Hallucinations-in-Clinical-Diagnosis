@@ -1,0 +1,411 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "OMITTED",
+      "reasoning": "Gold states patient has felt unwell for 8 days; generated facts give timing of sore throat (~1 week) but do not explicitly state overall duration of feeling unwell for 8 days."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: illness began with sore throat then progressed to dry cough. Generated HPI-001 and HPI-002 state sore throat first and dry cough 1\u20132 days later, matching the sequence and nature of symptoms."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: non-productive cough with no sputum. Generated HPI-003 and multiple ROS facts describe a dry cough with no sputum, which is equivalent."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: no blood in cough. Generated HPI-013 and ROS-011 state denies hemoptysis, which is semantically the same."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: patient denies chest pain. Generated HPI-007 and ROS-005 state the patient reports chest pain ('a bit of both'), which is the opposite."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: mild SOB, not at rest, not limiting activity. Generated HPI-004\u2013006 and ROS-003 describe SOB with exertion, not at rest, and not limiting exercise/ADLs, which matches."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: slight fever symptoms. Generated HPI-009 and ROS-006 describe feeling feverish for the first ~3 days, now resolved, which is consistent with slight fever symptoms."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: symptoms gradually improving. Generated Assessment-001 notes a variable but non-progressive course and the plan/follow-up expect improvement in 4\u20135 days; while not explicitly saying 'improving', this is consistent with non-worsening and expectation of recovery. However, no explicit statement of current improvement is present, so this is borderline; still, the non-progressive course and context imply no deterioration but not clear improvement. More strictly, there is no direct mention of 'gradually improving', so this should be OMISSION rather than clear coverage."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "OMITTED",
+      "reasoning": "On strict reading, no generated fact explicitly states that symptoms are currently gradually improving; only that the course is non-progressive and expected to improve. Therefore the specific concept of current gradual improvement is absent."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: reduced appetite. Generated HPI-011 and ROS-008 state decreased appetite, which is equivalent."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Gold: denies unintentional weight loss. Generated HPI-011 and ROS-009 state denies weight loss, which matches."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: denies history of asthma. Generated Past_Medical_History-002 states no history of asthma, which is identical."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: no significant past medical history. Generated Past_Medical_History-001 states denies past medical history, which is equivalent."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no significant regular medications. Generated Medications-001 states no current medications, which is consistent."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no known drug allergies (NKDA). Generated Adverse_Drug_Reactions_and_Allergies-001 lists a peanut allergy. This directly conflicts with NKDA."
+    },
+    {
+      "fact_id": "fh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: mother had lung cancer. Generated Family_History-001 states mother has lung cancer, which matches."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: non-smoker. Generated Social_and_Family_History-001 states never smoker, only tried once or twice, which is consistent with being a non-smoker."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no asbestos exposure. Generated Social_and_Family_History-002 states asbestos exposure status unknown, which contradicts the definite 'no exposure' in Gold."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: no significant recent travel history. Generated HPI-014 notes recent travel only within Europe and HPI-015 that patient lives in the UK; this is compatible with 'no significant travel' as the gold phrasing focuses on significance, not absolute absence."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: on examination the patient looks well. Generated Physical_Findings-002 states no exam/vitals performed, and there is no statement that the patient looks well on exam."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: advised that a formal work certificate is not required and he can self-certify. Generated Plan_of_Care-004 and Assessment-002 state that a sick note will be provided for additional days off work, which implies a formal certificate is being issued, opposite to Gold."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: seek review if symptoms worsen, especially sudden change in SOB. Generated Plan_of_Care-002 and Follow_up_Information-001 give safety-net advice to seek review if SOB worsens or there is sudden change, which matches."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Gold: expected to improve within 5 days and seek review if not better then. Generated Plan_of_Care-002 and Follow_up_Information-001 advise review if not improving in 4\u20135 days, which is semantically equivalent to 5 days."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Sore throat for ~1 week with dry cough is consistent with Gold HPI-001 describing onset with sore throat then dry cough; duration (~1 week) aligns with 8 days."
+    },
+    {
+      "fact_id": "Chief_Complaint-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Requesting reassurance, advice, and sick note and having missed work 3\u20134 days are not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient requests reassurance, advice, and possibly a sick note due to illness and missed work: 'reassurance... is there anything you can prescribe me... Or maybe even a sick note. So that, if I need to stay away from work for a bit longer, I can get one.' and 'I've had to stay away from work, for about three or four of those days.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Sore throat first about one week ago matches Gold HPI-001 (illness began with sore throat)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Dry cough 1\u20132 days after sore throat is a more detailed version of Gold HPI-001 (progressed to a dry cough)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Dry cough without sputum matches Gold HPI-002 (non-productive, no sputum)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Onset of SOB 3\u20134 days ago is not specified in Gold; Gold only notes mild SOB characteristics, not timing.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Shortness of breath timing: patient says SOB started 'shortly after the cough... So maybe a day or two later. So, three, four days ago.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "SOB with exertion but not at rest matches Gold HPI-005 (not at rest, mild)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "SOB not limiting exercise/ADLs matches Gold HPI-005 (not limiting activity)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated states patient reports wheeze and chest pain; Gold HPI-004 explicitly denies chest pain, so this conflicts."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Cough not worse at night is not addressed in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Cough not worse at night: Doctor asks 'is the cough worse at night-time?' Patient replies 'No, no, it's the same throughout the whole day.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Feverish for first ~3 days, now resolved, is consistent with Gold HPI-006 (slight fever symptoms) though more detailed."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Intermittent headaches are not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Headache description: Patient says 'also had a bit of a headache. But like, headaches that come and go rather, but like, right now it's fine.' This supports intermittent earlier headaches, none currently."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "Decreased appetite without weight loss matches Gold HPI-008 (reduced appetite) and HPI-009 (denies unintentional weight loss)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No sinus congestion and symptoms limited to throat are not described in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Sinus congestion denied and symptoms limited to throat: Doctor asks 'do you have , sinus congestion?' Patient: 'No, it seems to be , entirely with just my throat.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "SUPPORTED",
+      "reasoning": "Denies hemoptysis matches Gold HPI-003 (no blood in cough)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recent travel only within Europe is not specified in Gold, which only notes no significant travel history.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Recent travel only within Europe: Patient says 'in terms of recent travel. Just to Europe, nowhere too exotic.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-015",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Living in the UK is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Residence in UK: Doctor asks 'have you always lived in the UK?' Patient: 'I was born in the US, and moved over... twelve years ago,' implying current residence in the UK."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-016",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Being born in the US is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Birth in US: Patient states 'I was born in the US, and moved over.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-017",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No neck lumps/bumps by patient report is not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No neck lumps/bumps: Doctor asks 'Have you got any lumps or bumps around your neck? That you can feel?' Patient replies 'No.'"
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Denies past medical history matches Gold PMH-002 (no significant past medical history)."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "No history of asthma matches Gold PMH-001 (denies a history of asthma)."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "No current medications matches Gold med-001 (no significant regular medications)."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recommendation for paracetamol is not mentioned in the Gold medication list; Gold only notes no significant drug history.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Paracetamol recommended: At the end, doctor says 'And, I'll provide you with a sick note... Um, and paracetemol. Lots of fluids. Um, and, uh, rest up.'"
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Peanut allergy conflicts with Gold allergy-001, which states NKDA (no known drug allergies)."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Mother has lung cancer matches Gold fh-001 (mother had lung cancer)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Never smoker (tried once/twice) is consistent with Gold sh-001 (non-smoker)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Asbestos exposure unknown conflicts with Gold sh-002, which states no asbestos exposure."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "The diagnostic assessment (acute pharyngitis/viral URI, wheeze, etc.) is not present in the Gold facts, which only summarize history, exam, and plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript supports an acute viral upper respiratory illness with sore throat, dry cough, mild exertional SOB, wheeze, transient fever, and variable but not clearly progressive course. Symptoms: sore throat then dry cough, SOB on exertion, 'a bit of both' wheeze and chest pain, 'a little bit feverish... first three or so days... then... gone away,' and course 'up and down... better and then worse again.' Labeling as acute pharyngitis/viral URI is a reasonable clinical inference."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Work absence requiring sick note conflicts with Gold plan-001, which states a formal work certificate is not required and self-certification is sufficient."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Peanut allergy as an assessment conflicts with Gold allergy-001 (NKDA)."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Health anxiety regarding TB and cancer is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Health anxiety about TB and cancer: Patient says they Googled and found 'could be tuberculosis. It could be, cancer always comes up so. It'll be good if, none of those.' Doctor later addresses these concerns, indicating anxiety about TB and cancer."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Symptomatic care with paracetamol, fluids, and rest is not described in the Gold plan, which only mentions work certification and follow-up expectations.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Symptomatic care plan: Doctor advises 'paracetemol. Lots of fluids. Um, and, uh, rest up.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Safety-net advice to seek review if SOB worsens/sudden change or not improving in 4\u20135 days matches Gold fu-001 and fu-002 safety-net instructions."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Reassurance that TB and lung cancer are unlikely and plan to re-evaluate if not improving are not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor reassures TB and lung cancer unlikely and advises re-evaluation if not improving: 'I wouldn't be concerned about tuberculosis' and 'your concerns about lung cancer, are.' followed by 'if you're not getting better, please see somebody again.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Providing a sick note for additional days off work conflicts with Gold plan-001, which states a formal work certificate is not required and self-certification is sufficient."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Advice to seek review if SOB worsens/sudden change or not improving in 4\u20135 days matches Gold fu-001 and fu-002."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan to re-evaluate if not improving despite reassurance about TB/lung cancer is not mentioned in the Gold follow-up information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Follow-up if not improving despite reassurance: Doctor says 'I wouldn't be concerned about tuberculosis... your concerns about lung cancer' and 'if it's not, please get in touch with a medical professional again' and 'if you're not getting better, please see somebody again.'"
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No neck lumps/bumps by patient report is not included in the Gold physical findings, which only state that the patient looks well.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Matches neck lumps question: Doctor asks about 'lumps or bumps around your neck' and patient answers 'No.'"
+    },
+    {
+      "fact_id": "Physical_Findings-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Statement that no exam/vitals were performed is not present in the Gold facts, which instead mention that on examination the patient looks well.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No physical exam or vitals performed: This is a remote consultation; doctor says 'I would ask to examine you now, but um, I, I don't know if I could sort of look inside your throat' and does not record any vitals or exam findings. Stating none were performed is a valid inference."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Reports sore throat is consistent with Gold HPI-001 (illness began with sore throat)."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Reports dry cough without sputum matches Gold HPI-002 (non-productive, no sputum)."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Reports SOB with exertion but not at rest matches Gold HPI-005 (mild SOB, not at rest, not limiting activity)."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Reports wheeze is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Wheeze reported: Doctor asks 'do you have any wheeze? Or chest pain?' Patient: 'Uh, yeah, a bit of both.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Reports chest pain conflicts with Gold HPI-004, which states patient denies chest pain."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "Feverish for first ~3 days, now resolved, is consistent with Gold HPI-006 (slight fever symptoms)."
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Intermittent headaches are not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Headache ROS: Patient notes 'also had a bit of a headache. But like, headaches that come and go rather, but like, right now it's fine.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "Decreased appetite matches Gold HPI-008 (reduced appetite)."
+    },
+    {
+      "fact_id": "Review_of_Systems-009",
+      "status": "SUPPORTED",
+      "reasoning": "Denies weight loss matches Gold HPI-009 (denies unintentional weight loss)."
+    },
+    {
+      "fact_id": "Review_of_Systems-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Denies sinus congestion is not present in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Denies sinus congestion: Doctor asks 'do you have , sinus congestion?' Patient replies 'No, it seems to be , entirely with just my throat.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-011",
+      "status": "SUPPORTED",
+      "reasoning": "Denies hemoptysis matches Gold HPI-003 (no blood in cough)."
+    }
+  ]
+}

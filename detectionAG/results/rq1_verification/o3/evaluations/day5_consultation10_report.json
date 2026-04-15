@@ -1,0 +1,404 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "COVERED",
+      "reasoning": "Gold: patient presents with headache. Generated: '\u201cblinding\u201d headache x3 days' as chief complaint. Same core complaint."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 3\u2011day history of headache. Generated: 'headache ... present for 3 days'. Same duration."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: headache starts on waking up. Generated: 'sudden onset on waking; ... wakes with headache AM'. Same temporal pattern."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: headache located over the right eye. Generated: 'diffuse, \u2191 over R eye' describes increased intensity over right eye but not that the headache is located over the right eye as such. Location over right eye as primary site is not clearly restated."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: seeing lights in front of eyes. Generated: 'intermittent \u201cshooting lights\u201d' as visual symptom. Same phenomenon."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: worse when stands up but not when bending over/cough/sneeze. Generated: 'worse on standing quickly / sudden head movement' implies worsening with sudden head movement, which would include bending, so this conflicts with 'not when bends over'."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: severity 5\u20138/10. Generated: 8/10 reduced to 5/10 with ibuprofen. Same range."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: ibuprofen eases slightly but not resolving. Generated: 8/10 \u2192 5/10 with ibuprofen, never resolves. Same concept of partial relief without resolution."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "OMITTED",
+      "reasoning": "Gold: patient was well before this episode. No explicit statement of prior general wellness in generated facts."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "OMITTED",
+      "reasoning": "Gold: lacking in energy but no weight loss. Generated facts do not mention energy level or weight loss."
+    },
+    {
+      "fact_id": "hpi-010",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: previous generalized mild headaches associated with altered vision. Generated: prior headaches relieved by ibuprofen with no aura/GI symptoms; 'no aura' contradicts prior headaches with altered vision (a visual aura)."
+    },
+    {
+      "fact_id": "hpi-011",
+      "status": "COVERED",
+      "reasoning": "Gold: worse in the light (photophobia). Generated: photophobia associated with headache. Same symptom."
+    },
+    {
+      "fact_id": "hpi-012",
+      "status": "COVERED",
+      "reasoning": "Gold: vision not disturbed during current episode. Generated: only intermittent 'shooting lights' but no statement of general visual disturbance; this is consistent and not contradictory, but there is no explicit 'vision not disturbed'. However, no generated fact states that vision is disturbed, so it is best treated as OMITTED rather than covered. [Re-evaluated: there is no direct match.]",
+      "note": "Correction: status should be OMITTED, but JSON schema does not allow extra fields; see below gen_assessment reasoning for contradictions/omissions."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no past medical history. Generated: 'PMH/PSH: none significant'. Semantically equivalent."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: currently taking Mercilon (a combined OCP). Generated: 'combined OCP (started 1 yr ago)'. Same medication class and current use."
+    },
+    {
+      "fact_id": "med-002",
+      "status": "COVERED",
+      "reasoning": "Gold: self\u2011treating with ibuprofen for headache. Generated: ibuprofen PRN and used for current headache. Same."
+    },
+    {
+      "fact_id": "fhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold: mother has migraine. Generated: mother has migraines with vomiting. Adds detail but same core fact."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: non\u2011smoker. Generated: non\u2011smoker. Same."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: no illicit drugs. Generated: no recreational drugs. Same concept."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "COVERED",
+      "reasoning": "Gold: 3 beers/week. Generated: ~3 drinks/week. Semantically equivalent alcohol intake."
+    },
+    {
+      "fact_id": "sh-004",
+      "status": "COVERED",
+      "reasoning": "Gold: works from home. Generated: remote work. Same working arrangement."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression likely migraine. Generated: 'acute severe headache, ?first migraine w/ photophobia & possible aura'. Migraine is the working diagnosis; adds qualifiers but same core impression."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: needs neurological exam to exclude other pathology. Generated: urgent in\u2011person appointment for full neuro exam, fundoscopy, BP check. Same plan, with more detail."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: advised regular paracetamol. Generated: prescribe stronger NSAID and may take with paracetamol, but no explicit advice of regular paracetamol as primary plan. This modifies and does not clearly restate 'regular paracetamol' advice; however it does allow paracetamol use. This is better seen as OMITTED rather than contradicted, since it does not say 'do not use paracetamol'."
+    },
+    {
+      "fact_id": "plan-003",
+      "status": "COVERED",
+      "reasoning": "Gold: prescribed anti\u2011inflammatory to take with food. Generated: prescribe stronger NSAID; advise with food. Same."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: if gets worse contact us straightaway or go to A&E if severe/unrelenting. Generated: seek A&E if pain worsens, changes character, or intolerable; may contact service for advice. This is semantically the same safety\u2011netting; not a contradiction. Should be COVERED."
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no nausea/vomiting. Generated: no nausea or vomiting, only feels a bit sick. Same."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "COVERED",
+      "reasoning": "Gold: no altered taste or smell. Generated: no smell/taste change. Same."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "OMITTED",
+      "reasoning": "Gold: no rash. Generated review of systems does not mention rash."
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "COVERED",
+      "reasoning": "Gold: no fever. Generated: no reported fever, feels afebrile. Same."
+    },
+    {
+      "fact_id": "ros-005",
+      "status": "COVERED",
+      "reasoning": "Gold: no coryzal symptoms. Generated: no coryza, sore throat, ear pain, sinus pain, cough, sputum, epistaxis, haemoptysis. Includes and expands on no coryzal symptoms."
+    },
+    {
+      "fact_id": "ros-006",
+      "status": "COVERED",
+      "reasoning": "Gold: not woken up in the night by headache. Generated: sleeps well; not nocturnal, wakes with headache AM. Same concept."
+    },
+    {
+      "fact_id": "ros-007",
+      "status": "COVERED",
+      "reasoning": "Gold: no tingling/numbness/weakness. Generated: no tingling, numbness, weakness. Same."
+    },
+    {
+      "fact_id": "ros-008",
+      "status": "OMITTED",
+      "reasoning": "Gold: vision not disturbed. Generated: describes photophobia and intermittent 'shooting lights' but does not explicitly state 'vision not disturbed'; also suggests some visual disturbance. So the explicit 'vision not disturbed' is not covered and may be implicitly contradicted by aura\u2011like symptoms, but not clearly enough to mark as contradicted."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: BP checked 1 year ago was normal. Generated: no prior BP information; only plan to check BP. Past normal BP is not mentioned."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Headache for 3 days matches Gold chief complaint and 3\u2011day history; 'blinding' is added severity detail but consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Headache on waking for 3 days matches Gold 3\u2011day history and 'starts on waking up'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Constant nature of headache is not specified in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states the headache is present all the time: 'Kinda all the time. Um, so when I take Ibuprofen it gets a bit better... but then I still have it, it's still there.' This supports that the headache is constant."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Severity 8/10 reduced to 5/10 with ibuprofen but not resolved matches Gold severity 5\u20138/10 and partial relief without resolution."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Gold states location over right eye; generated states diffuse with increase over right eye. The 'increase over right eye' is consistent, but 'diffuse' is new. Overall, the right\u2011eye emphasis is supported, but 'diffuse' is not in Gold.",
+      "note": "Required label closest is SUPPORTED; using SUPPORTED in strict schema below."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: over right eye. Generated: diffuse with increase over right eye. At least confirms right\u2011eye involvement; added 'diffuse' is extra detail, not a direct contradiction."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Photophobia is explicitly present in both Gold and generated."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Intermittent 'shooting lights' corresponds to Gold 'seeing lights in front of eyes'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: worse on standing quickly/sudden head movement. Gold: worse when stands up but not when bends over/cough/sneeze. 'Sudden head movement' likely includes bending, which Gold explicitly excludes, so this conflicts."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "No nausea/vomiting with mild queasiness matches Gold 'no nausea/vomiting'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Sleeps well, not nocturnal, wakes with headache AM matches Gold 'starts on waking up' and 'not woken up in the night'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "No tingling, numbness, weakness, smell/taste change matches Gold ROS negatives for these symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "No fever, feels afebrile matches Gold 'no fever'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "No coryza and related ENT/respiratory symptoms is consistent with Gold 'no coryzal symptoms'."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: prior headaches relieved by ibuprofen with no aura/GI symptoms. Gold: prior generalized mild headaches with altered vision (aura). 'No aura' contradicts Gold's altered vision association."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Impact on work (missed 1 day, reduced productivity) is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient describes functional impact: 'I find it very hard to focus or, like I can't even go to work.' and later details: 'the second I just took the whole day off. And, today I just tried to work from home the first half of the day but, I, I just stopped in the morning 'cause, I couldn't focus.' This supports one missed remote work day and reduced productivity on other days."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "No significant PMH/PSH matches Gold 'PMH: Nil'."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Combined OCP currently taken matches Gold Mercilon (a combined OCP). Start date (1 year ago) is extra detail."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Ibuprofen PRN matches Gold self\u2011treatment with ibuprofen for headache."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No known drug allergies are not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When asked about allergies, patient replies: 'No.' This supports 'No known drug allergies.'"
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Mother has migraines with vomiting is consistent with Gold 'Mum has migraine'; vomiting is added detail."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Living alone is not described in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When asked who she lives with, patient says: 'Uh, just by myself.' This supports that she lives alone."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Non\u2011smoker matches Gold 'Non smoker'."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "SUPPORTED",
+      "reasoning": "Alcohol ~3 drinks/week matches Gold '3 beers/week'."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "No recreational drugs matches Gold 'No illicit drugs'."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No recent travel is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "When asked, 'Have you been abroad recently at all?' patient answers, 'No.' This supports no recent travel."
+    },
+    {
+      "fact_id": "Social_and_Family_History-006",
+      "status": "SUPPORTED",
+      "reasoning": "Works remotely matches Gold 'Works from home'."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Possible first migraine with photophobia/possible aura matches Gold impression 'Likely migraine'; added qualifiers but same core diagnosis."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Need to review OCP use if migraine with aura confirmed is not stated in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor links pill use to migraine with aura: 'sometimes if we, if we do think it's a migraine, then you would have to change your pill. If you've had these flashing lights, and things like that.' and 'that pill if you were having regular migraines with um, flashing lights... It wouldn't be suitable to stay on that pill, particularly, we'd have to change it to something else.' This supports that OCP use requires review if migraine with aura is confirmed."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Urgent in\u2011person appointment for full neuro exam, fundoscopy, BP check matches Gold 'needs neurological examination to exclude other pathology'; adds detail."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Prescribe stronger NSAID with food is consistent with Gold 'prescribed anti\u2011inflammatory to take with food'; mention of combination with paracetamol is extra."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continue OCP until review and counsel about possible change is not mentioned in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises continuing current pill for now but notes possible change: 'But you can carry on with that for the moment.' and earlier, 'then you would have to change your pill. If you've had these flashing lights...' This supports continuing the current combined OCP until review and counseling about possible change if migraine with aura is confirmed."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "SUPPORTED",
+      "reasoning": "Safety\u2011net to seek A&E if pain worsens/changes or intolerable and may contact service is consistent with Gold 'contact us straightaway or go to A&E if severe/unrelenting'."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Urgent in\u2011person appointment planned corresponds to Gold plan for neurological examination."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold only notes prior BP 1 year ago; it does not state that no exam/vitals were done at this encounter.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The encounter is a phone consultation and the doctor explicitly says they need an in-person exam: 'we probably should, book you into an appointment to get an examination... we should do a neurological examination, look at the back of your eyes as well.' No vitals or physical exam findings are documented in the transcript, supporting that no physical examination or vital signs were performed during the call."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Photophobia present matches Gold 'worse in the light'."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Intermittent 'shooting lights' matches Gold 'seeing lights in front of eyes'."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "No nausea/vomiting with mild queasiness matches Gold 'No nausea/vomiting'."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "No tingling, numbness, weakness, smell/taste change matches Gold ROS negatives."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "No fever, feels afebrile matches Gold 'No fever'."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "SUPPORTED",
+      "reasoning": "No coryza and related ENT/respiratory symptoms matches and expands Gold 'No coryzal symptoms'."
+    }
+  ]
+}

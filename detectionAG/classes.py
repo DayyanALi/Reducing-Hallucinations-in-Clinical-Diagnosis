@@ -12,8 +12,12 @@ from configs.fact_extract_prompt import (
 from promptTemplate import NOTE_PROMPT, USER_PROMPT_NOTES
 
 class SoapGenerator:
-    def __init__(self, model_name):
-        self.llm = ChatOpenAI(model=model_name, temperature=0)
+    def __init__(self, model_name, reasoning_effort=None):
+        # self.llm = ChatOpenAI(model=model_name, temperature=0)
+        if reasoning_effort is None:
+            self.llm = ChatOpenAI(model=model_name)
+        else:
+            self.llm = ChatOpenAI(model=model_name, reasoning_effort=reasoning_effort)
         self.prompt = ChatPromptTemplate.from_messages([
             ("system", NOTE_PROMPT), 
             ("human", USER_PROMPT_NOTES)

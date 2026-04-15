@@ -1,0 +1,229 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "sh-001",
+      "status": "OMITTED",
+      "reasoning": "The generated facts do not mention the patient's name or date of birth at all."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 6-week history of difficulty hearing in the left ear. Generated HPI-001: six weeks of progressive decreased hearing in the left ear. Same clinical concept and duration."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: associated symptoms include intermittent tinnitus and slight nausea/dizziness. Generated includes intermittent tinnitus and mild dizziness but explicitly states dizziness is not associated with nausea (HPI-007), contradicting the presence of nausea in Gold."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: one previous similar episode that resolved spontaneously. Generated HPI-009: prior similar episode about one year ago that lasted a few days. Both describe a prior similar self-resolving episode; added duration detail is consistent."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "COVERED",
+      "reasoning": "Gold: denies ear discharge, fever, itchiness, or pain. Generated includes denial of ear pain (HPI-010), no ear discharge (HPI-011), and no fever (HPI-012). It does not mention itchiness, but that is an omission, not a contradiction; overall the denials that are stated are consistent."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: patient does not use cotton wool buds. Generated HPI-013: denies cotton bud use. Same concept."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "OMITTED",
+      "reasoning": "Gold states no past medical history of note. The generated facts have an empty Past_Medical_History section and do not explicitly state absence of PMH, so the concept is not documented."
+    },
+    {
+      "fact_id": "pe-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: on examination, patient looks well and is not in pain. Generated only notes that no vitals or physical exam were performed due to video visit; it does not state appearance or pain status."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold impression: need to exclude impacted wax in ear canal first. Generated Assessment-002: differential includes cerumen impaction, and Plan/Assessment emphasize need for otoscopy to assess for wax/physical blockage. This matches the need to exclude impacted wax."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: face-to-face GP appointment in 5 days to examine the ear. Generated Plan_of_Care-001 and Follow_up_Information-001: book F2F GP appointment in 4\u20135 days for otoscopy to assess for wax/physical blockage. Timeframe and purpose (ear exam) are equivalent."
+    },
+    {
+      "fact_id": "plan-002",
+      "status": "COVERED",
+      "reasoning": "Gold: patient to read about tinnitus via provided link. Generated Plan_of_Care-003: provide tinnitus information leaflet link in visit notes for patient to read before appointment. Same educational plan."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: if any problems in the interim, patient should ring back (phone contact). Generated Plan_of_Care-005 and Follow_up_Information-002: if symptoms worsen/issues before appointment, book a repeat video consultation. This specifies a different follow-up mechanism than simply calling back, so it conflicts with the Gold instruction."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Decreased hearing in the left ear aligns with Gold HPI-001 describing difficulty hearing in the left ear."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Six weeks of progressive decreased hearing in the left ear matches Gold HPI-001 (6-week history of difficulty hearing in the left ear)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Intermittent tinnitus in the left ear is consistent with Gold HPI-002 (associated intermittent tinnitus)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "A few episodes of feeling a bit sick or dizzy on and off is consistent with Gold HPI-002 (slight nausea/dizziness)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Relief of ringing with TV or music is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient says, \"some things trigger it as well. So, for example, if I'm watching TV or listen to music or something that'll solve the ringing in the ear,\" indicating TV or music alleviates the ringing."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "Describing dizziness as mild is consistent with Gold HPI-002, which characterizes associated symptoms as slight nausea/dizziness."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not specify the quality of dizziness (e.g., room-spinning vs off-balance), so stating it is not room-spinning is additional information not in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Patient describes dizziness as \"not the kind of dizziness you get with nausea, like uh not, not proper room spinning or anything like that but just, just a little bit kind of off balance,\" explicitly stating it is not room-spinning."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated states dizziness is not associated with nausea, whereas Gold HPI-002 includes slight nausea as an associated symptom."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not comment on the right ear, so stating the right ear seems fine is new information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: When asked if the right ear is fine, patient replies, \"It seems be yeah,\" indicating the right ear seems fine."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Prior similar episode about one year ago that lasted a few days matches Gold HPI-003 (one previous similar episode that resolved spontaneously); added timing and duration are consistent elaborations."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "Denies left ear pain aligns with Gold HPI-004, which includes denial of pain."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "No ear discharge reported matches Gold HPI-004 (no discharge)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "No fever reported matches Gold HPI-004 (no fever)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "SUPPORTED",
+      "reasoning": "Denies cotton bud use matches Gold HPI-005 (doesn't use cotton wool buds)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No chest pain reported is not mentioned anywhere in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks, \"Have, have you had any chest pain with it?\" and patient answers, \"No,\" so no chest pain is reported."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Summarizes unilateral left hearing loss for six weeks with intermittent tinnitus and mild disequilibrium, which is consistent with Gold HPI-001 and HPI-002."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "SUPPORTED",
+      "reasoning": "Differential includes cerumen impaction, which aligns with Gold asm-001 (need to exclude impacted wax in ear canal first)."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Middle or inner ear issue including balance system involvement is an expanded differential not specified in the Gold assessment.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported inference: Doctor says, \"It might be that there's a problem inside the drum or the balance system within the ear. But, we just need to exclude whether there's physical blockage first,\" which reflects a differential including middle/inner ear or balance system involvement."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "SUPPORTED",
+      "reasoning": "Otoscopy needed to evaluate cause of symptoms is consistent with Gold asm-001 and plan-001, which focus on examining the ear and excluding impacted wax."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Booking a face-to-face GP appointment in 4\u20135 days for otoscopy to assess for wax/physical blockage matches Gold plan-001 (F2F GP appointment in 5 days to examine ear and exclude impacted wax)."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Administrative arrangements and calling a support line to schedule are not described in the Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor states, \"I'll send a message to our admin team. I'll ask them to slot you into the clinic...\" and later, \"bear with me five minutes and then you can ring the support team, I'll leave the number in the notes for this appointment. Ring them, and then they'll slot you in,\" matching admin arrangement and patient calling support line."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Providing a tinnitus information leaflet link for the patient to read matches Gold plan-002 (patient to read about tinnitus via provided link)."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Education to avoid cotton buds is not mentioned in the Gold plan, even though cotton bud use is addressed in history.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: Doctor asks about cotton buds and then says, \"Well, you're right, you should, you shouldn't be doing that. Doesn't clean up wax, it pushes it back in,\" which is education to avoid cotton buds."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated advises booking a repeat video consultation if symptoms worsen/issues before appointment, whereas Gold fu-001 advises ringing back if any problems arise; this is a different follow-up mechanism and conflicts with the Gold instruction."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Follow-up F2F GP appointment in 4\u20135 days is consistent with Gold plan-001 (F2F GP appointment in 5 days)."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Advising repeat video consultation if symptoms worsen/issues before appointment conflicts with Gold fu-001, which instructs the patient to ring back in the interim if any problems arise."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold includes a brief physical impression (looks well, not in pain) but does not state that no vitals or exam were performed; the video-visit limitation is new information.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported by context: This is a video visit (\"you can speak to one of us over video\"), and no vitals or physical exam findings are mentioned. Stating that no vitals/physical exam were performed is consistent with the transcript and treated as an implicit negative."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "No fever reported is consistent with Gold HPI-004 (no fever)."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No chest pain reported is not mentioned in the Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Supported: As above, doctor asks, \"Have, have you had any chest pain with it?\" and patient replies, \"No,\" so ROS for chest pain is negative."
+    }
+  ]
+}

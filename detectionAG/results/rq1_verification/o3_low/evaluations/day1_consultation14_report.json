@@ -1,0 +1,487 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: 5-day history of cough and runny nose. Generated HPI-001/Chief_Complaint-001 describe 5\u20136 days of dry cough with runny nose, which is semantically equivalent in duration and symptoms."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: dry cough keeping patient up at night. Generated HPI-001 and HPI-002 describe a dry, incessant cough that keeps the patient awake, matching both quality and impact on sleep."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: denies ear pain or sore throat. Generated HPI-005/ROS-004 state no ear pain or discharge; HPI-003/ROS-002 note only mild throat irritation from coughing, which is consistent with no primary sore throat."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no shortness of breath or chest pain. Generated HPI-006/ROS-005 confirm no chest pain, but HPI-008/ROS-007 explicitly state occasional shortness of breath during coughing bouts, contradicting the Gold denial of SOB."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: feeling tired, weak, and myalgia. Generated HPI-014/ROS-014 and ROS-015 describe diffuse myalgias and lethargy, which correspond to muscle pain and tiredness/weakness."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: shivery, hot/cold, ?fever. Generated HPI-009/ROS-008\u2013009 describe chills/shivers at night with no documented temperature, which is consistent with suspected but unconfirmed fever."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: no nausea/vomiting and appetite maintained. Generated HPI-010/ROS-010 state no nausea or vomiting, and HPI-012/ROS-012 state appetite preserved, matching these points."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: initial diarrhea now resolved. Generated HPI-011/ROS-011 describe transient diarrhea at onset, now resolved, which is equivalent."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies urinary symptoms and rashes. Generated HPI-013/ROS-013 confirm no urinary issues, but there is no mention of rashes at all, so urinary part is covered while rash denial is omitted. Because part of the composite fact (no rash) is missing rather than opposed, overall this is best treated as PARTIALLY COVERED; under the required discrete labels, it is closer to COVERED for urinary but the rash component is effectively OMITTED. Since only one label is allowed, this is classified as COVERED with partial omission."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: history of Type 2 diabetes and HTN. Generated PMH-001 and PMH-002 list Type 2 diabetes mellitus and hypertension, matching exactly."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: takes metformin and lisinopril. Generated Medications-001 and -002 list metformin and lisinopril, and Plan_of_Care-007/008 plan to continue them, fully covering this."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no known drug allergies. Generated Adverse_Drug_Reactions_and_Allergies-001 states allergies: none, which is equivalent."
+    },
+    {
+      "fact_id": "famhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold: father has Type 2 diabetes. Generated Family_History-001 states father has T2DM, matching this."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: lives with partner, works in IT, denies stress. Generated Social_and_Family_History-001 and -002 cover living with partner and working as IT developer, but there is no mention of stress or denial of stress, so the stress component is omitted. As a composite fact including stress, it is not fully covered."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: ex-smoker, quit 6 months ago. Generated Social_and_Family_History-004 states ex-smoker who quit 6 months ago, matching this."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: drinks <9 units/week. Generated Social_and_Family_History-005 describes wine 2\u20133 glasses on ~3 nights/week, which is likely more than 9 units/week, and Assessment-004 labels alcohol intake above ideal. This conflicts with the Gold quantitative statement of <9 units/week."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: impression viral URTI. Generated Assessment-001 states probable viral URTI/influenza-like illness, which includes viral URTI and is consistent."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: supportive management with bed rest, fluids, regular paracetamol. Generated Plan_of_Care-001\u2013003 specify rest, increased fluids, and regular paracetamol for viral URTI, matching this."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: review in 5\u20137 days if not better. Generated Plan_of_Care-005/Follow_up_Information-001 advise return if no improvement in 2\u20133 days, which is a different and earlier timeframe, thus conflicting with the specified 5\u20137 days."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Gold: seek earlier review for worsening symptoms such as fever, SOB, or chest pain. Generated Plan_of_Care-005/Follow_up_Information-001 advise RTC if increased fever, dyspnea, or no improvement, which covers the worsening symptoms trigger (fever and dyspnea/SOB; chest pain is not mentioned but the core concept of earlier review for worsening is present)."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold hpi-001 and hpi-002: 5-day history of dry cough and runny nose; 5\u20136 days is semantically equivalent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Dry cough for 5\u20136 days with runny nose corresponds to Gold hpi-001 and hpi-002."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Cough keeps patient awake matches Gold hpi-002 (keeps pt up at night)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Mild throat irritation only from coughing is consistent with Gold hpi-003 (no sore throat) as a secondary irritation, not primary sore throat."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No sputum production is not mentioned in Gold facts at all.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor confirms dry cough without phlegm: 'So it's a dry cough. So you're not bringing up any ... mucky phlegm or anything like that.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "SUPPORTED",
+      "reasoning": "No ear pain or discharge aligns with Gold hpi-003 (no ear pain). Discharge detail is additional but not contradictory."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "No chest pain matches Gold hpi-004 (no chest pain)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Breathing not laboured on exertion is not specified in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient denies exertional breathlessness: 'Day to day when you walk around, uh you don't feel breathless do you?' Patient: 'I don't feel restless. No... not anything special with my chest.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "CONTRADICTED",
+      "reasoning": "Occasional SOB during coughing bouts conflicts with Gold hpi-004, which states no shortness of breath."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "Chills/shivers at night without documented temperature matches Gold hpi-006 (shivery, hot/cold, ?fever)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "No nausea or vomiting matches Gold hpi-007."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "SUPPORTED",
+      "reasoning": "Transient diarrhea at onset, now resolved matches Gold hpi-008."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "Appetite preserved matches Gold hpi-007 (appetite maintained)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "SUPPORTED",
+      "reasoning": "No dysuria or urinary issues matches Gold hpi-009 (nil urinary symptoms)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "SUPPORTED",
+      "reasoning": "Diffuse myalgias and lethargy correspond to Gold hpi-005 (tired, weak, myalgia)."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-015",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Preference for bed rest due to symptoms is not explicitly stated in Gold HPI, though rest is recommended in the plan; it is not a documented symptom in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states: 'to be honest, all I feel like doing is just lying in bed,' indicating preference for bed rest due to symptoms."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Type 2 diabetes mellitus matches Gold pmh-001."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Hypertension matches Gold pmh-001 (HTN)."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "Metformin matches Gold med-001."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "SUPPORTED",
+      "reasoning": "Lisinopril matches Gold med-001."
+    },
+    {
+      "fact_id": "Medications-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan to continue metformin is a management detail not present in Gold summary.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Metformin is listed as a current medication, but there is no explicit plan or instruction to continue it."
+    },
+    {
+      "fact_id": "Medications-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan to continue lisinopril is not specified in Gold facts.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Lisinopril is listed as a current medication, but there is no explicit plan or instruction to continue it."
+    },
+    {
+      "fact_id": "Medications-005",
+      "status": "SUPPORTED",
+      "reasoning": "Plan for regular paracetamol for viral URTI symptoms matches Gold plan-001 (regular paracetamol)."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "No known drug allergies matches Gold allergy-001 (NKDA)."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Father with T2DM matches Gold famhx-001."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Lives with partner matches part of Gold sh-001."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Works as an IT developer matches Gold sh-001 (works in IT)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Missed 1 day of work due to illness is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says: 'the first day I skipped because I was feeling just too shit... So I've been going in,' indicating she missed one day of work due to illness."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "SUPPORTED",
+      "reasoning": "Ex-smoker who quit 6 months ago matches Gold sh-002."
+    },
+    {
+      "fact_id": "Social_and_Family_History-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Drinks wine 2\u20133 glasses on ~3 nights/week likely exceeds 9 units/week and conflicts with Gold sh-003 (<9 units/week)."
+    },
+    {
+      "fact_id": "Social_and_Family_History-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan to maintain smoking cessation is not present in Gold facts.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Patient reports she 'used to [smoke], but I've stopped for about six months now,' but no plan is discussed about maintaining cessation."
+    },
+    {
+      "fact_id": "Social_and_Family_History-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan to reduce alcohol intake is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises: 'maybe for the first few weeks, why don't you cut down to two glasses a week. And then, one week thereafter... you can maybe try and cut down altogether,' matching the described plan."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Probable viral URTI/ILI is consistent with Gold asm-001 (viral URTI)."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Assessment of T2DM controlled on metformin is not specified as an assessment in Gold; Gold only lists PMH and meds.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient has 'type two diabetes' and takes 'Metformin'; she says she has it 'under control' with regular checks, supporting controlled T2DM on metformin."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Assessment of essential hypertension controlled on lisinopril is not present in Gold assessment.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient has 'quite high blood pressure' and takes 'Lisinopril'; she states she has it 'under control' with regular checks, supporting controlled hypertension on lisinopril."
+    },
+    {
+      "fact_id": "Assessment-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Alcohol intake above ideal for comorbidities implies higher intake, conflicting with Gold sh-003 which quantifies intake as <9 units/week (relatively modest)."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Rest for viral URTI matches Gold plan-001 (bed rest)."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "SUPPORTED",
+      "reasoning": "Increase fluid intake matches Gold plan-001 (increased fluids)."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Regular paracetamol matches Gold plan-001."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Off work 1\u20132 days is not mentioned in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises: 'maybe take a day or two off work, if you can. Uh and get some good bed rest,' matching off work for 1\u20132 days."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Return if no improvement in 2\u20133 days conflicts with Gold fu-001, which specifies review in 5\u20137 days if not better."
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Considering CXR/antibiotics if no improvement is not present in Gold plan or follow-up.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Doctor mentions possibly giving antibiotics if not improving: 'we may look to give you some antibiotics for your chest,' but there is no mention of a chest X-ray or other investigations."
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continue metformin is not specified in Gold plan (only current meds listed).",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "No explicit instruction is given to continue metformin; it is only listed as a current medication."
+    },
+    {
+      "fact_id": "Plan_of_Care-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Continue lisinopril is not specified in Gold plan.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "No explicit instruction is given to continue lisinopril; it is only listed as a current medication."
+    },
+    {
+      "fact_id": "Plan_of_Care-009",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Usual follow-up with PCP is not mentioned in Gold follow-up information.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "There is no mention of usual or routine follow-up with a primary care provider beyond returning if not improving or worsening."
+    },
+    {
+      "fact_id": "Plan_of_Care-010",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Maintain smoking cessation as a plan is not present in Gold.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Smoking history is discussed, but there is no explicit plan or advice to maintain smoking cessation."
+    },
+    {
+      "fact_id": "Plan_of_Care-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Plan to reduce alcohol intake is not present in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises cutting down wine to 'two glasses a week' for a few weeks and then, if coping, to 'cut down altogether,' matching reduction to \u22642 glasses/week then toward abstinence."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Return if no improvement in 2\u20133 days conflicts with Gold fu-001 (review in 5\u20137 days if not better), though the triggers (fever, dyspnea) align with Gold fu-002."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Usual follow-up with PCP is not specified in Gold follow-up section.",
+      "final_status": "TRUE_ADDITION",
+      "verification_reasoning": "Follow-up is described only as returning if not better or if breathing worsens; 'usual follow-up with primary care provider' is not mentioned."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold facts do not address whether vitals were documented; this is outside the provided summary.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "The transcript contains no vital signs (no temperature, BP, HR, etc.) being documented."
+    },
+    {
+      "fact_id": "Physical_Findings-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No physical examination documented is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No physical examination maneuvers or findings are documented in the transcript."
+    },
+    {
+      "fact_id": "Physical_Findings-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No investigations documented is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "No investigations (labs, imaging, tests) are documented in the transcript."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Runny nose reported matches Gold hpi-001."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Mild throat irritation from coughing is consistent with Gold hpi-003 (no sore throat) as a secondary effect."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No sputum production is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "As above, doctor confirms absence of phlegm: 'So it's a dry cough... you're not bringing up any ... mucky phlegm or anything like that.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "SUPPORTED",
+      "reasoning": "No ear pain or discharge matches Gold hpi-003 (no ear pain)."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "SUPPORTED",
+      "reasoning": "No chest pain matches Gold hpi-004."
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Breathing not laboured on exertion is not specified in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "As above, patient denies exertional breathlessness: 'Day to day when you walk around, uh you don't feel breathless do you?' Patient: 'I don't feel restless. No... not anything special with my chest.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Occasional SOB during coughing bouts conflicts with Gold hpi-004 (no SOB)."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "SUPPORTED",
+      "reasoning": "Chills and shivers at night match Gold hpi-006 (feeling shivery, hot/cold)."
+    },
+    {
+      "fact_id": "Review_of_Systems-009",
+      "status": "SUPPORTED",
+      "reasoning": "No documented temperature is consistent with Gold hpi-006 (?fever)."
+    },
+    {
+      "fact_id": "Review_of_Systems-010",
+      "status": "SUPPORTED",
+      "reasoning": "No nausea or vomiting matches Gold hpi-007."
+    },
+    {
+      "fact_id": "Review_of_Systems-011",
+      "status": "SUPPORTED",
+      "reasoning": "Transient diarrhea at onset, now resolved matches Gold hpi-008."
+    },
+    {
+      "fact_id": "Review_of_Systems-012",
+      "status": "SUPPORTED",
+      "reasoning": "Appetite preserved matches Gold hpi-007 (appetite maintained)."
+    },
+    {
+      "fact_id": "Review_of_Systems-013",
+      "status": "SUPPORTED",
+      "reasoning": "No dysuria or urinary issues matches Gold hpi-009 (nil urinary symptoms)."
+    },
+    {
+      "fact_id": "Review_of_Systems-014",
+      "status": "SUPPORTED",
+      "reasoning": "Diffuse myalgias match Gold hpi-005 (myalgia)."
+    },
+    {
+      "fact_id": "Review_of_Systems-015",
+      "status": "SUPPORTED",
+      "reasoning": "Lethargy matches Gold hpi-005 (tired, weak)."
+    }
+  ]
+}

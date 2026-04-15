@@ -1,0 +1,256 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "OMITTED",
+      "reasoning": "Gold states SOB at rest four weeks after C-section; Generated states SOB at rest while watching TV but does not mention the temporal relationship to C-section in the Chief Complaint section."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: acute SOB at rest while watching TV. Generated HPI and CC both describe SOB for ~1 hour at rest while watching TV, which is consistent with acute onset at rest during TV."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: unproductive cough one day prior. Generated: new dry cough since yesterday with no sputum. These are semantically equivalent."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "OMITTED",
+      "reasoning": "Gold explicitly states dyspnea is non-positional. Generated facts do not address positional nature of SOB."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: C-section 2\u20133 weeks ago without complications and baby well. Generated: C-section 4 weeks ago with tender incision; baby well is present but the timing (2\u20133 vs 4 weeks) and absence of complications vs tender incision are discrepant. The presence of incision tenderness contradicts 'no complications.'"
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: patient not taking blood thinners. Generated: no anticoagulant therapy is not explicitly restated, but no blood thinners appear in Medications and concern for new clot is expressed; however, there is no direct statement about current blood thinners in HPI. This concept is explicitly covered in Medications-001 of Gold, not in Generated. Thus for this HPI-specific fact, it is omitted in Generated HPI. (Re-evaluated: this is HPI context; Generated does not state 'no blood thinners' anywhere.)"
+    },
+    {
+      "fact_id": "ros-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies fever. Generated ROS does not mention fever."
+    },
+    {
+      "fact_id": "ros-002",
+      "status": "OMITTED",
+      "reasoning": "Gold: denies chills. Generated ROS does not mention chills."
+    },
+    {
+      "fact_id": "ros-003",
+      "status": "COVERED",
+      "reasoning": "Gold: denies chest pain. Generated HPI and ROS both state 'No chest pain.'"
+    },
+    {
+      "fact_id": "ros-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: denies pain on inspiration. Generated: chest soreness with deep breath, which is pain/discomfort on inspiration, the opposite of the Gold statement."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no significant past medical history. Generated: patient denies other medical conditions, which is equivalent."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "OMITTED",
+      "reasoning": "Gold explicitly states patient is not on anticoagulant therapy. Generated lists codeine use but does not state presence or absence of blood thinners."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: allergic to ibuprofen. Generated: allergy to ibuprofen, reaction unknown. Same allergy, with added detail."
+    },
+    {
+      "fact_id": "phys-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: HR via telephone roughly 120 bpm, tachycardic but regular. Generated: self pulse count of 30 beats during a timed count (duration not stated) and clinician noted 'slightly fast' HR. A HR of ~120 is clearly tachycardic, not just 'slightly fast,' and 30 beats in an unspecified interval is inconsistent with a clear 120 bpm reading. Overall, the characterization of rate differs from 'tachycardic' to 'slightly fast,' so this conflicts."
+    },
+    {
+      "fact_id": "fhx-001",
+      "status": "COVERED",
+      "reasoning": "Gold: mother has history of blood clots in legs. Generated: mother had leg clots. Semantically identical."
+    },
+    {
+      "fact_id": "asm-001",
+      "status": "COVERED",
+      "reasoning": "Gold: PE considered in differential. Generated assessment: concern for postpartum clot in lung vs leg, which includes pulmonary embolism as a lung clot."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "COVERED",
+      "reasoning": "Gold: further examination and investigations in an acute setting. Generated: advise immediate hospital/ED evaluation for further workup/management, which is equivalent."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold HPI description of acute SOB at rest while watching TV; duration (~1 hour) is additional but consistent with 'acute onset.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Same as Chief_Complaint-001; aligns with Gold acute SOB at rest while watching TV."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: unproductive cough one day prior. Generated: new dry cough since yesterday without sputum. Semantically equivalent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold ROS: no chest pain. Generated HPI: no chest pain reported. Consistent."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: chest soreness with deep breath. Gold ROS: no pain on inspiration. This is the opposite of the Gold statement."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Palpitations/heart 'really going' are not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Patient says, \"I feel like I'm getting really stressed out because, like, my heart, it's really going.\" Doctor clarifies, \"So, you're feeling your heart more than normal?\" This supports palpitations/sensation of heart beating very fast."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No prior history of SOB is not addressed in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor asks, \"have you noticed anything like this before?\" Patient replies, \"Um, no.\" This supports no prior history of shortness of breath."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not comment on whether SOB is worsening or stable.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor asks, \"And, this shortness of breath you're having, is it getting worse?\" Patient replies, \"Um. No.\" This supports that the shortness of breath is not worsening."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Timing of last URI is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Patient says, \"you know, I get coughs and colds quite a lot, but probably. Good few months ago.\" This supports last upper respiratory-type illness being a good few months ago."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated: s/p C-section 4 weeks ago with tender incision. Gold: C-section 2\u20133 weeks ago without complications and baby well. Timing (2\u20133 vs 4 weeks) and presence of incision tenderness vs 'no complications' conflict."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold PMH: nil significant history. Generated: denies other medical conditions. Equivalent."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "PARTIALLY_SUPPORTED",
+      "reasoning": "Generated: s/p C-section 4 weeks ago. Gold: C-section 2\u20133 weeks ago. The fact of C-section is supported, but the timing (4 vs 2\u20133 weeks) conflicts. Overall, the existence of C-section is supported but timing is contradicted; if forced into one category, this is better considered CONTRADICTED due to specific time discrepancy."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold mentions only that patient is not on blood thinners; it does not mention codeine use.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Patient: \"they gave me some, uh, Codeine.\" and \"I, I've been taking that fairly, fairly regularly. But, probably haven't taken it for a week.\" This matches codeine used post-op fairly regularly, none for ~1 week."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: allergy to ibuprofen. Generated: allergy to ibuprofen, reaction unknown. Same allergy with added detail."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: mother has history of clots in legs. Generated: mother had leg clots. Equivalent."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Presence of baby with patient is not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor asks, \"And, are you with baby at the moment?\" Patient: \"Yes, I am.\" This supports that the patient is with her baby."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "Gold HPI: baby well. Generated: baby well with no coughs/colds. Consistent elaboration."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold assessment: DDx PE. Generated: concern for postpartum clot in lung vs leg in 4-week postpartum patient with SOB, cough, chest soreness, fast HR. This includes PE as lung clot and is consistent."
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: further examination and investigation in acute setting. Generated: immediate hospital/ED evaluation for further workup/management. Equivalent plan."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Details about ambulance vs self-transport and bringing baby essentials are not in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor: \"there's two ways of us doing this. The first is, I can call an ambulance. Or, you can take yourself to the hospital with baby.\" Patient: \"it feels a bit dramatic to call an ambulance... I will take myself.\" Doctor: \"go fairly quickly and take some bits for baby at the same time.\" This matches ambulance vs self-transport, patient chose self-transport and to bring baby essentials."
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Advice to avoid codeine until assessed is not mentioned in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor: \"if you're taking any medications like Codeine, don't, don't take them for the time being.\" This supports avoiding codeine until assessed."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Discussion of postpartum clot risk, reassurance, and patient agreement are not specified in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Doctor explains postpartum clot risk: \"given that you've had a C-section... Some people can suffer with clots... in the legs or your chest\" and \"needs to be checked out in the hospital first.\" Also says, \"it's not something to worry about\" (reassurance). Patient: \"All right, OK. That makes sense.\" and later, \"No, no. I'm fine. I'll, uh, I'll just take myself to the hospital.\" This supports discussion of clot risk, need for prompt assessment, reassurance, and patient agreement."
+    },
+    {
+      "fact_id": "Physical_Findings-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: HR ~120 bpm, tachycardic but regular. Generated: self pulse count of 30 beats during timed count (duration not stated). This is inconsistent with a clear 120 bpm reading and introduces conflicting rate information."
+    },
+    {
+      "fact_id": "Physical_Findings-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: HR ~120 bpm, tachycardic. Generated: clinician noted 'slightly fast' HR, which downplays the degree of tachycardia and conflicts with 'tachycardic' at 120 bpm."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Presence of SOB is implicit in Gold chief complaint and HPI; Generated ROS explicitly notes SOB present."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold unproductive cough one day prior; ROS restates cough with no sputum."
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: no chest pain. Generated ROS: no chest pain. Consistent."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated ROS: chest soreness with deep breath. Gold ROS: no pain on inspiration. Direct conflict."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Palpitations are not mentioned in Gold ROS or HPI.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Transcript: Patient: \"I feel like I'm getting really stressed out because, like, my heart, it's really going.\" Doctor: \"So, you're feeling your heart more than normal?\" This supports presence of palpitations described as heart \"really going.\""
+    }
+  ]
+}

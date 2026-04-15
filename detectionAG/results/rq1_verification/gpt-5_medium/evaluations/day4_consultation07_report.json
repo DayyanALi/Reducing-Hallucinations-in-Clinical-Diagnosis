@@ -1,0 +1,437 @@
+{
+  "gold_assessment": [
+    {
+      "fact_id": "cc-001",
+      "status": "OMITTED",
+      "reasoning": "Gold states patient has felt unwell for 8 days; generated notes a ~1 week history but does not explicitly state 'feeling unwell for 8 days' as a general symptom duration."
+    },
+    {
+      "fact_id": "hpi-001",
+      "status": "COVERED",
+      "reasoning": "Gold: illness began with sore throat then progressed to dry cough. Generated chief complaint and HPI describe sore throat starting first and then dry cough starting later, matching the sequence."
+    },
+    {
+      "fact_id": "hpi-002",
+      "status": "COVERED",
+      "reasoning": "Gold: non-productive cough with no sputum. Generated repeatedly states dry cough and no sputum production."
+    },
+    {
+      "fact_id": "hpi-003",
+      "status": "COVERED",
+      "reasoning": "Gold: no blood in cough. Generated: no hemoptysis, which is equivalent."
+    },
+    {
+      "fact_id": "hpi-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: patient denies chest pain. Generated: explicitly documents chest pain present in multiple places."
+    },
+    {
+      "fact_id": "hpi-005",
+      "status": "COVERED",
+      "reasoning": "Gold: mild SOB, not at rest, not limiting activity. Generated: SOB on exertion, not at rest, able to exercise, consistent with mild, non-limiting SOB."
+    },
+    {
+      "fact_id": "hpi-006",
+      "status": "COVERED",
+      "reasoning": "Gold: slight fever symptoms. Generated: felt feverish for first ~3 days, now resolved, which is consistent with slight fever symptoms."
+    },
+    {
+      "fact_id": "hpi-007",
+      "status": "COVERED",
+      "reasoning": "Gold: symptoms gradually improving. Generated: plan/assessment assumes improvement and states TB/CA unlikely if improving; also describes transient symptoms now resolved, consistent with improvement."
+    },
+    {
+      "fact_id": "hpi-008",
+      "status": "COVERED",
+      "reasoning": "Gold: reduced appetite. Generated: decreased appetite documented in HPI and ROS."
+    },
+    {
+      "fact_id": "hpi-009",
+      "status": "COVERED",
+      "reasoning": "Gold: denies unintentional weight loss. Generated: explicitly states no weight loss."
+    },
+    {
+      "fact_id": "pmh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no history of asthma. Generated: no asthma in PMH."
+    },
+    {
+      "fact_id": "pmh-002",
+      "status": "COVERED",
+      "reasoning": "Gold: no significant past medical history. Generated: PMH denies past medical history, equivalent."
+    },
+    {
+      "fact_id": "med-001",
+      "status": "COVERED",
+      "reasoning": "Gold: no significant regular medications. Generated: meds none, which matches."
+    },
+    {
+      "fact_id": "allergy-001",
+      "status": "COVERED",
+      "reasoning": "Gold: NKDA. Generated: NKDA plus peanut allergy; the drug-allergy status (no drug allergies) is preserved."
+    },
+    {
+      "fact_id": "fh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: mother had lung cancer. Generated: mother has lung cancer; same fact."
+    },
+    {
+      "fact_id": "sh-001",
+      "status": "COVERED",
+      "reasoning": "Gold: non-smoker. Generated: never smoker with only 1\u20132 experimental cigarettes, semantically equivalent to non-smoker."
+    },
+    {
+      "fact_id": "sh-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no asbestos exposure. Generated: asbestos exposure status unknown, which conflicts with a definite 'no exposure'."
+    },
+    {
+      "fact_id": "sh-003",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: no significant recent travel history. Generated: recent travel only to Europe, which is a positive recent travel history and thus conflicts."
+    },
+    {
+      "fact_id": "pf-001",
+      "status": "OMITTED",
+      "reasoning": "Gold: on examination the patient looks well. Generated facts contain no physical examination findings."
+    },
+    {
+      "fact_id": "plan-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Gold: advised that a formal work certificate is not required and he can self-certify. Generated: plan includes providing a sick note for additional days off work, which implies a formal certificate is being given."
+    },
+    {
+      "fact_id": "fu-001",
+      "status": "COVERED",
+      "reasoning": "Gold: review if symptoms worsen, especially sudden change in SOB. Generated: in-person GP review if SOB worsens/sudden change or any deterioration; matches."
+    },
+    {
+      "fact_id": "fu-002",
+      "status": "COVERED",
+      "reasoning": "Gold: expected to improve within 5 days and seek review if not better then. Generated: recheck if not better in 4\u20135 days, which is equivalent timing and intent."
+    }
+  ],
+  "gen_assessment": [
+    {
+      "fact_id": "Chief_Complaint-001",
+      "status": "SUPPORTED",
+      "reasoning": "Matches Gold description that illness began with sore throat and progressed to dry cough over about a week."
+    },
+    {
+      "fact_id": "Chief_Complaint-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention seeking reassurance, medication advice, or a sick note as part of the chief complaint.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient explicitly asks for reassurance, possible prescription/advice, and a sick note: 'reassurance... is there anything you can prescribe me... Or maybe even a sick note.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-001",
+      "status": "SUPPORTED",
+      "reasoning": "Specific onset timing of sore throat is consistent with Gold\u2019s initial sore throat but adds detail not in Gold; does not contradict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-002",
+      "status": "SUPPORTED",
+      "reasoning": "Specific onset of dry cough is consistent with Gold\u2019s progression from sore throat to cough."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not specify when SOB began; this timing detail is absent from Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient dates SOB onset to 3\u20134 days ago: 'shortness of breath was I think, shortly after the cough... So, three, four days ago.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-004",
+      "status": "SUPPORTED",
+      "reasoning": "Gold: mild SOB not at rest and not limiting activity. Generated: SOB on exertion, not at rest, consistent with Gold."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-005",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated states associated wheeze and chest pain; Gold denies chest pain and does not mention wheeze."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-006",
+      "status": "SUPPORTED",
+      "reasoning": "Dry cough is consistent with Gold\u2019s non-productive, dry cough."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-007",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not address whether cough is worse at night.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks if cough is worse at night; patient replies: 'No, no, it's the same throughout the whole day.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-008",
+      "status": "SUPPORTED",
+      "reasoning": "No sputum production matches Gold\u2019s non-productive cough with no sputum."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-009",
+      "status": "SUPPORTED",
+      "reasoning": "No hemoptysis matches Gold\u2019s statement of no blood in the cough."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-010",
+      "status": "SUPPORTED",
+      "reasoning": "Felt feverish for first ~3 days is consistent with Gold\u2019s slight fever symptoms."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-011",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Intermittent headaches are not mentioned in Gold facts.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient reports intermittent headaches that have resolved: 'also had a bit of a headache. But like, headaches that come and go rather, but like, right now it's fine.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-012",
+      "status": "SUPPORTED",
+      "reasoning": "Decreased appetite without weight loss matches Gold\u2019s reduced appetite and no unintentional weight loss."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-013",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention sinus congestion or its absence.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about sinus congestion; patient denies: 'So, do you have , sinus congestion?... Patient: No, it seems to be , entirely with just my throat.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-014",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention neck lumps.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about neck lumps; patient denies: 'Have you got any lumps or bumps around your neck?... Patient: No.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-015",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Gold does not mention rash.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks about rashes; patient denies: 'And any, um, sort of rashes or anything?... Patient: No.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-016",
+      "status": "SUPPORTED",
+      "reasoning": "Able to exercise is consistent with Gold\u2019s SOB not limiting activity."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-017",
+      "status": "SUPPORTED",
+      "reasoning": "Symptoms variable is compatible with Gold\u2019s gradually improving course and does not contradict."
+    },
+    {
+      "fact_id": "History_of_Present_Illness-018",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Specific days off work are not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient specifies days off work: 'I stayed home from work two days this week. I think it was maybe, Tuesday and then Thursday.'"
+    },
+    {
+      "fact_id": "History_of_Present_Illness-019",
+      "status": "CONTRADICTED",
+      "reasoning": "Composite summary includes wheeze and chest pain, which conflicts with Gold\u2019s denial of chest pain and no mention of wheeze, though other elements (dry cough, mild SOB, transient fever, no sputum/hemoptysis, appetite \u2193 without weight loss) are consistent."
+    },
+    {
+      "fact_id": "Past_Medical_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Denies past medical history matches Gold\u2019s no significant past medical history."
+    },
+    {
+      "fact_id": "Past_Medical_History-002",
+      "status": "SUPPORTED",
+      "reasoning": "No history of asthma matches Gold\u2019s no asthma."
+    },
+    {
+      "fact_id": "Medications-001",
+      "status": "SUPPORTED",
+      "reasoning": "No current medications matches Gold\u2019s no significant regular medications."
+    },
+    {
+      "fact_id": "Medications-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Paracetamol recommendation is not specified in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "At the end, doctor advises: 'And, I'll provide you with a sick note... Um, and paracetemol. Lots of fluids. Um, and, uh, rest up.' Paracetamol is recommended symptomatically."
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Peanut allergy is not mentioned in Gold, which only states NKDA (drug allergies).",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient states: 'Not to any medication, but I'm allergic to peanuts.'"
+    },
+    {
+      "fact_id": "Adverse_Drug_Reactions_and_Allergies-002",
+      "status": "SUPPORTED",
+      "reasoning": "NKDA matches Gold\u2019s no known drug allergies."
+    },
+    {
+      "fact_id": "Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Mother with lung cancer matches Gold family history."
+    },
+    {
+      "fact_id": "Social_and_Family_History-001",
+      "status": "SUPPORTED",
+      "reasoning": "Never smoker with only experimental cigarettes is consistent with Gold\u2019s non-smoker."
+    },
+    {
+      "fact_id": "Social_and_Family_History-002",
+      "status": "CONTRADICTED",
+      "reasoning": "Asbestos exposure unknown conflicts with Gold\u2019s explicit no asbestos exposure."
+    },
+    {
+      "fact_id": "Social_and_Family_History-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Birthplace and duration in UK are not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient says: 'I was born in the US, and moved over... Well, it was twelve years ago.' This supports being born in the US and living in the UK ~12 years."
+    },
+    {
+      "fact_id": "Social_and_Family_History-004",
+      "status": "CONTRADICTED",
+      "reasoning": "Recent travel only to Europe is a positive recent travel history, conflicting with Gold\u2019s no significant travel history."
+    },
+    {
+      "fact_id": "Assessment-001",
+      "status": "CONTRADICTED",
+      "reasoning": "Assessment includes wheeze and chest pain, which conflicts with Gold\u2019s denial of chest pain, though other components align."
+    },
+    {
+      "fact_id": "Assessment-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Health anxiety regarding TB and lung cancer is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient expresses worry about TB and cancer from Googling; doctor addresses these concerns and offers reassurance: 'It could be, could be a cold or, flu... but it could also be tuberculosis... cancer always comes up.' Doctor later reassures about TB and lung cancer."
+    },
+    {
+      "fact_id": "Assessment-003",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Work absence requiring a sick note is not described in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Patient links illness to work absence and need for sick note: 'I've had to stay away from work... Or maybe even a sick note. So that, if I need to stay away from work for a bit longer, I can get one.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-001",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Reassurance that presentation is consistent with viral URTI is not specified in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "While 'viral URTI' is not named, the doctor frames it as a self-limiting respiratory illness expected to resolve: 'I expect this to sort of be getting better in the next, four or five days... I can sort of, uh, try and reassure you.' This is a reasonable clinical inference."
+    },
+    {
+      "fact_id": "Plan_of_Care-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Statement that TB/cancer are unlikely if improving is not present in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor explicitly downplays TB and lung cancer if symptoms improve: 'I wouldn't be concerned about tuberculosis... your concerns about lung cancer, are... again, if you're not getting better, please see somebody again.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-003",
+      "status": "SUPPORTED",
+      "reasoning": "Recheck if not better in 4\u20135 days matches Gold\u2019s expectation to improve in 5 days and seek review if not better."
+    },
+    {
+      "fact_id": "Plan_of_Care-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Symptomatic treatment with paracetamol is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor recommends paracetamol: 'And, I'll provide you with a sick note... Um, and paracetemol.' This is symptomatic treatment."
+    },
+    {
+      "fact_id": "Plan_of_Care-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Encouraging fluids is not in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises fluids: 'paracetemol. Lots of fluids. Um, and, uh, rest up.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Recommendation for rest is not in Gold plan.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor advises rest: 'paracetemol. Lots of fluids. Um, and, uh, rest up.'"
+    },
+    {
+      "fact_id": "Plan_of_Care-007",
+      "status": "CONTRADICTED",
+      "reasoning": "Providing a sick note for additional days off work conflicts with Gold\u2019s advice that a formal work certificate is not required and self-certification is sufficient."
+    },
+    {
+      "fact_id": "Follow_up_Information-001",
+      "status": "SUPPORTED",
+      "reasoning": "Recheck if not better in 4\u20135 days matches Gold\u2019s follow-up timeframe of 5 days if not improved."
+    },
+    {
+      "fact_id": "Follow_up_Information-002",
+      "status": "SUPPORTED",
+      "reasoning": "In-person review if SOB worsens/sudden change or deterioration matches Gold\u2019s safety-netting for worsening symptoms, especially sudden change in SOB."
+    },
+    {
+      "fact_id": "Review_of_Systems-001",
+      "status": "SUPPORTED",
+      "reasoning": "Felt feverish first ~3 days, now resolved, is consistent with Gold\u2019s slight fever symptoms."
+    },
+    {
+      "fact_id": "Review_of_Systems-002",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Intermittent headaches are not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as HPI headache detail: 'also had a bit of a headache. But like, headaches that come and go rather, but like, right now it's fine.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-003",
+      "status": "SUPPORTED",
+      "reasoning": "Decreased appetite without weight loss matches Gold\u2019s reduced appetite and no unintentional weight loss."
+    },
+    {
+      "fact_id": "Review_of_Systems-004",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No sinus congestion is not addressed in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as HPI sinus detail: 'No, it seems to be , entirely with just my throat.' in response to sinus congestion question."
+    },
+    {
+      "fact_id": "Review_of_Systems-005",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No neck lumps are not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as HPI neck lumps detail: 'Have you got any lumps or bumps around your neck?... Patient: No.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-006",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "No rash is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Same as HPI rash detail: 'And any, um, sort of rashes or anything?... Patient: No.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-007",
+      "status": "SUPPORTED",
+      "reasoning": "SOB on exertion but not at rest is consistent with Gold\u2019s mild SOB not at rest and not limiting activity."
+    },
+    {
+      "fact_id": "Review_of_Systems-008",
+      "status": "NOT_IN_GOLD",
+      "reasoning": "Wheeze is not mentioned in Gold.",
+      "final_status": "VALID_ELABORATION",
+      "verification_reasoning": "Doctor asks: 'do you have any wheeze? Or chest pain?' Patient replies: 'Uh, yeah, a bit of both.' Doctor confirms: 'You're feeling a bit wheezy, with some chest pain as well.'"
+    },
+    {
+      "fact_id": "Review_of_Systems-009",
+      "status": "CONTRADICTED",
+      "reasoning": "Generated states chest pain present, whereas Gold explicitly denies chest pain."
+    },
+    {
+      "fact_id": "Review_of_Systems-010",
+      "status": "SUPPORTED",
+      "reasoning": "No sputum production matches Gold\u2019s non-productive cough with no sputum."
+    },
+    {
+      "fact_id": "Review_of_Systems-011",
+      "status": "SUPPORTED",
+      "reasoning": "No hemoptysis matches Gold\u2019s no blood in the cough."
+    }
+  ]
+}
